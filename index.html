@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parla Italiano 🇮🇹</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrap">
+  <div>
+    <div class="logo">🇮🇹 Parla!</div>
+    <div class="tagline">أسئلة السياق + الدرس الإنفينيتي</div>
+  </div>
+
+  <div class="mode-tabs">
+    <button class="mode-tab active" id="tabWord" onclick="switchMode('word')">❓ أسئلة السياق</button>
+    <button class="mode-tab" id="tabLesson" onclick="switchMode('lesson')">📖 الدرس الإنفينيتي</button>
+    <button class="mode-tab" id="tabVerbs" onclick="switchMode('verbs')">📚 مكتبة السكربت</button>
+  </div>
+
+  <div class="engine-status" id="engineStatus"></div>
+  <div class="autosave-note" id="autosaveNote">✅ التقدم بيتحفظ تلقائيًا</div>
+
+  <div class="skill-scores" id="skillScores">
+    <div class="skill-card pr"><div class="skill-num" id="skillPron">0%</div><div class="skill-lbl">🎙️ نطق</div></div>
+    <div class="skill-card li"><div class="skill-num" id="skillListen">0%</div><div class="skill-lbl">👂 سمع</div></div>
+    <div class="skill-card wr"><div class="skill-num" id="skillWrite">0%</div><div class="skill-lbl">✍️ كتابة</div></div>
+    <div class="skill-card gr"><div class="skill-num" id="skillGrammar">0%</div><div class="skill-lbl">🧩 ترتيب</div></div>
+  </div>
+  <div class="session-insight" id="sessionInsight"></div>
+
+  <div class="wrap" id="game" style="padding:0">
+  <div class="scores">
+    <div class="sc g"><div class="sc-num" id="sAvg">0%</div><div class="sc-lbl">📊 نسبة الصح</div></div>
+    <div class="sc b"><div class="sc-num" id="sAll">0</div><div class="sc-lbl">❓ أسئلة</div></div>
+    <div class="sc r"><div class="sc-num" id="sBest">0</div><div class="sc-lbl">🔥 streak</div></div>
+  </div>
+
+  <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+  <div class="wp-progress" id="wpProgress"></div>
+
+  <div class="q-scene-head" id="qSceneHead"></div>
+
+  <div class="q-context" id="qContext"></div>
+
+  <div class="q-card" id="qCard">
+    <div class="q-prompt" id="qPrompt"></div>
+    <div class="q-options" id="qOptions"></div>
+    <div class="q-feedback" id="qFeedback"></div>
+  </div>
+
+  <button class="next-btn" id="qNextBtn" onclick="qNext()">التالي ←</button>
+  </div>
+
+  <div class="wrap" id="endScreen" style="padding:0">
+    <div class="end-emoji" id="endEmoji"></div>
+    <div class="end-title" id="endTitle"></div>
+    <div class="end-sub"  id="endSub"></div>
+    <button class="restart-btn" onclick="restart()">🔄 ابدأ مرة أخرى</button>
+  </div>
+
+  <!-- شاشة إجبارية بعد نهاية كل محادثة: كل قواعد الجرامر اللي ظهرت فيها، بنفس ستايل شرح القاعدة -->
+  <div class="wrap" id="convoExplain" style="display:none;padding:0">
+    <div class="convo-explain-head">
+      <div class="convo-explain-title" id="ceTitle">🎓 قواعد المحادثة</div>
+      <div class="convo-explain-sub" id="ceSub"></div>
+    </div>
+    <div class="convo-explain-body" id="ceBody"></div>
+    <button class="next-btn show" id="ceContinueBtn" onclick="convoExplainContinue()" disabled>🔒</button>
+  </div>
+
+  <!-- LESSON MODE: infinite-style sentence breakdown + pronunciation + word-drill -->
+  <div class="wrap" id="lessonMode" style="display:none;padding:0">
+    <div id="lLockedMsg" style="display:none;text-align:center;padding:48px 20px;">
+      <div style="font-size:48px;margin-bottom:12px;">🔒</div>
+      <div style="font-size:18px;font-weight:700;">ما زال لا توجد جمل فُتحت هنا</div>
+      <div style="opacity:.7;margin-top:8px;line-height:1.7;">جُمل الدرس الإنفينيتي هتظهر هنا تلقائي.</div>
+    </div>
+    <div id="lessonContentWrap">
+    <div class="scores">
+      <div class="sc g"><div class="sc-num" id="lAvg">0%</div><div class="sc-lbl">📊 جمل صحيح</div></div>
+      <div class="sc b"><div class="sc-num" id="lAll">0/0</div><div class="sc-lbl">📖 الجملة</div></div>
+      <div class="sc r"><div class="sc-num" id="lStreak">0</div><div class="sc-lbl">🔥 streak</div></div>
+    </div>
+
+    <div class="prog-track"><div class="prog-fill" id="lProgFill" style="width:0%"></div></div>
+    <div class="cs-transcript" id="csTranscript" style="display:none"></div>
+    <div class="study-tabs">
+      <button class="study-tab active" id="stSpeak" onclick="setStudyMode('speak')">🎙️ نطق</button>
+      <button class="study-tab" id="stListen" onclick="setStudyMode('listen')">🔀 ترتيب</button>
+      <button class="study-tab" id="stWrite" onclick="setStudyMode('write')">✍️ كتابة</button>
+    </div>
+    <button class="free-next-btn" onclick="lNext()">⏭️ جملة أخرى</button>
+
+    <div class="card" id="lCard">
+      <div class="card-cat" id="lPronoun"></div>
+      <div class="card-ar" id="lAr" style="margin-bottom:4px;"></div>
+      <div class="card-en" id="lEn"></div>
+
+      <div class="tokens-wrap" id="lTokens"></div>
+
+      <!-- Sequence (word-order) mode panel — IT: arrange Italian tiles; AR: hear Italian, arrange Arabic -->
+      <div id="listenPanel" style="display:none">
+        <div class="seq-sub-tabs">
+          <button class="seq-sub-tab active" id="seqSubIt" onclick="setSeqSub('it')">🇮🇹 رتّب بالإيطالي</button>
+          <button class="seq-sub-tab"        id="seqSubAr" onclick="setSeqSub('ar')">🇸🇦 رتّب بالعربي</button>
+        </div>
+        <div class="seq-zone-lbl" id="seqZoneLbl">رتّب بالإيطالي 🔀</div>
+        <div class="seq-answer" id="seqAnswer">
+          <span class="seq-empty-hint">اضغط على الكلمات بالترتيب الصحيح</span>
+        </div>
+        <div class="seq-zone-lbl">الكلمات</div>
+        <div class="seq-pool" id="seqPool"></div>
+        <button class="free-next-btn" onclick="seqReveal()" id="seqRevealBtn" style="display:block;margin:6px auto 0">👁️ كشف الترتيب</button>
+      </div>
+
+      <div class="listen-quiz-panel" id="listenQuizPanel">
+        <div class="listen-q-title">👂 سؤال سمع سريع</div>
+        <div class="listen-q-prompt" id="listenQPrompt"></div>
+        <div class="listen-q-options" id="listenQOptions"></div>
+      </div>
+
+      <!-- Write mode panel -->
+      <div id="writePanel" style="display:none">
+        <textarea class="write-input" id="writeInput" rows="2" placeholder="اكتب الجملة بالإيطالي هنا..."></textarea>
+        <button class="write-check-btn" id="writeCheckBtn" onclick="checkWrite()">✅ تحقق من الإجابة</button>
+        <div class="write-result" id="writeResult"></div>
+        <div class="write-score" id="writeScore"></div>
+      </div>
+
+      <!-- Grammar question appears after writing -->
+      <div class="grammar-quiz-panel" id="grammarQuizPanel">
+        <div class="grammar-q-title">🧩 سؤال جرامر بعد الكتابة</div>
+        <div class="grammar-q-prompt" id="grammarQPrompt"></div>
+        <div class="grammar-q-options" id="grammarQOptions"></div>
+        <div class="grammar-explain" id="grammarQExplain"></div>
+      </div>
+
+      <!-- isolated single-word drill -->
+      <div class="drill-box" id="drillBox">
+        <div class="drill-label">تدريب كلمة واحدة</div>
+        <div class="drill-word" id="drillWord"></div>
+        <div class="drill-ar"   id="drillAr"></div>
+        <div class="drill-note" id="drillNote"></div>
+        <div class="drill-attempts" id="drillAttempts"></div>
+        <button class="skip-link" id="drillSkipBtn" onclick="skipCurrentDrillWord()" style="display:inline-block;margin-top:8px">تخطي هذه الكلمة ←</button>
+      </div>
+
+      <!-- word grammar info panel (شغل بعد نطق الكلمة صحيحة) -->
+      <div class="drill-box" id="wordInfoBox" style="display:none">
+        <div class="drill-label" id="wordInfoProgress">معلومة عن الكلمة</div>
+        <div class="drill-word" id="wordInfoWord"></div>
+        <div id="wordInfoBody" style="text-align:right;font-size:15px;line-height:1.9;margin-top:6px"></div>
+        <button class="next-btn show" id="wordInfoNextBtn" style="margin-top:10px" onclick="wordPipelineAfterInfo()">ممتاز، أجب على سؤال ←</button>
+      </div>
+
+      <!-- word MCQ quiz panel -->
+      <div class="drill-box" id="wordQuizBox" style="display:none">
+        <div class="drill-label">سؤال سريع</div>
+        <div class="drill-word" id="wordQuizQ" style="font-size:17px"></div>
+        <div id="wordQuizOptions" style="display:flex;flex-direction:column;gap:8px;margin-top:10px"></div>
+        <div class="drill-attempts" id="wordQuizFeedback"></div>
+      </div>
+
+      <div class="breakdown" id="lBreakdown"></div>
+      <button class="next-btn show cs-start-btn" id="csStartBtn" style="display:none" onclick="csDismissGate()">🚀 ابتدي الحل</button>
+
+    </div>
+
+    <div class="mic-area" id="lMicArea">
+      <button class="tts-btn" id="lTtsBtn" onclick="lSpeak()">🔊 استمع إلى الجملة</button>
+      <button class="mic-btn" id="lMicBtn" onclick="lToggleMic()">🎙️</button>
+      <div class="mic-lbl" id="lMicLbl">اضغط وقل الجملة كلها</div>
+    </div>
+
+    <div class="heard" id="lHeard"></div>
+    <div class="badge" id="lBadge"></div>
+    <button class="skip-link" id="lSkipBtn" onclick="lSkipSentence()">تخطي هذه الجملة ←</button>
+    <button class="next-btn" id="lNextBtn" onclick="lNext()">← الجملة التالية</button>
+    <button class="restart-btn" id="lRestartBtn" onclick="lStart()" style="display:none">🔄 ابدأ المجموعة من الأول</button>
+    </div>
+  </div>
+
+  <!-- VERBS MODE: مكتبة مرجعية للأفعال، مقسّمة ARE / ERE / IRE، اضغط على أي فعل يطلعلك pop up فيه تصريفه كمل -->
+  <div class="wrap" id="verbsMode" style="display:none;padding:0">
+    <div class="verbs-intro">📚 مكتبة السكربت — الأفعال وكل مواضيع القواعد. اضغط على أي بطاقة لعرض شرحها كاملاً.</div>
+    <div id="verbGroups"></div>
+  </div>
+</div>
+
+<!-- Verb detail popup -->
+<div class="verb-modal-overlay" id="verbModalOverlay" onclick="closeVerbModalOnOverlay(event)">
+  <div class="verb-modal">
+    <div class="verb-modal-head">
+      <div class="verb-modal-it" id="vmIt"></div>
+      <button class="verb-speak-btn" id="vmSpeakBtn" onclick="speakVerb()" title="استمع إلى الفعل">🔊</button>
+      <button class="verb-modal-close" onclick="closeVerbModal()">✕</button>
+    </div>
+    <div class="verb-modal-tabs">
+      <button class="verb-modal-tab active" id="vmTabMeaning" onclick="switchVerbTab('meaning')">📖 المعنى</button>
+      <button class="verb-modal-tab" id="vmTabPresente" onclick="switchVerbTab('presente')">🔵 المضارع</button>
+      <button class="verb-modal-tab" id="vmTabPassato" onclick="switchVerbTab('passato')">🟢 الماضي</button>
+      <button class="verb-modal-tab" id="vmTabImperfetto" onclick="switchVerbTab('imperfetto')">🟡 الماضي المستمر</button>
+      <button class="verb-modal-tab" id="vmTabImperativo" onclick="switchVerbTab('imperativo')">❗ الأمر</button>
+    </div>
+    <div class="verb-modal-body" id="vmBody"></div>
+  </div>
+</div>
+
+<!-- Grammar detail popup -->
+<div class="grammar-modal-overlay" id="grammarModalOverlay" onclick="closeGrammarModalOnOverlay(event)">
+  <div class="grammar-modal">
+    <div class="gm-head">
+      <div class="gm-icon" id="gmIcon"></div>
+      <div class="gm-titles">
+        <div class="gm-it" id="gmIt"></div>
+        <div class="gm-ar" id="gmAr"></div>
+      </div>
+      <button class="grammar-modal-close" onclick="closeGrammarModal()">✕</button>
+    </div>
+    <div class="gm-body" id="gmBody"></div>
+  </div>
+</div>
+
+<script src="sentences.js"></script>
+<script src="verbs.js"></script>
+<script src="grammar.js"></script>
+<script src="scenes.js"></script>
+<script src="questions.js"></script>
+<script src="lesson_io.js"></script>
+<script src="lesson_tu.js"></script>
+<script src="lesson_lui.js"></script>
+<script src="lesson_lei.js"></script>
+<script src="lesson_noi.js"></script>
+<script src="lesson_voi.js"></script>
+<script src="lesson_loro.js"></script>
+<script src="lesson_imperativo.js"></script>
+<script src="lesson_topics.js"></script>
+    <script src="preposition_profiles.js"></script>
+    <script src="lesson_manifest.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
