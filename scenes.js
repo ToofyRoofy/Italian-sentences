@@ -102,6 +102,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#1e88e5",
             "grammarId": "prep_con"
           },
           {
@@ -185,6 +186,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_a"
           },
           {
@@ -246,6 +248,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_a"
           },
           {
@@ -285,6 +288,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#5e35b1",
             "grammarId": "prep_da"
           },
           {
@@ -332,6 +336,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_a"
           },
           {
@@ -385,6 +390,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_di"
           }
         ]
@@ -482,6 +488,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_di"
           }
         ]
@@ -500,8 +507,24 @@ const SCENES = [
             "note": null
           },
           {
-            "it": "ha già letto",
-            "ar": "قرأ بالفعل",
+            "it": "ha",
+            "ar": "",
+            "type": "omesso",
+            "skipReason": "ausiliare",
+            "quiz": [],
+            "note": "جزء من الفعل المساعد"
+          },
+          {
+            "it": "già",
+            "ar": "بالفعل",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null,
+            "grammarId": "avverbi_tempo"
+          },
+          {
+            "it": "letto",
+            "ar": "قرأ",
             "type": "verbo",
             "quiz": [],
             "note": "Leggere، Passato Prossimo"
@@ -550,6 +573,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#1e88e5",
             "grammarId": "prep_con"
           },
           {
@@ -718,6 +742,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#fb8c00",
             "grammarId": "prep_in"
           }
         ]
@@ -787,6 +812,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#fb8c00",
             "grammarId": "prep_in"
           },
           {
@@ -845,6 +871,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#d81b60",
             "grammarId": "prep_su"
           }
         ]
@@ -883,6 +910,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_a"
           }
         ]
@@ -960,6 +988,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#fb8c00",
             "grammarId": "prep_in"
           },
           {
@@ -1098,6 +1127,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#fb8c00",
             "grammarId": "prep_in"
           }
         ]
@@ -1117,8 +1147,24 @@ const SCENES = [
             "grammarId": "pronomi_soggetto"
           },
           {
-            "it": "non abbiamo mai scritto",
-            "ar": "لم نكتب قطّ",
+            "it": "non abbiamo",
+            "ar": "لم",
+            "type": "omesso",
+            "skipReason": "ausiliare",
+            "quiz": [],
+            "note": "جزء من الفعل المساعد (منفي)"
+          },
+          {
+            "it": "mai",
+            "ar": "أبداً",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null,
+            "grammarId": "avverbi_tempo"
+          },
+          {
+            "it": "scritto",
+            "ar": "نكتب",
             "type": "verbo",
             "quiz": [],
             "note": "Scrivere، Passato Prossimo"
@@ -1167,6 +1213,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#1e88e5",
             "grammarId": "prep_per"
           }
         ]
@@ -1202,11 +1249,28 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#1e88e5",
             "grammarId": "prep_per"
           },
           {
-            "it": "è già partito",
-            "ar": "هل سافر بالفعل",
+            "it": "è",
+            "ar": "",
+            "type": "omesso",
+            "skipReason": "ausiliare",
+            "quiz": [],
+            "note": "جزء من الفعل المساعد"
+          },
+          {
+            "it": "già",
+            "ar": "بالفعل",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null,
+            "grammarId": "avverbi_tempo"
+          },
+          {
+            "it": "partito",
+            "ar": "سافر",
             "type": "verbo",
             "quiz": [],
             "note": "Partire، Passato Prossimo"
@@ -1225,6 +1289,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#d81b60",
             "grammarId": "prep_su"
           },
           {
@@ -1263,6 +1328,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_a"
           },
           {
@@ -1301,6 +1367,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#5e35b1",
             "grammarId": "prep_tra_fra"
           },
           {
@@ -1309,6 +1376,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#5e35b1",
             "grammarId": "prep_da"
           }
         ]
@@ -1354,6 +1422,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_a"
           }
         ]
@@ -1373,8 +1442,24 @@ const SCENES = [
             "grammarId": "pronomi_soggetto"
           },
           {
-            "it": "non ha mai preso",
-            "ar": "لم يركب قطّ",
+            "it": "non ha",
+            "ar": "لم",
+            "type": "omesso",
+            "skipReason": "ausiliare",
+            "quiz": [],
+            "note": "جزء من الفعل المساعد (منفي)"
+          },
+          {
+            "it": "mai",
+            "ar": "أبداً",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null,
+            "grammarId": "avverbi_tempo"
+          },
+          {
+            "it": "preso",
+            "ar": "يركب",
             "type": "verbo",
             "quiz": [],
             "note": "Prendere، Passato Prossimo"
@@ -1393,6 +1478,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#5e35b1",
             "grammarId": "prep_da"
           }
         ]
@@ -1455,6 +1541,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#d81b60",
             "grammarId": "prep_su"
           }
         ]
@@ -1494,6 +1581,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#1e88e5",
             "grammarId": "prep_per"
           }
         ]
@@ -1606,6 +1694,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#5e35b1",
             "grammarId": "prep_da"
           },
           {
@@ -1663,8 +1752,24 @@ const SCENES = [
         "en": "Have you already taken any medicine for the pain?",
         "words": [
           {
-            "it": "Ha già preso",
-            "ar": "هل تناولتَ بالفعل (رسمي)",
+            "it": "Ha",
+            "ar": "",
+            "type": "omesso",
+            "skipReason": "ausiliare",
+            "quiz": [],
+            "note": "جزء من الفعل المساعد"
+          },
+          {
+            "it": "già",
+            "ar": "بالفعل",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null,
+            "grammarId": "avverbi_tempo"
+          },
+          {
+            "it": "preso",
+            "ar": "تناولتَ (رسمي)",
             "type": "verbo",
             "quiz": [],
             "note": "Prendere، Passato Prossimo"
@@ -1683,6 +1788,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#1e88e5",
             "grammarId": "prep_per"
           }
         ]
@@ -1882,8 +1988,24 @@ const SCENES = [
             "grammarId": "possessivi"
           },
           {
-            "it": "non è ancora arrivato",
-            "ar": "لم تصل بعد",
+            "it": "non è",
+            "ar": "لم",
+            "type": "omesso",
+            "skipReason": "ausiliare",
+            "quiz": [],
+            "note": "جزء من الفعل المساعد (منفي)"
+          },
+          {
+            "it": "ancora",
+            "ar": "بعد",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null,
+            "grammarId": "avverbi_tempo"
+          },
+          {
+            "it": "arrivato",
+            "ar": "تصل",
             "type": "verbo",
             "quiz": [],
             "note": "Arrivare، Passato Prossimo"
@@ -1925,6 +2047,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_a"
           }
         ]
@@ -1964,6 +2087,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#d81b60",
             "grammarId": "prep_su"
           }
         ]
@@ -1988,6 +2112,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_di"
           },
           {
@@ -2087,6 +2212,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#1e88e5",
             "grammarId": "prep_con"
           },
           {
@@ -2170,6 +2296,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#5e35b1",
             "grammarId": "prep_tra_fra"
           },
           {
@@ -2178,6 +2305,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
+            "color": "#e53935",
             "grammarId": "prep_di"
           }
         ]

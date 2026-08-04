@@ -26,14 +26,6 @@ const AUTO_SKIP_WORDS=new Set([
   'nel','nello','nella','nei','negli','nelle',
   'sul','sullo','sulla','sui','sugli','sulle',
   'col','coi',
-  // نفس حروف الجر المدمجة (اللي بتخلص بـ o/a) بشكلها المُدغَم قبل كلمة تبدأ
-  // بحرف علة — norm() بيشيل الأباستروف، فـ"nell'acqua" مثلاً بيوصل هنا كـ"nell"
-  // مش "nell'"، وكانت ناقصة قبل كده فكانت هذه الكلمات بتتحسب كلمة عادية لازم
-  // تتنطق/تتكتب صح بدل ما تتخطى زي باقي حروف الجر.
-  'dell','nell','sull','dall','all',
-  // "di" نفسها لما تُدغَم قبل حرف علة (d'accordo, d'estate...) — بعد norm()
-  // بتوصل حرف واحد بس "d"
-  'd',
   // أدوات التنكير
   'un','uno','una'
 ]);
@@ -643,6 +635,7 @@ let csDeck=[];
 let csIdx=0;
 let csGated=true;
 let csCompletedScenes=new Set();
+let currentListenQuestion=null;
 
 function saveCsProgress(){
   try{
@@ -977,10 +970,10 @@ function qNext(){
   qIdx++;
   saveQuestionProgress();
   if(isLastOfScene){
-    const topics=collectSceneGrammarTopics(finished.sceneId);
-    if(topics.length){
+    const words=collectSceneWordNotes(finished.sceneId);
+    if(words.length){
       const scene=(typeof SCENES!=='undefined')?SCENES.find(s=>s.id===finished.sceneId):null;
-      showConvoExplain(scene?scene.titleAr:'',topics);
+      showConvoExplain(scene?scene.titleAr:'',words);
       return;
     }
   }
@@ -996,46 +989,53 @@ function qEnd(){
   document.getElementById('endScreen').classList.add('show');
 }
 
-// ===== CONVO EXPLAIN: شاشة إجبارية بعد كل محادثة، بتجمع كل قواعد الجرامر
-// اللي ظهرت في جُمل المشهد وبتعرضها كاملة (نفس محتوى بopup القاعدة) قبل ما نكمل. =====
-function collectSceneGrammarTopics(sceneId){
+// ===== CONVO EXPLAIN: شاشة إجبارية بعد كل محادثة، بتجمع كلمات المحادثة كلها في
+// ليستة بسيطة (نفس شكل بريكداون الجملة بالظبط) قبل ما نكمل. =====
+let convoExplainTimer=null;
+
+// نفس شكل بريكداون الجملة (bd-row/bd-word/bd-note) بالظبط، لكن مجمّع لكل كلمات المحادثة
+// كلها، من غير تكرار لنفس الكلمة بنفس الملاحظة.
+function collectSceneWordNotes(sceneId){
   const scene=(typeof SCENES!=='undefined')?SCENES.find(s=>s.id===sceneId):null;
   if(!scene||!Array.isArray(scene.lines))return [];
   const seen=new Set(); const out=[];
   scene.lines.forEach(ln=>{
     (ln.words||[]).forEach(w=>{
-      const tid=w.grammarId||findGrammarTopicId(w.it);
-      if(!tid||seen.has(tid))return;
-      const topic=getGrammarTopic(tid);
-      if(!topic)return;
-      seen.add(tid);
-      out.push({topic,word:w.it});
+      const key=w.it+'|'+(w.note||'');
+      if(seen.has(key))return;
+      seen.add(key);
+      out.push(w);
     });
   });
   return out;
 }
 
-let convoExplainTimer=null;
-function showConvoExplain(sceneTitleAr,topics){
+function showConvoExplain(sceneTitleAr,words){
   document.getElementById('game').style.display='none';
   document.getElementById('endScreen').classList.remove('show');
   const wrap=document.getElementById('convoExplain');
-  document.getElementById('ceTitle').textContent='🎓 قواعد المحادثة'+(sceneTitleAr?' — '+sceneTitleAr:'');
-  document.getElementById('ceSub').textContent='ظهرت '+toArabicDigits(topics.length)+' قاعدة جرامر في المحادثة دي، راجعها قبل ما تكمل 👇';
+  document.getElementById('ceTitle').textContent='🎓 كلمات وقواعد المحادثة'+(sceneTitleAr?' — '+sceneTitleAr:'');
+  document.getElementById('ceSub').textContent='راجع كلمات المحادثة دي ('+toArabicDigits(words.length)+') قبل ما تكمل 👇';
   const body=document.getElementById('ceBody');
-  body.innerHTML=topics.map(({topic})=>{
-    return '<div class="convo-topic-card">'
-      +'<div class="ce-topic-head">'
-        +'<div class="gm-icon">'+escHtml(topic.icon||'📘')+'</div>'
-        +'<div class="gm-titles"><div class="gm-it">'+escHtml(topic.it)+'</div><div class="gm-ar">'+escHtml(topic.ar)+'</div></div>'
-      +'</div>'
-      +renderGrammarBlocks(topic.blocks||[])
+  body.innerHTML='<div class="breakdown" style="display:flex">'+words.map(w=>{
+    const gTopicId=w.grammarId||findGrammarTopicId(w.it);
+    const vInfo=findVerbFromNote(w.note);
+    const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
+    let styleAttr='';
+    if(w.color){styleAttr=' style="color:'+w.color+';font-weight:900;background:'+w.color+'18;border-bottom:3px solid '+w.color+';border-radius:6px;padding:1px 4px;"';}
+    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    return '<div class="bd-row">'
+      +'<span class="'+cls+'"'+styleAttr+' onclick="speakWord(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\')">📘</span>':'')
+      +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
+      +'<span class="bd-note">'+noteTxt+'</span>'
     +'</div>';
-  }).join('');
+  }).join('')+'</div>';
   const btn=document.getElementById('ceContinueBtn');
   btn.disabled=true;
-  let secs=Math.max(6,Math.min(30,topics.length*4));
-  const setLabel=()=>{btn.textContent='🔒 اقرأ القواعد الأول… ('+toArabicDigits(secs)+')';};
+  let secs=Math.max(4,Math.min(20,Math.ceil(words.length/3)));
+  const setLabel=()=>{btn.textContent='🔒 راجع الأول… ('+toArabicDigits(secs)+')';};
   setLabel();
   clearInterval(convoExplainTimer);
   convoExplainTimer=setInterval(()=>{
@@ -1088,9 +1088,25 @@ function switchMode(mode){
     csSetChromeVisible(true);
     lDeck=[]; lStart();
   }
-  document.getElementById('game').style.display=(isWord&&!csActive)?'flex':'none';
-  if(!isWord){document.getElementById('endScreen').classList.remove('show');clearInterval(convoExplainTimer);const ce=document.getElementById('convoExplain');if(ce)ce.style.display='none';}
-  document.getElementById('lessonMode').style.display=(isLesson||(isWord&&csActive))?'flex':'none';
+  if(isWord){
+    // مهم: نرندر المحتوى الصح دايمًا (سؤال حالي أو استكمال دراسة محادثة) من غير ما نفترض
+    // إن #game لسه فيه محتوى من قبل — أول مرة بيتفتح التطبيق أصلاً بيوجّه على طول لدراسة
+    // المحادثة من غير ما #game يترندر خالص، فمجرد إظهاره تاني (display) بيطلع فاضي.
+    document.getElementById('verbsMode').style.display='none';
+    if(csActive){
+      document.getElementById('game').style.display='none';
+      document.getElementById('lessonMode').style.display='flex';
+    } else {
+      document.getElementById('lessonMode').style.display='none';
+      qRender();
+    }
+    return;
+  }
+  document.getElementById('game').style.display='none';
+  document.getElementById('endScreen').classList.remove('show');
+  clearInterval(convoExplainTimer);
+  const ce=document.getElementById('convoExplain'); if(ce)ce.style.display='none';
+  document.getElementById('lessonMode').style.display=isLesson?'flex':'none';
   document.getElementById('verbsMode').style.display=isVerbs?'flex':'none';
   if(isLesson && lDeck.length===0)lStart();
   if(isVerbs && document.getElementById('verbGroups').children.length===0)renderLibrary();
@@ -1443,7 +1459,7 @@ function lRender(){
     const vInfo=findVerbFromNote(w.note);
     wordSpan.className='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
     wordSpan.textContent=w.it;
-    if(w.prepUsage){wordSpan.style.color=w.prepUsage.color;wordSpan.style.fontWeight='900';wordSpan.style.background=w.prepUsage.color+'18';wordSpan.style.borderBottom='3px solid '+w.prepUsage.color;wordSpan.style.borderRadius='6px';wordSpan.style.padding='1px 4px';}
+    if(w.color){wordSpan.style.color=w.color;wordSpan.style.fontWeight='900';wordSpan.style.background=w.color+'18';wordSpan.style.borderBottom='3px solid '+w.color;wordSpan.style.borderRadius='6px';wordSpan.style.padding='1px 4px';}
     wordSpan.onclick=()=>speakWord(w.it);
     row.appendChild(wordSpan);
     if(gTopicId){
@@ -1505,7 +1521,7 @@ function lRenderTokens(){
     const span=document.createElement('span');
     span.className='token '+tokenStates[i];
     span.textContent=w.it;
-    if(w.prepUsage){span.style.color=w.prepUsage.color;span.style.fontWeight='900';span.style.borderColor=w.prepUsage.color;span.style.background=w.prepUsage.color+'18';}
+    if(w.color){span.style.color=w.color;span.style.fontWeight='900';span.style.borderColor=w.color;span.style.background=w.color+'18';}
     span.title=tokenStates[i]==='auto'?w.ar+' (ليس لازم تتنطق لوحدها)':w.ar;
     span.onclick=()=>speakWord(w.it);
     wrap.appendChild(span);
@@ -2044,7 +2060,6 @@ function setStudyMode(mode){
 
 
 // ── LISTENING MICRO-QUIZ ──
-let currentListenQuestion=null;
 function hideListenQuestion(){const p=document.getElementById('listenQuizPanel'); if(p)p.classList.remove('show'); currentListenQuestion=null;}
 function makeListenQuestion(s){
   const pool=LESSON_SENTENCES.filter(x=>x!==s);
