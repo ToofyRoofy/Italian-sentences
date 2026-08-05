@@ -636,6 +636,9 @@ let csIdx=0;
 let csGated=true;
 let csCompletedScenes=new Set();
 let currentListenQuestion=null;
+let csGrammarQuestions=[];
+let csGrammarQIdx=0;
+let csGrammarQAnswered=false;
 
 function saveCsProgress(){
   try{
@@ -873,6 +876,8 @@ function csStartScene(sceneId){
   csActive=true;
   csSceneId=sceneId;
   csDeck=csBuildDeck(sceneId);
+  csGrammarQuestions=[];
+  csGrammarQIdx=0;
   if(csDeck.length===0){ // مفيش بيانات للمشهد ده لأي سبب — متعطلش، كمّل عادي على الأسئلة
     csCompletedScenes.add(sceneId); saveCsProgress(); qRender(); return;
   }
@@ -897,6 +902,7 @@ function csEnterDrillUI(){
   document.getElementById('lRestartBtn').style.display='none';
   csSetChromeVisible(false);
   lRender();
+  csUpdateConvoCountLabel();
   csShowGate();
 }
 
@@ -948,7 +954,87 @@ function csFinishScene(){
   saveCsProgress();
   document.getElementById('lessonMode').style.display='none';
   csSetChromeVisible(true);
-  qRender();
+  if(csGrammarQuestions.length){
+    csGrammarQuizStart();
+  } else {
+    qRender();
+  }
+}
+
+// ===== كويز جرامر المحادثة: بيظهر مرة واحدة آخر كل محادثة، سؤال لكل جملة اتكتبت،
+// بنفس شكل "أسئلة السياق" (مش بانل صغير جوه كل جملة زي الأول). =====
+function csRefreshScoreNumbers(){
+  document.getElementById('sAvg').textContent=qAttempts?Math.round(qCorrectCount/qAttempts*100)+'%':'0%';
+  document.getElementById('sAll').textContent=qAttempts;
+  document.getElementById('sBest').textContent=qBestStreak;
+}
+function csGrammarQuizStart(){
+  csGrammarQIdx=0;
+  document.getElementById('convoExplain').style.display='none';
+  document.getElementById('game').style.display='flex';
+  csGrammarQuizRender();
+}
+function csGrammarQuizRender(){
+  csGrammarQAnswered=false;
+  document.getElementById('endScreen').classList.remove('show');
+  document.getElementById('wpProgress').textContent='🧩 مراجعة جرامر المحادثة — سؤال '+toArabicDigits(csGrammarQIdx+1)+' من '+toArabicDigits(csGrammarQuestions.length);
+  const ctx=document.getElementById('qContext');
+  ctx.className='q-context';
+  ctx.onclick=null;
+  ctx.innerHTML='<div class="q-ctx-speaker">🧩 مراجعة جرامر</div><div class="q-ctx-ar">جاوب على أسئلة القواعد اللي ظهرت في الجُمل اللي كتبتها</div>';
+  const q=csGrammarQuestions[csGrammarQIdx];
+  document.getElementById('qPrompt').textContent=q.prompt;
+  const optWrap=document.getElementById('qOptions');
+  optWrap.innerHTML='';
+  q.options.forEach((opText,i)=>{
+    const btn=document.createElement('button');
+    btn.className='q-opt';
+    btn.textContent=opText;
+    btn.onclick=()=>csGrammarQuizAnswer(i,btn);
+    optWrap.appendChild(btn);
+  });
+  document.getElementById('qFeedback').className='q-feedback';
+  document.getElementById('qFeedback').innerHTML='';
+  const nextBtn=document.getElementById('qNextBtn');
+  nextBtn.className='next-btn';
+  nextBtn.onclick=csGrammarQuizNext;
+  csRefreshScoreNumbers();
+}
+function csGrammarQuizAnswer(i,btn){
+  if(csGrammarQAnswered)return;
+  csGrammarQAnswered=true;
+  qAttempts++;
+  const q=csGrammarQuestions[csGrammarQIdx];
+  const allBtns=[...document.getElementById('qOptions').children];
+  allBtns.forEach(b=>b.disabled=true);
+  const ok=i===q.answer;
+  if(ok){
+    qCorrectCount++;qStreak++;qBestStreak=Math.max(qBestStreak,qStreak);
+    btn.classList.add('ok');
+    document.getElementById('qFeedback').className='q-feedback ok show';
+    document.getElementById('qFeedback').innerHTML='✅ صح! '+escHtml(q.explanation||'');
+    floatEmoji('✅');
+  } else {
+    qStreak=0;
+    btn.classList.add('bad');
+    if(allBtns[q.answer])allBtns[q.answer].classList.add('ok');
+    document.getElementById('qFeedback').className='q-feedback bad show';
+    document.getElementById('qFeedback').innerHTML='❌ '+escHtml(q.explanation||'');
+  }
+  csRefreshScoreNumbers();
+  const nextBtn=document.getElementById('qNextBtn');
+  nextBtn.className='next-btn show';
+  nextBtn.textContent=(csGrammarQIdx+1>=csGrammarQuestions.length)?'كمّل المحادثة ←':'السؤال الجاي ←';
+}
+function csGrammarQuizNext(){
+  if(!csGrammarQAnswered)return;
+  csGrammarQIdx++;
+  if(csGrammarQIdx>=csGrammarQuestions.length){
+    document.getElementById('qNextBtn').onclick=qNext; // نرجّع الزرار لسلوكه الأصلي بتاع أسئلة السياق
+    qRender();
+    return;
+  }
+  csGrammarQuizRender();
 }
 
 // بيتنادى من wpMaybeChainAfterWrite بعد ما يخلص سؤال الجرامر — يفتح شرح الجملة الجاية،
@@ -1531,7 +1617,14 @@ function lRenderTokens(){
 function lUpdateScore(){
   document.getElementById('lAvg').textContent=lAttempts?Math.round(lPassed/lAttempts*100)+'%':'0%';
   document.getElementById('lAll').textContent=(lIdx+1)+'/'+lDeck.length;
-  document.getElementById('lStreak').textContent=lStreak;
+  if(csActive){ csUpdateConvoCountLabel(); }
+  else { document.getElementById('lStreakLbl').textContent='🔥 streak'; document.getElementById('lStreak').textContent=lStreak; }
+}
+// أثناء دراسة المحادثة، نعرض رقم المحادثة الحالية بدل الـ streak (مش مفيد وقت الدراسة الموجّهة).
+function csUpdateConvoCountLabel(){
+  const num=qSceneList.indexOf(csSceneId)+1;
+  document.getElementById('lStreakLbl').textContent='💬 المحادثة';
+  document.getElementById('lStreak').textContent=toArabicDigits(Math.max(num,1))+'/'+toArabicDigits(qSceneList.length||1);
 }
 
 function lSpeak(){
@@ -2314,6 +2407,12 @@ function sentenceText(s){return (s.it||s.words.map(w=>w.it).join(' ')).trim();}
 // النطق يستخدم الجملة الأساسية فقط (s.words).
 // الكتابة تستخدم الجملة الأساسية + مثال حرف الجر (s.prepWords).
 function writeWords(s){return (s.words||[]).concat(s.prepWords||[]);}
+// الجملة كاملة مقسّمة كلمة كلمة (زي ما المستخدم بيكتبها بالظبط) — مش words[] بتاعة
+// scenes.js لأنها ممكن تجمع أكتر من كلمة في عنصر واحد (زي "le chiavi")، وده كان
+// بيكسر محاذاة المقارنة كلمة-بكلمة في checkWrite() أول ما يوصل لعنصر زي ده.
+function writeTargetTokens(s){
+  return writeTextIt(s).split(/\s+/).filter(Boolean);
+}
 function writeTextIt(s){return s.writingIt||sentenceText(s);}
 function writeTextAr(s){return s.writingAr||s.ar||'';}
 function hasWord(s,rx){return s.words.some(w=>rx.test(norm(w.it)));}
@@ -2330,9 +2429,33 @@ function makeGrammarQuestion(s){
   if(/mentre/i.test(txt) || /avo|evo|ivo/i.test(txt)){
     return {prompt:'لماذا استخدمنا فعل مثل "guardavo / mangiavo"؟',options:['لكي يوصف حدث مستمر أو خلفية في الماضي','لكي هذا أمر مباشر','لكي هذا مستقبل قريب','لكي الفاعل جمع'],answer:0,explanation:'Imperfetto نستخدمه للخلفية أو العادة أو الحدث المستمر في الماضي. مع mentre شائع جدًا: mentre guardavo = وأنا كنت أشاهد.'};
   }
+  const tagged=s.words.find(w=>w.grammarId&&!w.grammarId.startsWith('prep_'));
+  if(tagged&&typeof GRAMMAR!=='undefined'){
+    const topic=getGrammarTopic(tagged.grammarId);
+    if(topic){
+      const others=GRAMMAR.filter(g=>g.id!==topic.id);
+      const seed=[...tagged.it].reduce((sum,ch)=>sum+ch.charCodeAt(0),0);
+      const distractors=[];
+      for(let i=0;i<others.length&&distractors.length<3;i++)distractors.push(others[(seed+i*7)%others.length].ar);
+      const bal=balanceCorrect([topic.ar,...distractors],0,seed);
+      return {prompt:'الكلمة "'+tagged.it+'" هنا مثال على أي قاعدة؟',options:bal.options,answer:bal.correct,explanation:(topic.it?topic.it+' — ':'')+'راجع 📘 '+topic.ar+' لو عايز تفاصيل أكتر.'};
+    }
+  }
   const prep=s.words.find(w=>['a','in','con','per','da','di'].includes(norm(w.it)));
   if(prep){
-    return {prompt:'الكلمة "'+prep.it+'" هنا ما وظيفتها؟',options:['حرف جر يربط المعنى بين الكلمات','فعل مساعد في الماضي','أداة استفهام','ضمير ملكية'],answer:0,explanation:'حروف الجر مثل a / in / con / per / da / di صغيرة، لكنها تُحدّد العلاقة: إلى، في، مع، من، لكي...'};
+    const base=norm(prep.it);
+    const profiles=(typeof PREPOSITION_USAGE_PROFILES!=='undefined')?PREPOSITION_USAGE_PROFILES.filter(p=>p.base===base):[];
+    if(profiles.length){
+      // نفس آلية بناء أسئلة حروف الجر بتاعة جُمل الدرس الإنفينيتي (lesson_manifest.js) —
+      // بدائل حقيقية من نفس حرف الجر، مش خيارات عشوائية من فئة تانية خالص.
+      const lastWord=norm((prep.it.split(/\s+/).pop()||prep.it));
+      const focus=profiles.find(p=>norm(p.it).includes(lastWord)&&norm(p.it)!==base)||profiles[0];
+      const optsRaw=buildPrepositionQuestionOptions(focus,{meaning:focus.meaning,form:focus.form,kind:'حرف جر بسيط'});
+      const seed=prep.it.length+[...sentenceText(s)].reduce((sum,ch)=>sum+ch.charCodeAt(0),0);
+      const bal=balanceCorrect(optsRaw,0,seed);
+      return {prompt:'حرف الجر "'+prep.it+'" هنا معناه إيه بالظبط؟',options:bal.options,answer:bal.correct,explanation:focus.description+' — مثال: '+focus.it+' ('+focus.ar+')'};
+    }
+    return {prompt:'الكلمة "'+prep.it+'" هنا ما وظيفتها؟',options:['حرف جر يربط المعنى بين الكلمات','فعل مساعد في الماضي','ظرف زمن','صفة وصف'],answer:0,explanation:'حروف الجر مثل a / in / con / per / da / di صغيرة، لكنها تُحدّد العلاقة: إلى، في، مع، من، لكي...'};
   }
   const art=s.words.find(w=>['il','lo','la','l','un','una','uno','i','gli','le'].includes(norm(w.it).replace(/'/g,'')));
   if(art){
@@ -2411,29 +2534,29 @@ function checkWrite(){
   resultWrap.innerHTML='';
   let correctCount=0, gradedCount=0;
 
-  writeWords(s).forEach((w,i)=>{
+  writeTargetTokens(s).forEach((tIt,i)=>{
     const div=document.createElement('div');
 
     // حروف الجر والمقالات — دائماً صحيح تلقائياً مثل speak mode
-    if(isAutoSkipWord(w.it)){
+    if(isAutoSkipWord(tIt)){
       div.className='wr-tok auto';
-      div.textContent=w.it;
+      div.textContent=tIt;
       resultWrap.appendChild(div);
       return;
     }
 
     gradedCount++;
-    const target=norm(w.it);
+    const target=norm(tIt);
     const userWord=typedToks[i]||'';
     const isOk=similarity(norm(userWord),target)>=0.72;
     if(isOk)correctCount++;
 
     div.className='wr-tok '+(isOk?'ok':'bad');
-    div.textContent=isOk?w.it:(userWord||'—');
+    div.textContent=isOk?tIt:(userWord||'—');
     if(!isOk){
       const sp=document.createElement('span');
       sp.className='correct-form';
-      sp.textContent='✓ '+w.it;
+      sp.textContent='✓ '+tIt;
       div.appendChild(sp);
     }
     resultWrap.appendChild(div);
@@ -2451,7 +2574,21 @@ function checkWrite(){
   else{lStreak=0;floatEmoji('📝');}
   lUpdateScore();
 
-  showGrammarQuestion();
+  if(csActive){
+    csCollectGrammarQuestion();
+    document.getElementById('lNextBtn').className='next-btn show';
+    document.getElementById('lNextBtn').textContent=lIdx+1>=lDeck.length?'أنهيت المجموعة 🏆':'← الجملة التالية';
+    wpMaybeChainAfterWrite();
+  } else {
+    showGrammarQuestion();
+  }
+}
+// نفس منطق showGrammarQuestion لكن من غير ما نعرض بانل — بنجمع السؤال بس عشان
+// يتسأل في الكويز اللي بيظهر آخر المحادثة (مش بعد كل جملة لوحدها).
+function csCollectGrammarQuestion(){
+  const s=lDeck[lIdx]; if(!s)return;
+  const q=makeGrammarQuestion(s);
+  if(q)csGrammarQuestions.push(q);
 }
 
 // لما الكتابة تخلص والسلسلة كانت من تبويب نطق الكلمات، نرجعله للجملة الجاية في نفس التبويب.
