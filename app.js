@@ -1411,6 +1411,19 @@ function closeGrammarModalOnOverlay(e){
 function escGm(s){
   return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
+function gmSpeakableCell(c){
+  const txt=String(c==null?'':c);
+  const hasArabic=/[\u0600-\u06FF]/.test(txt);
+  const hasLatin=/[a-zA-Zàèéìòù]/.test(txt);
+  if(hasArabic||!hasLatin)return escGm(txt); // فيها عربي (حتى لو فيها مصطلح لاتيني جنبه زي "Copulative") أو مفيهاش لاتيني خالص — من غير نطق
+  const inner=txt.split(',').map(part=>{
+    const trimmed=part.trim();
+    if(!trimmed)return '';
+    const itOnly=trimmed.replace(/\s*\([^)]*\)\s*/g,'').trim()||trimmed; // نشيل أي شرح بين قوسين قبل ما ننطق
+    return '<span class="gm-cell-word" onclick="speakWord(\''+escGm(itOnly).replace(/'/g,"\\'")+'\')">'+escGm(trimmed)+'</span>';
+  }).join(', ');
+  return '<span dir="ltr" style="unicode-bidi:isolate;display:inline-block">'+inner+'</span>';
+}
 function renderGrammarBlocks(blocks){
   return blocks.map(b=>{
     if(b.type==='note'){
@@ -1436,7 +1449,7 @@ function renderGrammarBlocks(blocks){
       let html='<div class="gm-table-title">'+escGm(b.title||'')+'</div><table class="gm-table">';
       html+='<tr>'+(b.headers||[]).map(h=>'<th>'+escGm(h)+'</th>').join('')+'</tr>';
       (b.rows||[]).forEach(r=>{
-        html+='<tr>'+r.map(c=>'<td>'+escGm(c)+'</td>').join('')+'</tr>';
+        html+='<tr>'+r.map(c=>'<td>'+gmSpeakableCell(c)+'</td>').join('')+'</tr>';
       });
       html+='</table>';
       return html;

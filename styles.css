@@ -461,6 +461,8 @@
   .gm-table th,.gm-table td{padding:5px 6px;border-bottom:1px solid var(--border);text-align:center;}
   .gm-table th{color:var(--blue);font-weight:700;}
   .gm-table td:first-child{direction:ltr;color:var(--gold);font-family:Georgia,serif;}
+  .gm-cell-word{cursor:pointer;border-bottom:1px dotted var(--blue);}
+  .gm-cell-word:active{color:var(--blue);}
   .bd-word.has-grammar{border-bottom:2px dotted var(--blue);}
   .bd-grammar-btn{display:inline-block;margin-inline-start:4px;font-size:.72rem;cursor:pointer;opacity:.8;}
   .bd-grammar-btn:active{opacity:1;transform:scale(.9);}

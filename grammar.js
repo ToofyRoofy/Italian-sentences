@@ -1485,7 +1485,17 @@ const GRAMMAR = [
     "triggers": [
       "inizio",
       "fine",
-      "volta"
+      "volta",
+      "momento",
+      "problema",
+      "motivo",
+      "modo",
+      "parte",
+      "cosa",
+      "posto",
+      "idea",
+      "domanda",
+      "risposta"
     ],
     "blocks": [
       {
@@ -1504,6 +1514,74 @@ const GRAMMAR = [
           {
             "it": "Volta",
             "ar": "مرة (مثل: una volta = مرة واحدة، due volte = مرتين)"
+          },
+          {
+            "it": "prima volta",
+            "ar": "أول مرة"
+          },
+          {
+            "it": "ultima volta",
+            "ar": "آخر مرة"
+          },
+          {
+            "it": "ogni volta",
+            "ar": "كل مرة"
+          },
+          {
+            "it": "qualche volta",
+            "ar": "بعض المرات / أحيانًا"
+          },
+          {
+            "it": "molte volte",
+            "ar": "مرات كتير"
+          },
+          {
+            "it": "poche volte",
+            "ar": "مرات قليلة"
+          },
+          {
+            "it": "di nuovo",
+            "ar": "مرة تانية / من جديد"
+          },
+          {
+            "it": "Momento",
+            "ar": "لحظة / وقت معيّن"
+          },
+          {
+            "it": "Problema",
+            "ar": "مشكلة"
+          },
+          {
+            "it": "Motivo",
+            "ar": "سبب / داعي"
+          },
+          {
+            "it": "Modo",
+            "ar": "طريقة / أسلوب"
+          },
+          {
+            "it": "Parte",
+            "ar": "جزء"
+          },
+          {
+            "it": "Cosa",
+            "ar": "حاجة / شيء"
+          },
+          {
+            "it": "Posto",
+            "ar": "مكان"
+          },
+          {
+            "it": "Idea",
+            "ar": "فكرة"
+          },
+          {
+            "it": "Domanda",
+            "ar": "سؤال"
+          },
+          {
+            "it": "Risposta",
+            "ar": "إجابة"
           }
         ]
       }
@@ -1835,8 +1913,8 @@ const GRAMMAR = [
           ],
           [
             "نتيجة Conclusive",
-            "quindi, dunque, perciò",
-            "لذلك / إذن"
+            "quindi, dunque, perciò, per questo",
+            "لذلك / إذن / لهذا السبب"
           ],
           [
             "شرط Condizionali",
@@ -1878,6 +1956,10 @@ const GRAMMAR = [
           {
             "it": "Se hai tempo, chiamami",
             "ar": "إذا كان عندك وقت فاتصل بي"
+          },
+          {
+            "it": "Ho perso il treno, per questo sono in ritardo",
+            "ar": "فاتني القطر، لهذا السبب أنا متأخر"
           }
         ]
       },

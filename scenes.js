@@ -103,6 +103,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#1e88e5",
+            "prepUsageId": "con_compagnia",
             "grammarId": "prep_con"
           },
           {
@@ -186,7 +187,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#e53935",
+            "color": "#43a047",
+            "prepUsageId": "a_indiretto",
             "grammarId": "prep_a"
           },
           {
@@ -248,7 +250,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#e53935",
+            "color": "#1e88e5",
+            "prepUsageId": "a_stato",
             "grammarId": "prep_a"
           },
           {
@@ -288,7 +291,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#5e35b1",
+            "color": "#6d4c41",
+            "prepUsageId": "da_persona",
             "grammarId": "prep_da"
           },
           {
@@ -336,7 +340,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#e53935",
+            "color": "#8e24aa",
+            "prepUsageId": "a_ora",
             "grammarId": "prep_a"
           },
           {
@@ -391,6 +396,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#e53935",
+            "prepUsageId": "di_possesso",
             "grammarId": "prep_di"
           }
         ]
@@ -489,6 +495,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#e53935",
+            "prepUsageId": "di_possesso",
             "grammarId": "prep_di"
           }
         ]
@@ -574,6 +581,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#1e88e5",
+            "prepUsageId": "con_compagnia",
             "grammarId": "prep_con"
           },
           {
@@ -743,6 +751,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#fb8c00",
+            "prepUsageId": "in_luogo",
             "grammarId": "prep_in"
           }
         ]
@@ -812,7 +821,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#fb8c00",
+            "color": "#6d4c41",
+            "prepUsageId": "in_modo",
             "grammarId": "prep_in"
           },
           {
@@ -871,7 +881,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#d81b60",
+            "color": "#5e35b1",
+            "prepUsageId": "su_argomento",
             "grammarId": "prep_su"
           }
         ]
@@ -910,7 +921,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#e53935",
+            "color": "#8e24aa",
+            "prepUsageId": "a_ora",
             "grammarId": "prep_a"
           }
         ]
@@ -988,7 +1000,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#fb8c00",
+            "color": "#6d4c41",
+            "prepUsageId": "in_modo",
             "grammarId": "prep_in"
           },
           {
@@ -1127,7 +1140,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#fb8c00",
+            "color": "#e53935",
+            "prepUsageId": "in_durata",
             "grammarId": "prep_in"
           }
         ]
@@ -1214,6 +1228,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#1e88e5",
+            "prepUsageId": "per_scopo",
             "grammarId": "prep_per"
           }
         ]
@@ -1249,7 +1264,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#1e88e5",
+            "color": "#fb8c00",
+            "prepUsageId": "per_percorso",
             "grammarId": "prep_per"
           },
           {
@@ -1290,6 +1306,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#d81b60",
+            "prepUsageId": "su_superficie",
             "grammarId": "prep_su"
           },
           {
@@ -1328,7 +1345,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#e53935",
+            "color": "#8e24aa",
+            "prepUsageId": "a_ora",
             "grammarId": "prep_a"
           },
           {
@@ -1367,7 +1385,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#5e35b1",
+            "color": "#5d4037",
             "grammarId": "prep_tra_fra"
           },
           {
@@ -1376,7 +1394,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#5e35b1",
+            "color": "#00acc1",
+            "prepUsageId": "da_origine",
             "grammarId": "prep_da"
           }
         ]
@@ -1422,7 +1441,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#e53935",
+            "color": "#8e24aa",
+            "prepUsageId": "a_ora",
             "grammarId": "prep_a"
           }
         ]
@@ -1478,7 +1498,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#5e35b1",
+            "color": "#8e24aa",
+            "prepUsageId": "da_caratteristica",
             "grammarId": "prep_da"
           }
         ]
@@ -1542,6 +1563,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#d81b60",
+            "prepUsageId": "su_superficie",
             "grammarId": "prep_su"
           }
         ]
@@ -1581,7 +1603,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#1e88e5",
+            "color": "#8e24aa",
+            "prepUsageId": "per_destinatario",
             "grammarId": "prep_per"
           }
         ]
@@ -1695,6 +1718,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#5e35b1",
+            "prepUsageId": "da_tempo",
             "grammarId": "prep_da"
           },
           {
@@ -1788,7 +1812,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#1e88e5",
+            "color": "#43a047",
+            "prepUsageId": "per_causa",
             "grammarId": "prep_per"
           }
         ]
@@ -2048,6 +2073,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#e53935",
+            "prepUsageId": "a_direzione",
             "grammarId": "prep_a"
           }
         ]
@@ -2088,6 +2114,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#d81b60",
+            "prepUsageId": "su_superficie",
             "grammarId": "prep_su"
           }
         ]
@@ -2113,6 +2140,7 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "color": "#e53935",
+            "prepUsageId": "di_possesso",
             "grammarId": "prep_di"
           },
           {
@@ -2212,7 +2240,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#1e88e5",
+            "color": "#8e24aa",
+            "prepUsageId": "con_strumento",
             "grammarId": "prep_con"
           },
           {
@@ -2296,7 +2325,7 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#5e35b1",
+            "color": "#5d4037",
             "grammarId": "prep_tra_fra"
           },
           {
@@ -2305,7 +2334,8 @@ const SCENES = [
             "type": "preposizione",
             "quiz": [],
             "note": null,
-            "color": "#e53935",
+            "color": "#43a047",
+            "prepUsageId": "di_tempo",
             "grammarId": "prep_di"
           }
         ]
