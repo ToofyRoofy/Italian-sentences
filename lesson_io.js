@@ -104,7 +104,7 @@ const LESSON_IO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Ho visto un amico mentre ero al mercato» ما الوظيفة النحوية لـ «mentre»؟",
@@ -117,7 +117,7 @@ const LESSON_IO = [
             "correct": 2,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -673,7 +673,7 @@ const LESSON_IO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Ho preso un caffè mentre facevo colazione» ما الوظيفة النحوية لـ «mentre»؟",
@@ -686,7 +686,7 @@ const LESSON_IO = [
             "correct": 3,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -1214,7 +1214,7 @@ const LESSON_IO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Ho scritto la risposta mentre dicevo cosa pensavo» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -1227,7 +1227,7 @@ const LESSON_IO = [
             "correct": 0,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -1771,7 +1771,7 @@ const LESSON_IO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "أي بديل يمكن أن يحل محل «mentre» مع الحفاظ على معنى التزامن؟",
@@ -2324,7 +2324,7 @@ const LESSON_IO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Ho promesso di aiutare mentre ponevo una domanda» ما الوظيفة النحوية لـ «mentre»؟",
@@ -2337,7 +2337,7 @@ const LESSON_IO = [
             "correct": 2,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -2862,7 +2862,7 @@ const LESSON_IO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Sono andato in biblioteca mentre traducevo un articolo» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -2875,7 +2875,7 @@ const LESSON_IO = [
             "correct": 3,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -3897,7 +3897,7 @@ const LESSON_IO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Ho avuto un problema mentre parlavo con il cliente» ما الوظيفة النحوية لـ «mentre»؟",
@@ -3910,7 +3910,7 @@ const LESSON_IO = [
             "correct": 1,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }

@@ -929,66 +929,7 @@ const GRAMMAR = [
       }
     ]
   },
-  {
-    "id": "mentre",
-    "it": "Mentre",
-    "ar": "أثناء / وفي نفس الوقت (أداة ربط زمني)",
-    "icon": "⏳",
-    "triggers": [
-      "mentre"
-    ],
-    "blocks": [
-      {
-        "type": "note",
-        "ar": "Mentre تربط بين حدثين حدثا في نفس الوقت في الماضي. النمط الأكثر شيوعاً: حدث مستمر بالـ Imperfetto (كان مستمرًا في الخلفية) + حدث آخر بالـ Passato Prossimo (حصل فجأة أو قاطعه) — لكن يمكن أيضًا كلاهما يكون Imperfetto لو الحدثين مستمرين معًا بنفس الدرجة."
-      },
-      {
-        "type": "table",
-        "title": "النمط الشائع",
-        "headers": [
-          "الجزء",
-          "الزمن الغالب",
-          "المثال"
-        ],
-        "rows": [
-          [
-            "الحدث المستمر (الذي كان مستمرًا)",
-            "Imperfetto",
-            "mentre guardavo la TV — وأنا كنت أشاهد التلفاز"
-          ],
-          [
-            "الحدث الذي قطعه / حصل فجأة",
-            "Passato Prossimo",
-            "ho mangiato un panino — أكلت شطيرة"
-          ]
-        ]
-      },
-      {
-        "type": "item",
-        "it": "أمثلة",
-        "ar": "",
-        "examples": [
-          {
-            "it": "Ho mangiato un panino mentre guardavo la TV",
-            "ar": "أكلت شطيرة وأنا كنت أشاهد التلفاز"
-          },
-          {
-            "it": "Mangiavo la pasta mentre guardavo il telefono",
-            "ar": "كنت آكل المعكرونة وأنا كنت أنظر إلى الهاتف"
-          },
-          {
-            "it": "Hai studiato la lezione mentre ascoltavi la radio",
-            "ar": "ذاكرت الدرس وأنت كنت تسمع المذياع"
-          }
-        ]
-      },
-      {
-        "type": "note",
-        "ar": "⚠️ الفرق بين Mentre و Quando: Mentre تركّز على استمرارية الحدثين معًا (مثل 'في نفس اللحظة هذه')، أما Quando غالباً تقدّم لحظة معينة وقف عندها فعل مرة أخرى (مثل 'عندما حدث كذا'). في الكلام العادي كثيرًا لا يفرّق المتحدثون بينهما، لكن هذه القاعدة الأساسية."
-      }
-    ]
-  },
-  {
+    {
     "id": "ausiliari_passato",
     "it": "الفعل المساعد Avere / Essere",
     "ar": "تصريف الفعلين المساعدين للـ Passato Prossimo",
@@ -1343,6 +1284,37 @@ const GRAMMAR = [
       {
         "type": "note",
         "ar": "القاعدة الأساسية: نوع وشكل الأداة بيتحدد حسب أول حرف في الكلمة التي جاية بعدها مباشرة، ليس حسب معنى الكلمة."
+      },
+      {
+        "type": "item",
+        "it": "أمثلة",
+        "ar": "",
+        "examples": [
+          {
+            "it": "Il lunedì vado in ufficio",
+            "ar": "الإثنين بروح المكتب"
+          },
+          {
+            "it": "Lo studente arriva la mattina",
+            "ar": "الطالب بييجي الصبح"
+          },
+          {
+            "it": "La sera guardo la TV, ma non sempre",
+            "ar": "بالليل باتفرج تلفزيون، بس مش دايمًا"
+          },
+          {
+            "it": "L'amico arriva quando finisce il lavoro",
+            "ar": "صاحبي بييجي لما يخلص الشغل"
+          },
+          {
+            "it": "Gli studenti studiano ogni pomeriggio",
+            "ar": "الطلبة بيذاكروا كل بعد ظهر"
+          },
+          {
+            "it": "Le chiavi sono sul tavolo",
+            "ar": "المفاتيح على الترابيزة"
+          }
+        ]
       }
     ]
   },
@@ -1474,6 +1446,37 @@ const GRAMMAR = [
       {
         "type": "note",
         "ar": "⚠️ الكلمات هذه (già / ancora / appena / mai / sempre / più) لما تأتي في الـ Passato Prossimo بتتحشر بالظبط بين الفعل المساعد (Avere/Essere) والـ Participio Passato: Ho già mangiato — ليس Ho mangiato già."
+      },
+      {
+        "type": "item",
+        "it": "أمثلة",
+        "ar": "",
+        "examples": [
+          {
+            "it": "Ho già finito i compiti la sera",
+            "ar": "خلصت الواجب بالفعل بالليل"
+          },
+          {
+            "it": "Non ho ancora mangiato stamattina",
+            "ar": "لسه ما اكلتش النهاردة الصبح"
+          },
+          {
+            "it": "Appena arrivo la mattina, ti chiamo",
+            "ar": "أول ما أوصل الصبح هكلمك"
+          },
+          {
+            "it": "Non sono mai stato lì di domenica",
+            "ar": "عمري ما رحت هناك يوم حد"
+          },
+          {
+            "it": "Studio sempre la sera, quindi sono stanco",
+            "ar": "بذاكر دايمًا بالليل، فبكون تعبان"
+          },
+          {
+            "it": "Non lavoro più il sabato",
+            "ar": "مبقتش أشتغل يوم السبت"
+          }
+        ]
       }
     ]
   },
@@ -1643,6 +1646,29 @@ const GRAMMAR = [
       {
         "type": "note",
         "ar": "للعادة المتكررة: Ogni + اليوم (Ogni lunedì = كل إثنين). للمدى الزمني من يوم لآخر: Dal...alla (Studio dal lunedì alla domenica = بدرس من الإثنين للحد)."
+      },
+      {
+        "type": "item",
+        "it": "أمثلة",
+        "ar": "",
+        "examples": [
+          {
+            "it": "Ogni lunedì mattina vado in palestra",
+            "ar": "كل إثنين الصبح بروح الجيم"
+          },
+          {
+            "it": "Studio dal lunedì al venerdì, ma non il sabato",
+            "ar": "بذاكر من الإثنين للجمعة، بس مش السبت"
+          },
+          {
+            "it": "La domenica sera sono sempre stanco",
+            "ar": "يوم الحد بالليل بكون تعبان دايمًا"
+          },
+          {
+            "it": "Il mercoledì ho già finito presto",
+            "ar": "يوم الأربعاء بخلص بدري بالفعل"
+          }
+        ]
       }
     ]
   },
@@ -1712,6 +1738,29 @@ const GRAMMAR = [
       {
         "type": "note",
         "ar": "للعادة: Ogni + الوقت (Ogni mattina = كل صباح). للمدى الزمني: Dalla...alla (Dalla mattina alla sera = من الصبح للمسا)."
+      },
+      {
+        "type": "item",
+        "it": "أمثلة",
+        "ar": "",
+        "examples": [
+          {
+            "it": "La mattina bevo il caffè, mentre mio fratello dorme ancora",
+            "ar": "الصبح باشرب قهوة، وأخويا لسه نايم"
+          },
+          {
+            "it": "Il pomeriggio è già tardi per uscire",
+            "ar": "العصر بقى متأخر يخرج فيه"
+          },
+          {
+            "it": "Non esco mai di notte da solo",
+            "ar": "عمري ما باخرج بالليل لوحدي"
+          },
+          {
+            "it": "Ogni venerdì sera guardo un film",
+            "ar": "كل يوم جمعة بالليل باتفرج فيلم"
+          }
+        ]
       }
     ]
   },
@@ -1875,7 +1924,8 @@ const GRAMMAR = [
       "perciò",
       "se",
       "anche",
-      "pure"
+      "pure",
+      "mentre"
     ],
     "blocks": [
       {
@@ -2002,12 +2052,98 @@ const GRAMMAR = [
         "ar": "⚠️ في النفي لا تُستعمل anche، بل neanche / nemmeno: «Neanche io vengo» (وأنا أيضاً لا آتي)، ولا يقال «Anche io non vengo»."
       },
       {
+        "type": "item",
+        "it": "Mentre — التزامن الزمني (أثناء)",
+        "ar": "",
+        "examples": [
+          {
+            "it": "Ho mangiato un panino mentre guardavo la TV",
+            "ar": "أكلت شطيرة وأنا كنت أشاهد التلفاز"
+          },
+          {
+            "it": "Mangiavo la pasta mentre guardavo il telefono",
+            "ar": "كنت آكل المعكرونة وأنا كنت أنظر إلى الهاتف"
+          },
+          {
+            "it": "Hai studiato la lezione mentre ascoltavi la radio",
+            "ar": "ذاكرت الدرس وأنت كنت تسمع المذياع"
+          }
+        ]
+      },
+      {
         "type": "note",
-        "ar": "💡 Mentre لها درس مستقل لأنها تربط حدثين متزامنين وترتبط كثيرًا بـImperfetto. Quando قد تكون أداة استفهام أو أداة ربط زمنية حسب السياق."
+        "ar": "Mentre تربط بين حدثين حدثا في نفس الوقت في الماضي. النمط الأكثر شيوعاً: حدث مستمر بالـ Imperfetto (كان مستمرًا في الخلفية، مثل mentre guardavo la TV) + حدث آخر بالـ Passato Prossimo (حصل فجأة أو قاطعه، مثل ho mangiato un panino) — لكن يمكن أيضًا كلاهما يكون Imperfetto لو الحدثين مستمرين معًا بنفس الدرجة."
+      },
+      {
+        "type": "note",
+        "ar": "⚠️ الفرق بين Mentre و Quando: Mentre تركّز على استمرارية الحدثين معًا (مثل 'في نفس اللحظة هذه')، أما Quando غالباً تقدّم لحظة معينة وقف عندها فعل مرة أخرى (مثل 'عندما حدث كذا'). في الكلام العادي كثيرًا لا يفرّق المتحدثون بينهما، لكن هذه القاعدة الأساسية."
       },
       {
         "type": "note",
         "ar": "⚠️ Ed تُستخدم بدل e غالبًا قبل كلمة تبدأ بحرف e لتسهيل النطق. لا تُستخدم آليًا قبل كل حرف متحرك."
+      },
+      {
+        "type": "item",
+        "it": "أمثلة إضافية لباقي الأدوات",
+        "ar": "",
+        "examples": [
+          {
+            "it": "Vengo io ed Elena",
+            "ar": "أنا هاجي وإيلينا"
+          },
+          {
+            "it": "Il pomeriggio è libero; inoltre non ho compiti",
+            "ar": "بعد الضهر فاضي؛ كمان معنديش واجب"
+          },
+          {
+            "it": "Voglio uscire, ma piove",
+            "ar": "عايز أخرج، بس بتمطر"
+          },
+          {
+            "it": "Era stanco, tuttavia ha continuato a lavorare",
+            "ar": "كان تعبان، مع ذلك كمل يشتغل"
+          },
+          {
+            "it": "Vieni lunedì o martedì?",
+            "ar": "هتيجي الإثنين ولا الثلاثاء؟"
+          },
+          {
+            "it": "Possiamo uscire la sera, oppure restare a casa",
+            "ar": "نقدر نخرج بالليل، أو نقعد البيت"
+          },
+          {
+            "it": "Poiché era già tardi, siamo tornati a casa",
+            "ar": "بما إنه كان متأخر بالفعل، رجعنا البيت"
+          },
+          {
+            "it": "Siccome piove sempre di sabato, resto a casa",
+            "ar": "بما إن الدنيا بتمطر دايمًا يوم السبت، بقعد البيت"
+          },
+          {
+            "it": "Ho perso il treno, dunque arrivo tardi",
+            "ar": "فاتني القطر، يبقى هوصل متأخر"
+          },
+          {
+            "it": "Non ho tempo, perciò non vengo",
+            "ar": "معنديش وقت، لذلك مش هاجي"
+          },
+          {
+            "it": "Esco anche se piove",
+            "ar": "بخرج حتى لو بتمطر"
+          },
+          {
+            "it": "Ti chiamo quando arrivo la sera",
+            "ar": "هكلمك لما أوصل بالليل"
+          },
+          {
+            "it": "Usciamo dopo che finisce la lezione",
+            "ar": "نخرج بعد ما تخلص الحصة"
+          },
+          {
+            "it": "Arriva prima che inizi il film",
+            "ar": "بييجي قبل ما يبدأ الفيلم"
+          }
+        ]
       }
     ]
   },
@@ -3123,6 +3259,401 @@ const GRAMMAR = [
             "it": "Scegli tra questo e quello",
             "ar": "اختر بين هذا وذاك",
             "form": "tra"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "colori",
+    "it": "I colori",
+    "ar": "الألوان",
+    "icon": "🎨",
+    "triggers": [
+      "rosso",
+      "blu",
+      "giallo",
+      "bianco",
+      "verde",
+      "pelle",
+      "viola",
+      "nero",
+      "grigio",
+      "rosa",
+      "arancione",
+      "marrone",
+      "azzurro",
+      "celeste",
+      "beige"
+    ],
+    "blocks": [
+      {
+        "type": "table",
+        "title": "الألوان الأساسية",
+        "headers": [
+          "المعنى",
+          "اللون"
+        ],
+        "rows": [
+          [
+            "أحمر",
+            "Rosso"
+          ],
+          [
+            "أزرق غامق",
+            "Blu"
+          ],
+          [
+            "أصفر",
+            "Giallo"
+          ],
+          [
+            "أبيض",
+            "Bianco"
+          ],
+          [
+            "أخضر",
+            "Verde"
+          ],
+          [
+            "لون البشرة / بيج فاتح",
+            "Pelle"
+          ],
+          [
+            "بنفسجي",
+            "Viola"
+          ],
+          [
+            "أسود",
+            "Nero"
+          ],
+          [
+            "رمادي",
+            "Grigio"
+          ],
+          [
+            "وردي",
+            "Rosa"
+          ],
+          [
+            "برتقالي",
+            "Arancione"
+          ],
+          [
+            "بني",
+            "Marrone"
+          ],
+          [
+            "أزرق فاتح / سماوي",
+            "Azzurro"
+          ],
+          [
+            "سماوي فاتح",
+            "Celeste"
+          ],
+          [
+            "بيج",
+            "Beige"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "ar": "الألوان بتتفق مع الاسم في الجنس والعدد زي أي صفة عادية: Rosso (مذكر مفرد) → Rossa (مؤنث) → Rossi (جمع مذكر) → Rosse (جمع مؤنث). الألوان المنتهية بـ e زي Verde/Arancione/Celeste بتتغير للجمع بس (Verde → Verdi) ومالهاش صيغة مؤنث مختلفة. ألوان زي Viola/Blu/Rosa/Beige ثابتة مالهاش تصريف خالص."
+      },
+      {
+        "type": "item",
+        "it": "أمثلة",
+        "ar": "",
+        "examples": [
+          {
+            "it": "Ho una maglietta rossa",
+            "ar": "عندي تي شيرت أحمر"
+          },
+          {
+            "it": "Il cielo è blu",
+            "ar": "السما زرقاء"
+          },
+          {
+            "it": "Mi piace il colore giallo",
+            "ar": "بحب اللون الأصفر"
+          },
+          {
+            "it": "La neve è bianca",
+            "ar": "الثلج أبيض"
+          },
+          {
+            "it": "L'erba è verde",
+            "ar": "العشب أخضر"
+          },
+          {
+            "it": "Le mie scarpe sono color pelle",
+            "ar": "جزمتي بلون البشرة"
+          },
+          {
+            "it": "Ho comprato un vestito viola",
+            "ar": "اشتريت فستان بنفسجي"
+          },
+          {
+            "it": "Il gatto è nero",
+            "ar": "القطة سودة"
+          },
+          {
+            "it": "Il cielo oggi è grigio",
+            "ar": "السما النهاردة رمادية"
+          },
+          {
+            "it": "Le sue guance sono rosa",
+            "ar": "خدودها وردية"
+          },
+          {
+            "it": "Mi piace la borsa arancione",
+            "ar": "بحب الشنطة البرتقالي"
+          },
+          {
+            "it": "Ho gli occhi marroni",
+            "ar": "عيني بني"
+          },
+          {
+            "it": "Il mare è azzurro",
+            "ar": "البحر أزرق فاتح"
+          },
+          {
+            "it": "Il cielo è celeste stamattina",
+            "ar": "السما سماوية النهاردة الصبح"
+          },
+          {
+            "it": "Ho comprato scarpe beige",
+            "ar": "اشتريت جزمة بيج"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "numeri",
+    "it": "I numeri",
+    "ar": "الأرقام",
+    "icon": "🔢",
+    "triggers": [
+      "uno",
+      "due",
+      "tre",
+      "quattro",
+      "cinque",
+      "sei",
+      "sette",
+      "otto",
+      "nove",
+      "dieci",
+      "undici",
+      "dodici",
+      "tredici",
+      "quattordici",
+      "quindici",
+      "sedici",
+      "diciassette",
+      "diciotto",
+      "diciannove",
+      "venti",
+      "trenta",
+      "quaranta",
+      "cinquanta",
+      "sessanta",
+      "settanta",
+      "ottanta",
+      "novanta",
+      "cento"
+    ],
+    "blocks": [
+      {
+        "type": "table",
+        "title": "من 1 لـ20",
+        "headers": [
+          "الرقم",
+          "بالإيطالي"
+        ],
+        "rows": [
+          [
+            "1",
+            "Uno"
+          ],
+          [
+            "2",
+            "Due"
+          ],
+          [
+            "3",
+            "Tre"
+          ],
+          [
+            "4",
+            "Quattro"
+          ],
+          [
+            "5",
+            "Cinque"
+          ],
+          [
+            "6",
+            "Sei"
+          ],
+          [
+            "7",
+            "Sette"
+          ],
+          [
+            "8",
+            "Otto"
+          ],
+          [
+            "9",
+            "Nove"
+          ],
+          [
+            "10",
+            "Dieci"
+          ],
+          [
+            "11",
+            "Undici"
+          ],
+          [
+            "12",
+            "Dodici"
+          ],
+          [
+            "13",
+            "Tredici"
+          ],
+          [
+            "14",
+            "Quattordici"
+          ],
+          [
+            "15",
+            "Quindici"
+          ],
+          [
+            "16",
+            "Sedici"
+          ],
+          [
+            "17",
+            "Diciassette"
+          ],
+          [
+            "18",
+            "Diciotto"
+          ],
+          [
+            "19",
+            "Diciannove"
+          ],
+          [
+            "20",
+            "Venti"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "title": "عشرات من 10 لـ100",
+        "headers": [
+          "الرقم",
+          "بالإيطالي"
+        ],
+        "rows": [
+          [
+            "10",
+            "Dieci"
+          ],
+          [
+            "20",
+            "Venti"
+          ],
+          [
+            "30",
+            "Trenta"
+          ],
+          [
+            "40",
+            "Quaranta"
+          ],
+          [
+            "50",
+            "Cinquanta"
+          ],
+          [
+            "60",
+            "Sessanta"
+          ],
+          [
+            "70",
+            "Settanta"
+          ],
+          [
+            "80",
+            "Ottanta"
+          ],
+          [
+            "90",
+            "Novanta"
+          ],
+          [
+            "100",
+            "Cento"
+          ]
+        ]
+      },
+      {
+        "type": "note",
+        "ar": "الأرقام من 21 لـ99 بتتكوّن من العشرة + الرقم: Venti + Due = Ventidue (22). لو الرقم بعد العشرة هو Uno أو Otto، بيتشال آخر حرف من العشرة: Venti + Uno = Ventuno (21) مش Ventiuno، Venti + Otto = Ventotto (28) مش Ventiotto."
+      },
+      {
+        "type": "item",
+        "it": "أمثلة",
+        "ar": "",
+        "examples": [
+          {
+            "it": "Ho diciotto anni",
+            "ar": "عندي 18 سنة"
+          },
+          {
+            "it": "Il libro costa dieci euro",
+            "ar": "الكتاب تمنه 10 يورو"
+          },
+          {
+            "it": "Ho comprato cinque mele",
+            "ar": "اشتريت 5 تفاحات"
+          },
+          {
+            "it": "Ci sono venti persone nella sala",
+            "ar": "فيه 20 شخص في القاعة"
+          },
+          {
+            "it": "Il mio numero è tre",
+            "ar": "رقمي 3"
+          },
+          {
+            "it": "Ho lavorato per trenta minuti",
+            "ar": "اشتغلت لمدة 30 دقيقة"
+          },
+          {
+            "it": "La borsa costa cinquanta euro",
+            "ar": "الشنطة تمنها 50 يورو"
+          },
+          {
+            "it": "Il negozio ha novanta clienti al giorno",
+            "ar": "المحل عنده 90 عميل في اليوم"
+          },
+          {
+            "it": "Il biglietto costa cento euro",
+            "ar": "التذكرة تمنها 100 يورو"
+          },
+          {
+            "it": "Ho sette fratelli",
+            "ar": "عندي 7 إخوة"
           }
         ]
       }

@@ -432,6 +432,7 @@
   .verb-section.ere .verb-card-it{color:var(--green);}
   .verb-section.ire .verb-card-it{color:var(--blue);}
   .verb-card-ar{font-size:.76rem;color:var(--muted);margin-top:4px;}
+  .verb-card-views{font-size:.68rem;color:var(--blue);margin-top:6px;opacity:.85;}
 
   /* ── Verb detail popup ── */
   .verb-modal-overlay{position:fixed;inset:0;background:#000000b3;display:none;align-items:center;justify-content:center;z-index:1000;padding:16px;}
@@ -455,6 +456,7 @@
   .gm-ex-row{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.84rem;cursor:pointer;}
   .gm-ex-row:active{background:rgba(255,255,255,.05);}
   .gm-ex-it{direction:ltr;text-align:left;color:var(--green);font-family:Georgia,serif;display:block;}
+  .gm-word-views,.conj-views{font-size:.66rem;color:var(--blue);opacity:.85;margin-inline-start:4px;}
   .gm-ex-ar{color:var(--text);text-align:right;display:block;border-top:1px dashed rgba(255,255,255,.10);padding-top:4px;}
   .gm-table-title{font-size:.78rem;color:var(--blue);margin:10px 0 4px;font-weight:700;}
   .gm-table{width:100%;border-collapse:collapse;font-size:.76rem;margin-bottom:8px;}

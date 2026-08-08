@@ -103,7 +103,7 @@ const LESSON_VOI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Avete visto il direttore mentre eravate in riunione» لو استبدلنا «mentre» بـ «dopo che»، كيف يتغيّر المعنى؟",
@@ -116,7 +116,7 @@ const LESSON_VOI = [
             "correct": 1,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "التزامن مقابل التعاقب",
             "wordIt": "mentre"
           }
@@ -626,7 +626,7 @@ const LESSON_VOI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Avete preso una decisione mentre facevate il progetto» ما الوظيفة النحوية لـ «mentre»؟",
@@ -639,7 +639,7 @@ const LESSON_VOI = [
             "correct": 1,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -1083,7 +1083,7 @@ const LESSON_VOI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Avete scritto i nomi mentre dicevate le risposte» ما الوظيفة النحوية لـ «mentre»؟",
@@ -1096,7 +1096,7 @@ const LESSON_VOI = [
             "correct": 0,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -1538,7 +1538,7 @@ const LESSON_VOI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "أي بديل يمكن أن يحل محل «mentre» مع الحفاظ على معنى التزامن؟",
@@ -2061,7 +2061,7 @@ const LESSON_VOI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Avete promesso di partecipare mentre ponevate una regola» ما الوظيفة النحوية لـ «mentre»؟",
@@ -2074,7 +2074,7 @@ const LESSON_VOI = [
             "correct": 2,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -2532,7 +2532,7 @@ const LESSON_VOI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Siete andati in città mentre traducevate un'intervista» لو استبدلنا «mentre» بـ «dopo che»، كيف يتغيّر المعنى؟",
@@ -2545,7 +2545,7 @@ const LESSON_VOI = [
             "correct": 1,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "التزامن مقابل التعاقب",
             "wordIt": "mentre"
           }
@@ -3572,7 +3572,7 @@ const LESSON_VOI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Avete avuto un'occasione mentre parlavate con i colleghi» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -3585,7 +3585,7 @@ const LESSON_VOI = [
             "correct": 1,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }

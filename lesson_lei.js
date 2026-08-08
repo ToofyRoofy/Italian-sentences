@@ -112,7 +112,7 @@ const LESSON_LEI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lei ha visto il professore mentre era a scuola» ما الوظيفة النحوية لـ «mentre»؟",
@@ -125,7 +125,7 @@ const LESSON_LEI = [
             "correct": 1,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -659,7 +659,7 @@ const LESSON_LEI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lei ha preso l'ombrello mentre faceva la valigia» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -672,7 +672,7 @@ const LESSON_LEI = [
             "correct": 2,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -1167,7 +1167,7 @@ const LESSON_LEI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lei ha scritto l'indirizzo mentre diceva dove abitava» ما الوظيفة النحوية لـ «mentre»؟",
@@ -1180,7 +1180,7 @@ const LESSON_LEI = [
             "correct": 2,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -1690,7 +1690,7 @@ const LESSON_LEI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lei ha letto una lettera mentre beveva del succo» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -1703,7 +1703,7 @@ const LESSON_LEI = [
             "correct": 2,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -2111,7 +2111,7 @@ const LESSON_LEI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "أي جملة تستخدم «mentre» استخداماً خاطئاً؟",
@@ -2533,7 +2533,7 @@ const LESSON_LEI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "ما الترجمة الإيطالية الصحيحة لـ «بينما كنتُ أقرأ، رنّ الهاتف»؟",
@@ -3511,7 +3511,7 @@ const LESSON_LEI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lei ha avuto una richiesta mentre parlava con l'insegnante» ما الوظيفة النحوية لـ «mentre»؟",
@@ -3524,7 +3524,7 @@ const LESSON_LEI = [
             "correct": 0,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }

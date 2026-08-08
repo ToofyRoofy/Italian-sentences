@@ -112,7 +112,7 @@ const LESSON_LORO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "ما المعنى العربي الدقيق لـ: «Loro hanno visto l'incidente mentre erano per strada»؟",
@@ -629,7 +629,7 @@ const LESSON_LORO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Loro hanno preso il documento mentre facevano una riunione» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -642,7 +642,7 @@ const LESSON_LORO = [
             "correct": 3,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -1156,7 +1156,7 @@ const LESSON_LORO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Loro hanno scritto il rapporto mentre dicevano che cosa era successo» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -1169,7 +1169,7 @@ const LESSON_LORO = [
             "correct": 2,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -1674,7 +1674,7 @@ const LESSON_LORO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Loro hanno letto le notizie mentre bevevano il caffè» ما الوظيفة النحوية لـ «mentre»؟",
@@ -1687,7 +1687,7 @@ const LESSON_LORO = [
             "correct": 2,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -2201,7 +2201,7 @@ const LESSON_LORO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Loro hanno promesso di pagare mentre ponevano molte condizioni» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -2214,7 +2214,7 @@ const LESSON_LORO = [
             "correct": 1,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -2718,7 +2718,7 @@ const LESSON_LORO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "ما الترجمة الإيطالية الصحيحة لـ «بينما كنتُ أقرأ، رنّ الهاتف»؟",
@@ -3810,7 +3810,7 @@ const LESSON_LORO = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "ما الفرق بين «mentre» و«quando»؟",

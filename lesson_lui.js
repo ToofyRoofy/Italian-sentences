@@ -112,7 +112,7 @@ const LESSON_LUI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lui ha visto l'errore mentre era in ufficio» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -125,7 +125,7 @@ const LESSON_LUI = [
             "correct": 1,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -634,7 +634,7 @@ const LESSON_LUI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lui ha preso appunti mentre faceva il controllo» ما الوظيفة النحوية لـ «mentre»؟",
@@ -647,7 +647,7 @@ const LESSON_LUI = [
             "correct": 0,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -1152,7 +1152,7 @@ const LESSON_LUI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lui ha scritto il messaggio mentre diceva la verità» لو استبدلنا «mentre» بـ «dopo che»، كيف يتغيّر المعنى؟",
@@ -1165,7 +1165,7 @@ const LESSON_LUI = [
             "correct": 2,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "التزامن مقابل التعاقب",
             "wordIt": "mentre"
           }
@@ -1670,7 +1670,7 @@ const LESSON_LUI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lui ha letto il rapporto mentre beveva un tè» ما الوظيفة النحوية لـ «mentre»؟",
@@ -1683,7 +1683,7 @@ const LESSON_LUI = [
             "correct": 3,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }
@@ -2195,7 +2195,7 @@ const LESSON_LUI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lui ha promesso di finire mentre poneva una condizione» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -2208,7 +2208,7 @@ const LESSON_LUI = [
             "correct": 3,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -2722,7 +2722,7 @@ const LESSON_LUI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lui è andato in ufficio mentre traduceva un documento» — عند وصف حدث مستمر في الماضي، ما الزمن الذي يشيع بعد «mentre»؟",
@@ -2735,7 +2735,7 @@ const LESSON_LUI = [
             "correct": 0,
             "cognitiveLevel": "Analysis",
             "cefr": "B1",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "الزمن الملازم لـ mentre",
             "wordIt": "mentre"
           }
@@ -3774,7 +3774,7 @@ const LESSON_LUI = [
         "note": null,
         "type": "congiunzione",
         "meaning": "بينما",
-        "grammarId": "mentre",
+        "grammarId": "congiunzioni",
         "quiz": [
           {
             "q": "في «Lui ha avuto un dubbio mentre parlava con il direttore» ما الوظيفة النحوية لـ «mentre»؟",
@@ -3787,7 +3787,7 @@ const LESSON_LUI = [
             "correct": 0,
             "cognitiveLevel": "Recognition",
             "cefr": "A2",
-            "grammarId": "mentre",
+            "grammarId": "congiunzioni",
             "testedSkill": "تصنيف أداة الربط",
             "wordIt": "mentre"
           }

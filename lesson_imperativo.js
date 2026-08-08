@@ -8,7 +8,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Vedimi",
         "ar": "شوفني زي ما أنا.ِّ",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Vedere، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Vedere",
         "group": "ere",
@@ -524,7 +524,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Prendimi",
         "ar": "امسكني من إيدي.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Prendere، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Prendere",
         "group": "ere",
@@ -1009,7 +1009,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Scrivimi",
         "ar": "اكتب لي رسالة.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Scrivere، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Scrivere",
         "group": "ere",
@@ -1308,7 +1308,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Dimmi",
         "ar": "قول لي الحقيقة.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Dire، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Dire",
         "group": "ire",
@@ -1615,7 +1615,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Leggimi",
         "ar": "اقرأ لي الرسالة.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Leggere، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Leggere",
         "group": "ere",
@@ -2149,7 +2149,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Promettimi",
         "ar": "اوعدني إنك توصل في المعاد.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Promettere، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Promettere",
         "group": "ere",
@@ -2472,7 +2472,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Ponimi",
         "ar": "اطرح عليّ سؤال.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Porre، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Porre",
         "group": "irregolare",
@@ -3049,7 +3049,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Traducimi",
         "ar": "ترجم لي الجملة دي.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Tradurre، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Tradurre",
         "group": "irregolare",
@@ -4108,7 +4108,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Parlami",
         "ar": "اتكلم معايا أبطأ.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Parlare، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Parlare",
         "group": "are",
@@ -4732,7 +4732,7 @@ const LESSON_IMPERATIVO = [
       {
         "it": "Credimi",
         "ar": "صدقني.",
-        "note": "Imperativo مع ضمير متصل للمستمع Tu",
+        "note": "Credere، Imperativo مع ضمير متصل للمستمع Tu",
         "type": "verbo",
         "verbInfinitive": "Credere",
         "group": "ere",

@@ -610,7 +610,7 @@ function loadAppState(){
 }
 function confirmResetAllProgress(){
   if(!confirm('متأكد؟ هذا هيمسح الجمل المفتوحة والسكور وكل التقدم المحفوظ.'))return;
-  ['parlaAppStateV8','parlaUnlockedSentenceIndices','parlaWordProgress','parlaLessonProgress','parlaSkillScores','parlaQuestionProgress','parlaCsProgress'].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});
+  ['parlaAppStateV8','parlaUnlockedSentenceIndices','parlaWordProgress','parlaLessonProgress','parlaSkillScores','parlaQuestionProgress','parlaCsProgress','parlaViewCounts'].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});
   wpUnlockedIndices=[]; resetSessionScores(); clearWordProgress(); location.reload();
 }
 loadAppState();
@@ -639,6 +639,145 @@ let currentListenQuestion=null;
 let csGrammarQuestions=[];
 let csGrammarQIdx=0;
 let csGrammarQAnswered=false;
+
+// ===== VIEW COUNTS: عدد مرات رؤية كل كلمة/تصريف بمفرده — جوه التاب مش بره بس.
+// فتح التاب/الموضوع بيسجل كل الكلمات/التصريفات الظاهرة فيه (لأنها كلها قدامك أول ما تفتح)،
+// والدوس على كلمة/تصريف بعينه (تسمعه) بيسجله +1 إضافية لأنه تفاعل أقوى.
+// رقم التاب من فوق = مجموع أرقام كل تصريفاته/كلماته من جوا (مش عدّاد منفصل). =====
+let verbFormViewCounts={};  // key: infinitive::tab::form
+let topicWordViewCounts={}; // key: topicId::word
+let currentGmTopicId=null;  // الموضوع المفتوح دلوقتي في بوب أب القواعد، عشان نعرف نربط كليك الكلمة بيه
+
+function loadViewCounts(){
+  try{
+    const raw=localStorage.getItem('parlaViewCounts');
+    if(!raw)return;
+    const d=JSON.parse(raw);
+    verbFormViewCounts=d.verbForms||{};
+    topicWordViewCounts=d.topicWords||{};
+  }catch(e){}
+}
+function saveViewCounts(){
+  try{localStorage.setItem('parlaViewCounts',JSON.stringify({verbForms:verbFormViewCounts,topicWords:topicWordViewCounts}));}catch(e){}
+}
+function bumpVerbFormView(infinitive,tab,person){
+  if(!infinitive||!tab||!person)return;
+  const key=infinitive+'::'+tab+'::'+person;
+  verbFormViewCounts[key]=(verbFormViewCounts[key]||0)+1;
+  saveViewCounts();
+}
+function getVerbFormViews(infinitive,tab,person){
+  return verbFormViewCounts[infinitive+'::'+tab+'::'+person]||0;
+}
+function verbTabRows(v,tab){
+  if(tab==='presente')return v.presente||[];
+  if(tab==='passato')return (v.passato&&v.passato.rows)||[];
+  if(tab==='imperfetto')return (v.imperfetto&&v.imperfetto.rows)||[];
+  if(tab==='imperativo')return (v.imperativo&&v.imperativo.rows)||[];
+  return [];
+}
+function getVerbTenseViews(infinitive,tab){ // مجموع تصريفات التاب ده كله — مش عدّاد مستقل
+  const v=VERBS.find(x=>x.it===infinitive);
+  if(!v)return 0;
+  return verbTabRows(v,tab).reduce((s,r)=>s+getVerbFormViews(infinitive,tab,r.person),0);
+}
+function bumpTopicWordView(topicId,word){
+  if(!topicId||!word)return;
+  const key=topicId+'::'+word;
+  topicWordViewCounts[key]=(topicWordViewCounts[key]||0)+1;
+  saveViewCounts();
+}
+function getTopicWordViews(topicId,word){
+  return topicWordViewCounts[topicId+'::'+word]||0;
+}
+function getTopicTotalViews(topicId){
+  const prefix=topicId+'::';
+  let sum=0;
+  Object.keys(topicWordViewCounts).forEach(k=>{if(k.indexOf(prefix)===0)sum+=topicWordViewCounts[k];});
+  return sum;
+}
+// كل الكلمات الإيطالية القابلة للتتبع جوه موضوع معيّن (من جداوله وأمثلته)
+function topicWordKeys(topic){
+  const words=new Set();
+  (topic.blocks||[]).forEach(b=>{
+    if(b.type==='table'){
+      (b.rows||[]).forEach(r=>{
+        (r||[]).forEach(cell=>{
+          const txt=String(cell==null?'':cell);
+          const hasArabic=/[\u0600-\u06FF]/.test(txt);
+          const hasLatin=/[a-zA-Zàèéìòù]/.test(txt);
+          if(hasArabic||!hasLatin)return;
+          txt.split(',').forEach(part=>{
+            const w=part.trim().replace(/\s*\([^)]*\)\s*/g,'').trim();
+            if(w)words.add(w);
+          });
+        });
+      });
+    }
+    if(Array.isArray(b.examples)){
+      b.examples.forEach(ex=>{ if(ex&&ex.it)words.add(ex.it.trim()); });
+    }
+  });
+  return [...words];
+}
+function bumpTopicAllWordsView(topic){
+  topicWordKeys(topic).forEach(w=>bumpTopicWordView(topic.id,w));
+}
+const AUX_PERSON_HINTS={
+  'ho':['Io'],'hai':['Tu'],'ha':['Lui','Lei'],'abbiamo':['Noi'],'avete':['Voi'],'hanno':['Loro'],
+  'sono':['Io','Loro'],'sei':['Tu'],'è':['Lui','Lei'],'siamo':['Noi'],'siete':['Voi']
+};
+function matchVerbFormFromWord(wIt,infinitive,tab,auxIt){
+  const v=VERBS.find(x=>x.it===infinitive);
+  if(!v)return null;
+  const rows=verbTabRows(v,tab);
+  const wNorm=norm(wIt);
+  let candidates=rows.filter(r=>norm(r.form)===wNorm);
+  if(!candidates.length){
+    const lastTok=(wIt||'').trim().split(/\s+/).pop()||'';
+    candidates=rows.filter(r=>norm(r.form)===norm(lastTok));
+  }
+  if(!candidates.length){
+    // للأزمنة المركبة (Passato Prossimo): الكلمة الجاية من الجملة غالبًا التصريف (participio)
+    // بس من غير الفعل المساعد (لأننا بنفصلهم كـ'omesso' في scenes.js) — نقارن آخر كلمة
+    // في صف الجدول (بعد ما نشيل الفعل المساعد منها) بدل الصف كله.
+    candidates=rows.filter(r=>{
+      const rLastTok=(r.form||'').trim().split(/\s+/).pop()||'';
+      return norm(rLastTok)===wNorm;
+    });
+  }
+  if(!candidates.length)return null;
+  if(candidates.length>1&&auxIt){
+    // أفعال Avere: نفس الـparticipio لكل الأشخاص (ho/hai/ha/abbiamo/avete/hanno visto) —
+    // الفعل المساعد نفسه (اللي قبل الكلمة دي مباشرة في نفس الجملة) بيضيّق الاحتمالات.
+    // ناخد آخر كلمة في auxIt عشان نتعامل مع صيغ منفية زي "non ha".
+    const auxLastTok=(auxIt||'').trim().split(/\s+/).pop()||'';
+    const hints=AUX_PERSON_HINTS[norm(auxLastTok)];
+    if(hints){
+      const narrowed=candidates.filter(r=>hints.some(h=>r.person.indexOf(h)===0));
+      if(narrowed.length)candidates=narrowed;
+    }
+  }
+  return candidates[0].person;
+}
+function passiveTrackWord(w,prevWord){
+  const gTopicId=w.grammarId||findGrammarTopicId(w.it);
+  const vInfo=findVerbFromNote(w.note);
+  if(gTopicId){
+    const topic=getGrammarTopic(gTopicId);
+    if(topic){
+      const known=topicWordKeys(topic).find(tw=>tw.toLowerCase()===w.it.toLowerCase());
+      bumpTopicWordView(gTopicId,known||w.it);
+    }
+  }
+  if(vInfo){
+    const infinitive=VERBS[vInfo.idx].it;
+    const auxIt=(prevWord&&prevWord.type==='omesso')?prevWord.it:null;
+    const personMatch=matchVerbFormFromWord(w.it,infinitive,vInfo.tab,auxIt);
+    if(personMatch)bumpVerbFormView(infinitive,vInfo.tab,personMatch);
+  }
+  return {gTopicId,vInfo};
+}
 
 function saveCsProgress(){
   try{
@@ -1106,6 +1245,7 @@ function showConvoExplain(sceneTitleAr,words){
   body.innerHTML='<div class="breakdown" style="display:flex">'+words.map(w=>{
     const gTopicId=w.grammarId||findGrammarTopicId(w.it);
     const vInfo=findVerbFromNote(w.note);
+    passiveTrackWord(w);
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
     let styleAttr='';
     if(w.color){styleAttr=' style="color:'+w.color+';font-weight:900;background:'+w.color+'18;border-bottom:3px solid '+w.color+';border-radius:6px;padding:1px 4px;"';}
@@ -1145,6 +1285,7 @@ function convoExplainContinue(){
 
 function start(){
   loadSkillScores();
+  loadViewCounts();
   document.getElementById('endScreen').classList.remove('show');
   document.getElementById('game').style.display='flex';
   qInit();
@@ -1211,8 +1352,9 @@ function verbCategory(it){
 const LIB_SECTIONS=[
   {key:'are',label:'\uD83D\uDCD8 \u0623\u062f\u0648\u0627\u062a \u0648\u0623\u0633\u0645\u0627\u0621 \u0648\u0635\u0641\u0627\u062a \u0648\u0636\u0645\u0627\u0626\u0631',ids:['articoli_determinativi','partitivi','dimostrativi','possessivi','indefiniti','aggettivi_vari','nomi_sostantivi','interrogativi','pronomi_soggetto','pronomi_complemento']},
   {key:'ere',label:'\uD83E\uDDED \u062d\u0631\u0648\u0641 \u0627\u0644\u062c\u0631',ids:['prep_di','prep_a','prep_da','prep_in','prep_con','prep_su','prep_per','prep_tra_fra','prep_semplici','improprie']},
-  {key:'ire',label:'\uD83D\uDD17 \u0627\u0644\u0631\u0628\u0637 \u0648\u0627\u0644\u0638\u0631\u0648\u0641 \u0648\u0627\u0644\u0645\u0641\u0631\u062f\u0627\u062a',ids:['congiunzioni','mentre','avverbi_tempo','avverbio_modo','parole_multitasking','giorni_settimana','momenti_giornata']},
-  {key:'are',label:'\u23F3 \u0627\u0644\u0623\u0632\u0645\u0646\u0629 \u0648\u0627\u0644\u0623\u0641\u0639\u0627\u0644 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629',ids:['ausiliari_passato']}
+  {key:'ire',label:'\uD83D\uDD17 \u0627\u0644\u0631\u0628\u0637 \u0648\u0627\u0644\u0638\u0631\u0648\u0641 \u0648\u0627\u0644\u0645\u0641\u0631\u062f\u0627\u062a',ids:['congiunzioni','avverbi_tempo','avverbio_modo','parole_multitasking','giorni_settimana','momenti_giornata']},
+  {key:'are',label:'\u23F3 \u0627\u0644\u0623\u0632\u0645\u0646\u0629 \u0648\u0627\u0644\u0623\u0641\u0639\u0627\u0644 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629',ids:['ausiliari_passato']},
+  {key:'ere',label:'\uD83C\uDFA8 \u0627\u0644\u0623\u0644\u0648\u0627\u0646 \u0648\u0627\u0644\u0623\u0631\u0642\u0627\u0645',ids:['colori','numeri']}
 ];
 function libTopics(){return (typeof GRAMMAR!=='undefined'&&Array.isArray(GRAMMAR))?GRAMMAR:[];}
 function renderTopicSections(wrapEl){
@@ -1246,6 +1388,13 @@ function renderTopicSections(wrapEl){
       arEl.className='verb-card-ar';
       arEl.textContent=t.ar||'';
       card.appendChild(itEl);card.appendChild(arEl);
+      const tViews=getTopicTotalViews(t.id);
+      if(tViews>0){
+        const vc=document.createElement('div');
+        vc.className='verb-card-views';
+        vc.textContent='👁️ '+toArabicDigits(tViews);
+        card.appendChild(vc);
+      }
       grid.appendChild(card);
     });
     section.appendChild(grid);
@@ -1287,6 +1436,13 @@ function renderVerbsList(){
       arEl.className='verb-card-ar';
       arEl.textContent=v.ar;
       card.appendChild(itEl);card.appendChild(arEl);
+      const views=['presente','passato','imperfetto','imperativo'].reduce((s,t)=>s+getVerbTenseViews(v.it,t),0);
+      if(views>0){
+        const vc=document.createElement('div');
+        vc.className='verb-card-views';
+        vc.textContent='👁️ '+toArabicDigits(views);
+        card.appendChild(vc);
+      }
       grid.appendChild(card);
     });
     section.appendChild(grid);
@@ -1317,14 +1473,23 @@ function switchVerbTab(tab){
   renderVerbModalTabs();
   renderVerbModalBody();
 }
+const VM_TAB_LABELS={meaning:'📖 المعنى',presente:'🔵 المضارع',passato:'🟢 الماضي',imperfetto:'🟡 الماضي المستمر',imperativo:'❗ الأمر'};
 function renderVerbModalTabs(){
+  const infinitive=VERBS[vmCurrentIdx]?VERBS[vmCurrentIdx].it:null;
   ['meaning','presente','passato','imperfetto','imperativo'].forEach(t=>{
-    document.getElementById('vmTab'+t.charAt(0).toUpperCase()+t.slice(1)).classList.toggle('active',t===vmCurrentTab);
+    const el=document.getElementById('vmTab'+t.charAt(0).toUpperCase()+t.slice(1));
+    el.classList.toggle('active',t===vmCurrentTab);
+    const views=(t!=='meaning'&&infinitive)?getVerbTenseViews(infinitive,t):0;
+    el.textContent=VM_TAB_LABELS[t]+(views>0?' ('+toArabicDigits(views)+')':'');
   });
 }
-function verbConjTableHtml(rows){
+function verbConjTableHtml(rows,infinitive,tab){
   window.__vmRows=rows;
-  return '<table class="conj-tbl">'+rows.map((r,i)=>'<tr class="conj-row" onclick="speakWord(window.__vmRows['+i+'].form)"><td>'+r.person+'</td><td>'+r.form+'</td></tr>').join('')+'</table>';
+  return '<table class="conj-tbl">'+rows.map((r,i)=>{
+    const views=getVerbFormViews(infinitive,tab,r.person);
+    const badge=views>0?' <span class="conj-views">👁'+toArabicDigits(views)+'</span>':'';
+    return '<tr class="conj-row" onclick="bumpVerbFormView(\''+infinitive.replace(/'/g,"\\'")+'\',\''+tab+'\',window.__vmRows['+i+'].person);speakWord(window.__vmRows['+i+'].form);renderVerbModalBody();renderVerbModalTabs();"><td>'+r.person+'</td><td>'+r.form+badge+'</td></tr>';
+  }).join('')+'</table>';
 }
 function renderVerbModalBody(){
   const v=VERBS[vmCurrentIdx];
@@ -1332,14 +1497,14 @@ function renderVerbModalBody(){
   if(vmCurrentTab==='meaning'){
     body.innerHTML='<div class="verb-meaning"><b>'+v.it+'</b><div style="margin-top:8px;color:var(--text);direction:rtl">'+v.ar+'</div></div>';
   } else if(vmCurrentTab==='presente'){
-    body.innerHTML=verbConjTableHtml(v.presente);
+    body.innerHTML=verbConjTableHtml(v.presente,v.it,'presente');
   } else if(vmCurrentTab==='passato'){
     const auxLbl=v.passato.aux==='essere'?'Essere':'Avere';
-    body.innerHTML='<div class="verb-aux-note">الفعل المساعد: '+auxLbl+(v.passato.regular?' — فعل منتظم':' — فعل شاذ')+'</div>'+verbConjTableHtml(v.passato.rows);
+    body.innerHTML='<div class="verb-aux-note">الفعل المساعد: '+auxLbl+(v.passato.regular?' — فعل منتظم':' — فعل شاذ')+'</div>'+verbConjTableHtml(v.passato.rows,v.it,'passato');
   } else if(vmCurrentTab==='imperfetto'){
-    body.innerHTML='<div class="verb-aux-note">'+(v.imperfetto.regular?'فعل منتظم':'فعل شاذ')+'</div>'+verbConjTableHtml(v.imperfetto.rows);
+    body.innerHTML='<div class="verb-aux-note">'+(v.imperfetto.regular?'فعل منتظم':'فعل شاذ')+'</div>'+verbConjTableHtml(v.imperfetto.rows,v.it,'imperfetto');
   } else if(vmCurrentTab==='imperativo'){
-    body.innerHTML=verbConjTableHtml(v.imperativo.rows)+(v.imperativo.note?'<div class="verb-imp-note">💡 '+v.imperativo.note+'</div>':'');
+    body.innerHTML=verbConjTableHtml(v.imperativo.rows,v.it,'imperativo')+(v.imperativo.note?'<div class="verb-imp-note">💡 '+v.imperativo.note+'</div>':'');
   }
 }
 
@@ -1378,10 +1543,10 @@ function buildVerbNameMap(){
   VERBS.forEach((v,i)=>{VERB_NAME_MAP[v.it.toLowerCase()]=i;});
   return VERB_NAME_MAP;
 }
-const VERB_TENSE_TAB={'Presente':'presente','Passato Prossimo':'passato','Imperfetto':'imperfetto'};
+const VERB_TENSE_TAB={'Presente':'presente','Passato Prossimo':'passato','Imperfetto':'imperfetto','Imperativo':'imperativo'};
 function findVerbFromNote(note){
   if(!note)return null;
-  const m=note.match(/^([A-Za-zàèìòùé']+)،\s*(Presente|Passato Prossimo|Imperfetto)\s*$/);
+  const m=note.match(/^([A-Za-zàèìòùé']+)،\s*(Presente|Passato Prossimo|Imperfetto|Imperativo)\b/);
   if(!m)return null;
   const map=buildVerbNameMap();
   const idx=map[m[1].toLowerCase()];
@@ -1393,13 +1558,19 @@ function getGrammarTopic(id){
   if(typeof GRAMMAR==='undefined')return null;
   return GRAMMAR.find(g=>g.id===id)||null;
 }
+function refreshGrammarModalBody(){
+  const topic=getGrammarTopic(currentGmTopicId);
+  if(!topic)return;
+  document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],currentGmTopicId);
+}
 function openGrammarModal(topicId){
   const topic=getGrammarTopic(topicId);
   if(!topic)return;
+  currentGmTopicId=topicId;
   document.getElementById('gmIcon').textContent=topic.icon||'📘';
   document.getElementById('gmIt').textContent=topic.it;
   document.getElementById('gmAr').textContent=topic.ar;
-  document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[]);
+  document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],topicId);
   document.getElementById('grammarModalOverlay').classList.add('show');
 }
 function closeGrammarModal(){
@@ -1411,20 +1582,25 @@ function closeGrammarModalOnOverlay(e){
 function escGm(s){
   return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
-function gmSpeakableCell(c){
+function gmSpeakableCell(c,topicId){
   const txt=String(c==null?'':c);
   const hasArabic=/[\u0600-\u06FF]/.test(txt);
   const hasLatin=/[a-zA-Zàèéìòù]/.test(txt);
   if(hasArabic||!hasLatin)return escGm(txt); // فيها عربي (حتى لو فيها مصطلح لاتيني جنبه زي "Copulative") أو مفيهاش لاتيني خالص — من غير نطق
+  const tidEsc=(topicId||'').replace(/'/g,"\\'");
   const inner=txt.split(',').map(part=>{
     const trimmed=part.trim();
     if(!trimmed)return '';
     const itOnly=trimmed.replace(/\s*\([^)]*\)\s*/g,'').trim()||trimmed; // نشيل أي شرح بين قوسين قبل ما ننطق
-    return '<span class="gm-cell-word" onclick="speakWord(\''+escGm(itOnly).replace(/'/g,"\\'")+'\')">'+escGm(trimmed)+'</span>';
+    const views=topicId?getTopicWordViews(topicId,trimmed):0;
+    const badge=views>0?' <span class="gm-word-views">👁'+toArabicDigits(views)+'</span>':'';
+    return '<span class="gm-cell-word" onclick="bumpTopicWordView(\''+tidEsc+'\',\''+escGm(trimmed).replace(/'/g,"\\'")+'\');speakWord(\''+escGm(itOnly).replace(/'/g,"\\'")+'\');refreshGrammarModalBody();">'+escGm(trimmed)+badge+'</span>';
   }).join(', ');
   return '<span dir="ltr" style="unicode-bidi:isolate;display:inline-block">'+inner+'</span>';
 }
-function renderGrammarBlocks(blocks){
+function renderGrammarBlocks(blocks,topicId){
+  const tid=topicId||currentGmTopicId||'';
+  const tidEsc=tid.replace(/'/g,"\\'");
   return blocks.map(b=>{
     if(b.type==='note'){
       return '<div class="gm-note">'+escGm(b.ar)+'</div>';
@@ -1433,7 +1609,9 @@ function renderGrammarBlocks(blocks){
       let html='<div class="gm-item"><div class="gm-item-title">'+escGm(b.it)+'</div>';
       html+='<div class="gm-item-note">= '+escGm(b.ar)+(b.note?'<br>💡 '+escGm(b.note):'')+'</div>';
       (b.examples||[]).forEach(ex=>{
-        html+='<div class="gm-ex-row" onclick="speakWord(\''+escGm(ex.it).replace(/'/g,"\\'")+'\')"><span class="gm-ex-it">'+escGm(ex.it)+'</span><span class="gm-ex-ar">'+escGm(ex.ar)+'</span></div>';
+        const views=tid?getTopicWordViews(tid,ex.it):0;
+        const badge=views>0?' <span class="gm-word-views">👁'+toArabicDigits(views)+'</span>':'';
+        html+='<div class="gm-ex-row" onclick="bumpTopicWordView(\''+tidEsc+'\',\''+escGm(ex.it).replace(/'/g,"\\'")+'\');speakWord(\''+escGm(ex.it).replace(/'/g,"\\'")+'\');refreshGrammarModalBody();"><span class="gm-ex-it">'+escGm(ex.it)+badge+'</span><span class="gm-ex-ar">'+escGm(ex.ar)+'</span></div>';
       });
       html+='</div>';
       return html;
@@ -1442,14 +1620,20 @@ function renderGrammarBlocks(blocks){
       let html='<div style="border:1px solid '+escGm(b.color||'#64748b')+';border-right:6px solid '+escGm(b.color||'#64748b')+';border-radius:12px;padding:10px;margin:10px 0;background:color-mix(in srgb,'+escGm(b.color||'#64748b')+' 9%,transparent)">';
       html+='<div style="font-weight:900;color:'+escGm(b.color||'#64748b')+'">'+escGm(b.title)+' — '+escGm(b.meaning)+'</div>';
       html+='<div style="margin:5px 0">'+escGm(b.description||'')+'</div>';
-      (b.examples||[]).forEach(ex=>{let txt=escGm(ex.it);const target=escGm(ex.form||b.form||'');if(target)txt=txt.replace(target,'<span style="color:'+escGm(b.color||'#64748b')+';font-weight:900;text-decoration:underline;text-decoration-thickness:3px">'+target+'</span>');html+='<div class="gm-ex-row" onclick="speakWord(\''+escGm(ex.it).replace(/'/g,"\\'")+'\')"><span class="gm-ex-it">'+txt+'</span><span class="gm-ex-ar">'+escGm(ex.ar)+'</span></div>';});
+      (b.examples||[]).forEach(ex=>{
+        let txt=escGm(ex.it);const target=escGm(ex.form||b.form||'');
+        if(target)txt=txt.replace(target,'<span style="color:'+escGm(b.color||'#64748b')+';font-weight:900;text-decoration:underline;text-decoration-thickness:3px">'+target+'</span>');
+        const views=tid?getTopicWordViews(tid,ex.it):0;
+        const badge=views>0?' <span class="gm-word-views">👁'+toArabicDigits(views)+'</span>':'';
+        html+='<div class="gm-ex-row" onclick="bumpTopicWordView(\''+tidEsc+'\',\''+escGm(ex.it).replace(/'/g,"\\'")+'\');speakWord(\''+escGm(ex.it).replace(/'/g,"\\'")+'\');refreshGrammarModalBody();"><span class="gm-ex-it">'+txt+badge+'</span><span class="gm-ex-ar">'+escGm(ex.ar)+'</span></div>';
+      });
       return html+'</div>';
     }
     if(b.type==='table'){
       let html='<div class="gm-table-title">'+escGm(b.title||'')+'</div><table class="gm-table">';
       html+='<tr>'+(b.headers||[]).map(h=>'<th>'+escGm(h)+'</th>').join('')+'</tr>';
       (b.rows||[]).forEach(r=>{
-        html+='<tr>'+r.map(c=>'<td>'+gmSpeakableCell(c)+'</td>').join('')+'</tr>';
+        html+='<tr>'+r.map(c=>'<td>'+gmSpeakableCell(c,tid)+'</td>').join('')+'</tr>';
       });
       html+='</table>';
       return html;
@@ -1550,12 +1734,18 @@ function lRender(){
   // breakdown panel (deep grammar notes, tap any word to hear it)
   const bd=document.getElementById('lBreakdown');
   bd.innerHTML='';
-  s.words.forEach(w=>{
+  s.words.forEach((w,wIdx)=>{
     const row=document.createElement('div');
     row.className='bd-row';
     const wordSpan=document.createElement('span');
     const gTopicId=w.grammarId||findGrammarTopicId(w.it);
     const vInfo=findVerbFromNote(w.note);
+    let auxWord=null;
+    for(let j=wIdx-1;j>=0;j--){
+      if(s.words[j].type==='omesso'){auxWord=s.words[j];break;}
+      if(s.words[j].type==='verbo')break; // فعل سابق مختلف — منوقفش هنا
+    }
+    passiveTrackWord(w,auxWord);
     wordSpan.className='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
     wordSpan.textContent=w.it;
     if(w.color){wordSpan.style.color=w.color;wordSpan.style.fontWeight='900';wordSpan.style.background=w.color+'18';wordSpan.style.borderBottom='3px solid '+w.color;wordSpan.style.borderRadius='6px';wordSpan.style.padding='1px 4px';}
