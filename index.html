@@ -166,6 +166,11 @@
 
       <div class="breakdown" id="lBreakdown"></div>
       <button class="next-btn show cs-start-btn" id="csStartBtn" style="display:none" onclick="csDismissGate()">🚀 ابتدي الحل</button>
+      <div class="drill-box" id="gmRecogQuiz" style="display:none">
+        <div class="drill-label">🎨 إيه استخدام حرف الجر هنا؟</div>
+        <div id="gmRecogOptions" style="display:flex;flex-direction:column;gap:8px;margin-top:10px"></div>
+        <div id="gmRecogFeedback" style="margin-top:10px;font-size:14px;line-height:1.7"></div>
+      </div>
 
     </div>
 
@@ -221,6 +226,7 @@
       <button class="grammar-modal-close" onclick="closeGrammarModal()">✕</button>
     </div>
     <div class="gm-body" id="gmBody"></div>
+    <button class="next-btn show cs-start-btn" id="gmDrillBtn" style="display:none" onclick="gmStartDrill(currentGmTopicId)">🚀 ابدأ الحل</button>
   </div>
 </div>
 

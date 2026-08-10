@@ -640,6 +640,23 @@ let csGrammarQuestions=[];
 let csGrammarQIdx=0;
 let csGrammarQAnswered=false;
 
+// ===== TOPIC DRILL: زرار "ابدأ الحل" جوه بوب أب أي موضوع قواعد — بيستعير نفس محرك
+// دراسة المحادثة (نطق ← ترتيب إيطالي ← كتابة) لكن على جُمل أمثلة الموضوع نفسه، مش جُمل
+// محادثة. المواضيع بتتفعّل واحد واحد هنا (مش أوتوماتيك) عشان نضيفها بالتدريج وإحنا متأكدين
+// إن أمثلتها كفاية.
+const TOPIC_DRILL_READY=[];
+let gmDrillActive=false;
+let gmDrillTopicId=null;
+let gmDrillDeck=[];
+let gmDrillIdx=0;
+// مواضيع فيها بلوكات "usage" (حروف الجر) بتستخدم وضع تعرّف بدل وضع إنتاج: شرح
+// الجملة (من غير تلوين حرف الجر) بعدها سؤال "إيه الاستخدام؟" باختيارات ملوّنة.
+let gmRecogActive=false;
+let gmRecogTopicId=null;
+let gmRecogDeck=[];
+let gmRecogIdx=0;
+let gmRecogAnswered=false;
+
 // ===== VIEW COUNTS: عدد مرات رؤية كل كلمة/تصريف بمفرده — جوه التاب مش بره بس.
 // فتح التاب/الموضوع بيسجل كل الكلمات/التصريفات الظاهرة فيه (لأنها كلها قدامك أول ما تفتح)،
 // والدوس على كلمة/تصريف بعينه (تسمعه) بيسجله +1 إضافية لأنه تفاعل أقوى.
@@ -1048,6 +1065,7 @@ function csEnterDrillUI(){
 function csRenderTranscript(){
   const wrap=document.getElementById('csTranscript');
   if(!wrap)return;
+  if(!csActive){wrap.innerHTML='';wrap.style.display='none';return;}
   const scene=(typeof SCENES!=='undefined')?SCENES.find(s=>s.id===csSceneId):null;
   const done=csDeck.slice(0,csIdx);
   if(!done.length){wrap.innerHTML='';wrap.style.display='none';return;}
@@ -1079,12 +1097,220 @@ function csShowGate(){
 function csDismissGate(){
   csGated=false;
   document.getElementById('csStartBtn').style.display='none';
+  if(gmRecogActive){ gmRecogShowQuestion(); return; }
   document.getElementById('lMicArea').style.display='';
   document.getElementById('lHeard').style.display='';
   document.getElementById('lBadge').style.display='';
   setStudyMode('speak');
 }
 
+// كل جُمل الأمثلة الموجودة في موضوع القواعد (من كل البلوكات اللي فيها examples)، من غير تكرار
+function topicExampleDeck(topic){
+  const seen=new Set();
+  const deck=[];
+  (topic.blocks||[]).forEach(b=>{
+    if(Array.isArray(b.examples)){
+      b.examples.forEach(ex=>{
+        if(!ex||!ex.it||!ex.ar)return;
+        if(ex.it.trim().split(/\s+/).length<2)return; // كلمة مفردة مش جملة — متتحلش زي جملة
+        const key=ex.it.toLowerCase();
+        if(seen.has(key))return;
+        seen.add(key);
+        const targetForm=ex.form||b.form||null; // شكل حرف الجر بالظبط في المثال ده (بيفرق مع del/nel/sul... المدمجة)
+        const targetColor=ex.color||b.color||null; // لون الاستخدام ده تحديدًا (مش لون عام للموضوع كله)
+        deck.push({it:ex.it,ar:ex.ar,en:ex.en||'',pronoun:topic.it,words:buildWordsFromSentence(ex.it,topic,targetForm,targetColor)});
+      });
+    }
+  });
+  return deck;
+}
+// بريكداون بسيط بيتولّد تلقائي من نص الجملة (مفيش بيانات كلمة-كلمة زي scenes.js هنا) —
+// لو الجملة جايه من بلوك "usage" (زي حروف الجر) بنستخدم الـform/color بتاعت الاستخدام
+// ده بالظبط عشان الكلمة تتلوّن بنفس لون النُطاق اللي شرحها منه، مش لون عشوائي. باقي
+// حروف الجر/الأدوات بتتعلّم "omesso" زي العادة، والكلمة اللي من نفس الموضوع بتاخد
+// grammarId بتاعه عشان تترصد في عداد الرؤية، والباقي كلمات عادية بس قابلة للنطق.
+function buildWordsFromSentence(sentenceIt,topic,targetForm,targetColor){
+  const topicWordsLc=topicWordKeys(topic).map(w=>w.toLowerCase());
+  const targetLc=targetForm?targetForm.toLowerCase():null;
+  let targetMatched=false;
+  return sentenceIt.split(/\s+/).map(tok=>{
+    const clean=tok.replace(/^[.,!?;:'"]+|[.,!?;:'"]+$/g,'');
+    if(!clean)return {it:tok,ar:'',type:'altro',note:null};
+    if(targetLc&&!targetMatched&&clean.toLowerCase()===targetLc){
+      targetMatched=true;
+      const w={it:clean,ar:'',type:'preposizione',grammarId:topic.id,note:null};
+      if(targetColor)w.color=targetColor;
+      return w;
+    }
+    if(isAutoSkipWord(clean)){
+      return {it:clean,ar:'',type:'omesso',skipReason:'ausiliare',note:null};
+    }
+    if(topicWordsLc.includes(clean.toLowerCase())){
+      return {it:clean,ar:'',type:'altro',grammarId:topic.id,note:null};
+    }
+    return {it:clean,ar:'',type:'altro',note:null};
+  });
+}
+function gmStartDrill(topicId){
+  const topic=getGrammarTopic(topicId);
+  if(!topic||!TOPIC_DRILL_READY.includes(topicId))return;
+  const isRecognition=(topic.blocks||[]).some(b=>b.type==='usage');
+  if(csActive){
+    // مذاكرة محادثة شغالة دلوقتي — نوقفها مؤقتًا (تقدمها محفوظ أصلاً) عشان محرك السلسلة
+    // مايتلخبطش بين الاتنين، وهترجعلها تكمل عادي لما ترجع لتبويب أسئلة السياق.
+    csActive=false; wpChainActive=false; wpChainItOnly=false;
+  }
+  if(isRecognition){
+    gmRecogDeck=topicRecognitionDeck(topic);
+    if(gmRecogDeck.length===0)return;
+    gmRecogTopicId=topicId;
+    gmRecogIdx=0;
+    closeGrammarModal();
+    gmRecogEnter();
+    return;
+  }
+  gmDrillDeck=topicExampleDeck(topic);
+  if(gmDrillDeck.length===0)return;
+  gmDrillTopicId=topicId;
+  gmDrillIdx=0;
+  closeGrammarModal();
+  gmEnterDrillUI();
+}
+// كل جُمل أمثلة كل استخدامات حرف الجر (مش لون واحد للموضوع كله — كل جملة بلون
+// استخدامها الحقيقي)، من غير تلوين حرف الجر نفسه (عشان مايفضحش إجابة السؤال).
+function topicRecognitionDeck(topic){
+  const usageBlocks=(topic.blocks||[]).filter(b=>b.type==='usage');
+  const seen=new Set();
+  const deck=[];
+  usageBlocks.forEach(b=>{
+    (b.examples||[]).forEach(ex=>{
+      if(!ex||!ex.it||!ex.ar)return;
+      const key=ex.it.toLowerCase();
+      if(seen.has(key))return;
+      seen.add(key);
+      const targetForm=ex.form||b.form||null;
+      deck.push({
+        it:ex.it,ar:ex.ar,en:ex.en||'',pronoun:topic.it,
+        words:buildWordsFromSentence(ex.it,topic,targetForm,null),
+        usageTitle:b.title,usageColor:b.color,usageDescription:b.description
+      });
+    });
+  });
+  return deck;
+}
+function recognitionQuestionOptions(item,topic,seed){
+  const usageBlocks=(topic.blocks||[]).filter(b=>b.type==='usage');
+  const others=usageBlocks.filter(b=>b.title!==item.usageTitle);
+  const distractors=[];
+  for(let i=0;i<others.length&&distractors.length<3;i++)distractors.push(others[(seed+i)%others.length]);
+  const pool=[{title:item.usageTitle,color:item.usageColor},...distractors.map(b=>({title:b.title,color:b.color}))];
+  const colorMap={}; pool.forEach(o=>{colorMap[o.title]=o.color;});
+  const bal=balanceCorrect(pool.map(o=>o.title),0,seed);
+  return {options:bal.options.map(t=>({title:t,color:colorMap[t]})),answer:bal.correct};
+}
+function gmRecogEnter(){
+  gmRecogActive=true;
+  lDeck=gmRecogDeck;
+  lIdx=gmRecogIdx;
+  currentStudyMode='speak'; // بس عشان lRender يبني الهيدر والبريكداون — مفيش مايك هيظهر أصلاً
+  hideLessonLocked();
+  document.getElementById('game').style.display='none';
+  const ceEl=document.getElementById('convoExplain'); if(ceEl)ceEl.style.display='none';
+  document.getElementById('lessonMode').style.display='flex';
+  document.getElementById('lRestartBtn').style.display='none';
+  csSetChromeVisible(false);
+  lRender();
+  csShowGate();
+}
+function gmRecogShowQuestion(){
+  gmRecogAnswered=false;
+  const item=gmRecogDeck[gmRecogIdx];
+  const topic=getGrammarTopic(gmRecogTopicId);
+  const seed=[...item.it].reduce((s,ch)=>s+ch.charCodeAt(0),0)+gmRecogIdx;
+  const q=recognitionQuestionOptions(item,topic,seed);
+  gmRecogCorrectIdx=q.answer;
+  const box=document.getElementById('gmRecogQuiz');
+  box.style.display='block';
+  document.getElementById('gmRecogOptions').innerHTML=q.options.map((o,i)=>{
+    return '<button class="q-opt" style="background:'+o.color+'22;border-color:'+o.color+';color:'+o.color+'" onclick="gmRecogAnswer('+i+')">'+escHtml(o.title)+'</button>';
+  }).join('');
+  document.getElementById('gmRecogFeedback').innerHTML='';
+  const nextBtn=document.getElementById('lNextBtn');
+  nextBtn.className='next-btn';
+}
+let gmRecogCorrectIdx=null;
+function gmRecogAnswer(i){
+  if(gmRecogAnswered)return;
+  gmRecogAnswered=true;
+  const item=gmRecogDeck[gmRecogIdx];
+  const btns=[...document.getElementById('gmRecogOptions').children];
+  btns.forEach(b=>b.disabled=true);
+  const ok=i===gmRecogCorrectIdx;
+  if(ok){
+    btns[i].classList.add('ok');btns[i].style.background='#00e8961a';btns[i].style.borderColor='var(--green)';
+    floatEmoji('✅');
+  } else {
+    btns[i].classList.add('bad');btns[i].style.background='#ff4d6d1a';btns[i].style.borderColor='var(--red)';
+    if(btns[gmRecogCorrectIdx]){
+      btns[gmRecogCorrectIdx].classList.add('ok');
+      btns[gmRecogCorrectIdx].style.background='#00e8961a';
+      btns[gmRecogCorrectIdx].style.borderColor='var(--green)';
+    }
+  }
+  document.getElementById('gmRecogFeedback').innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(item.usageDescription||'');
+  bumpTopicWordView(gmRecogTopicId,item.it);
+  const nextBtn=document.getElementById('lNextBtn');
+  nextBtn.className='next-btn show';
+  nextBtn.textContent=(gmRecogIdx+1>=gmRecogDeck.length)?'أنهيت المراجعة 🏆':'الجملة الجاية ←';
+  nextBtn.onclick=gmRecogNext;
+}
+function gmRecogNext(){
+  if(!gmRecogAnswered)return;
+  gmRecogIdx++;
+  document.getElementById('gmRecogQuiz').style.display='none';
+  if(gmRecogIdx>=gmRecogDeck.length){ gmRecogFinish(); return; }
+  lIdx=gmRecogIdx;
+  lRender();
+  csShowGate();
+}
+function gmRecogFinish(){
+  gmRecogActive=false;
+  document.getElementById('gmRecogQuiz').style.display='none';
+  document.getElementById('lessonMode').style.display='none';
+  csSetChromeVisible(true);
+  const topicId=gmRecogTopicId;
+  gmRecogTopicId=null;
+  openGrammarModal(topicId);
+}
+function gmEnterDrillUI(){
+  gmDrillActive=true;
+  wpChainActive=true;
+  wpChainItOnly=true;
+  seqSub='it';
+  const seqItTab=document.getElementById('seqSubIt'); if(seqItTab)seqItTab.classList.add('active');
+  const seqArTab=document.getElementById('seqSubAr'); if(seqArTab)seqArTab.classList.remove('active');
+  lDeck=gmDrillDeck;
+  lIdx=gmDrillIdx;
+  currentStudyMode='speak';
+  hideLessonLocked();
+  document.getElementById('game').style.display='none';
+  const ceEl=document.getElementById('convoExplain'); if(ceEl)ceEl.style.display='none';
+  document.getElementById('lessonMode').style.display='flex';
+  document.getElementById('lRestartBtn').style.display='none';
+  csSetChromeVisible(false);
+  lRender();
+  csShowGate();
+}
+function gmFinishDrill(){
+  gmDrillActive=false;
+  wpChainActive=false;
+  wpChainItOnly=false;
+  document.getElementById('lessonMode').style.display='none';
+  csSetChromeVisible(true);
+  const topicId=gmDrillTopicId;
+  gmDrillTopicId=null;
+  openGrammarModal(topicId);
+}
 function csFinishScene(){
   csCompletedScenes.add(csSceneId);
   csActive=false;
@@ -1179,14 +1405,25 @@ function csGrammarQuizNext(){
 // بيتنادى من wpMaybeChainAfterWrite بعد ما يخلص سؤال الجرامر — يفتح شرح الجملة الجاية،
 // أو لو دي كانت آخر جملة في المحادثة يسلّم الدفة لأسئلة السياق بتاعتها.
 function wpChainAdvanceToNextSentence(){
-  if(!csActive)return;
-  csIdx++;
-  saveCsProgress();
-  if(csIdx>=csDeck.length){ csFinishScene(); return; }
-  lIdx=csIdx;
-  currentStudyMode='speak';
-  lRender();
-  csShowGate();
+  if(csActive){
+    csIdx++;
+    saveCsProgress();
+    if(csIdx>=csDeck.length){ csFinishScene(); return; }
+    lIdx=csIdx;
+    currentStudyMode='speak';
+    lRender();
+    csShowGate();
+    return;
+  }
+  if(gmDrillActive){
+    gmDrillIdx++;
+    if(gmDrillIdx>=gmDrillDeck.length){ gmFinishDrill(); return; }
+    lIdx=gmDrillIdx;
+    currentStudyMode='speak';
+    lRender();
+    csShowGate();
+    return;
+  }
 }
 function qNext(){
   if(!qAnswered)return;
@@ -1302,6 +1539,16 @@ function floatEmoji(emoji){
 // ===== INFINITE LESSON ENGINE =====
 function switchMode(mode){
   seqStopTts();
+  if(gmDrillActive){
+    // مراجعة موضوع قواعد خفيفة، مفيش تقدّم نحفظه — لو خرج منها نلغيها بس من غير تعقيد
+    gmDrillActive=false; wpChainActive=false; wpChainItOnly=false;
+    csSetChromeVisible(true);
+  }
+  if(gmRecogActive){
+    gmRecogActive=false;
+    const q=document.getElementById('gmRecogQuiz'); if(q)q.style.display='none';
+    csSetChromeVisible(true);
+  }
   const isWord=mode==='word';
   const isLesson=mode==='lesson';
   const isVerbs=mode==='verbs';
@@ -1571,6 +1818,8 @@ function openGrammarModal(topicId){
   document.getElementById('gmIt').textContent=topic.it;
   document.getElementById('gmAr').textContent=topic.ar;
   document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],topicId);
+  const drillBtn=document.getElementById('gmDrillBtn');
+  drillBtn.style.display=TOPIC_DRILL_READY.includes(topicId)?'block':'none';
   document.getElementById('grammarModalOverlay').classList.add('show');
 }
 function closeGrammarModal(){
@@ -2781,6 +3030,10 @@ function checkWrite(){
     csCollectGrammarQuestion();
     document.getElementById('lNextBtn').className='next-btn show';
     document.getElementById('lNextBtn').textContent=lIdx+1>=lDeck.length?'أنهيت المجموعة 🏆':'← الجملة التالية';
+    wpMaybeChainAfterWrite();
+  } else if(gmDrillActive){
+    document.getElementById('lNextBtn').className='next-btn show';
+    document.getElementById('lNextBtn').textContent=lIdx+1>=lDeck.length?'أنهيت المراجعة 🏆':'← الجملة التالية';
     wpMaybeChainAfterWrite();
   } else {
     showGrammarQuestion();
