@@ -1,5 +1,5 @@
 // Parla Italiano — Service Worker v26 (رجّعنا تبويب أسئلة السياق)
-const SHELL_CACHE = 'parla-shell-v26';
+const SHELL_CACHE = 'parla-shell-v27';
 // نحافظ على كاش الموديلات بين إصدارات واجهة التطبيق لتجنب إعادة تنزيلها.
 const MODEL_CACHE = 'parla-models-v1';
 

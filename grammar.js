@@ -2300,6 +2300,26 @@ const GRAMMAR = [
             "it": "Il telefono di Leo è nuovo",
             "ar": "تليفون ليو جديد",
             "form": "di"
+          },
+          {
+            "it": "La macchina di mio padre è rossa",
+            "ar": "عربية أبويا حمرا",
+            "form": "di"
+          },
+          {
+            "it": "Questo è il libro di Maria",
+            "ar": "ده كتاب ماريا",
+            "form": "di"
+          },
+          {
+            "it": "La casa dei miei nonni è grande",
+            "ar": "بيت جدودي كبير",
+            "form": "di"
+          },
+          {
+            "it": "Ho letto le lettere di mia nonna",
+            "ar": "قريت خطابات جدتي",
+            "form": "di"
           }
         ]
       },
@@ -2314,6 +2334,26 @@ const GRAMMAR = [
           {
             "it": "Sono di Roma",
             "ar": "أنا من روما",
+            "form": "di"
+          },
+          {
+            "it": "Lei è di Napoli",
+            "ar": "هي من نابولي",
+            "form": "di"
+          },
+          {
+            "it": "Il formaggio di questa zona è famoso",
+            "ar": "الجبنة بتاعة المنطقة دي مشهورة",
+            "form": "di"
+          },
+          {
+            "it": "Marco è di origine italiana",
+            "ar": "ماركو أصله إيطالي",
+            "form": "di"
+          },
+          {
+            "it": "Sono di Milano, e tu?",
+            "ar": "أنا من ميلانو، وإنت؟",
             "form": "di"
           }
         ]
@@ -2330,6 +2370,26 @@ const GRAMMAR = [
             "it": "Il tavolo è di legno",
             "ar": "الطاولة من الخشب",
             "form": "di"
+          },
+          {
+            "it": "Ho un anello di oro",
+            "ar": "عندي خاتم دهب",
+            "form": "di"
+          },
+          {
+            "it": "La borsa è di pelle",
+            "ar": "الشنطة جلد",
+            "form": "di"
+          },
+          {
+            "it": "Questa maglia è di lana",
+            "ar": "البلوزة دي صوف",
+            "form": "di"
+          },
+          {
+            "it": "La statua è di marmo",
+            "ar": "التمثال رخام",
+            "form": "di"
           }
         ]
       },
@@ -2344,6 +2404,26 @@ const GRAMMAR = [
           {
             "it": "Parliamo di calcio",
             "ar": "نتحدث عن كرة القدم",
+            "form": "di"
+          },
+          {
+            "it": "Il film parla di guerra",
+            "ar": "الفيلم بيتكلم عن الحرب",
+            "form": "di"
+          },
+          {
+            "it": "Scriviamo di storia",
+            "ar": "بنكتب عن التاريخ",
+            "form": "di"
+          },
+          {
+            "it": "Discutiamo di politica",
+            "ar": "بنناقش في السياسة",
+            "form": "di"
+          },
+          {
+            "it": "Non so niente di matematica",
+            "ar": "معرفش حاجة عن الرياضيات",
             "form": "di"
           }
         ]
@@ -2360,6 +2440,26 @@ const GRAMMAR = [
             "it": "Leggo un libro di storia",
             "ar": "أقرأ كتاب تاريخ",
             "form": "di"
+          },
+          {
+            "it": "Ho comprato un corso di italiano",
+            "ar": "اشتريت كورس إيطالي",
+            "form": "di"
+          },
+          {
+            "it": "Voglio un bicchiere di vino",
+            "ar": "عايز كباية نبيت",
+            "form": "di"
+          },
+          {
+            "it": "È un film di avventura",
+            "ar": "ده فيلم مغامرات",
+            "form": "di"
+          },
+          {
+            "it": "Studio un corso di cucina",
+            "ar": "بذاكر كورس طبخ",
+            "form": "di"
           }
         ]
       },
@@ -2374,6 +2474,26 @@ const GRAMMAR = [
           {
             "it": "Studio di notte",
             "ar": "أذاكر في الليل",
+            "form": "di"
+          },
+          {
+            "it": "Lavoro di giorno",
+            "ar": "بشتغل بالنهار",
+            "form": "di"
+          },
+          {
+            "it": "Non esco mai di sera da solo",
+            "ar": "عمري ما باخرج بالليل لوحدي",
+            "form": "di"
+          },
+          {
+            "it": "Arriviamo di mattina presto",
+            "ar": "نوصل الصبح بدري",
+            "form": "di"
+          },
+          {
+            "it": "Dormo di pomeriggio",
+            "ar": "بنام بعد الضهر",
             "form": "di"
           }
         ]
@@ -2390,6 +2510,26 @@ const GRAMMAR = [
             "it": "Bevo una tazza di caffè",
             "ar": "أشرب فنجانًا من القهوة",
             "form": "di"
+          },
+          {
+            "it": "Mangio un pezzo di pane",
+            "ar": "باكل حتة عيش",
+            "form": "di"
+          },
+          {
+            "it": "Ho bisogno di un litro di latte",
+            "ar": "محتاج لتر لبن",
+            "form": "di"
+          },
+          {
+            "it": "Compro un chilo di mele",
+            "ar": "بشتري كيلو تفاح",
+            "form": "di"
+          },
+          {
+            "it": "Voglio un po' di zucchero",
+            "ar": "عايز شوية سكر",
+            "form": "di"
           }
         ]
       },
@@ -2404,6 +2544,26 @@ const GRAMMAR = [
           {
             "it": "Tremo di freddo",
             "ar": "أرتجف من البرد",
+            "form": "di"
+          },
+          {
+            "it": "Piango di gioia",
+            "ar": "بعيط من الفرح",
+            "form": "di"
+          },
+          {
+            "it": "Muoio di fame",
+            "ar": "هموت من الجوع",
+            "form": "di"
+          },
+          {
+            "it": "Grido di paura",
+            "ar": "بصرخ من الخوف",
+            "form": "di"
+          },
+          {
+            "it": "Rido di felicità",
+            "ar": "باضحك من السعادة",
             "form": "di"
           }
         ]
@@ -2420,6 +2580,26 @@ const GRAMMAR = [
             "it": "Cammino di corsa",
             "ar": "أمشي مسرعًا",
             "form": "di"
+          },
+          {
+            "it": "Di solito parlo lentamente",
+            "ar": "عادةً بتكلم ببطء",
+            "form": "di"
+          },
+          {
+            "it": "Vivo di rado in città",
+            "ar": "نادرًا ما بعيش في المدينة",
+            "form": "di"
+          },
+          {
+            "it": "Lavoro di nascosto",
+            "ar": "بشتغل في الخفاء",
+            "form": "di"
+          },
+          {
+            "it": "Guardo di sfuggita",
+            "ar": "باتفرج بسرعة عابرة",
+            "form": "di"
           }
         ]
       },
@@ -2434,6 +2614,26 @@ const GRAMMAR = [
           {
             "it": "Ho deciso di partire",
             "ar": "قررت أن أغادر",
+            "form": "di"
+          },
+          {
+            "it": "Cerco di studiare ogni giorno",
+            "ar": "بحاول أذاكر كل يوم",
+            "form": "di"
+          },
+          {
+            "it": "Finisco di lavorare alle sei",
+            "ar": "بخلص شغل الساعة 6",
+            "form": "di"
+          },
+          {
+            "it": "Mi dimentico sempre di chiamare",
+            "ar": "دايمًا بنسى أتصل",
+            "form": "di"
+          },
+          {
+            "it": "Spero di vederti presto",
+            "ar": "أتمنى أشوفك قريب",
             "form": "di"
           }
         ]

@@ -644,7 +644,7 @@ let csGrammarQAnswered=false;
 // دراسة المحادثة (نطق ← ترتيب إيطالي ← كتابة) لكن على جُمل أمثلة الموضوع نفسه، مش جُمل
 // محادثة. المواضيع بتتفعّل واحد واحد هنا (مش أوتوماتيك) عشان نضيفها بالتدريج وإحنا متأكدين
 // إن أمثلتها كفاية.
-const TOPIC_DRILL_READY=[];
+const TOPIC_DRILL_READY=['prep_di'];
 let gmDrillActive=false;
 let gmDrillTopicId=null;
 let gmDrillDeck=[];
@@ -1820,6 +1820,7 @@ function openGrammarModal(topicId){
   document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],topicId);
   const drillBtn=document.getElementById('gmDrillBtn');
   drillBtn.style.display=TOPIC_DRILL_READY.includes(topicId)?'block':'none';
+  drillBtn.onclick=function(){gmStartDrill(topicId);};
   document.getElementById('grammarModalOverlay').classList.add('show');
 }
 function closeGrammarModal(){
