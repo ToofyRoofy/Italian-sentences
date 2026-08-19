@@ -1153,8 +1153,8 @@ function buildWordsFromSentence(sentenceIt,topic,targetForm,targetColor){
 }
 function gmStartDrill(topicId){
   const topic=getGrammarTopic(topicId);
-  if(!topic){console.warn('[Parla] gmStartDrill: topic not found for id',topicId);return;}
-  if(!TOPIC_DRILL_READY.includes(topicId)){console.warn('[Parla] gmStartDrill: topic not in TOPIC_DRILL_READY',topicId,TOPIC_DRILL_READY);return;}
+  if(!topic)return;
+  if(!TOPIC_DRILL_READY.includes(topicId))return;
   const isRecognition=(topic.blocks||[]).some(b=>b.type==='usage');
   if(csActive){
     // مذاكرة محادثة شغالة دلوقتي — نوقفها مؤقتًا (تقدمها محفوظ أصلاً) عشان محرك السلسلة
@@ -1163,8 +1163,7 @@ function gmStartDrill(topicId){
   }
   if(isRecognition){
     gmRecogDeck=topicRecognitionDeck(topic);
-    if(gmRecogDeck.length===0){console.warn('[Parla] gmStartDrill: recognition deck is empty for',topicId,topic);return;}
-    console.log('[Parla] gmStartDrill: starting recognition mode,',gmRecogDeck.length,'items');
+    if(gmRecogDeck.length===0)return;
     gmRecogTopicId=topicId;
     gmRecogIdx=0;
     closeGrammarModal();
@@ -1172,8 +1171,7 @@ function gmStartDrill(topicId){
     return;
   }
   gmDrillDeck=topicExampleDeck(topic);
-  if(gmDrillDeck.length===0){console.warn('[Parla] gmStartDrill: production deck is empty for',topicId,topic);return;}
-  console.log('[Parla] gmStartDrill: starting production mode,',gmDrillDeck.length,'items');
+  if(gmDrillDeck.length===0)return;
   gmDrillTopicId=topicId;
   gmDrillIdx=0;
   closeGrammarModal();
@@ -1823,8 +1821,11 @@ function openGrammarModal(topicId){
   document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],topicId);
   const drillBtn=document.getElementById('gmDrillBtn');
   drillBtn.style.display=TOPIC_DRILL_READY.includes(topicId)?'block':'none';
-  drillBtn.onclick=function(){console.log('[Parla] drill button clicked for',topicId);gmStartDrill(topicId);};
   document.getElementById('grammarModalOverlay').classList.add('show');
+}
+function gmDrillBtnClicked(){
+  if(!currentGmTopicId)return;
+  gmStartDrill(currentGmTopicId);
 }
 function closeGrammarModal(){
   document.getElementById('grammarModalOverlay').classList.remove('show');
