@@ -1,5 +1,5 @@
 // Parla Italiano — Service Worker v26 (رجّعنا تبويب أسئلة السياق)
-const SHELL_CACHE = 'parla-shell-v27';
+const SHELL_CACHE = 'parla-shell-v28';
 // نحافظ على كاش الموديلات بين إصدارات واجهة التطبيق لتجنب إعادة تنزيلها.
 const MODEL_CACHE = 'parla-models-v1';
 
@@ -38,11 +38,17 @@ function isTrustedCdn(hostname) {
   return CDN_HOSTS.some(host => hostname === host || hostname.endsWith(`.${host}`));
 }
 
-// ===== INSTALL: خزّن الشِل كاملًا، وافشل التثبيت لو ملف أساسي ناقص =====
+// ===== INSTALL: خزّن الشِل، لكن ملف واحد فشل مايوقفش التحديث كله (كان ده الباج:
+// addAll بتفشل بالكامل لو ملف واحد بس فيه مشكلة، فالنسخة الجديدة تفضل عمرها ما
+// بتتفعّل والقديمة تفضل شغالة للأبد مهما رفعت تحديثات). =====
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(SHELL_CACHE)
-      .then(cache => cache.addAll(CORE_FILES))
+      .then(cache => Promise.all(
+        CORE_FILES.map(file =>
+          cache.add(file).catch(err => console.warn('[Parla SW] failed to cache', file, err))
+        )
+      ))
       .then(() => self.skipWaiting())
   );
 });
