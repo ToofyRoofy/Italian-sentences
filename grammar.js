@@ -2314,7 +2314,7 @@ const GRAMMAR = [
           {
             "it": "La casa dei miei nonni è grande",
             "ar": "بيت جدودي كبير",
-            "form": "di"
+            "form": "dei"
           },
           {
             "it": "Ho letto le lettere di mia nonna",

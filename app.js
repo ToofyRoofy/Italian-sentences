@@ -585,7 +585,6 @@ function collectAppState(){
   return {
     version:8,
     unlockedSentenceIndices:wpUnlockedIndices||[],
-    wordMode:{sentenceIdx:wpSentenceIdx||0,wordPos:wpPos||0},
     lessonMode:{idx:lIdx||0,studyMode:currentStudyMode||'speak',seqSub:seqSub||'it'},
     scores:skillScores
   };
@@ -594,7 +593,6 @@ function saveAppState(){
   try{
     localStorage.setItem('parlaAppStateV8',JSON.stringify(collectAppState()));
     localStorage.setItem('parlaUnlockedSentenceIndices',JSON.stringify(wpUnlockedIndices||[]));
-    localStorage.setItem('parlaWordProgress',JSON.stringify({sentenceIdx:wpSentenceIdx||0,wordPos:wpPos||0}));
     localStorage.setItem('parlaLessonProgress',JSON.stringify({idx:lIdx||0}));
     localStorage.setItem('parlaSkillScores',JSON.stringify(skillScores));
     const n=document.getElementById('autosaveNote'); if(n)n.textContent='✅ اتحفظ تلقائيًا';
@@ -610,21 +608,13 @@ function loadAppState(){
 }
 function confirmResetAllProgress(){
   if(!confirm('متأكد؟ هذا هيمسح الجمل المفتوحة والسكور وكل التقدم المحفوظ.'))return;
-  ['parlaAppStateV8','parlaUnlockedSentenceIndices','parlaWordProgress','parlaLessonProgress','parlaSkillScores','parlaQuestionProgress','parlaCsProgress','parlaViewCounts'].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});
-  wpUnlockedIndices=[]; resetSessionScores(); clearWordProgress(); location.reload();
+  ['parlaAppStateV8','parlaUnlockedSentenceIndices','parlaLessonProgress','parlaSkillScores','parlaQuestionProgress','parlaCsProgress','parlaViewCounts'].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});
+  wpUnlockedIndices=[]; resetSessionScores(); location.reload();
 }
 loadAppState();
 
-// ===== WORD TAB PIPELINE: يليسي على LESSON_SENTENCES جملة بجملة، كلمة بكلمة =====
-let wpSentenceIdx=0;
-let wpWordIndices=[];
-let wpPos=0;
-let wpQuizList=[];
-let wpQuizIdx=0;
-let wpRetryTarget=null;
-let wpRetryFails=0;
+// ===== CHAIN STATE: دراسة المحادثة/التمارين بتستعير محرك الدرس الإنفينيتي بالكامل =====
 let wpChainActive=false;
-let wpChainSentenceIdx=null;
 let wpChainItOnly=false; // true أثناء دراسة المحادثة: نتخطى سب-تبويب "رتّب بالعربي" ونروح على الكتابة على طول
 let wpUnlockedIndices=[]; // فهرس بالجمل الذي أنهيت كلماتها في تبويب نطق الكلمات — هذه الذي بتفتح في تبويب الدرس الإنفينيتي
 
@@ -840,22 +830,6 @@ function loadUnlockedSentences(){
 }
 loadUnlockedSentences();
 
-function saveWordProgress(){
-  try{localStorage.setItem('parlaWordProgress',JSON.stringify({sentenceIdx:wpSentenceIdx,wordPos:wpPos}));}catch(e){}
-  setTimeout(saveAppState,0);
-}
-function loadWordProgress(){
-  try{
-    const raw=localStorage.getItem('parlaWordProgress'); if(!raw)return null;
-    const st=JSON.parse(raw);
-    if(Number.isInteger(st.sentenceIdx)&&st.sentenceIdx>=0&&st.sentenceIdx<LESSON_SENTENCES.length){
-      return {sentenceIdx:st.sentenceIdx,wordPos:Number.isInteger(st.wordPos)?Math.max(0,st.wordPos):0};
-    }
-  }catch(e){}
-  return null;
-}
-function clearWordProgress(){try{localStorage.removeItem('parlaWordProgress');}catch(e){}}
-
 function resetAllProgress(){
   resetSessionScores();
   try{localStorage.removeItem('parlaQuestionProgress');}catch(e){}
@@ -1054,12 +1028,14 @@ function csEnterDrillUI(){
   hideLessonLocked();
   document.getElementById('game').style.display='none';
   const ceEl=document.getElementById('convoExplain'); if(ceEl)ceEl.style.display='none';
+  document.getElementById('verbsMode').style.display='none';
   document.getElementById('lessonMode').style.display='flex';
   document.getElementById('lRestartBtn').style.display='none';
   csSetChromeVisible(false);
   lRender();
   csUpdateConvoCountLabel();
   csShowGate();
+  window.scrollTo(0,0);
 }
 
 function csRenderTranscript(){
@@ -1153,29 +1129,41 @@ function buildWordsFromSentence(sentenceIt,topic,targetForm,targetColor){
 }
 function gmStartDrill(topicId){
   const topic=getGrammarTopic(topicId);
-  if(!topic)return;
-  if(!TOPIC_DRILL_READY.includes(topicId))return;
+  if(!topic){alert('⚠️ الموضوع ده مش موجود في بيانات القواعد.');return;}
+  if(!TOPIC_DRILL_READY.includes(topicId))return; // الزرار أصلاً بيبقى مخفي في الحالة دي
   const isRecognition=(topic.blocks||[]).some(b=>b.type==='usage');
   if(csActive){
     // مذاكرة محادثة شغالة دلوقتي — نوقفها مؤقتًا (تقدمها محفوظ أصلاً) عشان محرك السلسلة
     // مايتلخبطش بين الاتنين، وهترجعلها تكمل عادي لما ترجع لتبويب أسئلة السياق.
     csActive=false; wpChainActive=false; wpChainItOnly=false;
   }
-  if(isRecognition){
-    gmRecogDeck=topicRecognitionDeck(topic);
-    if(gmRecogDeck.length===0)return;
-    gmRecogTopicId=topicId;
-    gmRecogIdx=0;
+  try{
+    if(isRecognition){
+      gmRecogDeck=topicRecognitionDeck(topic);
+      if(gmRecogDeck.length===0){
+        alert('⚠️ لسه مفيش أمثلة كفاية للموضوع ده عشان نبني تمرين منه.');
+        return;
+      }
+      gmRecogTopicId=topicId;
+      gmRecogIdx=0;
+      closeGrammarModal();
+      gmRecogEnter();
+      return;
+    }
+    gmDrillDeck=topicExampleDeck(topic);
+    if(gmDrillDeck.length===0){
+      alert('⚠️ لسه مفيش أمثلة كفاية للموضوع ده عشان نبني تمرين منه.');
+      return;
+    }
+    gmDrillTopicId=topicId;
+    gmDrillIdx=0;
     closeGrammarModal();
-    gmRecogEnter();
-    return;
+    gmEnterDrillUI();
+  }catch(e){
+    // لو حصل أي خطأ غير متوقع في بناء التمرين، منسيبش الزرار يفضل "ميعملش حاجة" من غير تفسير.
+    console.error('gmStartDrill failed for topic', topicId, e);
+    alert('⚠️ حصلت مشكلة وإحنا بنجهّز التمرين. جرّب تاني، ولو المشكلة استمرت بلّغنا.');
   }
-  gmDrillDeck=topicExampleDeck(topic);
-  if(gmDrillDeck.length===0)return;
-  gmDrillTopicId=topicId;
-  gmDrillIdx=0;
-  closeGrammarModal();
-  gmEnterDrillUI();
 }
 // كل جُمل أمثلة كل استخدامات حرف الجر (مش لون واحد للموضوع كله — كل جملة بلون
 // استخدامها الحقيقي)، من غير تلوين حرف الجر نفسه (عشان مايفضحش إجابة السؤال).
@@ -1197,16 +1185,20 @@ function topicRecognitionDeck(topic){
       });
     });
   });
-  return deck;
+  // مهم: من غير ما نخلط الترتيب، الأسئلة كانت بتيجي مجمّعة حسب كل استخدام (كل 5
+  // أمثلة الاستخدام الأول ورا بعض، بعدين كل 5 أمثلة الاستخدام التاني...)، فكان
+  // بيحس اليوزر إن نفس الإجابة بتتكرر أربع خمس مرات ورا بعض. بنخلط الديك كله
+  // مرة واحدة هنا عشان الاستخدامات تيجي متنوعة من أول سؤال.
+  return shuffle(deck);
 }
 function recognitionQuestionOptions(item,topic,seed){
   const usageBlocks=(topic.blocks||[]).filter(b=>b.type==='usage');
-  const others=usageBlocks.filter(b=>b.title!==item.usageTitle);
-  const distractors=[];
-  for(let i=0;i<others.length&&distractors.length<3;i++)distractors.push(others[(seed+i)%others.length]);
-  const pool=[{title:item.usageTitle,color:item.usageColor},...distractors.map(b=>({title:b.title,color:b.color}))];
+  // بنعرض كل استخدامات حرف الجر كخيارات (مش 4 بس)، عشان اليوزر يشوف الصورة
+  // الكاملة كل مرة ويقارن بينهم، مش يحفظ إجابة من مجموعة صغيرة بتتكرر.
+  const pool=shuffle(usageBlocks.map(b=>({title:b.title,color:b.color})));
   const colorMap={}; pool.forEach(o=>{colorMap[o.title]=o.color;});
-  const bal=balanceCorrect(pool.map(o=>o.title),0,seed);
+  const correctIdx=pool.findIndex(o=>o.title===item.usageTitle);
+  const bal=balanceCorrect(pool.map(o=>o.title),correctIdx<0?0:correctIdx,seed);
   return {options:bal.options.map(t=>({title:t,color:colorMap[t]})),answer:bal.correct};
 }
 function gmRecogEnter(){
@@ -1217,11 +1209,16 @@ function gmRecogEnter(){
   hideLessonLocked();
   document.getElementById('game').style.display='none';
   const ceEl=document.getElementById('convoExplain'); if(ceEl)ceEl.style.display='none';
+  // مهم: بندخل هنا غالبًا من تبويب "مكتبة السكربت" (verbsMode لسه ظاهر) — لازم نخفيه
+  // صراحة، وإلا هيفضل قاعد على الشاشة وتبويب الدرس اللي فتحناه هيتعرض تحته من غير
+  // ما اليوزر يشوفه، فيحس إن الزرار "مقفلش حاجة" وبس اتقفل زي ما لو دس على X.
+  document.getElementById('verbsMode').style.display='none';
   document.getElementById('lessonMode').style.display='flex';
   document.getElementById('lRestartBtn').style.display='none';
   csSetChromeVisible(false);
   lRender();
   csShowGate();
+  window.scrollTo(0,0);
 }
 function gmRecogShowQuestion(){
   gmRecogAnswered=false;
@@ -1278,7 +1275,12 @@ function gmRecogFinish(){
   gmRecogActive=false;
   document.getElementById('gmRecogQuiz').style.display='none';
   document.getElementById('lessonMode').style.display='none';
+  // رجّعنا مكتبة السكربت تظهر تاني (هي اللي كانت وراء البوب أب أصلاً قبل ما ندخل التمرين).
+  document.getElementById('verbsMode').style.display='flex';
   csSetChromeVisible(true);
+  // نفس ملحوظة csFinishScene/gmFinishDrill — كنا مستعيرين lDeck/lIdx لعرض أسئلة
+  // التعرّف، لازم نرجّعهم فاضيين عشان الدرس الإنفينيتي الحقيقي يرجع طبيعي.
+  lDeck=[];lIdx=0;
   const topicId=gmRecogTopicId;
   gmRecogTopicId=null;
   openGrammarModal(topicId);
@@ -1296,18 +1298,28 @@ function gmEnterDrillUI(){
   hideLessonLocked();
   document.getElementById('game').style.display='none';
   const ceEl=document.getElementById('convoExplain'); if(ceEl)ceEl.style.display='none';
+  // نفس ملحوظة gmRecogEnter: لازم نقفل مكتبة السكربت صراحة عشان مايبانش زي ما لو
+  // الزرار مقفلش حاجة.
+  document.getElementById('verbsMode').style.display='none';
   document.getElementById('lessonMode').style.display='flex';
   document.getElementById('lRestartBtn').style.display='none';
   csSetChromeVisible(false);
   lRender();
   csShowGate();
+  window.scrollTo(0,0);
 }
 function gmFinishDrill(){
   gmDrillActive=false;
   wpChainActive=false;
   wpChainItOnly=false;
   document.getElementById('lessonMode').style.display='none';
+  // رجّعنا مكتبة السكربت تظهر تاني (هي اللي كانت وراء البوب أب أصلاً قبل ما ندخل التمرين).
+  document.getElementById('verbsMode').style.display='flex';
   csSetChromeVisible(true);
+  // نفس ملحوظة csFinishScene: كنا مستعيرين lDeck/lIdx لعرض أمثلة الموضوع —
+  // لازم نرجّعهم فاضيين عشان تبويب "الدرس الإنفينيتي" يرجع يبني نفسه من جديد
+  // بدل ما يفضل عارض أمثلة الموضوع ده للأبد.
+  lDeck=[];lIdx=0;
   const topicId=gmDrillTopicId;
   gmDrillTopicId=null;
   openGrammarModal(topicId);
@@ -1320,6 +1332,11 @@ function csFinishScene(){
   saveCsProgress();
   document.getElementById('lessonMode').style.display='none';
   csSetChromeVisible(true);
+  // مهم: كنا بنستعير lDeck/lIdx (متغيرات محرك الدرس الإنفينيتي) عشان ندرس جُمل
+  // المحادثة بنفس المحرك — لازم نرجّعهم فاضيين لما نخلص، وإلا تبويب "الدرس
+  // الإنفينيتي" هيفضل عارض جُمل المحادثة القديمة بدل الجُمل الحقيقية بتاعته
+  // (switchMode بيتأكد إن lDeck فاضي قبل ما يعيد بناءه من جديد بـ lStart()).
+  lDeck=[];lIdx=0;
   if(csGrammarQuestions.length){
     csGrammarQuizStart();
   } else {
@@ -1541,14 +1558,18 @@ function floatEmoji(emoji){
 function switchMode(mode){
   seqStopTts();
   if(gmDrillActive){
-    // مراجعة موضوع قواعد خفيفة، مفيش تقدّم نحفظه — لو خرج منها نلغيها بس من غير تعقيد
+    // مراجعة موضوع قواعد خفيفة، مفيش تقدّم نحفظه — لو خرج منها نلغيها بس من غير تعقيد.
+    // برضو لازم نفضّي lDeck/lIdx (كانوا مستعارين لعرض أمثلة الموضوع) عشان تبويب
+    // الدرس الإنفينيتي الحقيقي يرجع يبني نفسه صح لما نرجعله.
     gmDrillActive=false; wpChainActive=false; wpChainItOnly=false;
     csSetChromeVisible(true);
+    lDeck=[];lIdx=0;
   }
   if(gmRecogActive){
     gmRecogActive=false;
     const q=document.getElementById('gmRecogQuiz'); if(q)q.style.display='none';
     csSetChromeVisible(true);
+    lDeck=[];lIdx=0;
   }
   const isWord=mode==='word';
   const isLesson=mode==='lesson';

@@ -1,5 +1,6 @@
-// Parla Italiano — Service Worker v26 (رجّعنا تبويب أسئلة السياق)
-const SHELL_CACHE = 'parla-shell-v28';
+// Parla Italiano — Service Worker v29 (تصليح فقدان تقدّم الدرس الإنفينيتي بعد
+// المحادثة/تمارين القواعد + زرار "ابدأ الحل" بقى بيوضّح المشكلة بدل ما يسكت)
+const SHELL_CACHE = 'parla-shell-v29';
 // نحافظ على كاش الموديلات بين إصدارات واجهة التطبيق لتجنب إعادة تنزيلها.
 const MODEL_CACHE = 'parla-models-v1';
 
