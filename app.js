@@ -634,7 +634,7 @@ let csGrammarQAnswered=false;
 // دراسة المحادثة (نطق ← ترتيب إيطالي ← كتابة) لكن على جُمل أمثلة الموضوع نفسه، مش جُمل
 // محادثة. المواضيع بتتفعّل واحد واحد هنا (مش أوتوماتيك) عشان نضيفها بالتدريج وإحنا متأكدين
 // إن أمثلتها كفاية.
-const TOPIC_DRILL_READY=['prep_di'];
+const TOPIC_DRILL_READY=['prep_di','prep_a','prep_da','prep_su','prep_con','prep_per','prep_tra_fra'];
 let gmDrillActive=false;
 let gmDrillTopicId=null;
 let gmDrillDeck=[];
@@ -1178,9 +1178,13 @@ function topicRecognitionDeck(topic){
       if(seen.has(key))return;
       seen.add(key);
       const targetForm=ex.form||b.form||null;
+      // لو الجملة معاها كسر كلمات جاهز (زي أمثلة "di" الخمسين) بنستخدمه زي ما هو —
+      // فيه ترجمة ومعنى نحوي لكل كلمة. من غير كده بنبني كسر تلقائي بسيط (تلوين
+      // حرف الجر بس، من غير ترجمة/شرح للكلمات التانية).
+      const words=(ex.words&&ex.words.length)?ex.words:buildWordsFromSentence(ex.it,topic,targetForm,null);
       deck.push({
         it:ex.it,ar:ex.ar,en:ex.en||'',pronoun:topic.it,
-        words:buildWordsFromSentence(ex.it,topic,targetForm,null),
+        words,
         usageTitle:b.title,usageColor:b.color,usageDescription:b.description
       });
     });
