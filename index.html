@@ -18,6 +18,7 @@
     <button class="mode-tab active" id="tabWord" onclick="switchMode('word')">❓ أسئلة السياق</button>
     <button class="mode-tab" id="tabLesson" onclick="switchMode('lesson')">📖 الدرس الإنفينيتي</button>
     <button class="mode-tab" id="tabVerbs" onclick="switchMode('verbs')">📚 مكتبة السكربت</button>
+    <button class="mode-tab" id="tabListening" onclick="switchMode('listening')">🎧 استماع</button>
   </div>
 
   <div class="engine-status" id="engineStatus"></div>
@@ -168,7 +169,7 @@
       <button class="next-btn show cs-start-btn" id="csStartBtn" style="display:none" onclick="csDismissGate()">🚀 ابتدي الحل</button>
       <div class="drill-box" id="gmRecogQuiz" style="display:none">
         <button class="tts-btn" id="gmRecogTtsBtn" style="width:100%;margin-bottom:10px" onclick="lSpeak()">🔊 استمع إلى الجملة</button>
-        <div class="drill-label">🎨 إيه استخدام حرف الجر هنا؟</div>
+        <div class="drill-label" id="gmRecogQuestionLabel">🎨 إيه استخدام حرف الجر هنا؟</div>
         <div id="gmRecogOptions" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"></div>
         <div id="gmRecogFeedback" style="margin-top:10px;font-size:14px;line-height:1.7"></div>
       </div>
@@ -189,10 +190,66 @@
     </div>
   </div>
 
+  <!-- FILL-BLANK MODE: جملة ناقصها كلمة (زي أداة تبعيض أو حرف جر)، اختار الشكل الصح
+       بدل ما تتعرف عليه وهو متلوّن قدامك — تدريب استرجاع (production) مش تمييز بس. -->
+  <div class="wrap" id="gmFillMode" style="display:none;padding:0">
+    <div class="prog-track"><div class="prog-fill" id="fillProgFill" style="width:0%"></div></div>
+    <div class="fill-progress-lbl" id="fillProgressLbl" style="text-align:center;opacity:.7;font-size:13px;margin-top:6px"></div>
+    <div class="q-card">
+      <div class="drill-label" id="fillTopicLabel">🧩 اختر الشكل الصح للفراغ</div>
+      <div class="q-prompt" id="fillPrompt" style="direction:ltr;text-align:center;font-size:21px;line-height:1.9;margin:18px 0;font-weight:700"></div>
+      <div id="fillArContext" style="text-align:center;opacity:.8;margin-bottom:16px;font-size:14.5px"></div>
+      <div class="q-options" id="fillOptions"></div>
+      <div class="q-feedback" id="fillFeedback"></div>
+    </div>
+    <button class="tts-btn" id="fillTtsBtn" style="width:100%;margin-top:10px;display:none" onclick="gmFillSpeak()">🔊 استمع للجملة كاملة</button>
+    <button class="next-btn" id="fillNextBtn" onclick="gmFillNext()">التالي ←</button>
+  </div>
+
+  <!-- TRANSFORM MODE: جزء من "الاختبار الشامل" — جملة مفرد، اختار صيغة الجمع الصح
+       كاملة (الأداة + الاسم مع بعض). بيتعرض بالتبادل مع شاشة "التمييز" (lessonMode)
+       جوه نفس الاختبار الشامل، مش وضع مستقل بزرار خاص بيه. -->
+  <div class="wrap" id="gmTransformMode" style="display:none;padding:0">
+    <div class="prog-track"><div class="prog-fill" id="comboProgFill" style="width:0%"></div></div>
+    <div class="fill-progress-lbl" id="comboProgressLbl" style="text-align:center;opacity:.7;font-size:13px;margin-top:6px"></div>
+    <div class="q-card">
+      <div class="drill-label" id="transformQuestionLabel">🔄 لو أكتر من واحد، تقول إيه؟</div>
+      <div style="text-align:center;opacity:.65;font-size:12.5px;margin-top:10px" id="transformSingLabel">الجملة الأصلية:</div>
+      <div id="transformSingPrompt" style="direction:ltr;text-align:center;font-size:19px;font-weight:700;margin:4px 0 2px"></div>
+      <div id="transformSingAr" style="text-align:center;opacity:.8;margin-bottom:16px;font-size:14px"></div>
+      <div class="q-options" id="transformOptions"></div>
+      <div class="q-feedback" id="transformFeedback"></div>
+    </div>
+    <button class="next-btn" id="transformNextBtn" onclick="gmComboNext()">التالي ←</button>
+  </div>
+
   <!-- VERBS MODE: مكتبة مرجعية للأفعال، مقسّمة ARE / ERE / IRE، اضغط على أي فعل يطلعلك pop up فيه تصريفه كمل -->
   <div class="wrap" id="verbsMode" style="display:none;padding:0">
     <div class="verbs-intro">📚 مكتبة السكربت — الأفعال وكل مواضيع القواعد. اضغط على أي بطاقة لعرض شرحها كاملاً.</div>
     <div id="verbGroups"></div>
+  </div>
+
+  <!-- LISTENING MODE: تاب مستقل تمامًا عن الجرامر — قطعة نص كبيرة (من كتاب غالبًا)
+       تتسمع وهي ظاهرة قدامك، وبعدها أسئلة فهم استماع (اختيار من متعدد). -->
+  <div class="wrap" id="listeningMode" style="display:none;padding:0">
+    <div id="listeningLibrary">
+      <div class="verbs-intro">🎧 قطع استماع — اقرا واسمع، وبعدين جاوب على أسئلة الفهم.</div>
+      <div id="listeningPassageList"></div>
+    </div>
+    <div id="listeningDetail" style="display:none">
+      <button class="skip-link" style="display:inline-block" onclick="listeningBackToLibrary()">→ رجوع لكل القطع</button>
+      <div class="card" style="margin-top:10px">
+        <div class="card-cat" id="lpTitleAr"></div>
+        <div class="card-ar" id="lpTitleIt" style="direction:ltr;text-align:left;font-size:20px;font-weight:700"></div>
+        <button class="tts-btn" id="lpListenAllBtn" style="width:100%;margin-top:12px" onclick="listeningSpeakAll()">🔊 استمع للقطعة كاملة</button>
+        <div id="lpParagraphs" style="margin-top:16px"></div>
+      </div>
+      <div id="lpQuestionsWrap" style="margin-top:18px">
+        <div class="drill-label" style="text-align:center">🧩 أسئلة الفهم</div>
+        <div id="lpQuestions"></div>
+      </div>
+      <div id="lpResult" style="display:none;text-align:center;margin-top:14px;font-size:16px"></div>
+    </div>
   </div>
 </div>
 
@@ -228,6 +285,8 @@
     </div>
     <div class="gm-body" id="gmBody"></div>
     <button class="next-btn show cs-start-btn" id="gmDrillBtn" style="display:none" onclick="gmDrillBtnClicked()">🚀 ابدأ الحل</button>
+    <button class="next-btn show cs-start-btn" id="gmFillBtn" style="display:none;margin-top:8px" onclick="gmFillBtnClicked()">🧩 املأ الفراغ</button>
+    <button class="next-btn show cs-start-btn" id="gmComboBtn" style="display:none;margin-top:8px" onclick="gmComboBtnClicked()">🔀 اختبار شامل (تمييز + تحويل)</button>
   </div>
 </div>
 

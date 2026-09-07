@@ -634,7 +634,7 @@ let csGrammarQAnswered=false;
 // دراسة المحادثة (نطق ← ترتيب إيطالي ← كتابة) لكن على جُمل أمثلة الموضوع نفسه، مش جُمل
 // محادثة. المواضيع بتتفعّل واحد واحد هنا (مش أوتوماتيك) عشان نضيفها بالتدريج وإحنا متأكدين
 // إن أمثلتها كفاية.
-const TOPIC_DRILL_READY=['prep_di','prep_a','prep_da','prep_su','prep_con','prep_per','prep_tra_fra'];
+const TOPIC_DRILL_READY=['prep_di','prep_a','prep_da','prep_su','prep_con','prep_per','prep_tra_fra','partitivi','colori','numeri'];
 let gmDrillActive=false;
 let gmDrillTopicId=null;
 let gmDrillDeck=[];
@@ -1073,7 +1073,12 @@ function csShowGate(){
 function csDismissGate(){
   csGated=false;
   document.getElementById('csStartBtn').style.display='none';
-  if(gmRecogActive){ gmRecogShowQuestion(); return; }
+  // في وضع "الاختبار الشامل" بنستعير محرك gmRecog لعرض أسئلة التمييز، بس من غير
+  // ما نحط gmRecogActive=true (عشان مانلخبطش أماكن تانية بتتفاعل مع العلم ده). فلازم
+  // نتأكد هنا كمان إن السؤال الحالي في الاختبار الشامل نوعه "تمييز" قبل ما نستخدم
+  // نفس شاشة الـMCQ بتاعته.
+  const isComboRecog=gmComboActive && gmComboDeck[gmComboIdx] && gmComboDeck[gmComboIdx].type==='recog';
+  if(gmRecogActive || isComboRecog){ gmRecogShowQuestion(); return; }
   document.getElementById('lMicArea').style.display='';
   document.getElementById('lHeard').style.display='';
   document.getElementById('lBadge').style.display='';
@@ -1220,6 +1225,11 @@ function gmRecogEnter(){
   document.getElementById('lessonMode').style.display='flex';
   document.getElementById('lRestartBtn').style.display='none';
   csSetChromeVisible(false);
+  // نص السؤال الافتراضي اتكتب أصلًا عشان حروف الجر البسيطة — لو الموضوع مش حرف جر
+  // (زي أدوات التبعيض) بنستخدم نص مخصص له بدل "إيه استخدام حرف الجر هنا؟".
+  const topic=getGrammarTopic(gmRecogTopicId);
+  const lbl=document.getElementById('gmRecogQuestionLabel');
+  if(lbl)lbl.textContent=(topic&&topic.recogQuestionLabel)?topic.recogQuestionLabel:'🎨 إيه استخدام حرف الجر هنا؟';
   lRender();
   csShowGate();
   window.scrollTo(0,0);
@@ -1263,8 +1273,16 @@ function gmRecogAnswer(i){
   bumpTopicWordView(gmRecogTopicId,item.it);
   const nextBtn=document.getElementById('lNextBtn');
   nextBtn.className='next-btn show';
-  nextBtn.textContent=(gmRecogIdx+1>=gmRecogDeck.length)?'أنهيت المراجعة 🏆':'الجملة الجاية ←';
-  nextBtn.onclick=gmRecogNext;
+  // في وضع "الاختبار الشامل" بيبقى فيه أكتر من سؤال قدامنا حتى لو ده آخر واحد من
+  // نوع "التمييز" في نفس الديك — النص والزرار بيتحسبوا حسب الاختبار كله مش الديك
+  // الفرعي ده بس.
+  if(gmComboActive){
+    nextBtn.textContent=(gmComboIdx+1>=gmComboDeck.length)?'أنهيت الاختبار 🏆':'السؤال الجاي ←';
+    nextBtn.onclick=gmComboNext;
+  }else{
+    nextBtn.textContent=(gmRecogIdx+1>=gmRecogDeck.length)?'أنهيت المراجعة 🏆':'الجملة الجاية ←';
+    nextBtn.onclick=gmRecogNext;
+  }
 }
 function gmRecogNext(){
   if(!gmRecogAnswered)return;
@@ -1287,6 +1305,349 @@ function gmRecogFinish(){
   lDeck=[];lIdx=0;
   const topicId=gmRecogTopicId;
   gmRecogTopicId=null;
+  openGrammarModal(topicId);
+}
+
+// ===== FILL-BLANK: نوع سؤال مختلف عن "التعرّف" — بدل ما نعرض الجملة وحرف الجر
+// ملوّن قدامك وتختار استخدامه، هنا الجملة بتتعرض وفيها فراغ مكان حرف الجر/الأداة،
+// وانت اللي تختار الشكل الصح (استرجاع/إنتاج، مش تمييز بس). بيشتغل على أي موضوع
+// مُدرَج في TOPIC_FILLBLANK_READY، وبيستعير نفس ديك "التعرّف" (topicRecognitionDeck)
+// لأنه أصلاً فيه كل حاجة محتاجينها (الجملة، الترجمة، والكلمة المستهدفة معلّمة).
+const TOPIC_FILLBLANK_READY=['partitivi','colori'];
+const TOPIC_COMBO_READY=['partitivi','colori','numeri'];
+let gmFillActive=false;
+let gmFillTopicId=null;
+let gmFillDeck=[];
+let gmFillIdx=0;
+let gmFillOptions=[];
+let gmFillCorrectIdx=null;
+let gmFillCurrentOptions=[];
+let gmFillAnswered=false;
+
+function capitalizeForm(s){
+  return s.charAt(0).toUpperCase()+s.slice(1).toLowerCase();
+}
+// بيرجّع {prefix, noun} لو الكلمة فيها إليجن (زي dell'acqua) وإلا null.
+function splitElidedForm(wordIt){
+  const i=wordIt.indexOf("'");
+  if(i<0)return null;
+  return {prefix:wordIt.slice(0,i+1), noun:wordIt.slice(i+1)};
+}
+function targetWordOfItem(item){
+  return item.words.find(w=>w.type==='preposizione');
+}
+// شكل العرض في الاختيارات: لو فيه إليجن بنورّي بادئة الإليجن بس (Dell')، عشان
+// الاسم اللي بعدها (اللي بيدّي تلميح الجنس/العدد) يفضل ظاهر في الجملة نفسها.
+function correctFormLabel(wordIt){
+  const el=splitElidedForm(wordIt);
+  if(el)return capitalizeForm(el.prefix);
+  return capitalizeForm(wordIt);
+}
+// نص الجملة بالفراغ: بنسيب كل الكلمات زي ما هي، وبس الكلمة المستهدفة بتتبدل
+// بفراغ — لو فيها إليجن، الفراغ بياخد مكان البادئة بس ويفضل الاسم بعده ظاهر
+// (زي "___'acqua")، عشان السؤال يفضل قابل للحل من غير ما نفقد التلميح النحوي.
+function blankSentenceForItem(item){
+  const target=targetWordOfItem(item);
+  if(!target)return item.it;
+  return item.words.map(w=>{
+    if(w!==target)return w.it;
+    const el=splitElidedForm(w.it);
+    if(el)return '___'+el.prefix.slice(-1)+el.noun; // ___'acqua
+    return '______';
+  }).join(' ');
+}
+function topicFillFormPool(deck){
+  const forms=new Set();
+  deck.forEach(item=>{
+    const w=targetWordOfItem(item);
+    if(w)forms.add(correctFormLabel(w.it));
+  });
+  return [...forms];
+}
+function gmFillBtnClicked(){
+  gmStartFillBlank(currentGmTopicId);
+}
+function gmStartFillBlank(topicId){
+  const topic=getGrammarTopic(topicId);
+  if(!topic){alert('⚠️ الموضوع ده مش موجود في بيانات القواعد.');return;}
+  if(!TOPIC_FILLBLANK_READY.includes(topicId))return; // الزرار أصلاً بيبقى مخفي في الحالة دي
+  if(csActive){
+    csActive=false; wpChainActive=false; wpChainItOnly=false;
+  }
+  try{
+    const deck=topicRecognitionDeck(topic);
+    if(deck.length===0){
+      alert('⚠️ لسه مفيش أمثلة كفاية للموضوع ده عشان نبني تمرين فراغ منه.');
+      return;
+    }
+    gmFillDeck=deck;
+    gmFillOptions=topicFillFormPool(deck);
+    if(gmFillOptions.length<2){
+      alert('⚠️ الموضوع ده مالوش أشكال كفاية عشان سؤال فراغ (محتاجين خيارين على الأقل).');
+      return;
+    }
+    gmFillTopicId=topicId;
+    gmFillIdx=0;
+    closeGrammarModal();
+    gmFillEnter();
+  }catch(e){
+    console.error('gmStartFillBlank failed for topic', topicId, e);
+    alert('⚠️ حصلت مشكلة وإحنا بنجهّز سؤال الفراغ. جرّب تاني، ولو المشكلة استمرت بلّغنا.');
+  }
+}
+function gmFillEnter(){
+  gmFillActive=true;
+  document.getElementById('game').style.display='none';
+  const ceEl=document.getElementById('convoExplain'); if(ceEl)ceEl.style.display='none';
+  document.getElementById('lessonMode').style.display='none';
+  document.getElementById('verbsMode').style.display='none';
+  document.getElementById('gmFillMode').style.display='flex';
+  csSetChromeVisible(false);
+  const topic=getGrammarTopic(gmFillTopicId);
+  const lbl=document.getElementById('fillTopicLabel');
+  if(lbl)lbl.textContent=(topic&&topic.fillQuestionLabel)?topic.fillQuestionLabel:'🧩 اختر الشكل الصح للفراغ';
+  gmFillShowQuestion();
+  window.scrollTo(0,0);
+}
+function gmFillShowQuestion(){
+  gmFillAnswered=false;
+  const item=gmFillDeck[gmFillIdx];
+  const target=targetWordOfItem(item);
+  const correctLabel=target?correctFormLabel(target.it):null;
+  const seed=[...item.it].reduce((s,ch)=>s+ch.charCodeAt(0),0)+gmFillIdx;
+  // لو مجموعة الأشكال كلها صغيرة (زي أدوات التبعيض السبعة) بنعرضها كاملة —
+  // هي نفسها القاعدة النحوية. لو كبيرة (زي الألوان بـ15 لون مختلف)، عرض الكل
+  // في كل سؤال بيحوّل التمرين لحفظ مفردات عشوائي بدل اختبار مركّز؛ فبنعيّن حد
+  // أقصى معقول للاختيارات ونسحب عيّنة عشوائية (فيها الإجابة الصح دايمًا).
+  const MAX_FILL_OPTIONS=7;
+  let questionPool=gmFillOptions;
+  if(gmFillOptions.length>MAX_FILL_OPTIONS){
+    const others=shuffle(gmFillOptions.filter(o=>o!==correctLabel));
+    questionPool=shuffle([correctLabel, ...others.slice(0,MAX_FILL_OPTIONS-1)]);
+  }
+  const correctIdx=Math.max(0,questionPool.indexOf(correctLabel));
+  const bal=balanceCorrect(questionPool,correctIdx,seed);
+  gmFillCorrectIdx=bal.correct;
+  gmFillCurrentOptions=bal.options;
+
+  document.getElementById('fillProgFill').style.width=Math.round((gmFillIdx/gmFillDeck.length)*100)+'%';
+  document.getElementById('fillProgressLbl').textContent='سؤال '+(gmFillIdx+1)+' من '+gmFillDeck.length;
+  document.getElementById('fillPrompt').textContent=blankSentenceForItem(item);
+  document.getElementById('fillArContext').textContent=item.ar;
+  document.getElementById('fillOptions').innerHTML=bal.options.map((o,i)=>
+    '<button class="q-opt" onclick="gmFillAnswer('+i+')">'+escHtml(o)+'</button>'
+  ).join('');
+  document.getElementById('fillFeedback').innerHTML='';
+  document.getElementById('fillTtsBtn').style.display='none';
+  const nextBtn=document.getElementById('fillNextBtn');
+  nextBtn.className='next-btn';
+}
+function gmFillAnswer(i){
+  if(gmFillAnswered)return;
+  gmFillAnswered=true;
+  const item=gmFillDeck[gmFillIdx];
+  const btns=[...document.getElementById('fillOptions').children];
+  btns.forEach(b=>b.disabled=true);
+  const ok=i===gmFillCorrectIdx;
+  if(ok){
+    btns[i].classList.add('ok');btns[i].style.background='#00e8961a';btns[i].style.borderColor='var(--green)';
+    floatEmoji('✅');
+  } else {
+    btns[i].classList.add('bad');btns[i].style.background='#ff4d6d1a';btns[i].style.borderColor='var(--red)';
+    if(btns[gmFillCorrectIdx]){
+      btns[gmFillCorrectIdx].classList.add('ok');
+      btns[gmFillCorrectIdx].style.background='#00e8961a';
+      btns[gmFillCorrectIdx].style.borderColor='var(--green)';
+    }
+  }
+  document.getElementById('fillFeedback').innerHTML=(ok?'✅ صح! ':'❌ الصح: '+escHtml(gmFillCurrentOptions[gmFillCorrectIdx])+'. ')+escHtml(item.usageDescription||'')+'<br>الجملة كاملة: <span style="direction:ltr;display:inline-block">'+escHtml(item.it)+'</span>';
+  document.getElementById('fillTtsBtn').style.display='block';
+  bumpTopicWordView(gmFillTopicId,item.it);
+  const nextBtn=document.getElementById('fillNextBtn');
+  nextBtn.className='next-btn show';
+  nextBtn.textContent=(gmFillIdx+1>=gmFillDeck.length)?'أنهيت المراجعة 🏆':'السؤال الجاي ←';
+}
+function gmFillSpeak(){
+  const item=gmFillDeck[gmFillIdx];
+  if(item)speakWord(item.it);
+}
+function gmFillNext(){
+  if(!gmFillAnswered)return;
+  gmFillIdx++;
+  if(gmFillIdx>=gmFillDeck.length){ gmFillFinish(); return; }
+  gmFillShowQuestion();
+}
+function gmFillFinish(){
+  gmFillActive=false;
+  document.getElementById('gmFillMode').style.display='none';
+  document.getElementById('verbsMode').style.display='flex';
+  csSetChromeVisible(true);
+  const topicId=gmFillTopicId;
+  gmFillTopicId=null;
+  openGrammarModal(topicId);
+}
+
+// ===== COMBO (اختبار شامل): بيخلط نوعين سؤال مختلفين خالص في ديك واحد بالتبادل —
+// "تمييز" (زي gmRecog، تعرّف على استخدام/شكل الأداة) و"تحويل" (جملة مفرد، اختار
+// صيغة الجمع الكاملة الصح). محتاج بيانات transformPairs على الموضوع نفسه عشان يشتغل،
+// فمش كل موضوع هيقدر يعرض الزرار ده (زي ما TOPIC_DRILL_READY وTOPIC_FILLBLANK_READY
+// كل واحد ليه شرطه). بيستعير محرك gmRecog* الموجود لجزء "التمييز" (نفس الفانكشنز،
+// بس بنحط gmRecogDeck=[العنصر الحالي] وgmRecogIdx=0 قبل ما نناديها) عشان مانكررش
+// كود التصحيح/الألوان، وبنعمل شاشة مستقلة بسيطة لجزء "التحويل".
+let gmComboActive=false;
+let gmComboTopicId=null;
+let gmComboDeck=[]; // كل عنصر: {type:'recog', item} أو {type:'transform', item}
+let gmComboIdx=0;
+
+function buildComboDeck(topic){
+  if(!topic.transformPairs || topic.transformPairs.length===0)return null;
+  const recogFull=shuffle(topicRecognitionDeck(topic));
+  const transformItems=shuffle(topic.transformPairs.map(p=>({...p})));
+  // بنوازن العدد في الاتجاهين — مش بس نقصّ التمييز لعدد التحويل، لازم كمان نقصّ
+  // التحويل لعدد التمييز لو هو الأقل (زي numeri: 15 تمييز مقابل 29 تحويل) — وإلا
+  // آخر الاختبار هيبقى كله نوع واحد لوحده من غير تداخل، عكس المطلوب بالظبط.
+  const balancedLen=Math.min(recogFull.length, transformItems.length);
+  const recogSlice=recogFull.slice(0, balancedLen);
+  const transformSlice=transformItems.slice(0, balancedLen);
+  const merged=[];
+  for(let i=0;i<balancedLen;i++){
+    merged.push({type:'recog', item:recogSlice[i]});
+    merged.push({type:'transform', item:transformSlice[i]});
+  }
+  return merged;
+}
+function gmComboBtnClicked(){
+  gmStartCombo(currentGmTopicId);
+}
+function gmStartCombo(topicId){
+  const topic=getGrammarTopic(topicId);
+  if(!topic){alert('⚠️ الموضوع ده مش موجود في بيانات القواعد.');return;}
+  if(!TOPIC_COMBO_READY.includes(topicId))return;
+  if(csActive){
+    csActive=false; wpChainActive=false; wpChainItOnly=false;
+  }
+  try{
+    const deck=buildComboDeck(topic);
+    if(!deck||deck.length===0){
+      alert('⚠️ لسه مفيش بيانات كفاية عشان نبني اختبار شامل للموضوع ده.');
+      return;
+    }
+    gmComboDeck=deck;
+    gmComboIdx=0;
+    gmComboTopicId=topicId;
+    closeGrammarModal();
+    gmComboEnter();
+  }catch(e){
+    console.error('gmStartCombo failed for topic', topicId, e);
+    alert('⚠️ حصلت مشكلة وإحنا بنجهّز الاختبار الشامل. جرّب تاني، ولو المشكلة استمرت بلّغنا.');
+  }
+}
+function gmComboEnter(){
+  gmComboActive=true;
+  document.getElementById('game').style.display='none';
+  const ceEl=document.getElementById('convoExplain'); if(ceEl)ceEl.style.display='none';
+  document.getElementById('verbsMode').style.display='none';
+  csSetChromeVisible(false);
+  gmComboShowQuestion();
+  window.scrollTo(0,0);
+}
+function gmComboShowQuestion(){
+  const entry=gmComboDeck[gmComboIdx];
+  if(entry.type==='recog'){
+    document.getElementById('gmTransformMode').style.display='none';
+    document.getElementById('lessonMode').style.display='flex';
+    // بنستعير محرك gmRecog كامل — الحيلة إن الديك بتاعه بقى عنصر واحد بس (العنصر
+    // الحالي في الاختبار الشامل)، فكل فانكشناته (التلوين، الفيدباك، إلخ) تشتغل
+    // عادي من غير أي تعديل فيها.
+    gmRecogDeck=[entry.item];
+    gmRecogIdx=0;
+    gmRecogTopicId=gmComboTopicId;
+    lDeck=gmRecogDeck; lIdx=0;
+    currentStudyMode='speak';
+    hideLessonLocked();
+    document.getElementById('lRestartBtn').style.display='none';
+    const lbl=document.getElementById('gmRecogQuestionLabel');
+    const topic=getGrammarTopic(gmComboTopicId);
+    if(lbl)lbl.textContent=(topic&&topic.recogQuestionLabel)?topic.recogQuestionLabel:'🎨 إيه استخدام حرف الجر هنا؟';
+    lRender();
+    csShowGate();
+  } else {
+    document.getElementById('lessonMode').style.display='none';
+    document.getElementById('gmTransformMode').style.display='flex';
+    const topic=getGrammarTopic(gmComboTopicId);
+    const qLbl=document.getElementById('transformQuestionLabel');
+    if(qLbl)qLbl.textContent=(topic&&topic.transformQuestionLabel)?topic.transformQuestionLabel:'🔄 لو أكتر من واحد، تقول إيه؟';
+    const sLbl=document.getElementById('transformSingLabel');
+    if(sLbl)sLbl.textContent=(topic&&topic.transformSingLabel)?topic.transformSingLabel:'الجملة الأصلية:';
+    gmComboShowTransformQuestion(entry.item);
+  }
+  document.getElementById('comboProgFill') && (document.getElementById('comboProgFill').style.width=Math.round((gmComboIdx/gmComboDeck.length)*100)+'%');
+  const plbl=document.getElementById('comboProgressLbl');
+  if(plbl)plbl.textContent='سؤال '+(gmComboIdx+1)+' من '+gmComboDeck.length;
+}
+let gmComboTransformAnswered=false;
+let gmComboTransformCorrectIdx=null;
+let gmComboTransformOptions=[];
+function gmComboShowTransformQuestion(item){
+  gmComboTransformAnswered=false;
+  // بيانات كل سؤال دايمًا بتحط الإجابة الصح في العنصر الأول من options — لو
+  // عرضناها زي ما هي كده، الزرار الأول هيبقى هو الصح في كل الأسئلة من غير استثناء!
+  // لازم نخلط الترتيب هنا وقت العرض، مش وقت بناء البيانات.
+  const seed=[...item.sing].reduce((s,ch)=>s+ch.charCodeAt(0),0);
+  const bal=balanceCorrect(item.options,item.correctIdx,seed);
+  gmComboTransformOptions=bal.options;
+  gmComboTransformCorrectIdx=bal.correct;
+  document.getElementById('transformSingPrompt').textContent=item.sing;
+  document.getElementById('transformSingAr').textContent=item.singAr;
+  document.getElementById('transformOptions').innerHTML=gmComboTransformOptions.map((o,i)=>
+    '<button class="q-opt" style="direction:ltr;text-align:left" onclick="gmComboAnswerTransform('+i+')">'+escHtml(o)+'</button>'
+  ).join('');
+  document.getElementById('transformFeedback').innerHTML='';
+  const nextBtn=document.getElementById('transformNextBtn');
+  nextBtn.className='next-btn';
+}
+function gmComboAnswerTransform(i){
+  if(gmComboTransformAnswered)return;
+  gmComboTransformAnswered=true;
+  const entry=gmComboDeck[gmComboIdx];
+  const item=entry.item;
+  const btns=[...document.getElementById('transformOptions').children];
+  btns.forEach(b=>b.disabled=true);
+  const ok=i===gmComboTransformCorrectIdx;
+  if(ok){
+    btns[i].classList.add('ok');btns[i].style.background='#00e8961a';btns[i].style.borderColor='var(--green)';
+    floatEmoji('✅');
+  } else {
+    btns[i].classList.add('bad');btns[i].style.background='#ff4d6d1a';btns[i].style.borderColor='var(--red)';
+    if(btns[gmComboTransformCorrectIdx]){
+      btns[gmComboTransformCorrectIdx].classList.add('ok');
+      btns[gmComboTransformCorrectIdx].style.background='#00e8961a';
+      btns[gmComboTransformCorrectIdx].style.borderColor='var(--green)';
+    }
+  }
+  document.getElementById('transformFeedback').innerHTML=(ok?'✅ صح! ':'❌ الصح: '+escHtml(gmComboTransformOptions[gmComboTransformCorrectIdx])+'. ')+escHtml(item.correctAr||'');
+  const nextBtn=document.getElementById('transformNextBtn');
+  nextBtn.className='next-btn show';
+  nextBtn.textContent=(gmComboIdx+1>=gmComboDeck.length)?'أنهيت الاختبار 🏆':'السؤال الجاي ←';
+}
+function gmComboNext(){
+  const entry=gmComboDeck[gmComboIdx];
+  if(entry.type==='recog'){ if(!gmRecogAnswered)return; }
+  else { if(!gmComboTransformAnswered)return; }
+  gmComboIdx++;
+  if(gmComboIdx>=gmComboDeck.length){ gmComboFinish(); return; }
+  gmComboShowQuestion();
+}
+function gmComboFinish(){
+  gmComboActive=false;
+  document.getElementById('lessonMode').style.display='none';
+  document.getElementById('gmTransformMode').style.display='none';
+  document.getElementById('gmRecogQuiz').style.display='none';
+  document.getElementById('verbsMode').style.display='flex';
+  csSetChromeVisible(true);
+  lDeck=[];lIdx=0;
+  const topicId=gmComboTopicId;
+  gmComboTopicId=null;
   openGrammarModal(topicId);
 }
 function gmEnterDrillUI(){
@@ -1575,12 +1936,28 @@ function switchMode(mode){
     csSetChromeVisible(true);
     lDeck=[];lIdx=0;
   }
+  if(gmFillActive){
+    // نفس فكرة gmDrillActive/gmRecogActive: خروج بسيط من غير تعقيد، مفيش تقدّم
+    // محفوظ لسؤال الفراغ. هنا مالوش علاقة بـ lDeck/lIdx (شاشة مستقلة تمامًا).
+    gmFillActive=false;
+    const fm=document.getElementById('gmFillMode'); if(fm)fm.style.display='none';
+    csSetChromeVisible(true);
+  }
+  if(gmComboActive){
+    gmComboActive=false;
+    const tm=document.getElementById('gmTransformMode'); if(tm)tm.style.display='none';
+    const rq=document.getElementById('gmRecogQuiz'); if(rq)rq.style.display='none';
+    csSetChromeVisible(true);
+    lDeck=[];lIdx=0;
+  }
   const isWord=mode==='word';
   const isLesson=mode==='lesson';
   const isVerbs=mode==='verbs';
+  const isListening=mode==='listening';
   document.getElementById('tabWord').classList.toggle('active',isWord);
   document.getElementById('tabLesson').classList.toggle('active',isLesson);
   document.getElementById('tabVerbs').classList.toggle('active',isVerbs);
+  document.getElementById('tabListening').classList.toggle('active',isListening);
   if(isLesson&&csActive){
     // خارجين من دراسة المحادثة (نص محادثة) لتبويب الدرس الإنفينيتي الحقيقي —
     // نوقف السلسلة الأوتوماتيكية ونرجّع الـ deck الحقيقي، تقدّم المحادثة محفوظ وهيكمل من مكانه لما نرجعله.
@@ -1593,6 +1970,7 @@ function switchMode(mode){
     // إن #game لسه فيه محتوى من قبل — أول مرة بيتفتح التطبيق أصلاً بيوجّه على طول لدراسة
     // المحادثة من غير ما #game يترندر خالص، فمجرد إظهاره تاني (display) بيطلع فاضي.
     document.getElementById('verbsMode').style.display='none';
+    document.getElementById('listeningMode').style.display='none';
     if(csActive){
       document.getElementById('game').style.display='none';
       document.getElementById('lessonMode').style.display='flex';
@@ -1608,8 +1986,10 @@ function switchMode(mode){
   const ce=document.getElementById('convoExplain'); if(ce)ce.style.display='none';
   document.getElementById('lessonMode').style.display=isLesson?'flex':'none';
   document.getElementById('verbsMode').style.display=isVerbs?'flex':'none';
+  document.getElementById('listeningMode').style.display=isListening?'flex':'none';
   if(isLesson && lDeck.length===0)lStart();
   if(isVerbs && document.getElementById('verbGroups').children.length===0)renderLibrary();
+  if(isListening && document.getElementById('listeningPassageList').children.length===0)renderListeningLibrary();
 }
 
 // ===== VERBS LIBRARY: grid of all reference verbs grouped by ARE/ERE/IRE + tap-for-full-conjugation popup =====
@@ -1622,6 +2002,589 @@ function verbCategory(it){
   return 'are';
 }
 // ===== SCRIPT LIBRARY: verbs (unchanged) + every grammar topic, same card style, tap opens the full lesson =====
+// ===== LISTENING PASSAGES: تاب مستقل عن الجرامر كله — قطعة نص (من كتاب غالبًا) +
+// أسئلة فهم استماع. كل قطعة: عنوان، فقرات (إيطالي+عربي)، وأسئلة MCQ. النص ظاهر
+// كامل وانت بتسمع (مش استماع أعمى)، وممكن تسمع القطعة كلها أو فقرة بفقرة.
+const LISTENING_PASSAGES=[
+  {
+    id:'chiara_weekend',
+    titleIt:'Il weekend di Chiara',
+    titleAr:'شيرا في الويكند',
+    paragraphs:[
+      {
+            "it": "Chiara si sveglia presto la mattina di sabato. Beve un caffè caldo e mangia del pane con la marmellata.",
+            "ar": "شيرا بتصحى بدري صباح السبت. بتشرب قهوة سخنة وبتاكل شوية عيش بالمربى.",
+            "words": [
+                  {
+                        "it": "Chiara",
+                        "ar": "كيارا (اسم علم)",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "si",
+                        "ar": "",
+                        "note": "ضمير انعكاسي — جزء من الفعل svegliarsi (تصحى بنفسها)",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "sveglia",
+                        "ar": "تصحى",
+                        "note": "Svegliarsi، Presente (لِيه/هي)",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "presto",
+                        "ar": "بدري",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "la",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "mattina",
+                        "ar": "صباح",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "di",
+                        "ar": "",
+                        "note": "حرف جر",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "sabato",
+                        "ar": "السبت",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "Beve",
+                        "ar": "تشرب",
+                        "note": "Bere، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "un",
+                        "ar": "",
+                        "note": "أداة تنكير",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "caffè",
+                        "ar": "قهوة",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "caldo",
+                        "ar": "سخن",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "e",
+                        "ar": "و",
+                        "note": null,
+                        "type": "congiunzione"
+                  },
+                  {
+                        "it": "mangia",
+                        "ar": "تاكل",
+                        "note": "Mangiare، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "del",
+                        "ar": "شوية",
+                        "note": "أداة تبعيض (Del) — كمية غير محددة",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "pane",
+                        "ar": "عيش",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "con",
+                        "ar": "مع",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "la",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "marmellata",
+                        "ar": "مربى",
+                        "note": null,
+                        "type": "altro"
+                  }
+            ]
+      },
+      {
+            "it": "Dopo colazione, va al mercato con sua madre. Comprano della frutta fresca: mele rosse, banane gialle e arance.",
+            "ar": "بعد الفطار، بتروح السوق مع أمها. بيشتروا شوية فاكهة طازة: تفاح أحمر، موز أصفر، وبرتقال.",
+            "words": [
+                  {
+                        "it": "Dopo",
+                        "ar": "بعد",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "colazione",
+                        "ar": "فطار",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "va",
+                        "ar": "تروح",
+                        "note": "Andare، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "al",
+                        "ar": "ال",
+                        "note": "أداة تعريف مدمجة (a + il)",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "mercato",
+                        "ar": "سوق",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "con",
+                        "ar": "مع",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "sua",
+                        "ar": "ـها",
+                        "note": "صفة ملكية (لها)",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "madre",
+                        "ar": "أم",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "Comprano",
+                        "ar": "بيشتروا",
+                        "note": "Comprare، Presente (هم)",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "della",
+                        "ar": "شوية",
+                        "note": "أداة تبعيض (Della) — كمية غير محددة",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "frutta",
+                        "ar": "فاكهة",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "fresca",
+                        "ar": "طازة",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "mele",
+                        "ar": "تفاح",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "rosse",
+                        "ar": "حمرا",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "banane",
+                        "ar": "موز",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "gialle",
+                        "ar": "صفرا",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "e",
+                        "ar": "و",
+                        "note": null,
+                        "type": "congiunzione"
+                  },
+                  {
+                        "it": "arance",
+                        "ar": "برتقال",
+                        "note": null,
+                        "type": "altro"
+                  }
+            ]
+      },
+      {
+            "it": "Nel pomeriggio, Chiara studia l''italiano per due ore. Poi esce con un''amica e vanno al cinema.",
+            "ar": "بعد الضهر، شيرا بتذاكر إيطالي لمدة ساعتين. بعدين بتخرج مع صاحبتها ويروحوا السينما.",
+            "words": [
+                  {
+                        "it": "Nel",
+                        "ar": "في ال",
+                        "note": "أداة تعريف مدمجة (in + il)",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "pomeriggio",
+                        "ar": "بعد الضهر",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "Chiara",
+                        "ar": "كيارا (اسم علم)",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "studia",
+                        "ar": "تذاكر",
+                        "note": "Studiare، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "l'italiano",
+                        "ar": "الإيطالي",
+                        "note": "أداة تعريف مختصرة (قبل حرف علة) + اسم اللغة",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "per",
+                        "ar": "لمدة",
+                        "note": "حرف جر (مع مدة زمنية)",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "due",
+                        "ar": "اتنين",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "ore",
+                        "ar": "ساعات",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "Poi",
+                        "ar": "بعدين",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "esce",
+                        "ar": "تخرج",
+                        "note": "Uscire، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "con",
+                        "ar": "مع",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "un'amica",
+                        "ar": "صاحبة",
+                        "note": "أداة تنكير مؤنثة مختصرة (قبل حرف علة) + اسم",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "e",
+                        "ar": "و",
+                        "note": null,
+                        "type": "congiunzione"
+                  },
+                  {
+                        "it": "vanno",
+                        "ar": "يروحوا",
+                        "note": "Andare، Presente (هم)",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "al",
+                        "ar": "ال",
+                        "note": "أداة تعريف مدمجة (a + il)",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "cinema",
+                        "ar": "سينما",
+                        "note": null,
+                        "type": "altro"
+                  }
+            ]
+      },
+      {
+            "it": "La sera, torna a casa stanca ma felice. Cena con la famiglia e guarda un film prima di dormire.",
+            "ar": "بالليل، بترجع البيت تعبانة بس مبسوطة. بتتعشى مع عيلتها وتتفرج على فيلم قبل ما تنام.",
+            "words": [
+                  {
+                        "it": "La",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "sera",
+                        "ar": "مساء",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "torna",
+                        "ar": "ترجع",
+                        "note": "Tornare، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "a",
+                        "ar": "",
+                        "note": "حرف جر",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "casa",
+                        "ar": "بيت",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "stanca",
+                        "ar": "تعبانة",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "ma",
+                        "ar": "بس",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "felice",
+                        "ar": "مبسوطة",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "Cena",
+                        "ar": "تتعشى",
+                        "note": "Cenare، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "con",
+                        "ar": "مع",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "la",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "famiglia",
+                        "ar": "عيلة",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "e",
+                        "ar": "و",
+                        "note": null,
+                        "type": "congiunzione"
+                  },
+                  {
+                        "it": "guarda",
+                        "ar": "تتفرج",
+                        "note": "Guardare، Presente",
+                        "type": "verbo"
+                  },
+                  {
+                        "it": "un",
+                        "ar": "",
+                        "note": "أداة تنكير",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "film",
+                        "ar": "فيلم",
+                        "note": null,
+                        "type": "altro"
+                  },
+                  {
+                        "it": "prima",
+                        "ar": "قبل",
+                        "note": "جزء من تعبير \"prima di\" = قبل ما",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "di",
+                        "ar": "",
+                        "note": "حرف جر",
+                        "type": "altro"
+                  },
+                  {
+                        "it": "dormire",
+                        "ar": "تنام",
+                        "note": "Dormire، مصدر (بعد \"prima di\" = قبل ما)",
+                        "type": "verbo"
+                  }
+            ]
+      }
+],
+    questions:[
+      {q:'شيرا بتصحى بدري صبح إيه؟',
+       options:['السبت','الحد','الاتنين','الجمعة'], correctIdx:0,
+       explanation:"النص بيقول: \"la mattina di sabato\" = صباح السبت."},
+      {q:'بيشتروا إيه من السوق؟',
+       options:['شوية فاكهة طازة','شوية عيش','شوية كتب','جزمة'], correctIdx:0,
+       explanation:"\"Comprano della frutta fresca\" = بيشتروا شوية فاكهة طازة."},
+      {q:'شيرا بتذاكر إيطالي قد إيه؟',
+       options:['ساعتين','ساعة واحدة','٣ ساعات','طول اليوم'], correctIdx:0,
+       explanation:"\"studia l'italiano per due ore\" = بتذاكر لمدة ساعتين."},
+      {q:'بتروح السينما مع مين؟',
+       options:['مع صاحبتها','مع أمها','مع عيلتها','لوحدها'], correctIdx:0,
+       explanation:"\"esce con un'amica e vanno al cinema\" = بتخرج مع صاحبتها ويروحوا السينما."}
+    ]
+  },
+  {
+    id:'centri_commerciali_domenica',
+    titleIt:'Centri commerciali aperti anche la domenica?',
+    titleAr:'المولات مفتوحة يوم الحد كمان؟ آراء مختلفة',
+    paragraphs:[
+      {
+        "it": "Anna, impiegata: “Sono favorevole all'apertura domenicale dei centri commerciali. È una questione di comodità, tanta gente lavora durante la settimana e non ha tempo di fare la spesa. Io, per esempio, torno a casa ogni giorno alle 18, a volte anche il sabato, e poter fare la spesa la domenica è certamente più pratico. Conosco molte persone che passano il fine settimana nei centri commerciali perché sono più comodi dei negozi del centro storico; e poi nei centri commerciali ci sono molti altri negozi, c'è il cinema e anche se piove non è un problema.”",
+        "ar": "أنّا، موظفة: «أنا مع فتح المولات يوم الحد. الموضوع ده مسألة راحة، ناس كتير بتشتغل طول الأسبوع ومالهاش وقت تتسوق. أنا مثلاً بارجع البيت كل يوم الساعة 6 بالليل، وأحياناً حتى يوم السبت، وإني أقدر أتسوق يوم الحد ده أكيد أعملي وأريح. أنا عارفة ناس كتير بتقضي الويكند في المولات لأنها أريح من محلات وسط البلد؛ كمان في المولات فيه محلات تانية كتير، وفيه سينما، وحتى لو الدنيا بتمطر مفيش مشكلة.»",
+        "words": [
+          {"it":"favorevole","ar":"موافق / مع","note":null,"type":"altro"},
+          {"it":"apertura","ar":"فتح","note":null,"type":"altro"},
+          {"it":"domenicale","ar":"بتاع يوم الحد","note":"صفة من domenica","type":"altro"},
+          {"it":"comodità","ar":"راحة","note":null,"type":"altro"},
+          {"it":"lavora","ar":"بتشتغل","note":"Lavorare، Presente (لِيه/هي)","type":"verbo"},
+          {"it":"non ha tempo","ar":"مالهاش وقت","note":"Avere، Presente + non","type":"verbo"},
+          {"it":"fare la spesa","ar":"يتسوق (المشتريات)","note":"تعبير ثابت مع Fare","type":"verbo"},
+          {"it":"torno","ar":"بارجع","note":"Tornare، Presente (أنا)","type":"verbo"},
+          {"it":"certamente","ar":"أكيد","note":null,"type":"altro"},
+          {"it":"pratico","ar":"عملي","note":null,"type":"altro"},
+          {"it":"conosco","ar":"عارف/عارفة","note":"Conoscere، Presente (أنا)","type":"verbo"},
+          {"it":"perché","ar":"لأن","note":null,"type":"congiunzione"},
+          {"it":"anche se","ar":"حتى لو","note":null,"type":"congiunzione"},
+          {"it":"piove","ar":"بتمطر","note":"Piovere، Presente","type":"verbo"}
+        ]
+      },
+      {
+        "it": "Paola, casalinga: “Non sono favorevole all'apertura domenicale, perché la domenica dev'essere un giorno di pausa e di riposo per tutti. Certo, per chi lavora è difficile fare la spesa durante la settimana, ma basta organizzarsi e si può andare il sabato. La domenica è bello stare con la famiglia, fare una gita, giocare con i figli; un centro commerciale è un luogo troppo anonimo: andare al lavoro anche la domenica, secondo me, significa non avere più tempo per la famiglia.”",
+        "ar": "باولا، ست بيت: «أنا مش مع فتح المولات يوم الحد، لأن يوم الحد المفروض يبقى يوم راحة للجميع. طبعاً، اللي بيشتغل صعب عليه يتسوق طول الأسبوع، بس يكفي إنه ينظم وقته ويروح يوم السبت. يوم الحد حلو إنك تقعد مع عيلتك، تعملوا نزهة، تلعبوا مع الأولاد؛ المول مكان بارد قوي ومفيهوش طابع؛ إنك تشتغل حتى يوم الحد، في رأيي، معناه إنك مبقاش عندك وقت لعيلتك.»",
+        "words": [
+          {"it":"dev'essere","ar":"لازم يبقى","note":"Dovere + Essere","type":"verbo"},
+          {"it":"pausa","ar":"استراحة","note":null,"type":"altro"},
+          {"it":"riposo","ar":"راحة","note":null,"type":"altro"},
+          {"it":"certo","ar":"طبعاً / أكيد","note":null,"type":"altro"},
+          {"it":"difficile","ar":"صعب","note":null,"type":"altro"},
+          {"it":"basta","ar":"يكفي","note":"Bastare، Presente","type":"verbo"},
+          {"it":"organizzarsi","ar":"ينظم وقته","note":"فعل انعكاسي، مصدر","type":"verbo"},
+          {"it":"si può","ar":"ممكن / يقدر حد","note":"Potere + si (صيغة عامة)","type":"verbo"},
+          {"it":"gita","ar":"نزهة/رحلة قصيرة","note":null,"type":"altro"},
+          {"it":"luogo","ar":"مكان","note":null,"type":"altro"},
+          {"it":"anonimo","ar":"بارد / مفيهوش طابع شخصي","note":null,"type":"altro"},
+          {"it":"secondo me","ar":"في رأيي","note":null,"type":"altro"},
+          {"it":"significa","ar":"معناه","note":"Significare، Presente","type":"verbo"},
+          {"it":"ma","ar":"بس","note":null,"type":"congiunzione"}
+        ]
+      },
+      {
+        "it": "Antonella, 32 anni: “Adesso che i centri commerciali sono aperti 7 giorni su 7, 12-13 ore al giorno fino alle 21-22, noi commessi stiamo a casa un giorno alla settimana, ma è un giorno infrasettimanale, quando i mariti (o le mogli) sono al lavoro e i figli vanno a scuola. È un giorno senza lavoro, ma è meno piacevole di un giorno festivo. Io per esempio posso uscire la casa e faccio cose che di solito non ho tempo di fare: pagare le bollette, andare in banca o cose del genere. Però è molto difficile il figlio vedo poco, perché sono a scuola e al lavoro.",
+        "ar": "أنطونيلا، 32 سنة: «دلوقتي المولات بقت فاتحة 7 أيام في الأسبوع، من 12 لـ13 ساعة في اليوم لحد الساعة 9 أو 10 بالليل، إحنا كبائعين بناخد يوم إجازة بس في نص الأسبوع، يعني يوم اللي جوزها (أو مراته) بيكونوا شغالين والأولاد رايحين المدرسة. يوم من غير شغل، بس أقل متعة من يوم إجازة رسمي. أنا مثلاً أقدر أطلع من البيت وأعمل حاجات مش بلاقيلها وقت عادي: أدفع الفواتير، أروح البنك، وحاجات زي كده. بس صعب قوي إني أشوف ابني كتير، لأنه في المدرسة وأنا في الشغل.",
+        "words": [
+          {"it":"commessi","ar":"بائعين (محل)","note":"جمع commesso","type":"altro"},
+          {"it":"infrasettimanale","ar":"في نص الأسبوع","note":"صفة من settimana","type":"altro"},
+          {"it":"mariti","ar":"أزواج","note":null,"type":"altro"},
+          {"it":"mogli","ar":"زوجات","note":null,"type":"altro"},
+          {"it":"vanno a scuola","ar":"رايحين المدرسة","note":"Andare، Presente (هم)","type":"verbo"},
+          {"it":"senza","ar":"من غير","note":null,"type":"altro"},
+          {"it":"piacevole","ar":"ممتع","note":null,"type":"altro"},
+          {"it":"festivo","ar":"(يوم) إجازة رسمي","note":null,"type":"altro"},
+          {"it":"posso uscire","ar":"أقدر أطلع","note":"Potere + Uscire","type":"verbo"},
+          {"it":"faccio","ar":"بعمل","note":"Fare، Presente (أنا)","type":"verbo"},
+          {"it":"di solito","ar":"عادةً","note":null,"type":"altro"},
+          {"it":"pagare le bollette","ar":"يدفع الفواتير","note":"تعبير ثابت","type":"verbo"},
+          {"it":"però","ar":"بس / لكن","note":null,"type":"congiunzione"}
+        ]
+      },
+      {
+        "it": "Lavorare tutti i fine settimana, avere solo pochissimi giorni festivi, significa non avere una vita familiare come gli altri. Naturalmente i primi a sentire questo disagio sono i figli e per una madre è doloroso sentire la figlia di 5 anni che dice: “Però mamma, le altre mamme la domenica ci sono sempre, tu mai!”",
+        "ar": "إني أشتغل كل الويكندات، ومعنديش غير إجازات رسمية قليلة جداً، ده معناه إني معنديش حياة عائلية زي باقي الناس. وطبعاً أول اللي بيحسوا بالمشكلة دي هما الأولاد، وبالنسبة للأم بيكون موجع إنها تسمع بنتها الصغيرة (٥ سنين) بتقولها: «بس ماما، باقي الأمهات موجودين يوم الحد على طول، إنتي لأ!»",
+        "words": [
+          {"it":"pochissimi","ar":"قليلين جداً","note":"صيغة مبالغة من poco","type":"altro"},
+          {"it":"vita familiare","ar":"حياة عائلية","note":null,"type":"altro"},
+          {"it":"naturalmente","ar":"طبعاً","note":null,"type":"altro"},
+          {"it":"disagio","ar":"إحساس بعدم الراحة / مشكلة","note":null,"type":"altro"},
+          {"it":"doloroso","ar":"موجع","note":null,"type":"altro"},
+          {"it":"dice","ar":"بتقول","note":"Dire، Presente (لِيه/هي)","type":"verbo"},
+          {"it":"sempre","ar":"دايماً","note":null,"type":"altro"},
+          {"it":"mai","ar":"أبداً","note":null,"type":"altro"},
+          {"it":"e","ar":"و","note":null,"type":"congiunzione"}
+        ]
+      }
+    ],
+    questions:[
+      {q:'أنّا موافقة على فتح المولات يوم الحد ليه؟',
+       options:['عشان الناس اللي بتشتغل طول الأسبوع مالهاش وقت تتسوق','عشان الأسعار بتبقى أرخص','عشان مش بتحب البيت','عشان صحابها بيشتغلوا في مول'], correctIdx:0,
+       explanation:"بتقول \"È una questione di comodità... non ha tempo di fare la spesa\" = المسألة راحة، وناس مالهاش وقت تتسوق طول الأسبوع."},
+      {q:'باولا بتشوف إن يوم الحد المفروض يبقى إيه؟',
+       options:['يوم راحة وعيلة','يوم شغل زيادة','يوم تسوق بس','يوم نوم بس'], correctIdx:0,
+       explanation:"\"la domenica dev'essere un giorno di pausa e di riposo per tutti\" = يوم الحد لازم يبقى يوم راحة للجميع."},
+      {q:'المولات بقت فاتحة كام يوم في الأسبوع؟',
+       options:['7 أيام','5 أيام','6 أيام','3 أيام'], correctIdx:0,
+       explanation:"\"i centri commerciali sono aperti 7 giorni su 7\" = المولات فاتحة 7 أيام في الأسبوع."},
+      {q:'أنطونيلا بتاخد يوم إجازتها إمتى؟',
+       options:['يوم في نص الأسبوع','يوم الحد','يوم السبت بس','معندهاش إجازة خالص'], correctIdx:0,
+       explanation:"\"stiamo a casa un giorno alla settimana... un giorno infrasettimanale\" = بياخدوا إجازة يوم في نص الأسبوع مش يوم الحد."},
+      {q:'بنت أنطونيلا الصغيرة بتقولها إيه؟',
+       options:['إن باقي الأمهات موجودين يوم الحد وهي لأ','إنها عايزة تروح المول','إنها زعلانة من المدرسة','إنها عايزة تلعب معاها بس'], correctIdx:0,
+       explanation:"\"le altre mamme la domenica ci sono sempre, tu mai!\" = باقي الأمهات موجودين يوم الحد على طول، هي لأ."}
+    ]
+  }
+];
+let currentListeningPassageId=null;
+let listeningAnswers={}; // {questionIdx: chosenOptionIdx}
+
 const LIB_SECTIONS=[
   {key:'are',label:'\uD83D\uDCD8 \u0623\u062f\u0648\u0627\u062a \u0648\u0623\u0633\u0645\u0627\u0621 \u0648\u0635\u0641\u0627\u062a \u0648\u0636\u0645\u0627\u0626\u0631',ids:['articoli_determinativi','partitivi','dimostrativi','possessivi','indefiniti','aggettivi_vari','nomi_sostantivi','interrogativi','pronomi_soggetto','pronomi_complemento']},
   {key:'ere',label:'\uD83E\uDDED \u062d\u0631\u0648\u0641 \u0627\u0644\u062c\u0631',ids:['prep_di','prep_a','prep_da','prep_in','prep_con','prep_su','prep_per','prep_tra_fra','prep_semplici','improprie']},
@@ -1674,6 +2637,180 @@ function renderTopicSections(wrapEl){
     wrapEl.appendChild(section);
   });
 }
+function renderListeningLibrary(){
+  const wrap=document.getElementById('listeningPassageList');
+  wrap.innerHTML=LISTENING_PASSAGES.map(p=>
+    '<div class="card" style="cursor:pointer;margin-bottom:10px" onclick="listeningOpenPassage(\''+p.id+'\')">'
+    +'<div class="card-cat">'+escHtml(p.titleAr)+'</div>'
+    +'<div class="card-ar" style="direction:ltr;text-align:left">'+escHtml(p.titleIt)+'</div>'
+    +'<div style="opacity:.6;font-size:13px;margin-top:6px">'+p.paragraphs.length+' فقرات · '+p.questions.length+' أسئلة فهم</div>'
+    +'</div>'
+  ).join('');
+}
+// بيدور على كلمة متلقطة من نص القطعة: أولوية للترجمة المحفوظة (words) لو
+// الكلمة اتكتبت لوحدها هناك، وإلا لو هي جزء من عبارة محفوظة (زي "fare la
+// spesa")، وإلا بيدور على قاعدة جرامر مرتبطة بيها (triggers). لو مفيش أي حاجة
+// بيرجع null والدوسة بتتحول لمجرد نطق الكلمة صوتيًا مفيش بوب أب.
+function lpFindWordMatch(paraIdx,rawWord){
+  const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
+  const para=p&&p.paragraphs[paraIdx];
+  const words=(para&&para.words)||[];
+  const norm=normalizeGrammarWord(rawWord);
+  let exactIdx=-1,phraseIdx=-1;
+  words.forEach((w,i)=>{
+    const parts=normalizeGrammarWord(w.it).split(/\s+/);
+    if(parts.length===1&&parts[0]===norm&&exactIdx===-1)exactIdx=i;
+    else if(parts.length>1&&parts.includes(norm)&&phraseIdx===-1)phraseIdx=i;
+  });
+  if(exactIdx!==-1)return{type:'curated',idx:exactIdx};
+  if(phraseIdx!==-1)return{type:'curated',idx:phraseIdx};
+  const gTopicId=findGrammarTopicId(rawWord);
+  if(gTopicId)return{type:'grammar',topicId:gTopicId};
+  return null;
+}
+// بيقسّم نص القطعة لكلمات قابلة للدوس عليها مباشرة (مش بس القايمة تحت).
+function lpRenderInlineText(text,paraIdx){
+  const re=/[A-Za-zÀ-öø-ÿ']+/g;
+  let out='',last=0,m;
+  while((m=re.exec(text))){
+    out+=escHtml(text.slice(last,m.index));
+    const w=m[0];
+    const match=lpFindWordMatch(paraIdx,w);
+    const cls='lp-word'+(match?(match.type==='grammar'?' has-grammar':' has-info'):'');
+    const wEsc=escHtml(w).replace(/'/g,'&#39;');
+    out+='<span class="'+cls+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\')">'+escHtml(w)+'</span>';
+    last=re.lastIndex;
+  }
+  out+=escHtml(text.slice(last));
+  return out;
+}
+// دوسة على كلمة جوه نص القطعة: تنطقها، وبعدين لو عندها قاعدة جرامر بتفتح
+// نفس بوب أب الجرامر المستخدم في باقي التطبيق، ولو عندها ترجمة محفوظة بس
+// بتفتح/تسكرول لقايمة الشرح تحت وتلمّع السطر بتاعها.
+function lpWordTap(paraIdx,rawWord){
+  speakWord(rawWord);
+  const match=lpFindWordMatch(paraIdx,rawWord);
+  if(!match)return;
+  if(match.type==='grammar'){
+    openGrammarModal(match.topicId);
+    return;
+  }
+  const box=document.getElementById('lpBreakdown'+paraIdx);
+  const arrow=document.getElementById('lpArrow'+paraIdx);
+  if(box&&box.style.display!=='block'){
+    box.style.display='block';
+    if(arrow)arrow.textContent='إخفاء الشرح ▴';
+  }
+  const row=document.getElementById('lpBdRow'+paraIdx+'_'+match.idx);
+  if(row){
+    row.scrollIntoView({behavior:'smooth',block:'center'});
+    row.classList.add('flash');
+    setTimeout(()=>row.classList.remove('flash'),1200);
+  }
+}
+// نفس شكل بريكداون الكلمات (bd-row/bd-word/bd-note) المستخدم في باقي التطبيق —
+// بنعيد استخدامه هنا لقطع الاستماع بدل ما نكرر نفس الشكل بكود مختلف.
+function renderListeningWordBreakdown(words,paraIdx){
+  return '<div class="breakdown" style="display:flex;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)">'+words.map((w,wIdx)=>{
+    const gTopicId=w.grammarId||findGrammarTopicId(w.it);
+    const vInfo=findVerbFromNote(w.note);
+    const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
+    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    return '<div class="bd-row" id="lpBdRow'+paraIdx+'_'+wIdx+'">'
+      +'<span class="'+cls+'" onclick="event.stopPropagation();speakWord(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\')">📘</span>':'')
+      +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
+      +'<span class="bd-note">'+noteTxt+'</span>'
+    +'</div>';
+  }).join('')+'</div>';
+}
+// أكوردية: دوس على الجملة يفتح شرح كلمة بكلمة تحتيها، دوس تاني يقفل. مقفولة
+// افتراضيًا عشان الصفحة متاخدش مساحة كبيرة من غير داعي.
+function listeningToggleParagraph(i){
+  const box=document.getElementById('lpBreakdown'+i);
+  const arrow=document.getElementById('lpArrow'+i);
+  if(!box)return;
+  const isOpen=box.style.display==='block';
+  box.style.display=isOpen?'none':'block';
+  if(arrow)arrow.textContent=isOpen?'شرح الكلمات ▾':'إخفاء الشرح ▴';
+}
+function listeningOpenPassage(id){
+  const p=LISTENING_PASSAGES.find(x=>x.id===id);
+  if(!p)return;
+  currentListeningPassageId=id;
+  listeningAnswers={};
+  document.getElementById('listeningLibrary').style.display='none';
+  document.getElementById('listeningDetail').style.display='block';
+  document.getElementById('lpTitleAr').textContent=p.titleAr;
+  document.getElementById('lpTitleIt').textContent=p.titleIt;
+  document.getElementById('lpParagraphs').innerHTML=p.paragraphs.map((para,i)=>
+    '<div style="margin-bottom:14px;padding:10px;border:1px solid var(--border);border-radius:10px">'
+    +'<div style="display:flex;align-items:flex-start;gap:8px">'
+    +'<button class="tts-btn" style="padding:6px 10px;font-size:13px;flex-shrink:0" onclick="event.stopPropagation();listeningSpeakParagraph('+i+')">🔊</button>'
+    +'<div style="direction:ltr;text-align:left;font-size:16px;line-height:1.85;flex:1">'+lpRenderInlineText(para.it,i)+'</div>'
+    +'</div>'
+    +'<div style="opacity:.75;font-size:13.5px;margin-top:8px">'+escHtml(para.ar)+'</div>'
+    +(para.words&&para.words.length?(
+      '<div class="skip-link" id="lpArrow'+i+'" style="margin-top:8px;cursor:pointer;display:inline-block" onclick="listeningToggleParagraph('+i+')">شرح الكلمات ▾</div>'
+      +'<div id="lpBreakdown'+i+'" style="display:none">'+renderListeningWordBreakdown(para.words,i)+'</div>'
+    ):'')
+    +'</div>'
+  ).join('');
+  document.getElementById('lpQuestions').innerHTML=p.questions.map((q,qi)=>
+    '<div class="drill-box show" style="margin-bottom:12px">'
+    +'<div style="margin-bottom:8px">'+(qi+1)+'. '+escHtml(q.q)+'</div>'
+    +'<div class="q-options" id="lpQOptions'+qi+'">'
+    +q.options.map((o,oi)=>'<button class="q-opt" onclick="listeningAnswerQuestion('+qi+','+oi+')">'+escHtml(o)+'</button>').join('')
+    +'</div>'
+    +'<div class="q-feedback" id="lpQFeedback'+qi+'"></div>'
+    +'</div>'
+  ).join('');
+  document.getElementById('lpResult').style.display='none';
+  window.scrollTo(0,0);
+}
+function listeningBackToLibrary(){
+  document.getElementById('listeningDetail').style.display='none';
+  document.getElementById('listeningLibrary').style.display='block';
+  currentListeningPassageId=null;
+}
+function listeningSpeakAll(){
+  const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
+  if(!p)return;
+  speakWord(p.paragraphs.map(x=>x.it).join(' '));
+}
+function listeningSpeakParagraph(i){
+  const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
+  if(!p||!p.paragraphs[i])return;
+  speakWord(p.paragraphs[i].it);
+}
+function listeningAnswerQuestion(qi,oi){
+  if(listeningAnswers[qi]!==undefined)return; // إجابة واحدة لكل سؤال، زي باقي التطبيق
+  const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
+  const q=p.questions[qi];
+  listeningAnswers[qi]=oi;
+  const btns=[...document.getElementById('lpQOptions'+qi).children];
+  btns.forEach(b=>b.disabled=true);
+  const ok=oi===q.correctIdx;
+  if(ok){
+    btns[oi].classList.add('ok');btns[oi].style.background='#00e8961a';btns[oi].style.borderColor='var(--green)';
+    floatEmoji('✅');
+  } else {
+    btns[oi].classList.add('bad');btns[oi].style.background='#ff4d6d1a';btns[oi].style.borderColor='var(--red)';
+    btns[q.correctIdx].classList.add('ok');
+    btns[q.correctIdx].style.background='#00e8961a';
+    btns[q.correctIdx].style.borderColor='var(--green)';
+  }
+  document.getElementById('lpQFeedback'+qi).innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
+  if(Object.keys(listeningAnswers).length===p.questions.length){
+    let correct=0;
+    p.questions.forEach((qq,i2)=>{ if(listeningAnswers[i2]===qq.correctIdx)correct++; });
+    const resEl=document.getElementById('lpResult');
+    resEl.style.display='block';
+    resEl.textContent='🏆 خلصت! '+correct+' من '+p.questions.length+' صح.';
+  }
+}
+
 function renderLibrary(){
   renderVerbsList();
   renderTopicSections(document.getElementById('verbGroups'));
@@ -1846,6 +2983,13 @@ function openGrammarModal(topicId){
   document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],topicId);
   const drillBtn=document.getElementById('gmDrillBtn');
   drillBtn.style.display=TOPIC_DRILL_READY.includes(topicId)?'block':'none';
+  const fillBtn=document.getElementById('gmFillBtn');
+  if(fillBtn)fillBtn.style.display=TOPIC_FILLBLANK_READY.includes(topicId)?'block':'none';
+  const comboBtn=document.getElementById('gmComboBtn');
+  if(comboBtn){
+    comboBtn.style.display=TOPIC_COMBO_READY.includes(topicId)?'block':'none';
+    comboBtn.textContent=topic.comboButtonLabel||'🔀 اختبار شامل (تمييز + تحويل)';
+  }
   document.getElementById('grammarModalOverlay').classList.add('show');
 }
 function gmDrillBtnClicked(){

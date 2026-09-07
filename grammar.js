@@ -280,6 +280,226 @@ const GRAMMAR = [
     "it": "Articoli partitivi",
     "ar": "أدوات التبعيض (بعض من / قليل من)",
     "icon": "🥖",
+    "recogQuestionLabel": "🥖 إيه شكل أداة التبعيض هنا وليه؟",
+    "transformPairs": [
+        {
+            "sing": "Ho un libro",
+            "singAr": "عندي كتاب واحد",
+            "correctAr": "عندي شوية كتب",
+            "options": [
+                "Ho dei libri",
+                "Ho delle libri",
+                "Ho degli libri",
+                "Ho dei libro"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Compro un pomodoro",
+            "singAr": "باشتري طماطمة واحدة",
+            "correctAr": "باشتري شوية طماطم",
+            "options": [
+                "Compro dei pomodori",
+                "Compro delle pomodori",
+                "Compro degli pomodori",
+                "Compro dei pomodoro"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho un quaderno",
+            "singAr": "عندي كراسة واحدة",
+            "correctAr": "عندي شوية كراريس",
+            "options": [
+                "Ho dei quaderni",
+                "Ho delle quaderni",
+                "Ho degli quaderni",
+                "Ho dei quaderno"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Vedo un bambino nel parco",
+            "singAr": "باشوف عيل واحد في الحديقة",
+            "correctAr": "باشوف شوية عيال في الحديقة",
+            "options": [
+                "Vedo dei bambini nel parco",
+                "Vedo delle bambini nel parco",
+                "Vedo degli bambini nel parco",
+                "Vedo dei bambino nel parco"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho una mela",
+            "singAr": "عندي تفاحة واحدة",
+            "correctAr": "عندي شوية تفاح",
+            "options": [
+                "Ho delle mele",
+                "Ho dei mele",
+                "Ho degli mele",
+                "Ho delle mela"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho una domanda",
+            "singAr": "عندي سؤال واحد",
+            "correctAr": "عندي شوية أسئلة",
+            "options": [
+                "Ho delle domande",
+                "Ho dei domande",
+                "Ho degli domande",
+                "Ho delle domanda"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Compro una borsa",
+            "singAr": "باشتري شنطة واحدة",
+            "correctAr": "باشتري شوية شنط",
+            "options": [
+                "Compro delle borse",
+                "Compro dei borse",
+                "Compro degli borse",
+                "Compro delle borsa"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Vedo una macchina",
+            "singAr": "باشوف عربية واحدة",
+            "correctAr": "باشوف شوية عربيات",
+            "options": [
+                "Vedo delle macchine",
+                "Vedo dei macchine",
+                "Vedo degli macchine",
+                "Vedo delle macchina"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho uno zaino",
+            "singAr": "عندي شنطة ضهر واحدة",
+            "correctAr": "عندي شوية شنط ضهر",
+            "options": [
+                "Ho degli zaini",
+                "Ho dei zaini",
+                "Ho delle zaini",
+                "Ho degli zaino"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Conosco uno studente",
+            "singAr": "باعرف طالب واحد",
+            "correctAr": "باعرف شوية طلاب",
+            "options": [
+                "Conosco degli studenti",
+                "Conosco dei studenti",
+                "Conosco delle studenti",
+                "Conosco degli studente"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho uno zio in America",
+            "singAr": "عندي عم واحد في أمريكا",
+            "correctAr": "عندي شوية أعمام في أمريكا",
+            "options": [
+                "Ho degli zii in America",
+                "Ho dei zii in America",
+                "Ho delle zii in America",
+                "Ho degli zio in America"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho uno specchio in camera",
+            "singAr": "عندي مراية واحدة في الأوضة",
+            "correctAr": "عندي شوية مرايات في الأوضة",
+            "options": [
+                "Ho degli specchi in camera",
+                "Ho dei specchi in camera",
+                "Ho delle specchi in camera",
+                "Ho degli specchio in camera"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho un amico a Milano",
+            "singAr": "عندي صاحب واحد في ميلانو",
+            "correctAr": "عندي شوية أصحاب في ميلانو",
+            "options": [
+                "Ho degli amici a Milano",
+                "Ho dei amici a Milano",
+                "Ho delle amici a Milano",
+                "Ho degli amico a Milano"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Nel testo c'è un errore",
+            "singAr": "في النص فيه غلطة واحدة",
+            "correctAr": "في النص فيه شوية غلطات",
+            "options": [
+                "Nel testo ci sono degli errori",
+                "Nel testo ci sono dei errori",
+                "Nel testo ci sono delle errori",
+                "Nel testo ci sono degli errore"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho un ombrello in macchina",
+            "singAr": "عندي شمسية واحدة في العربية",
+            "correctAr": "عندي شوية شماسي في العربية",
+            "options": [
+                "Ho degli ombrelli in macchina",
+                "Ho dei ombrelli in macchina",
+                "Ho delle ombrelli in macchina",
+                "Ho degli ombrello in macchina"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Compro un'arancia",
+            "singAr": "باشتري برتقالة واحدة",
+            "correctAr": "باشتري شوية برتقال",
+            "options": [
+                "Compro delle arance",
+                "Compro degli arance",
+                "Compro dei arance",
+                "Compro delle arancia"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Ho un'amica a Roma",
+            "singAr": "عندي صاحبة واحدة في روما",
+            "correctAr": "عندي شوية صاحبات في روما",
+            "options": [
+                "Ho delle amiche a Roma",
+                "Ho degli amiche a Roma",
+                "Ho dei amiche a Roma",
+                "Ho delle amica a Roma"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Visito un'isola in Grecia",
+            "singAr": "بازور جزيرة واحدة في اليونان",
+            "correctAr": "بازور شوية جزر في اليونان",
+            "options": [
+                "Visito delle isole in Grecia",
+                "Visito degli isole in Grecia",
+                "Visito dei isole in Grecia",
+                "Visito delle isola in Grecia"
+            ],
+            "correctIdx": 0
+        }
+    ],
+    "fillQuestionLabel": "🧩 اختار شكل أداة التبعيض المناسب للفراغ",
     "triggers": [
       "dei",
       "degli",
@@ -403,7 +623,1053 @@ const GRAMMAR = [
             "dei libri / degli zaini / delle mele"
           ]
         ]
-      }
+      },
+    {
+        "type": "usage",
+        "title": "مذكر مفرد (Del)",
+        "meaning": "Del",
+        "description": "قبل اسم مذكر مفرد يبدأ بساكن عادي.",
+        "color": "#1e88e5",
+        "form": "del",
+        "examples": [
+            {
+                "it": "Ho comprato del pane",
+                "ar": "اشتريت شوية عيش",
+                "form": "del",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "comprato",
+                        "ar": "اشتريت",
+                        "note": "Comprare، Passato Prossimo",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "del",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "pane",
+                        "ar": "عيش",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Bevo del vino",
+                "ar": "باشرب شوية نبيت",
+                "form": "del",
+                "words": [
+                    {
+                        "it": "Bevo",
+                        "ar": "باشرب",
+                        "note": "Bere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "del",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "vino",
+                        "ar": "نبيت",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Metto del sale nella pasta",
+                "ar": "بحط شوية ملح في المكرونة",
+                "form": "del",
+                "words": [
+                    {
+                        "it": "Metto",
+                        "ar": "بحط",
+                        "note": "Mettere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "del",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "sale",
+                        "ar": "ملح",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "nella",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "pasta",
+                        "ar": "معكرونة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Prendo del formaggio",
+                "ar": "باخد شوية جبنة",
+                "form": "del",
+                "words": [
+                    {
+                        "it": "Prendo",
+                        "ar": "باخد",
+                        "note": "Prendere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "del",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "formaggio",
+                        "ar": "جبنة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Vorrei del riso",
+                "ar": "عايز شوية رز",
+                "form": "del",
+                "words": [
+                    {
+                        "it": "Vorrei",
+                        "ar": "عايز",
+                        "note": "Volere، Condizionale (تعبير مؤدب: عايز/حابب)",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "del",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "riso",
+                        "ar": "رز",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "مذكر مفرد يبدأ بمجموعة صوتية خاصة (Dello)",
+        "meaning": "Dello",
+        "description": "قبل مذكر مفرد يبدأ بـ s+ساكن / z / gn / ps.",
+        "color": "#8e24aa",
+        "form": "dello",
+        "examples": [
+            {
+                "it": "Metto dello zucchero",
+                "ar": "بضيف شوية سكر",
+                "form": "dello",
+                "words": [
+                    {
+                        "it": "Metto",
+                        "ar": "بحط",
+                        "note": "Mettere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dello",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "zucchero",
+                        "ar": "سكر",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Ho dello spazio libero",
+                "ar": "عندي شوية مساحة فاضية",
+                "form": "dello",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dello",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "spazio",
+                        "ar": "مساحة",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "libero",
+                        "ar": "فاضي",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Compro dello spumante",
+                "ar": "باشتري شوية مشروب فوّار",
+                "form": "dello",
+                "words": [
+                    {
+                        "it": "Compro",
+                        "ar": "باشتري",
+                        "note": "Comprare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dello",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "spumante",
+                        "ar": "مشروب فوّار",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Uso dello shampoo",
+                "ar": "باستخدم شوية شامبو",
+                "form": "dello",
+                "words": [
+                    {
+                        "it": "Uso",
+                        "ar": "باستخدم",
+                        "note": "Usare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dello",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "shampoo",
+                        "ar": "شامبو",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Prendo dello zafferano",
+                "ar": "باخد شوية زعفران",
+                "form": "dello",
+                "words": [
+                    {
+                        "it": "Prendo",
+                        "ar": "باخد",
+                        "note": "Prendere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dello",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "zafferano",
+                        "ar": "زعفران",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "مؤنث مفرد (Della)",
+        "meaning": "Della",
+        "description": "قبل اسم مؤنث مفرد يبدأ بساكن.",
+        "color": "#00897b",
+        "form": "della",
+        "examples": [
+            {
+                "it": "Compro della pasta",
+                "ar": "بشتري شوية معكرونة",
+                "form": "della",
+                "words": [
+                    {
+                        "it": "Compro",
+                        "ar": "باشتري",
+                        "note": "Comprare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "della",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "pasta",
+                        "ar": "معكرونة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Bevo della birra",
+                "ar": "باشرب شوية بيرة",
+                "form": "della",
+                "words": [
+                    {
+                        "it": "Bevo",
+                        "ar": "باشرب",
+                        "note": "Bere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "della",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "birra",
+                        "ar": "بيرة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Metto della panna nel caffè",
+                "ar": "بحط شوية كريمة في القهوة",
+                "form": "della",
+                "words": [
+                    {
+                        "it": "Metto",
+                        "ar": "بحط",
+                        "note": "Mettere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "della",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "panna",
+                        "ar": "كريمة",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "nel",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "caffè",
+                        "ar": "قهوة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Ho della farina in casa",
+                "ar": "عندي شوية دقيق في البيت",
+                "form": "della",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "della",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "farina",
+                        "ar": "دقيق",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "in",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "casa",
+                        "ar": "بيت",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Prendo della frutta",
+                "ar": "باخد شوية فاكهة",
+                "form": "della",
+                "words": [
+                    {
+                        "it": "Prendo",
+                        "ar": "باخد",
+                        "note": "Prendere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "della",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "frutta",
+                        "ar": "فاكهة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "مفرد قبل حرف متحرك (Dell')",
+        "meaning": "Dell'",
+        "description": "قبل اسم مفرد (مذكر أو مؤنث) يبدأ بحرف متحرك — بيتدمج بالإليجن.",
+        "color": "#fb8c00",
+        "form": "dell'",
+        "examples": [
+            {
+                "it": "Vorrei dell'acqua",
+                "ar": "عايز شوية مية",
+                "form": "dell'acqua",
+                "words": [
+                    {
+                        "it": "Vorrei",
+                        "ar": "عايز",
+                        "note": "Volere، Condizionale (تعبير مؤدب: عايز/حابب)",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dell'acqua",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Bevo dell'aranciata",
+                "ar": "باشرب شوية عصير برتقال",
+                "form": "dell'aranciata",
+                "words": [
+                    {
+                        "it": "Bevo",
+                        "ar": "باشرب",
+                        "note": "Bere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dell'aranciata",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Metto dell'olio nella padella",
+                "ar": "بحط شوية زيت في الطاسة",
+                "form": "dell'olio",
+                "words": [
+                    {
+                        "it": "Metto",
+                        "ar": "بحط",
+                        "note": "Mettere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dell'olio",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "nella",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "padella",
+                        "ar": "طاسة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Compro dell'uva",
+                "ar": "باشتري شوية عنب",
+                "form": "dell'uva",
+                "words": [
+                    {
+                        "it": "Compro",
+                        "ar": "باشتري",
+                        "note": "Comprare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dell'uva",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Prendo dell'insalata",
+                "ar": "باخد شوية سلطة",
+                "form": "dell'insalata",
+                "words": [
+                    {
+                        "it": "Prendo",
+                        "ar": "باخد",
+                        "note": "Prendere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dell'insalata",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "جمع مذكر عادي (Dei)",
+        "meaning": "Dei",
+        "description": "قبل جمع مذكر في الحالة العادية.",
+        "color": "#43a047",
+        "form": "dei",
+        "examples": [
+            {
+                "it": "Ho dei libri",
+                "ar": "عندي شوية كتب",
+                "form": "dei",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dei",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "libri",
+                        "ar": "كتب",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Compro dei pomodori",
+                "ar": "باشتري شوية طماطم",
+                "form": "dei",
+                "words": [
+                    {
+                        "it": "Compro",
+                        "ar": "باشتري",
+                        "note": "Comprare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dei",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "pomodori",
+                        "ar": "طماطم",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Mangio dei biscotti",
+                "ar": "باكل شوية بسكوت",
+                "form": "dei",
+                "words": [
+                    {
+                        "it": "Mangio",
+                        "ar": "باكل",
+                        "note": "Mangiare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dei",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "biscotti",
+                        "ar": "بسكوت",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Ho dei problemi",
+                "ar": "عندي شوية مشاكل",
+                "form": "dei",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dei",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "problemi",
+                        "ar": "مشاكل",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Vedo dei bambini nel parco",
+                "ar": "باشوف شوية عيال في الحديقة",
+                "form": "dei",
+                "words": [
+                    {
+                        "it": "Vedo",
+                        "ar": "باشوف",
+                        "note": "Vedere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "dei",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "bambini",
+                        "ar": "عيال",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "nel",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "parco",
+                        "ar": "حديقة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "جمع مذكر يبدأ بحرف متحرك أو مجموعة صوتية خاصة (Degli)",
+        "meaning": "Degli",
+        "description": "قبل جمع مذكر يبدأ بحرف متحرك أو s+ساكن / z / gn / ps.",
+        "color": "#e53935",
+        "form": "degli",
+        "examples": [
+            {
+                "it": "Ho degli amici a Roma",
+                "ar": "عندي شوية أصحاب في روما",
+                "form": "degli",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "degli",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "amici",
+                        "ar": "أصحاب",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "a",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "Roma",
+                        "ar": "روما",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Compro degli asciugamani",
+                "ar": "باشتري شوية فوط",
+                "form": "degli",
+                "words": [
+                    {
+                        "it": "Compro",
+                        "ar": "باشتري",
+                        "note": "Comprare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "degli",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "asciugamani",
+                        "ar": "فوط",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Vedo degli uccelli",
+                "ar": "باشوف شوية عصافير",
+                "form": "degli",
+                "words": [
+                    {
+                        "it": "Vedo",
+                        "ar": "باشوف",
+                        "note": "Vedere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "degli",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "uccelli",
+                        "ar": "عصافير",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Mangio degli spaghetti",
+                "ar": "باكل شوية اسباجيتي",
+                "form": "degli",
+                "words": [
+                    {
+                        "it": "Mangio",
+                        "ar": "باكل",
+                        "note": "Mangiare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "degli",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "spaghetti",
+                        "ar": "اسباجيتي",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Ho degli strumenti utili",
+                "ar": "عندي شوية أدوات مفيدة",
+                "form": "degli",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "degli",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "strumenti",
+                        "ar": "أدوات",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "utili",
+                        "ar": "مفيدة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "جمع مؤنث (Delle)",
+        "meaning": "Delle",
+        "description": "قبل اسم جمع مؤنث.",
+        "color": "#6d4c41",
+        "form": "delle",
+        "examples": [
+            {
+                "it": "Ho delle mele",
+                "ar": "عندي شوية تفاح",
+                "form": "delle",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "delle",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "mele",
+                        "ar": "تفاح",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Compro delle banane",
+                "ar": "باشتري شوية موز",
+                "form": "delle",
+                "words": [
+                    {
+                        "it": "Compro",
+                        "ar": "باشتري",
+                        "note": "Comprare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "delle",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "banane",
+                        "ar": "موز",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Vedo delle stelle",
+                "ar": "باشوف شوية نجوم",
+                "form": "delle",
+                "words": [
+                    {
+                        "it": "Vedo",
+                        "ar": "باشوف",
+                        "note": "Vedere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "delle",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "stelle",
+                        "ar": "نجوم",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Ho delle domande",
+                "ar": "عندي شوية أسئلة",
+                "form": "delle",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "عندي",
+                        "note": "Avere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "delle",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "domande",
+                        "ar": "أسئلة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Mangio delle fragole",
+                "ar": "باكل شوية فراولة",
+                "form": "delle",
+                "words": [
+                    {
+                        "it": "Mangio",
+                        "ar": "باكل",
+                        "note": "Mangiare، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "delle",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "partitivi",
+                        "note": null
+                    },
+                    {
+                        "it": "fragole",
+                        "ar": "فراولة",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            }
+        ]
+    }
     ]
   },
   {
@@ -2269,6 +3535,68 @@ const GRAMMAR = [
     ]
   },
   {
+    "id": "lex_aggettivi",
+    "it": "Aggettivo — قاموس صفات متجدد",
+    "ar": "صفات عامة (من قطع الاستماع)",
+    "icon": "🔤",
+    "triggers": [
+      "favorevole",
+      "domenicale",
+      "pratico",
+      "difficile",
+      "anonimo",
+      "piacevole",
+      "festivo",
+      "doloroso",
+      "pochissimi"
+    ],
+    "blocks": [
+      {
+        "type": "note",
+        "ar": "قاموس متجدد للصفات اللي بتظهر في قطع الاستماع ومالهاش قاعدة جرامرية خاصة بيها — كل ما تلاقي صفة جديدة من نفس النوع (وصف بسيط من غير تصريف شاذ) بتتضاف هنا بدل ما تتعمل لها قاعدة مستقلة."
+      },
+      {"type":"item","it":"Favorevole","ar":"موافق / مع","note":"بتيجي مع Essere + a: essere favorevole a qualcosa","examples":[{"it":"Sono favorevole a questa idea","ar":"أنا موافق على الفكرة دي"}]},
+      {"type":"item","it":"Domenicale","ar":"بتاع / خاص بيوم الحد","note":"صفة مشتقة من اسم اليوم: domenica → domenicale","examples":[{"it":"L'apertura domenicale","ar":"الفتح يوم الحد"}]},
+      {"type":"item","it":"Pratico","ar":"عملي","note":null,"examples":[{"it":"Una soluzione pratica","ar":"حل عملي"}]},
+      {"type":"item","it":"Difficile","ar":"صعب","note":null,"examples":[{"it":"È difficile fare la spesa","ar":"صعب إنك تتسوق"}]},
+      {"type":"item","it":"Anonimo","ar":"مجهول / بلا طابع شخصي","note":null,"examples":[{"it":"Un luogo anonimo","ar":"مكان بلا طابع"}]},
+      {"type":"item","it":"Piacevole","ar":"ممتع / لطيف","note":null,"examples":[{"it":"Un giorno piacevole","ar":"يوم ممتع"}]},
+      {"type":"item","it":"Festivo","ar":"(يوم) عطلة رسمية","note":null,"examples":[{"it":"Un giorno festivo","ar":"يوم إجازة رسمي"}]},
+      {"type":"item","it":"Doloroso","ar":"مؤلم / موجع","note":null,"examples":[{"it":"È doloroso sentirlo","ar":"موجع إنك تسمعه"}]},
+      {"type":"item","it":"Pochissimi","ar":"قليلين جداً","note":"صيغة تفضيل مبالغ فيها (superlativo assoluto) من poco","examples":[{"it":"Pochissimi giorni festivi","ar":"أيام إجازة قليلة جداً"}]}
+    ]
+  },
+  {
+    "id": "lex_nomi",
+    "it": "Nome — قاموس أسماء متجدد",
+    "ar": "أسماء عامة (من قطع الاستماع)",
+    "icon": "📦",
+    "triggers": [
+      "comodità",
+      "questione",
+      "pausa",
+      "riposo",
+      "gita",
+      "luogo",
+      "disagio",
+      "bollette"
+    ],
+    "blocks": [
+      {
+        "type": "note",
+        "ar": "قاموس متجدد للأسماء اللي بتظهر في قطع الاستماع ومالهاش قاعدة جرامرية خاصة بيها."
+      },
+      {"type":"item","it":"Comodità","ar":"راحة / سهولة","note":null,"examples":[{"it":"È una questione di comodità","ar":"دي مسألة راحة"}]},
+      {"type":"item","it":"Questione","ar":"مسألة / قضية","note":null,"examples":[{"it":"Una questione importante","ar":"مسألة مهمة"}]},
+      {"type":"item","it":"Pausa","ar":"استراحة","note":null,"examples":[{"it":"Un giorno di pausa","ar":"يوم استراحة"}]},
+      {"type":"item","it":"Riposo","ar":"راحة (استرخاء)","note":null,"examples":[{"it":"Un giorno di riposo","ar":"يوم راحة"}]},
+      {"type":"item","it":"Gita","ar":"نزهة / رحلة قصيرة","note":null,"examples":[{"it":"Fare una gita","ar":"يعمل نزهة"}]},
+      {"type":"item","it":"Luogo","ar":"مكان","note":null,"examples":[{"it":"Un luogo anonimo","ar":"مكان بلا طابع"}]},
+      {"type":"item","it":"Disagio","ar":"إحساس بعدم الارتياح","note":null,"examples":[{"it":"Sentire questo disagio","ar":"يحس بعدم الارتياح ده"}]},
+      {"type":"item","it":"Bollette","ar":"فواتير","note":"جمع bolletta","examples":[{"it":"Pagare le bollette","ar":"يدفع الفواتير"}]}
+    ]
+  },
+  {
     "id": "prep_di",
     "it": "Preposizione DI",
     "ar": "لـ / من / عن / في",
@@ -3494,6 +4822,154 @@ const GRAMMAR = [
     "it": "I colori",
     "ar": "الألوان",
     "icon": "🎨",
+    "recogQuestionLabel": "🎨 الصفة دي بتتصرف إزاي؟",
+    "fillQuestionLabel": "🎨 اختار صورة اللون المناسبة للفراغ",
+    "transformPairs": [
+        {
+            "sing": "Il vestito è rosso",
+            "singAr": "الفستان (مذكر) أحمر",
+            "correctAr": "الجونلة حمرا",
+            "options": [
+                "La gonna è rossa",
+                "La gonna è rosso",
+                "La gonna è rossi",
+                "La gonna è rosse"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "La maglia è gialla",
+            "singAr": "البلوزة (مؤنث) صفرا",
+            "correctAr": "البنطلون أصفر",
+            "options": [
+                "I pantaloni sono gialli",
+                "I pantaloni sono gialla",
+                "I pantaloni sono giallo",
+                "I pantaloni sono gialle"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Il libro è bianco",
+            "singAr": "الكتاب (مذكر) أبيض",
+            "correctAr": "الحيطان بيضا",
+            "options": [
+                "Le pareti sono bianche",
+                "Le pareti sono bianco",
+                "Le pareti sono bianchi",
+                "Le pareti sono bianca"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "I capelli sono neri",
+            "singAr": "الشعر (جمع مذكر) أسود",
+            "correctAr": "الشنطة سودة",
+            "options": [
+                "La borsa è nera",
+                "La borsa è nero",
+                "La borsa è neri",
+                "La borsa è nere"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Le scarpe sono azzurre",
+            "singAr": "الجزمة (جمع مؤنث) زرقا فاتحة",
+            "correctAr": "السما زرقا فاتحة",
+            "options": [
+                "Il cielo è azzurro",
+                "Il cielo è azzurra",
+                "Il cielo è azzurri",
+                "Il cielo è azzurre"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "La maglia è verde",
+            "singAr": "البلوزة خضرا",
+            "correctAr": "البنطلون أخضر",
+            "options": [
+                "I pantaloni sono verdi",
+                "I pantaloni sono verda",
+                "I pantaloni sono verdo",
+                "I pantaloni sono verde"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "La borsa è arancione",
+            "singAr": "الشنطة برتقالي",
+            "correctAr": "الشنط برتقالي",
+            "options": [
+                "Le borse sono arancioni",
+                "Le borse sono arancione",
+                "Le borse sono arancioni",
+                "Le borse sono arancia"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Gli occhi sono marroni",
+            "singAr": "العيون بني",
+            "correctAr": "الفستان بني",
+            "options": [
+                "Il vestito è marrone",
+                "Il vestito è marrona",
+                "Il vestito è marroni",
+                "Il vestito è marrono"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Il cielo è celeste",
+            "singAr": "السما سماوية",
+            "correctAr": "العيون سماوية",
+            "options": [
+                "Gli occhi sono celesti",
+                "Gli occhi sono celeste",
+                "Gli occhi sono celesta",
+                "Gli occhi sono celesto"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Il gatto è blu",
+            "singAr": "القطة (مذكر) زرقاء",
+            "correctAr": "القطة زرقاء برضو (بلو ثابتة)",
+            "options": [
+                "La gatta è blu",
+                "La gatta è blua",
+                "La gatta è blue",
+                "La gatta è bli"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "Il vestito è viola",
+            "singAr": "الفستان بنفسجي",
+            "correctAr": "الجزمة بنفسجي برضو (ثابتة)",
+            "options": [
+                "Le scarpe sono viola",
+                "Le scarpe sono viole",
+                "Le scarpe sono violi",
+                "Le scarpe sono violo"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "La maglia è rosa",
+            "singAr": "البلوزة وردية",
+            "correctAr": "الورد وردي برضو (ثابتة)",
+            "options": [
+                "I fiori sono rosa",
+                "I fiori sono rose",
+                "I fiori sono rosi",
+                "I fiori sono roso"
+            ],
+            "correctIdx": 0
+        }
+    ],
     "triggers": [
       "rosso",
       "blu",
@@ -3652,7 +5128,555 @@ const GRAMMAR = [
             "ar": "اشتريت جزمة بيج"
           }
         ]
-      }
+      },
+    {
+        "type": "usage",
+        "title": "يتصرف بالكامل (4 صور)",
+        "meaning": "-o / -a / -i / -e",
+        "description": "زي rosso: بياخد 4 صور حسب جنس وعدد الاسم (مذكر مفرد/مؤنث مفرد/مذكر جمع/مؤنث جمع).",
+        "color": "#e53935",
+        "form": "rossa",
+        "examples": [
+            {
+                "it": "Ho una maglietta rossa",
+                "ar": "عندي تي شيرت أحمر",
+                "form": "rossa",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "",
+                        "note": "Avere، Presente (فعل مساعد)",
+                        "type": "omesso"
+                    },
+                    {
+                        "it": "una",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "maglietta",
+                        "ar": "تي شيرت",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "rossa",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Mi piace il colore giallo",
+                "ar": "بحب اللون الأصفر",
+                "form": "giallo",
+                "words": [
+                    {
+                        "it": "Mi",
+                        "ar": "",
+                        "note": "ضمير — جزء من تعبير 'Mi piace' (بحب)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "piace",
+                        "ar": "بحب",
+                        "note": "Piacere، Presente (تعبير: 'Mi piace' = بحب)",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "il",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "colore",
+                        "ar": "لون",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "giallo",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "La neve è bianca",
+                "ar": "الثلج أبيض",
+                "form": "bianca",
+                "words": [
+                    {
+                        "it": "La",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "neve",
+                        "ar": "ثلج",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "è",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "bianca",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Il gatto è nero",
+                "ar": "القطة سودة",
+                "form": "nero",
+                "words": [
+                    {
+                        "it": "Il",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "gatto",
+                        "ar": "قطة",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "è",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "nero",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Il mare è azzurro",
+                "ar": "البحر أزرق فاتح",
+                "form": "azzurro",
+                "words": [
+                    {
+                        "it": "Il",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "mare",
+                        "ar": "بحر",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "è",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "azzurro",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "يتصرف للجمع بس (صورتين)",
+        "meaning": "-e / -i",
+        "description": "زي verde: نفس الصورة للمذكر والمؤنث، بس بيتغير في الجمع بس.",
+        "color": "#43a047",
+        "form": "verde",
+        "examples": [
+            {
+                "it": "L'erba è verde",
+                "ar": "العشب أخضر",
+                "form": "verde",
+                "words": [
+                    {
+                        "it": "L'erba",
+                        "ar": "العشب",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "è",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "verde",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Mi piace la borsa arancione",
+                "ar": "بحب الشنطة البرتقالي",
+                "form": "arancione",
+                "words": [
+                    {
+                        "it": "Mi",
+                        "ar": "",
+                        "note": "ضمير — جزء من تعبير 'Mi piace' (بحب)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "piace",
+                        "ar": "بحب",
+                        "note": "Piacere، Presente (تعبير: 'Mi piace' = بحب)",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "la",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "borsa",
+                        "ar": "شنطة",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "arancione",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Ho gli occhi marroni",
+                "ar": "عيني بني",
+                "form": "marroni",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "",
+                        "note": "Avere، Presente (فعل مساعد)",
+                        "type": "omesso"
+                    },
+                    {
+                        "it": "gli",
+                        "ar": "ال",
+                        "note": "أداة تعريف (جمع مذكر)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "occhi",
+                        "ar": "عيون",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "marroni",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Il cielo è celeste stamattina",
+                "ar": "السما سماوية النهاردة الصبح",
+                "form": "celeste",
+                "words": [
+                    {
+                        "it": "Il",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "cielo",
+                        "ar": "سما",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "è",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "celeste",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    },
+                    {
+                        "it": "stamattina",
+                        "ar": "النهاردة الصبح",
+                        "note": null,
+                        "type": "altro"
+                    }
+                ]
+            },
+            {
+                "it": "Le tende sono verdi",
+                "ar": "الستاير خضرا",
+                "form": "verdi",
+                "words": [
+                    {
+                        "it": "Le",
+                        "ar": "ال",
+                        "note": "أداة تعريف (جمع مؤنث)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "tende",
+                        "ar": "ستاير",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "sono",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "verdi",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "ثابت مايتصرفش",
+        "meaning": "ثابت",
+        "description": "زي blu/viola/rosa/beige: نفس الصورة دايمًا مهما كان جنس أو عدد الاسم.",
+        "color": "#6d4c41",
+        "form": "blu",
+        "examples": [
+            {
+                "it": "Il cielo è blu",
+                "ar": "السما زرقاء",
+                "form": "blu",
+                "words": [
+                    {
+                        "it": "Il",
+                        "ar": "ال",
+                        "note": "أداة تعريف",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "cielo",
+                        "ar": "سما",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "è",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "blu",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Ho comprato un vestito viola",
+                "ar": "اشتريت فستان بنفسجي",
+                "form": "viola",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "",
+                        "note": "Avere، Presente (فعل مساعد)",
+                        "type": "omesso"
+                    },
+                    {
+                        "it": "comprato",
+                        "ar": "اشتريت",
+                        "note": "Comprare، Passato Prossimo",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "un",
+                        "ar": "",
+                        "type": "omesso",
+                        "skipReason": "ausiliare",
+                        "note": null
+                    },
+                    {
+                        "it": "vestito",
+                        "ar": "فستان",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "viola",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Le sue guance sono rosa",
+                "ar": "خدودها وردية",
+                "form": "rosa",
+                "words": [
+                    {
+                        "it": "Le",
+                        "ar": "ال",
+                        "note": "أداة تعريف (جمع مؤنث)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "sue",
+                        "ar": "ـها",
+                        "note": "صفة ملكية (جمع، لها)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "guance",
+                        "ar": "خدود",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "sono",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "rosa",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Ho comprato scarpe beige",
+                "ar": "اشتريت جزمة بيج",
+                "form": "beige",
+                "words": [
+                    {
+                        "it": "Ho",
+                        "ar": "",
+                        "note": "Avere، Presente (فعل مساعد)",
+                        "type": "omesso"
+                    },
+                    {
+                        "it": "comprato",
+                        "ar": "اشتريت",
+                        "note": "Comprare، Passato Prossimo",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "scarpe",
+                        "ar": "جزمة",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "beige",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Le mie scarpe sono color pelle",
+                "ar": "جزمتي بلون البشرة",
+                "form": "pelle",
+                "words": [
+                    {
+                        "it": "Le",
+                        "ar": "ال",
+                        "note": "أداة تعريف (جمع مؤنث)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "mie",
+                        "ar": "ـي",
+                        "note": "صفة ملكية (جمع مؤنث)",
+                        "type": "altro"
+                    },
+                    {
+                        "it": "scarpe",
+                        "ar": "جزمة",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "sono",
+                        "ar": "",
+                        "note": "Essere، Presente",
+                        "type": "verbo"
+                    },
+                    {
+                        "it": "color",
+                        "ar": "لون",
+                        "note": null,
+                        "type": "altro"
+                    },
+                    {
+                        "it": "pelle",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "colori",
+                        "note": null
+                    }
+                ]
+            }
+        ]
+    }
     ]
   },
   {
@@ -3660,6 +5684,360 @@ const GRAMMAR = [
     "it": "I numeri",
     "ar": "الأرقام",
     "icon": "🔢",
+    "comboButtonLabel": "🔢 اختبر نفسك في الأرقام",
+    "recogQuestionLabel": "🔢 الرقم ده جواه إيه من قواعد التركيب؟",
+    "transformQuestionLabel": "🔢 اكتب/اختار النطق الصح للرقم",
+    "transformSingLabel": "الرقم:",
+    "transformPairs": [
+        {
+            "sing": "3",
+            "singAr": "",
+            "correctAr": "بالأرقام: 3",
+            "options": [
+                "Tre",
+                "Tredici",
+                "Uno",
+                "Sei"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "7",
+            "singAr": "",
+            "correctAr": "بالأرقام: 7",
+            "options": [
+                "Sette",
+                "Diciassette",
+                "Cinque",
+                "Dieci"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "9",
+            "singAr": "",
+            "correctAr": "بالأرقام: 9",
+            "options": [
+                "Nove",
+                "Diciannove",
+                "Sette",
+                "Dodici"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "12",
+            "singAr": "",
+            "correctAr": "بالأرقام: 12",
+            "options": [
+                "Dodici",
+                "Undici",
+                "Dieci",
+                "Quindici"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "15",
+            "singAr": "",
+            "correctAr": "بالأرقام: 15",
+            "options": [
+                "Quindici",
+                "Quattordici",
+                "Tredici",
+                "Diciotto"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "18",
+            "singAr": "",
+            "correctAr": "بالأرقام: 18",
+            "options": [
+                "Diciotto",
+                "Dieciotto",
+                "Diciassette",
+                "Sedici"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "30",
+            "singAr": "",
+            "correctAr": "بالأرقام: 30",
+            "options": [
+                "Trenta",
+                "Quaranta",
+                "Trentadue",
+                "Trentatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "60",
+            "singAr": "",
+            "correctAr": "بالأرقام: 60",
+            "options": [
+                "Sessanta",
+                "Settanta",
+                "Sessantadue",
+                "Sessantatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "90",
+            "singAr": "",
+            "correctAr": "بالأرقام: 90",
+            "options": [
+                "Novanta",
+                "Ottanta",
+                "Novantadue",
+                "Novantatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "21",
+            "singAr": "",
+            "correctAr": "بالأرقام: 21",
+            "options": [
+                "Ventuno",
+                "Ventiuno",
+                "Trentuno",
+                "Ventitré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "31",
+            "singAr": "",
+            "correctAr": "بالأرقام: 31",
+            "options": [
+                "Trentuno",
+                "Trentauno",
+                "Quarantuno",
+                "Trentatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "41",
+            "singAr": "",
+            "correctAr": "بالأرقام: 41",
+            "options": [
+                "Quarantuno",
+                "Quarantauno",
+                "Cinquantuno",
+                "Quarantatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "61",
+            "singAr": "",
+            "correctAr": "بالأرقام: 61",
+            "options": [
+                "Sessantuno",
+                "Sessantauno",
+                "Settantuno",
+                "Sessantatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "81",
+            "singAr": "",
+            "correctAr": "بالأرقام: 81",
+            "options": [
+                "Ottantuno",
+                "Ottantauno",
+                "Novantuno",
+                "Ottantatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "91",
+            "singAr": "",
+            "correctAr": "بالأرقام: 91",
+            "options": [
+                "Novantuno",
+                "Novantauno",
+                "Ottantuno",
+                "Novantatré"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "28",
+            "singAr": "",
+            "correctAr": "بالأرقام: 28",
+            "options": [
+                "Ventotto",
+                "Ventiotto",
+                "Trentotto",
+                "Ventuno"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "38",
+            "singAr": "",
+            "correctAr": "بالأرقام: 38",
+            "options": [
+                "Trentotto",
+                "Trentaotto",
+                "Quarantotto",
+                "Trentuno"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "48",
+            "singAr": "",
+            "correctAr": "بالأرقام: 48",
+            "options": [
+                "Quarantotto",
+                "Quarantaotto",
+                "Cinquantotto",
+                "Quarantuno"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "68",
+            "singAr": "",
+            "correctAr": "بالأرقام: 68",
+            "options": [
+                "Sessantotto",
+                "Sessantaotto",
+                "Settantotto",
+                "Sessantuno"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "88",
+            "singAr": "",
+            "correctAr": "بالأرقام: 88",
+            "options": [
+                "Ottantotto",
+                "Ottantaotto",
+                "Novantotto",
+                "Ottantuno"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "98",
+            "singAr": "",
+            "correctAr": "بالأرقام: 98",
+            "options": [
+                "Novantotto",
+                "Novantaotto",
+                "Ottantotto",
+                "Novantuno"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "23",
+            "singAr": "",
+            "correctAr": "بالأرقام: 23",
+            "options": [
+                "Ventitré",
+                "Trentatré",
+                "Venticinque",
+                "Ventisei"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "35",
+            "singAr": "",
+            "correctAr": "بالأرقام: 35",
+            "options": [
+                "Trentacinque",
+                "Quarantacinque",
+                "Trentasette",
+                "Trentotto"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "47",
+            "singAr": "",
+            "correctAr": "بالأرقام: 47",
+            "options": [
+                "Quarantasette",
+                "Cinquantasette",
+                "Quarantanove",
+                "Cinquanta"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "54",
+            "singAr": "",
+            "correctAr": "بالأرقام: 54",
+            "options": [
+                "Cinquantaquattro",
+                "Sessantaquattro",
+                "Cinquantasei",
+                "Cinquantasette"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "66",
+            "singAr": "",
+            "correctAr": "بالأرقام: 66",
+            "options": [
+                "Sessantasei",
+                "Settantasei",
+                "Sessantotto",
+                "Sessantanove"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "79",
+            "singAr": "",
+            "correctAr": "بالأرقام: 79",
+            "options": [
+                "Settantanove",
+                "Ottantanove",
+                "Settantasette",
+                "Ottantadue"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "82",
+            "singAr": "",
+            "correctAr": "بالأرقام: 82",
+            "options": [
+                "Ottantadue",
+                "Novantadue",
+                "Ottantaquattro",
+                "Ottantacinque"
+            ],
+            "correctIdx": 0
+        },
+        {
+            "sing": "95",
+            "singAr": "",
+            "correctAr": "بالأرقام: 95",
+            "options": [
+                "Novantacinque",
+                "Ottantacinque",
+                "Novantasette",
+                "Novantotto"
+            ],
+            "correctIdx": 0
+        }
+    ],
     "triggers": [
       "uno",
       "due",
@@ -3881,7 +6259,247 @@ const GRAMMAR = [
             "ar": "عندي 7 إخوة"
           }
         ]
-      }
+      },
+    {
+        "type": "usage",
+        "title": "بيتكوّن عادي (عشرة + آحاد)",
+        "meaning": "عادي",
+        "description": "العشرة + الآحاد من غير أي تغيير: Venti + Due = Ventidue.",
+        "color": "#1e88e5",
+        "form": null,
+        "examples": [
+            {
+                "it": "Ventidue",
+                "ar": "اتنين وعشرين (22)",
+                "form": "Ventidue",
+                "words": [
+                    {
+                        "it": "Ventidue",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Trentacinque",
+                "ar": "خمسة وتلاتين (35)",
+                "form": "Trentacinque",
+                "words": [
+                    {
+                        "it": "Trentacinque",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Quarantasette",
+                "ar": "سبعة واربعين (47)",
+                "form": "Quarantasette",
+                "words": [
+                    {
+                        "it": "Quarantasette",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Sessantasei",
+                "ar": "ستة وستين (66)",
+                "form": "Sessantasei",
+                "words": [
+                    {
+                        "it": "Sessantasei",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Settantanove",
+                "ar": "تسعة وسبعين (79)",
+                "form": "Settantanove",
+                "words": [
+                    {
+                        "it": "Settantanove",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "فيها حذف حرف قبل uno/otto",
+        "meaning": "حذف حرف",
+        "description": "الرقم بينتهي بـ1 أو8، فبنشيل آخر حرف من العشرة: Venti + Uno = Ventuno مش Ventiuno.",
+        "color": "#e53935",
+        "form": null,
+        "examples": [
+            {
+                "it": "Ventuno",
+                "ar": "واحد وعشرين (21)",
+                "form": "Ventuno",
+                "words": [
+                    {
+                        "it": "Ventuno",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Trentotto",
+                "ar": "تمانية وتلاتين (38)",
+                "form": "Trentotto",
+                "words": [
+                    {
+                        "it": "Trentotto",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Quarantuno",
+                "ar": "واحد واربعين (41)",
+                "form": "Quarantuno",
+                "words": [
+                    {
+                        "it": "Quarantuno",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Sessantotto",
+                "ar": "تمانية وستين (68)",
+                "form": "Sessantotto",
+                "words": [
+                    {
+                        "it": "Sessantotto",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Novantuno",
+                "ar": "واحد وتسعين (91)",
+                "form": "Novantuno",
+                "words": [
+                    {
+                        "it": "Novantuno",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "usage",
+        "title": "فيها علامة نبر قبل tré",
+        "meaning": "علامة نبر",
+        "description": "الرقم بينتهي بـ3، فـ tré بتاخد علامة نبر: Venti + Tre = Ventitré.",
+        "color": "#8e24aa",
+        "form": null,
+        "examples": [
+            {
+                "it": "Ventitré",
+                "ar": "تلاتة وعشرين (23)",
+                "form": "Ventitré",
+                "words": [
+                    {
+                        "it": "Ventitré",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Trentatré",
+                "ar": "تلاتة وتلاتين (33)",
+                "form": "Trentatré",
+                "words": [
+                    {
+                        "it": "Trentatré",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Quarantatré",
+                "ar": "تلاتة واربعين (43)",
+                "form": "Quarantatré",
+                "words": [
+                    {
+                        "it": "Quarantatré",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Sessantatré",
+                "ar": "تلاتة وستين (63)",
+                "form": "Sessantatré",
+                "words": [
+                    {
+                        "it": "Sessantatré",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            },
+            {
+                "it": "Novantatré",
+                "ar": "تلاتة وتسعين (93)",
+                "form": "Novantatré",
+                "words": [
+                    {
+                        "it": "Novantatré",
+                        "ar": "",
+                        "type": "preposizione",
+                        "grammarId": "numeri",
+                        "note": null
+                    }
+                ]
+            }
+        ]
+    }
     ]
   }
 ];
