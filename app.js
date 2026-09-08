@@ -2994,7 +2994,8 @@ function openGrammarModal(topicId,focusWord){
   if(focusWord){
     const norm=normalizeGrammarWord(focusWord);
     const body=document.getElementById('gmBody');
-    const item=body.querySelector('.gm-item[data-word="'+norm+'"]');
+    let item=null;
+    try{ item=body.querySelector('[data-word~="'+CSS.escape(norm)+'"]'); }catch(e){ item=null; }
     if(item){
       setTimeout(()=>{
         item.scrollIntoView({behavior:'smooth',block:'center'});
@@ -3054,7 +3055,8 @@ function renderGrammarBlocks(blocks,topicId){
       return html;
     }
     if(b.type==='usage'){
-      let html='<div style="border:1px solid '+escGm(b.color||'#64748b')+';border-right:6px solid '+escGm(b.color||'#64748b')+';border-radius:12px;padding:10px;margin:10px 0;background:color-mix(in srgb,'+escGm(b.color||'#64748b')+' 9%,transparent)">';
+      const formNorm=normalizeGrammarWord(b.form||b.title||'').replace(/"/g,'&quot;');
+      let html='<div class="gm-usage-block" data-word="'+formNorm+'" style="border:1px solid '+escGm(b.color||'#64748b')+';border-right:6px solid '+escGm(b.color||'#64748b')+';border-radius:12px;padding:10px;margin:10px 0;background:color-mix(in srgb,'+escGm(b.color||'#64748b')+' 9%,transparent)">';
       html+='<div style="font-weight:900;color:'+escGm(b.color||'#64748b')+'">'+escGm(b.title)+' — '+escGm(b.meaning)+'</div>';
       html+='<div style="margin:5px 0">'+escGm(b.description||'')+'</div>';
       (b.examples||[]).forEach(ex=>{
@@ -3070,7 +3072,8 @@ function renderGrammarBlocks(blocks,topicId){
       let html='<div class="gm-table-title">'+escGm(b.title||'')+'</div><table class="gm-table">';
       html+='<tr>'+(b.headers||[]).map(h=>'<th>'+escGm(h)+'</th>').join('')+'</tr>';
       (b.rows||[]).forEach(r=>{
-        html+='<tr>'+r.map(c=>'<td>'+gmSpeakableCell(c,tid)+'</td>').join('')+'</tr>';
+        const rowForms=String(r[0]||'').split(/[\/,]/).map(x=>normalizeGrammarWord(x)).filter(Boolean).join(' ').replace(/"/g,'&quot;');
+        html+='<tr data-word="'+rowForms+'">'+r.map(c=>'<td>'+gmSpeakableCell(c,tid)+'</td>').join('')+'</tr>';
       });
       html+='</table>';
       return html;
@@ -3556,7 +3559,7 @@ function buildWordInfoHtml(w){
   if(w.type==='congiunzione'){
     let html='';
     html+='<div>🔗 المعنى هنا: <b>'+escHtml(w.meaning||'')+'</b></div>';
-    if(w.grammarId)html+='<div><button class="bd-grammar-btn" style="font-size:22px" onclick="openGrammarModal(\''+escHtml(String(w.grammarId||'')).replace(/'/g,'\\\'')+'\')">📘 اعرض القاعدة كاملة</button></div>';
+    if(w.grammarId)html+='<div><button class="bd-grammar-btn" style="font-size:22px" onclick="openGrammarModal(\''+escHtml(String(w.grammarId||'')).replace(/'/g,'\\\'')+'\',\''+escHtml(String(w.it||'')).replace(/'/g,'\\\'')+'\')">📘 اعرض القاعدة كاملة</button></div>';
     return html;
   }
   if(w.type==='avverbio'){
