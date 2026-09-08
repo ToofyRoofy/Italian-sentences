@@ -3562,7 +3562,10 @@ const GRAMMAR = [
       "comodo",
       "comodi",
       "comoda",
-      "comode"
+      "comode",
+      "facile",
+      "vero",
+      "falso"
     ],
     "blocks": [
       {
@@ -3584,7 +3587,10 @@ const GRAMMAR = [
       {"type":"item","it":"Aperto","ar":"مفتوح","note":"جمعها Aperti — تصريف الفعل Aprire (Participio Passato)","examples":[{"it":"I negozi sono aperti","ar":"المحلات فاتحة"}]},
       {"type":"item","it":"Primo","ar":"الأول","note":"جمعها Primi","examples":[{"it":"I primi a sentirlo","ar":"أول الناس اللي حسّوا بيه"}]},
       {"type":"item","it":"Ogni","ar":"كل / كل واحد","note":"صفة ثابتة الشكل (مفرد دايمًا حتى مع كلمة جمع)","examples":[{"it":"Ogni giorno","ar":"كل يوم"}]},
-      {"type":"item","it":"Comodo","ar":"مريح / أريح","note":"جمعها Comodi، ومؤنثها Comoda/Comode","examples":[{"it":"Più comodi dei negozi","ar":"أريح من المحلات"}]}
+      {"type":"item","it":"Comodo","ar":"مريح / أريح","note":"جمعها Comodi، ومؤنثها Comoda/Comode","examples":[{"it":"Più comodi dei negozi","ar":"أريح من المحلات"}]},
+      {"type":"item","it":"Facile","ar":"سهل","note":"عكس Difficile","examples":null},
+      {"type":"item","it":"Vero","ar":"صح / حقيقي","note":"عكس Falso — بيتستخدم في أسئلة Vero o Falso","examples":null},
+      {"type":"item","it":"Falso","ar":"غلط / مش صح","note":"عكس Vero","examples":null}
     ]
   },
   {
@@ -3631,7 +3637,12 @@ const GRAMMAR = [
       "impiegata",
       "casalinga",
       "apertura",
-      "volte"
+      "volte",
+      "parcheggio",
+      "chiesa",
+      "luoghi",
+      "identità",
+      "situazione"
     ],
     "blocks": [
       {
@@ -3669,7 +3680,11 @@ const GRAMMAR = [
       {"type":"item","it":"Impiegata","ar":"موظفة","note":"مذكرها Impiegato","examples":null},
       {"type":"item","it":"Casalinga","ar":"ست بيت","note":null,"examples":null},
       {"type":"item","it":"Apertura","ar":"فتح","note":null,"examples":[{"it":"L'apertura domenicale","ar":"الفتح يوم الحد"}]},
-      {"type":"item","it":"Volte","ar":"مرات","note":"مفردها Volta — في تعبير: a volte = أحياناً","examples":[{"it":"A volte","ar":"أحياناً"}]}
+      {"type":"item","it":"Volte","ar":"مرات","note":"مفردها Volta — في تعبير: a volte = أحياناً","examples":[{"it":"A volte","ar":"أحياناً"}]},
+      {"type":"item","it":"Parcheggio","ar":"جراج / مكان ركن العربيات","note":null,"examples":null},
+      {"type":"item","it":"Chiesa","ar":"كنيسة","note":null,"examples":null},
+      {"type":"item","it":"Identità","ar":"هوية / طابع شخصي","note":null,"examples":null},
+      {"type":"item","it":"Situazione","ar":"وضع / موقف","note":null,"examples":null}
     ]
   },
   {
@@ -3695,7 +3710,15 @@ const GRAMMAR = [
       "essere",
       "dev",
       "deve",
-      "lavorare"
+      "lavorare",
+      "fa",
+      "dice",
+      "trovare",
+      "va",
+      "piove",
+      "piace",
+      "spera",
+      "cambiare"
     ],
     "blocks": [
       {
@@ -3718,7 +3741,15 @@ const GRAMMAR = [
       {"type":"item","it":"Conoscere","ar":"يعرف","note":"مصدر","examples":null},
       {"type":"item","it":"Essere","ar":"يكون","note":"مصدر — الفعل الأساسي للكينونة/الوصف","examples":null},
       {"type":"item","it":"Dev'","ar":"لازم","note":"صيغة مختصرة من Deve (Dovere، Presente) قبل حرف متحرك، زي: dev'essere = لازم يكون","examples":[{"it":"Dev'essere un giorno di riposo","ar":"لازم يكون يوم راحة"}]},
-      {"type":"item","it":"Lavorare","ar":"يشتغل","note":"مصدر","examples":null}
+      {"type":"item","it":"Lavorare","ar":"يشتغل","note":"مصدر","examples":null},
+      {"type":"item","it":"Fa","ar":"بيعمل / بتعمل","note":"Fare، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Dice","ar":"بيقول / بتقول","note":"Dire، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Trovare","ar":"يلاقي","note":"مصدر","examples":null},
+      {"type":"item","it":"Va","ar":"بيروح / بتروح","note":"Andare، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Piove","ar":"بتمطر","note":"Piovere، Presente","examples":null},
+      {"type":"item","it":"Piace","ar":"بيعجبه / عاجبها","note":"Piacere، Presente — بيتعدى بضمير غير مباشر: mi piace, le piace...","examples":[{"it":"Non le piace questa situazione","ar":"الوضع ده مش عاجبها"}]},
+      {"type":"item","it":"Spera","ar":"بتتمنى / بترجى","note":"Sperare، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Cambiare","ar":"يغيّر","note":"مصدر","examples":null}
     ]
   },
   {
@@ -3733,7 +3764,8 @@ const GRAMMAR = [
       "esempio",
       "non",
       "adesso",
-      "meno"
+      "meno",
+      "presto"
     ],
     "blocks": [
       {
@@ -3746,7 +3778,8 @@ const GRAMMAR = [
       {"type":"item","it":"Esempio","ar":"مثال","note":"في تعبير ثابت: per esempio = مثلاً","examples":[{"it":"Per esempio","ar":"مثلاً"}]},
       {"type":"item","it":"Non","ar":"أداة نفي (مش/لا)","note":"بتيجي قبل الفعل مباشرة","examples":[{"it":"Non ho tempo","ar":"معنديش وقت"}]},
       {"type":"item","it":"Adesso","ar":"دلوقتي","note":null,"examples":null},
-      {"type":"item","it":"Meno","ar":"أقل","note":"عكس Più","examples":[{"it":"Meno piacevole","ar":"أقل متعة"}]}
+      {"type":"item","it":"Meno","ar":"أقل","note":"عكس Più","examples":[{"it":"Meno piacevole","ar":"أقل متعة"}]},
+      {"type":"item","it":"Presto","ar":"قريب / بسرعة","note":null,"examples":null}
     ]
   },
   {

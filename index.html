@@ -241,7 +241,10 @@
       <div class="card" style="margin-top:10px">
         <div class="card-cat" id="lpTitleAr"></div>
         <div class="card-ar" id="lpTitleIt" style="direction:ltr;text-align:left;font-size:20px;font-weight:700"></div>
-        <button class="tts-btn" id="lpListenAllBtn" style="width:100%;margin-top:12px" onclick="listeningSpeakAll()">🔊 استمع للقطعة كاملة</button>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="tts-btn" id="lpListenAllBtn" style="flex:1" onclick="listeningSpeakAll()">🔊 استمع للقطعة كاملة</button>
+          <button class="tts-btn" id="lpStopBtn" style="flex-shrink:0" onclick="lpStopSpeaking()">⏹️ إيقاف</button>
+        </div>
         <div id="lpParagraphs" style="margin-top:16px"></div>
       </div>
       <div id="lpQuestionsWrap" style="margin-top:18px">

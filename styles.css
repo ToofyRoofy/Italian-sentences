@@ -118,6 +118,7 @@
   .lp-word:hover,.lp-word:active{background:#ffffff08;}
   .lp-word.has-info{border-bottom-color:var(--blue);}
   .lp-word.has-grammar{border-bottom-color:var(--gold);}
+  .lp-word.lp-marker{background:var(--gold);color:#141420;border-radius:4px;border-bottom-color:transparent;font-weight:700;}
   .bd-row.flash{background:#ffd60022;border-radius:6px;}
   .gm-item.flash,.gm-usage-block.flash{background:#ffd60022;border-radius:10px;outline:2px solid var(--gold);animation:gmFlashPulse 1.4s ease-out;}
   tr.flash td{background:#ffd60022;outline:2px solid var(--gold);}

@@ -2564,49 +2564,50 @@ const LISTENING_PASSAGES=[
       }
     ],
     questions:[
-      {q:'أنّا موافقة على فتح المولات يوم الحد ليه؟',
-       options:['عشان الناس اللي بتشتغل طول الأسبوع مالهاش وقت تتسوق','عشان الأسعار بتبقى أرخص','عشان مش بتحب البيت','عشان صحابها بيشتغلوا في مول'], correctIdx:0,
+      {q:'Perché Anna è favorevole all\'apertura domenicale?',
+       options:['Perché chi lavora durante la settimana non ha tempo di fare la spesa','Perché i prezzi sono più bassi la domenica','Perché non le piace stare a casa','Perché i suoi amici lavorano in un centro commerciale'], correctIdx:0,
        explanation:"بتقول \"È una questione di comodità... non ha tempo di fare la spesa\" = المسألة راحة، وناس مالهاش وقت تتسوق طول الأسبوع."},
-      {q:'باولا بتشوف إن يوم الحد المفروض يبقى إيه؟',
-       options:['يوم راحة وعيلة','يوم شغل زيادة','يوم تسوق بس','يوم نوم بس'], correctIdx:0,
+      {q:'Secondo Paola, cosa deve essere la domenica?',
+       options:['Un giorno di pausa e di famiglia','Un giorno di lavoro in più','Un giorno solo per fare la spesa','Un giorno solo per dormire'], correctIdx:0,
        explanation:"\"la domenica dev'essere un giorno di pausa e di riposo per tutti\" = يوم الحد لازم يبقى يوم راحة للجميع."},
-      {q:'المولات بقت فاتحة كام يوم في الأسبوع؟',
-       options:['7 أيام','5 أيام','6 أيام','3 أيام'], correctIdx:0,
+      {q:'Quanti giorni su 7 sono aperti i centri commerciali?',
+       options:['7 giorni','5 giorni','6 giorni','3 giorni'], correctIdx:0,
        explanation:"\"i centri commerciali sono aperti 7 giorni su 7\" = المولات فاتحة 7 أيام في الأسبوع."},
-      {q:'أنطونيلا بتاخد يوم إجازتها إمتى؟',
-       options:['يوم في نص الأسبوع','يوم الحد','يوم السبت بس','معندهاش إجازة خالص'], correctIdx:0,
+      {q:'Quando fa il suo giorno di riposo Antonella?',
+       options:['Un giorno infrasettimanale','La domenica','Solo il sabato','Non ha mai un giorno di riposo'], correctIdx:0,
        explanation:"\"stiamo a casa un giorno alla settimana... un giorno infrasettimanale\" = بياخدوا إجازة يوم في نص الأسبوع مش يوم الحد."},
-      {q:'بنت أنطونيلا الصغيرة بتقولها إيه؟',
-       options:['إن باقي الأمهات موجودين يوم الحد وهي لأ','إنها عايزة تروح المول','إنها زعلانة من المدرسة','إنها عايزة تلعب معاها بس'], correctIdx:0,
+      {q:'Cosa dice la figlia di Antonella?',
+       options:['Che le altre mamme ci sono sempre la domenica, lei mai','Che vuole andare al centro commerciale','Che è triste per la scuola','Che vuole solo giocare con lei'], correctIdx:0,
        explanation:"\"le altre mamme la domenica ci sono sempre, tu mai!\" = باقي الأمهات موجودين يوم الحد على طول، هي لأ."},
-      {q:'صح ولا غلط: "في المولات أسهل تلاقي مكان تركن فيه العربية".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:1,
+      {q:'Vero o falso: "Nei centri commerciali è più facile trovare parcheggio."',
+       options:['Vero','Falso'], correctIdx:1,
        explanation:"النص مقالش حاجة عن الباركينج خالص — الجملة دي مش موجودة فيه."},
-      {q:'صح ولا غلط: "أنّا بتحب المولات (من ضمن أسباب تانية) عشان فيها محلات كتير".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:0,
+      {q:'Vero o falso: "Anna va nei centri commerciali anche perché ci sono tanti negozi."',
+       options:['Vero','Falso'], correctIdx:0,
        explanation:"\"nei centri commerciali ci sono molti altri negozi\" = في المولات محلات تانية كتير — ده جزء من كلام أنّا."},
-      {q:'صح ولا غلط: "باولا بتقول إن يوم الحد لازم الناس تروح الكنيسة".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:1,
+      {q:'Vero o falso: "Paola dice che la domenica la gente deve andare in chiesa."',
+       options:['Vero','Falso'], correctIdx:1,
        explanation:"باولا اتكلمت عن الراحة والعيلة بس، مقالتش حاجة عن الكنيسة خالص."},
-      {q:'صح ولا غلط: "في رأي باولا، المولات أماكن من غير هوية/طابع شخصي".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:0,
+      {q:'Vero o falso: "Secondo Paola i centri commerciali sono luoghi senza identità."',
+       options:['Vero','Falso'], correctIdx:0,
        explanation:"\"un centro commerciale è un luogo troppo anonimo\" = المول مكان بلا طابع شخصي قوي — زي ما باولا قالت."},
-      {q:'صح ولا غلط: "أنطونيلا بتشتغل ٦ أيام في الأسبوع".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:0,
+      {q:'Vero o falso: "Antonella lavora sei giorni la settimana."',
+       options:['Vero','Falso'], correctIdx:0,
        explanation:"المولات فاتحة 7 أيام، وهي بتاخد يوم واحد بس إجازة (\"un giorno alla settimana\")، يبقى بتشتغل 6 أيام."},
-      {q:'صح ولا غلط: "بالنسبة لأنطونيلا، مفيش مشكلة إنها تشتغل والدنيا بتمطر".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:1,
+      {q:'Vero o falso: "Per Antonella non è un problema lavorare quando piove."',
+       options:['Vero','Falso'], correctIdx:1,
        explanation:"كلام المطر ده كان في كلام أنّا (\"anche se piove non è un problema\") مش أنطونيلا — أنطونيلا أصلاً محددتش المطر كموضوع خالص."},
-      {q:'صح ولا غلط: "بنت أنطونيلا مش مبسوطة من الوضع ده".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:0,
+      {q:'Vero o falso: "Alla figlia di Antonella non piace questa situazione."',
+       options:['Vero','Falso'], correctIdx:0,
        explanation:"\"le altre mamme la domenica ci sono sempre, tu mai!\" — كلام البنت بيوضح إنها زعلانة إن أمها دايمًا مش موجودة يوم الحد."},
-      {q:'صح ولا غلط: "أنطونيلا بتتمنى تغيّر شغلها قريب".',
-       options:['✅ صح — موجودة في النص','❌ غلط — مش موجودة في النص'], correctIdx:1,
+      {q:'Vero o falso: "Antonella spera di cambiare presto lavoro."',
+       options:['Vero','Falso'], correctIdx:1,
        explanation:"مفيش حاجة في النص بتقول إن أنطونيلا عايزة تغيّر شغلها."}
     ]
   }
 ];
 let currentListeningPassageId=null;
+let lpMarkerPos={}; // {paraIdx: charIndex} — آخر نقطة "ابدأ من هنا" اتحددت في كل فقرة
 let listeningAnswers={}; // {questionIdx: chosenOptionIdx}
 
 const LIB_SECTIONS=[
@@ -2702,35 +2703,49 @@ function lpRenderInlineText(text,paraIdx){
     const match=lpFindWordMatch(paraIdx,w);
     const cls='lp-word'+(match?(match.type==='grammar'?' has-grammar':' has-info'):'');
     const wEsc=escHtml(w).replace(/'/g,'&#39;');
-    out+='<span class="'+cls+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\')">'+escHtml(w)+'</span>';
+    out+='<span class="'+cls+'" id="lpTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\','+m.index+')">'+escHtml(w)+'</span>';
     last=re.lastIndex;
   }
   out+=escHtml(text.slice(last));
   return out;
 }
-// دوسة على كلمة جوه نص القطعة: تنطقها، وبعدين لو عندها قاعدة جرامر بتفتح
-// نفس بوب أب الجرامر المستخدم في باقي التطبيق، ولو عندها ترجمة محفوظة بس
-// بتفتح/تسكرول لقايمة الشرح تحت وتلمّع السطر بتاعها.
-function lpWordTap(paraIdx,rawWord){
+// دوسة على كلمة جوه نص القطعة: تنطقها، وتحطها "نقطة البداية" الحالية (تحته
+// خط دهبي ثابت لحد ما تدوس كلمة تانية)، وبعدين لو عندها قاعدة جرامر بتفتح
+// نفس بوب أب الجرامر المستخدم في باقي التطبيق (بوب أب فوق الشاشة، من غير
+// ما يحرك مكان قراءتك). كلمة عندها ترجمة محفوظة بس من غير قاعدة جرامر:
+// بتتنطق بس، من غير ما ننزلك لقايمة الشرح تحت. زرار "اسمع من هنا" تحت
+// الفقرة بيقرا من النقطة دي لحد آخر الفقرة، وتقدر تدوسه كذا مرة براحتك.
+function lpWordTap(paraIdx,rawWord,charIndex){
   speakWord(rawWord);
+  if(charIndex!==undefined){
+    const prevPos=lpMarkerPos[paraIdx];
+    if(prevPos!==undefined){
+      const prevEl=document.getElementById('lpTok'+paraIdx+'_'+prevPos);
+      if(prevEl)prevEl.classList.remove('lp-marker');
+    }
+    lpMarkerPos[paraIdx]=charIndex;
+    const curEl=document.getElementById('lpTok'+paraIdx+'_'+charIndex);
+    if(curEl)curEl.classList.add('lp-marker');
+    const playBtn=document.getElementById('lpPlayFromBtn'+paraIdx);
+    if(playBtn)playBtn.style.display='inline-block';
+  }
   const match=lpFindWordMatch(paraIdx,rawWord);
   if(!match)return;
   if(match.type==='grammar'){
     openGrammarModal(match.topicId,rawWord);
     return;
   }
-  const box=document.getElementById('lpBreakdown'+paraIdx);
-  const arrow=document.getElementById('lpArrow'+paraIdx);
-  if(box&&box.style.display!=='block'){
-    box.style.display='block';
-    if(arrow)arrow.textContent='إخفاء الشرح ▴';
-  }
-  const row=document.getElementById('lpBdRow'+paraIdx+'_'+match.idx);
-  if(row){
-    row.scrollIntoView({behavior:'smooth',block:'center'});
-    row.classList.add('flash');
-    setTimeout(()=>row.classList.remove('flash'),1200);
-  }
+  // كلمة عندها ترجمة محفوظة بس (مش قاعدة جرامر): نكتفي بالنطق، من غير ما
+  // ننقل الشاشة لقايمة الشرح تحت — عشان الدوسة ما تضيّعش مكان قراءتك.
+}
+// بيقرا من نقطة البداية المحفوظة (آخر كلمة دوست عليها) لحد آخر الفقرة —
+// تقدر تدوس الزرار ده كذا مرة براحتك عشان تسمع نفس الجزء تاني.
+function lpPlayFromMarker(paraIdx){
+  const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
+  const para=p&&p.paragraphs[paraIdx];
+  if(!para)return;
+  const pos=lpMarkerPos[paraIdx]||0;
+  speakWord(para.it.slice(pos));
 }
 // نفس شكل بريكداون الكلمات (bd-row/bd-word/bd-note) المستخدم في باقي التطبيق —
 // بنعيد استخدامه هنا لقطع الاستماع بدل ما نكرر نفس الشكل بكود مختلف.
@@ -2764,6 +2779,7 @@ function listeningOpenPassage(id){
   if(!p)return;
   currentListeningPassageId=id;
   listeningAnswers={};
+  lpMarkerPos={};
   document.getElementById('listeningLibrary').style.display='none';
   document.getElementById('listeningDetail').style.display='block';
   document.getElementById('lpTitleAr').textContent=p.titleAr;
@@ -2775,6 +2791,7 @@ function listeningOpenPassage(id){
     +'<div style="direction:ltr;text-align:left;font-size:16px;line-height:1.85;flex:1">'+lpRenderInlineText(para.it,i)+'</div>'
     +'</div>'
     +'<div style="opacity:.75;font-size:13.5px;margin-top:8px">'+escHtml(para.ar)+'</div>'
+    +'<button class="tts-btn" id="lpPlayFromBtn'+i+'" style="margin-top:8px;font-size:12.5px;padding:5px 10px" onclick="event.stopPropagation();lpPlayFromMarker('+i+')">▶️ اسمع من هنا</button>'
     +(para.words&&para.words.length?(
       '<div class="skip-link" id="lpArrow'+i+'" style="margin-top:8px;cursor:pointer;display:inline-block" onclick="listeningToggleParagraph('+i+')">شرح الكلمات ▾</div>'
       +'<div id="lpBreakdown'+i+'" style="display:none">'+renderListeningWordBreakdown(para.words,i)+'</div>'
@@ -2783,7 +2800,7 @@ function listeningOpenPassage(id){
   ).join('');
   document.getElementById('lpQuestions').innerHTML=p.questions.map((q,qi)=>
     '<div class="drill-box show" style="margin-bottom:12px">'
-    +'<div style="margin-bottom:8px">'+(qi+1)+'. '+escHtml(q.q)+'</div>'
+    +'<div style="margin-bottom:8px;direction:ltr;text-align:left;line-height:1.7">'+(qi+1)+'. '+lpRenderInlineText(q.q,-1)+'</div>'
     +'<div class="q-options" id="lpQOptions'+qi+'">'
     +q.options.map((o,oi)=>'<button class="q-opt" onclick="listeningAnswerQuestion('+qi+','+oi+')">'+escHtml(o)+'</button>').join('')
     +'</div>'
@@ -3300,13 +3317,92 @@ function lSpeak(){
   speakWord(s.it);
 }
 
+// بيقسّم جملة طويلة لأجزاء طبيعية (عند علامات الترقيم، وعند حروف عطف زي
+// e/ma/perché لو الجزء طويل قوي) عشان القراءة تطلع بفواصل شبه الإنسان
+// بدل ما تتقال دفعة واحدة على نفس واحد.
+function lpSplitSpeechChunks(text){
+  const rough=text.split(/([,;:.!?]+)/);
+  let chunks=[];
+  for(let i=0;i<rough.length;i+=2){
+    const seg=(rough[i]||'').trim();
+    const punct=rough[i+1]||'';
+    if(seg)chunks.push(seg+punct);
+  }
+  if(!chunks.length)chunks=[text];
+  const conj=/\b(e|ma|o|però|perché|quando|che)\b/i;
+  const out=[];
+  chunks.forEach(c=>{
+    const words=c.trim().split(/\s+/);
+    if(words.length<=6){out.push(c.trim());return;}
+    const m=conj.exec(c);
+    if(m&&m.index>0){
+      out.push(c.slice(0,m.index).trim());
+      out.push(c.slice(m.index).trim());
+    }else{
+      out.push(c.trim());
+    }
+  });
+  return out.filter(Boolean);
+}
+// بيختار أحسن صوت إيطالي متاح على جهاز المستخدم (مش الصوت الافتراضي)، لأن
+// أجهزة كتير عندها أصوات "Enhanced/Premium/Google" أطبع بكتير من الافتراضي.
+// الأصوات بتتحمّل بشكل غير متزامن في بعض المتصفحات، فبنكاش النتيجة أول ما
+// تتحمّل وبنعيد المحاولة لو لسه مفيش أصوات.
+let lpItalianVoice=null,lpVoicesReady=false;
+function lpEnsureItalianVoice(){
+  if(lpVoicesReady)return;
+  const pick=()=>{
+    const voices=speechSynthesis.getVoices();
+    if(!voices.length)return;
+    const itVoices=voices.filter(v=>v.lang&&v.lang.toLowerCase().startsWith('it'));
+    if(!itVoices.length){lpVoicesReady=true;return;}
+    const score=v=>{
+      const n=(v.name||'').toLowerCase();
+      let s=0;
+      if(n.includes('enhanced')||n.includes('premium')||n.includes('neural')||n.includes('natural'))s+=3;
+      if(n.includes('google'))s+=2;
+      if(v.localService===false)s+=1;
+      return s;
+    };
+    itVoices.sort((a,b)=>score(b)-score(a));
+    lpItalianVoice=itVoices[0];
+    lpVoicesReady=true;
+  };
+  pick();
+  if(!lpVoicesReady)speechSynthesis.onvoiceschanged=pick;
+}
+// كل نطق بياخد رقم (token) خاص بيه؛ لو اتنادى speakWord أو lpStopSpeaking
+// تاني قبل ما السلسلة تخلص، الرقم بيتغيّر فتوقف السلسلة القديمة تلقائيًا
+// بدل ما تكمل تقول أجزاء إضافية بعد الإيقاف أو فوق نطق جديد.
+let lpSpeechToken=0;
 function speakWord(text){
   const clean=text.replace(/^[.,!?;:"'""'']+|[.,!?;:"'""'']+$/g,'').trim();
   if(!clean)return;
   speechSynthesis.cancel();
-  const utt=new SpeechSynthesisUtterance(clean);
-  utt.lang='it-IT';utt.rate=0.75;
-  speechSynthesis.speak(utt);
+  lpEnsureItalianVoice();
+  const myToken=++lpSpeechToken;
+  const parts=lpSplitSpeechChunks(clean);
+  let idx=0;
+  const speakNext=()=>{
+    if(myToken!==lpSpeechToken||idx>=parts.length)return;
+    const utt=new SpeechSynthesisUtterance(parts[idx]);
+    utt.lang='it-IT';utt.rate=0.72;
+    if(lpItalianVoice)utt.voice=lpItalianVoice;
+    utt.onend=()=>{
+      if(myToken!==lpSpeechToken)return;
+      idx++;
+      if(idx<parts.length)setTimeout(speakNext,parts.length>1?200:0);
+    };
+    speechSynthesis.speak(utt);
+  };
+  speakNext();
+}
+// زرار "إيقاف" في تاب الاستماع — بيوقف أي قراءة شغالة فورًا (سواء كانت
+// الفقرة كاملة، أو "اسمع من هنا"، أو كلمة واحدة). شغال في كل القطع من غير
+// ما يحتاج كود منفصل لكل قطعة، لأنه بيوقف محرك النطق نفسه مباشرة.
+function lpStopSpeaking(){
+  lpSpeechToken++;
+  speechSynthesis.cancel();
 }
 
 // ── Sentence-level mic (first pass at the whole sentence) ──
