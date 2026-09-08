@@ -1873,7 +1873,7 @@ function showConvoExplain(sceneTitleAr,words){
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
     return '<div class="bd-row">'
       +'<span class="'+cls+'"'+styleAttr+' onclick="speakWord(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
-      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\')">📘</span>':'')
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
     +'</div>';
@@ -2692,7 +2692,7 @@ function lpWordTap(paraIdx,rawWord){
   const match=lpFindWordMatch(paraIdx,rawWord);
   if(!match)return;
   if(match.type==='grammar'){
-    openGrammarModal(match.topicId);
+    openGrammarModal(match.topicId,rawWord);
     return;
   }
   const box=document.getElementById('lpBreakdown'+paraIdx);
@@ -2719,7 +2719,7 @@ function renderListeningWordBreakdown(words,paraIdx){
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
     return '<div class="bd-row" id="lpBdRow'+paraIdx+'_'+wIdx+'">'
       +'<span class="'+cls+'" onclick="event.stopPropagation();speakWord(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
-      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\')">📘</span>':'')
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
     +'</div>';
@@ -2973,7 +2973,7 @@ function refreshGrammarModalBody(){
   if(!topic)return;
   document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],currentGmTopicId);
 }
-function openGrammarModal(topicId){
+function openGrammarModal(topicId,focusWord){
   const topic=getGrammarTopic(topicId);
   if(!topic)return;
   currentGmTopicId=topicId;
@@ -2991,6 +2991,18 @@ function openGrammarModal(topicId){
     comboBtn.textContent=topic.comboButtonLabel||'🔀 اختبار شامل (تمييز + تحويل)';
   }
   document.getElementById('grammarModalOverlay').classList.add('show');
+  if(focusWord){
+    const norm=normalizeGrammarWord(focusWord);
+    const body=document.getElementById('gmBody');
+    const item=body.querySelector('.gm-item[data-word="'+norm+'"]');
+    if(item){
+      setTimeout(()=>{
+        item.scrollIntoView({behavior:'smooth',block:'center'});
+        item.classList.add('flash');
+        setTimeout(()=>item.classList.remove('flash'),1400);
+      },80);
+    }
+  }
 }
 function gmDrillBtnClicked(){
   if(!currentGmTopicId)return;
@@ -3029,7 +3041,9 @@ function renderGrammarBlocks(blocks,topicId){
       return '<div class="gm-note">'+escGm(b.ar)+'</div>';
     }
     if(b.type==='item'){
-      let html='<div class="gm-item"><div class="gm-item-title">'+escGm(b.it)+'</div>';
+      const itSpeak=escGm(b.it).replace(/'/g,"\\'");
+      const itNorm=normalizeGrammarWord(b.it).replace(/"/g,'&quot;');
+      let html='<div class="gm-item" data-word="'+itNorm+'"><div class="gm-item-title" onclick="speakWord(\''+itSpeak+'\')">🔊 '+escGm(b.it)+'</div>';
       html+='<div class="gm-item-note">= '+escGm(b.ar)+(b.note?'<br>💡 '+escGm(b.note):'')+'</div>';
       (b.examples||[]).forEach(ex=>{
         const views=tid?getTopicWordViews(tid,ex.it):0;
@@ -3179,7 +3193,7 @@ function lRender(){
       gBtn.className='bd-grammar-btn';
       gBtn.textContent='📘';
       gBtn.title='القاعدة الجرامرية';
-      gBtn.onclick=(e)=>{e.stopPropagation();openGrammarModal(gTopicId);};
+      gBtn.onclick=(e)=>{e.stopPropagation();openGrammarModal(gTopicId,w.it);};
       row.appendChild(gBtn);
     }
     if(vInfo){

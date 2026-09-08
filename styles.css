@@ -119,6 +119,8 @@
   .lp-word.has-info{border-bottom-color:var(--blue);}
   .lp-word.has-grammar{border-bottom-color:var(--gold);}
   .bd-row.flash{background:#ffd60022;border-radius:6px;}
+  .gm-item.flash{background:#ffd60022;border-radius:10px;outline:2px solid var(--gold);animation:gmFlashPulse 1.4s ease-out;}
+  @keyframes gmFlashPulse{0%{background:#ffd60055;}100%{background:#ffd60022;}}
 
   /* token row (live per-word feedback) */
   .tokens-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:ltr;margin:4px 0 14px;}
@@ -459,7 +461,8 @@
   .grammar-modal-close:hover{color:var(--red);}
   .gm-body{padding:14px 18px 22px;overflow-y:auto;flex:1;}
   .gm-note{background:#0e0e1a;border:1px solid var(--border);border-radius:12px;padding:10px 12px;font-size:.82rem;line-height:1.7;color:var(--text);margin-bottom:12px;white-space:pre-line;}
-  .gm-item-title{font-family:Georgia,serif;color:var(--gold);font-weight:700;direction:ltr;text-align:left;font-size:.95rem;margin-bottom:2px;}
+  .gm-item-title{font-family:Georgia,serif;color:var(--gold);font-weight:700;direction:ltr;text-align:left;font-size:.95rem;margin-bottom:2px;cursor:pointer;}
+  .gm-item-title:active{opacity:.7;}
   .gm-item-note{font-size:.78rem;color:var(--muted);margin-bottom:6px;line-height:1.5;}
   .gm-item{margin-bottom:14px;}
   .gm-ex-row{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.84rem;cursor:pointer;}
