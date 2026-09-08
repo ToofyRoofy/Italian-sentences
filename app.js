@@ -2670,7 +2670,7 @@ function lpFindWordMatch(paraIdx,rawWord){
 }
 // بيقسّم نص القطعة لكلمات قابلة للدوس عليها مباشرة (مش بس القايمة تحت).
 function lpRenderInlineText(text,paraIdx){
-  const re=/[A-Za-zÀ-öø-ÿ']+/g;
+  const re=/[A-Za-zÀ-öø-ÿ]+/g;
   let out='',last=0,m;
   while((m=re.exec(text))){
     out+=escHtml(text.slice(last,m.index));
