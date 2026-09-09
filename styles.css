@@ -485,6 +485,34 @@
   .bd-word.has-verb{border-bottom:2px dotted var(--green);}
   .bd-verb-btn{display:inline-block;margin-inline-start:4px;font-size:.72rem;cursor:pointer;opacity:.8;}
   .bd-verb-btn:active{opacity:1;transform:scale(.9);}
+  .bd-word.has-family{border-bottom:2px dotted #2dd4bf;}
+
+  .wfv-trigger-btn{display:block;margin:10px auto 4px;padding:9px 18px;background:transparent;border:1.5px solid var(--blue);color:var(--blue);border-radius:999px;font-size:.85rem;font-weight:800;cursor:pointer;}
+  .wfv-trigger-btn:active{background:#5b9cf61a;transform:scale(.98);}
+  .winfo-trigger-btn{display:block;margin:8px auto 4px;padding:9px 18px;background:transparent;border:1.5px solid #f0a94d;color:#f0a94d;border-radius:999px;font-size:.85rem;font-weight:800;cursor:pointer;}
+  .winfo-trigger-btn:active{background:#f0a94d1a;transform:scale(.98);}
+  .winfo-meaning{color:var(--text);font-size:.88rem;line-height:1.6;padding:8px 0 12px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px;}
+  .winfo-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer;}
+  .winfo-row:last-child{border-bottom:none;}
+  .winfo-row:active{background:#ffffff0d;}
+  .winfo-label{color:var(--muted);font-size:.8rem;flex-shrink:0;}
+  .winfo-it{direction:ltr;color:#f0a94d;font-family:Georgia,serif;font-weight:700;font-size:.92rem;}
+
+  /* ===== Word family popup (🌳 عيلة الكلمة) ===== */
+  .wfam-overlay{position:fixed;inset:0;background:#000000b3;display:none;align-items:center;justify-content:center;z-index:1002;padding:16px;}
+  .wfam-overlay.show{display:flex;}
+  .wfam-popup{background:var(--card);border:1px solid var(--border);border-radius:16px;max-width:380px;width:100%;max-height:70vh;display:flex;flex-direction:column;overflow:hidden;}
+  .wfam-head{padding:14px 16px 10px;border-bottom:1px solid var(--border);text-align:center;}
+  .wfam-title{font-size:.78rem;color:var(--muted);letter-spacing:.05em;margin-bottom:6px;}
+  .wfam-word{font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:#2dd4bf;direction:ltr;}
+  .wfam-body{overflow-y:auto;padding:6px 16px 4px;flex:1;}
+  .wfam-row{display:flex;align-items:baseline;gap:8px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer;}
+  .wfam-row:last-child{border-bottom:none;}
+  .wfam-row:active{background:#ffffff0d;}
+  .wfam-it{direction:ltr;color:#2dd4bf;font-family:Georgia,serif;font-weight:700;font-size:.92rem;}
+  .wfam-pos{font-size:.7rem;color:var(--blue);border:1px solid var(--blue);border-radius:6px;padding:1px 6px;flex-shrink:0;}
+  .wfam-ar{color:var(--text);font-size:.85rem;margin-inline-start:auto;text-align:right;}
+  .wfam-close{display:block;width:calc(100% - 28px);margin:0 14px 14px;padding:11px;background:transparent;border:1px solid var(--border);color:var(--text);border-radius:12px;font-size:14px;font-weight:800;cursor:pointer;}
   .verb-modal{background:var(--card);border:1px solid var(--border);border-radius:18px;max-width:420px;width:100%;max-height:82vh;display:flex;flex-direction:column;overflow:hidden;}
   .verb-modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 8px;}
   .verb-modal-it{font-family:Georgia,serif;font-size:1.55rem;color:var(--gold);direction:ltr;font-weight:900;}

@@ -2246,7 +2246,7 @@ const LISTENING_PASSAGES=[
             ]
       },
       {
-            "it": "Nel pomeriggio, Chiara studia l''italiano per due ore. Poi esce con un''amica e vanno al cinema.",
+            "it": "Nel pomeriggio, Chiara studia l'italiano per due ore. Poi esce con un'amica e vanno al cinema.",
             "ar": "بعد الضهر، شيرا بتذاكر إيطالي لمدة ساعتين. بعدين بتخرج مع صاحبتها ويروحوا السينما.",
             "words": [
                   {
@@ -2753,11 +2753,12 @@ function renderListeningWordBreakdown(words,paraIdx){
   return '<div class="breakdown" style="display:flex;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)">'+words.map((w,wIdx)=>{
     const gTopicId=w.grammarId||findGrammarTopicId(w.it);
     const vInfo=findVerbFromNote(w.note);
-    const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
+    const famData=findWordFamily(w.it);
+    const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
     const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
     return '<div class="bd-row" id="lpBdRow'+paraIdx+'_'+wIdx+'">'
-      +'<span class="'+cls+'" onclick="event.stopPropagation();speakWord(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
       +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
@@ -2983,6 +2984,215 @@ function findGrammarTopicId(word){
   return map[normalizeGrammarWord(word)]||null;
 }
 
+// ===== WORD FAMILY (🌳 عيلة الكلمة) — بس لكلمات breakdown قطع الاستماع =====
+// المفتاح: الكلمة الإيطالية زي ما ظهرت في نص القطعة، بعد نفس التطبيع المستخدم
+// في خرائط الجرامر (normalizeGrammarWord: حروف صغيرة + شيل علامات الترقيم
+// والفواصل العليا). القيمة: مصفوفة كلمات من نفس عيلة الجذر (فعل/اسم/صفة/ظرف).
+const WORD_FAMILY_DATA={
+  'sveglia':[{it:'Svegliarsi',pos:'Verbo',ar:'يصحى من النوم'},{it:'Sveglio',pos:'Aggettivo',ar:'صاحي / يقظ'}],
+  'mattina':[{it:'Mattutino',pos:'Aggettivo',ar:'صباحي'},{it:'Stamattina',pos:'Avverbio',ar:'النهارده الصبح'}],
+  'caldo':[{it:'Scaldare',pos:'Verbo',ar:'يسخن'},{it:'Riscaldare',pos:'Verbo',ar:'يدفّي'},{it:'Caldamente',pos:'Avverbio',ar:'بحرارة / بحماس'}],
+  'mangia':[{it:'Mangiare',pos:'Verbo',ar:'ياكل'},{it:'Mangiata',pos:'Nome',ar:'وجبة أكل كبيرة'}],
+  'mercato':[{it:'Mercante',pos:'Nome',ar:'تاجر'},{it:'Mercantile',pos:'Aggettivo',ar:'تجاري'}],
+  'madre':[{it:'Materno',pos:'Aggettivo',ar:'خاص بالأم'},{it:'Maternità',pos:'Nome',ar:'أمومة'}],
+  'comprano':[{it:'Comprare',pos:'Verbo',ar:'يشتري'},{it:'Compratore',pos:'Nome',ar:'مشتري'},{it:'Acquisto',pos:'Nome',ar:'عملية شراء'}],
+  'frutta':[{it:'Fruttato',pos:'Aggettivo',ar:'بطعم الفاكهة'},{it:'Fruttivendolo',pos:'Nome',ar:'بياع فاكهة وخضار'}],
+  'fresca':[{it:'Freschezza',pos:'Nome',ar:'نضارة / طزاجة'},{it:'Rinfrescare',pos:'Verbo',ar:'يبرّد / ينعّش'}],
+  'rosse':[{it:'Rossore',pos:'Nome',ar:'احمرار'},{it:'Arrossire',pos:'Verbo',ar:'يخجل (يحمر وشه)'}],
+  'gialle':[{it:'Ingiallire',pos:'Verbo',ar:'يصفرّ'}],
+  'studia':[{it:'Studiare',pos:'Verbo',ar:'يذاكر'},{it:'Studio',pos:'Nome',ar:'دراسة / مكتب'},{it:'Studente',pos:'Nome',ar:'طالب'},{it:'Studioso',pos:'Aggettivo',ar:'مثقف / باحث'}],
+  'esce':[{it:'Uscire',pos:'Verbo',ar:'يخرج'},{it:'Uscita',pos:'Nome',ar:'خروج / مخرج'}],
+  'unamica':[{it:'Amico',pos:'Nome',ar:'صاحب'},{it:'Amicizia',pos:'Nome',ar:'صداقة'},{it:'Amichevole',pos:'Aggettivo',ar:'ودود'}],
+  'sera':[{it:'Serata',pos:'Nome',ar:'سهرة / أمسية'},{it:'Serale',pos:'Aggettivo',ar:'مسائي'}],
+  'torna':[{it:'Tornare',pos:'Verbo',ar:'يرجع'},{it:'Ritorno',pos:'Nome',ar:'رجوع'}],
+  'casa':[{it:'Casalingo',pos:'Aggettivo',ar:'منزلي / بيتوتي'},{it:'Casetta',pos:'Nome',ar:'بيت صغير'}],
+  'stanca':[{it:'Stancare',pos:'Verbo',ar:'يتعب / يخلي حد يتعب'},{it:'Stanchezza',pos:'Nome',ar:'تعب'}],
+  'felice':[{it:'Felicità',pos:'Nome',ar:'سعادة'},{it:'Felicemente',pos:'Avverbio',ar:'بسعادة'}],
+  'cena':[{it:'Cenare',pos:'Verbo',ar:'يتعشى'}],
+  'famiglia':[{it:'Familiare',pos:'Aggettivo',ar:'عائلي / خاص بالعيلة'}],
+  'guarda':[{it:'Guardare',pos:'Verbo',ar:'يتفرج'},{it:'Sguardo',pos:'Nome',ar:'نظرة'}],
+  'dormire':[{it:'Sonno',pos:'Nome',ar:'نوم'},{it:'Addormentarsi',pos:'Verbo',ar:'يغفى / ينام'},{it:'Dormiglione',pos:'Nome',ar:'نوّام'}],
+  'favorevole':[{it:'Favore',pos:'Nome',ar:'معروف / خدمة'},{it:'Favorire',pos:'Verbo',ar:'يحابي / يشجع'}],
+  'apertura':[{it:'Aprire',pos:'Verbo',ar:'يفتح'},{it:'Aperto',pos:'Aggettivo',ar:'مفتوح'}],
+  'domenicale':[{it:'Domenica',pos:'Nome',ar:'يوم الحد'}],
+  "comodità":[{it:'Comodo',pos:'Aggettivo',ar:'مريح / أريح'},{it:'Comodamente',pos:'Avverbio',ar:'بارتياح'}],
+  'lavora':[{it:'Lavoro',pos:'Nome',ar:'شغل'},{it:'Lavoratore',pos:'Nome',ar:'عامل'}],
+  'pratico':[{it:'Pratica',pos:'Nome',ar:'ممارسة / تدريب عملي'},{it:'Praticare',pos:'Verbo',ar:'يمارس'}],
+  'conosco':[{it:'Conoscere',pos:'Verbo',ar:'يعرف'},{it:'Conoscenza',pos:'Nome',ar:'معرفة'},{it:'Conoscente',pos:'Nome',ar:'معارف (شخص تعرفه)'}],
+  'piove':[{it:'Pioggia',pos:'Nome',ar:'مطر'},{it:'Piovoso',pos:'Aggettivo',ar:'ممطر'}],
+  'riposo':[{it:'Riposare',pos:'Verbo',ar:'يرتاح'},{it:'Riposante',pos:'Aggettivo',ar:'مريح'}],
+  'difficile':[{it:'Difficoltà',pos:'Nome',ar:'صعوبة'}],
+  'basta':[{it:'Bastare',pos:'Verbo',ar:'يكفي'},{it:'Abbastanza',pos:'Avverbio',ar:'كفاية / لحد كده'}],
+  'organizzarsi':[{it:'Organizzare',pos:'Verbo',ar:'ينظّم'},{it:'Organizzazione',pos:'Nome',ar:'تنظيم'},{it:'Organizzato',pos:'Aggettivo',ar:'منظم'}],
+  'significa':[{it:'Significare',pos:'Verbo',ar:'يعني'},{it:'Significato',pos:'Nome',ar:'معنى'}],
+  'commessi':[{it:'Commessa',pos:'Nome',ar:'بياعة (مؤنث)'}],
+  'infrasettimanale':[{it:'Settimana',pos:'Nome',ar:'أسبوع'},{it:'Settimanale',pos:'Aggettivo',ar:'أسبوعي'}],
+  'piacevole':[{it:'Piacere',pos:'Verbo',ar:'يعجب'}],
+  'festivo':[{it:'Festa',pos:'Nome',ar:'عيد / حفلة'},{it:'Festeggiare',pos:'Verbo',ar:'يحتفل'}],
+  'disagio':[{it:'Agio',pos:'Nome',ar:'راحة / يسر'},{it:'Disagiato',pos:'Aggettivo',ar:'في ضيق / محتاج'}],
+  'doloroso':[{it:'Dolore',pos:'Nome',ar:'ألم'},{it:'Dolersi',pos:'Verbo',ar:'يتألم / يتوجع'}],
+  'dice':[{it:'Dire',pos:'Verbo',ar:'يقول'},{it:'Detto',pos:'Nome',ar:'قول / مقولة'}],
+  'comodo':[{it:'Comodità',pos:'Nome',ar:'راحة / سهولة'},{it:'Comodamente',pos:'Avverbio',ar:'بارتياح'}],
+  'lavoro':[{it:'Lavorare',pos:'Verbo',ar:'يشتغل'},{it:'Lavoratore',pos:'Nome',ar:'عامل'}],
+  'lavorare':[{it:'Lavoro',pos:'Nome',ar:'شغل'},{it:'Lavoratore',pos:'Nome',ar:'عامل'}],
+  'conoscere':[{it:'Conoscenza',pos:'Nome',ar:'معرفة'},{it:'Conoscente',pos:'Nome',ar:'معارف (شخص تعرفه)'}],
+  'cambiare':[{it:'Cambio',pos:'Nome',ar:'تغيير'}],
+  'piace':[{it:'Piacere',pos:'Verbo',ar:'يعجب'},{it:'Piacevole',pos:'Aggettivo',ar:'ممتع / لطيف'}]
+};
+function findWordFamily(rawWord){
+  const norm=normalizeGrammarWord(rawWord);
+  if(WORD_FAMILY_DATA[norm])return WORD_FAMILY_DATA[norm];
+  return buildGmFamilyMap()[norm]||null;
+}
+// عيلة الكلمة ممكن كمان تيجي من حقل family بتاع أي "item" block في GRAMMAR
+// (grammar.js) — بنجمعها مرة واحدة في خريطة زي باقي الـtrigger maps، عشان أي
+// كلمة في أي موضوع قواعد تقدر تفتح نفس الـpopup من غير ما نكرر البيانات.
+let GM_FAMILY_MAP=null;
+function buildGmFamilyMap(){
+  if(GM_FAMILY_MAP)return GM_FAMILY_MAP;
+  GM_FAMILY_MAP={};
+  if(typeof GRAMMAR==='undefined')return GM_FAMILY_MAP;
+  GRAMMAR.forEach(topic=>{
+    (topic.blocks||[]).forEach(b=>{
+      if(b.type==='item'&&b.family&&b.family.length){
+        GM_FAMILY_MAP[normalizeGrammarWord(b.it)]=b.family;
+      }
+    });
+  });
+  return GM_FAMILY_MAP;
+}
+function escWfam(s){
+  return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function openWordFamily(rawWord){
+  const fam=findWordFamily(rawWord);
+  if(!fam||!fam.length)return;
+  document.getElementById('wfamWord').textContent=rawWord;
+  document.getElementById('wfamBody').innerHTML=fam.map(f=>{
+    const fSpeak=escWfam(f.it).replace(/'/g,"\\'");
+    return '<div class="wfam-row" onclick="event.stopPropagation();speakWord(\''+fSpeak+'\')"><span class="wfam-it">🔊 '+escWfam(f.it)+'</span><span class="wfam-pos">'+escWfam(f.pos||'')+'</span><span class="wfam-ar">'+escWfam(f.ar)+'</span></div>';
+  }).join('');
+  document.getElementById('wfamOverlay').classList.add('show');
+}
+function closeWordFamily(){
+  document.getElementById('wfamOverlay').classList.remove('show');
+}
+function closeWordFamilyOnOverlay(e){
+  if(e.target&&e.target.id==='wfamOverlay')closeWordFamily();
+}
+
+// ===== WORD INFO / MORPHOLOGY (🔤 تذكير-تأنيث-مفرد-جمع للأسماء والصفات،
+// وفعل الأمر بس للأفعال) — زرار مستقل جنب WFV، بيظهر بس لو فيه بيانات فعلاً =====
+const WORD_INFO_DATA={
+  // ---- صفات (مذكر/مؤنث + مفرد/جمع) ----
+  'migliore':[{label:'مفرد (مذكر ومؤنث)',it:'Migliore'},{label:'جمع (مذكر ومؤنث)',it:'Migliori'}],
+  'veloce':[{label:'مفرد (مذكر ومؤنث)',it:'Veloce'},{label:'جمع (مذكر ومؤنث)',it:'Veloci'}],
+  'diverso':[{label:'مذكر مفرد',it:'Diverso'},{label:'مذكر جمع',it:'Diversi'},{label:'مؤنث مفرد',it:'Diversa'},{label:'مؤنث جمع',it:'Diverse'}],
+  'favorevole':[{label:'مفرد (مذكر ومؤنث)',it:'Favorevole'},{label:'جمع (مذكر ومؤنث)',it:'Favorevoli'}],
+  'difficile':[{label:'مفرد (مذكر ومؤنث)',it:'Difficile'},{label:'جمع (مذكر ومؤنث)',it:'Difficili'}],
+  'piacevole':[{label:'مفرد (مذكر ومؤنث)',it:'Piacevole'},{label:'جمع (مذكر ومؤنث)',it:'Piacevoli'}],
+  'pratico':[{label:'مذكر مفرد',it:'Pratico'},{label:'مذكر جمع',it:'Pratici'},{label:'مؤنث مفرد',it:'Pratica'},{label:'مؤنث جمع',it:'Pratiche'}],
+  'comodo':[{label:'مذكر مفرد',it:'Comodo'},{label:'مذكر جمع',it:'Comodi'},{label:'مؤنث مفرد',it:'Comoda'},{label:'مؤنث جمع',it:'Comode'}],
+  'domenicale':[{label:'مفرد (مذكر ومؤنث)',it:'Domenicale'},{label:'جمع (مذكر ومؤنث)',it:'Domenicali'}],
+  'anonimo':[{label:'مذكر مفرد',it:'Anonimo'},{label:'مذكر جمع',it:'Anonimi'},{label:'مؤنث مفرد',it:'Anonima'},{label:'مؤنث جمع',it:'Anonime'}],
+  'festivo':[{label:'مذكر مفرد',it:'Festivo'},{label:'مذكر جمع',it:'Festivi'},{label:'مؤنث مفرد',it:'Festiva'},{label:'مؤنث جمع',it:'Festive'}],
+  'doloroso':[{label:'مذكر مفرد',it:'Doloroso'},{label:'مذكر جمع',it:'Dolorosi'},{label:'مؤنث مفرد',it:'Dolorosa'},{label:'مؤنث جمع',it:'Dolorose'}],
+  'storico':[{label:'مذكر مفرد',it:'Storico'},{label:'مذكر جمع',it:'Storici'},{label:'مؤنث مفرد',it:'Storica'},{label:'مؤنث جمع',it:'Storiche'}],
+  'commerciale':[{label:'مفرد (مذكر ومؤنث)',it:'Commerciale'},{label:'جمع (مذكر ومؤنث)',it:'Commerciali'}],
+  'bello':[{label:'مذكر مفرد',it:'Bello'},{label:'مذكر جمع',it:'Belli'},{label:'مؤنث مفرد',it:'Bella'},{label:'مؤنث جمع',it:'Belle'}],
+  'aperto':[{label:'مذكر مفرد',it:'Aperto'},{label:'مذكر جمع',it:'Aperti'},{label:'مؤنث مفرد',it:'Aperta'},{label:'مؤنث جمع',it:'Aperte'}],
+  'primo':[{label:'مذكر مفرد',it:'Primo'},{label:'مذكر جمع',it:'Primi'},{label:'مؤنث مفرد',it:'Prima'},{label:'مؤنث جمع',it:'Prime'}],
+  'facile':[{label:'مفرد (مذكر ومؤنث)',it:'Facile'},{label:'جمع (مذكر ومؤنث)',it:'Facili'}],
+  'vero':[{label:'مذكر مفرد',it:'Vero'},{label:'مذكر جمع',it:'Veri'},{label:'مؤنث مفرد',it:'Vera'},{label:'مؤنث جمع',it:'Vere'}],
+  'falso':[{label:'مذكر مفرد',it:'Falso'},{label:'مذكر جمع',it:'Falsi'},{label:'مؤنث مفرد',it:'Falsa'},{label:'مؤنث جمع',it:'False'}],
+  // ---- أسماء (مفرد/جمع، وتذكير/تأنيث لو فيه صيغتين حقيقيتين) ----
+  'bollette':[{label:'مفرد',it:'Bolletta'},{label:'جمع',it:'Bollette'}],
+  'settimana':[{label:'مفرد',it:'Settimana'},{label:'جمع',it:'Settimane'}],
+  'casa':[{label:'مفرد',it:'Casa'},{label:'جمع',it:'Case'}],
+  'giorno':[{label:'مفرد',it:'Giorno'},{label:'جمع',it:'Giorni'}],
+  'persone':[{label:'مفرد',it:'Persona'},{label:'جمع',it:'Persone'}],
+  'negozio':[{label:'مفرد',it:'Negozio'},{label:'جمع',it:'Negozi'}],
+  'centro':[{label:'مفرد',it:'Centro'},{label:'جمع',it:'Centri'}],
+  'cinema':[{label:'مفرد',it:'Cinema'},{label:'جمع',it:'Cinema (بدون تغيير)'}],
+  'famiglia':[{label:'مفرد',it:'Famiglia'},{label:'جمع',it:'Famiglie'}],
+  'figlio':[{label:'مذكر مفرد',it:'Figlio'},{label:'مذكر جمع',it:'Figli'},{label:'مؤنث مفرد',it:'Figlia'},{label:'مؤنث جمع',it:'Figlie'}],
+  'lavoro':[{label:'مفرد',it:'Lavoro'},{label:'جمع',it:'Lavori'}],
+  'tempo':[{label:'مفرد',it:'Tempo'},{label:'جمع',it:'Tempi'}],
+  'ore':[{label:'مفرد',it:'Ora'},{label:'جمع',it:'Ore'}],
+  'cose':[{label:'مفرد',it:'Cosa'},{label:'جمع',it:'Cose'}],
+  'banca':[{label:'مفرد',it:'Banca'},{label:'جمع',it:'Banche'}],
+  'genere':[{label:'مفرد',it:'Genere'},{label:'جمع',it:'Generi'}],
+  'madre':[{label:'مفرد',it:'Madre'},{label:'جمع',it:'Madri'}],
+  'mamma':[{label:'مفرد',it:'Mamma'},{label:'جمع',it:'Mamme'}],
+  'anno':[{label:'مفرد',it:'Anno'},{label:'جمع',it:'Anni'}],
+  'spesa':[{label:'مفرد',it:'Spesa'},{label:'جمع',it:'Spese'}],
+  'impiegata':[{label:'مؤنث مفرد',it:'Impiegata'},{label:'مؤنث جمع',it:'Impiegate'},{label:'مذكر مفرد',it:'Impiegato'},{label:'مذكر جمع',it:'Impiegati'}],
+  'casalinga':[{label:'مفرد',it:'Casalinga'},{label:'جمع',it:'Casalinghe'}],
+  'apertura':[{label:'مفرد',it:'Apertura'},{label:'جمع',it:'Aperture'}],
+  'volte':[{label:'مفرد',it:'Volta'},{label:'جمع',it:'Volte'}],
+  'parcheggio':[{label:'مفرد',it:'Parcheggio'},{label:'جمع',it:'Parcheggi'}],
+  'chiesa':[{label:'مفرد',it:'Chiesa'},{label:'جمع',it:'Chiese'}],
+  'identità':[{label:'مفرد',it:'Identità'},{label:'جمع',it:'Identità (بدون تغيير)'}],
+  'situazione':[{label:'مفرد',it:'Situazione'},{label:'جمع',it:'Situazioni'}],
+  'comodità':[{label:'مفرد',it:'Comodità'},{label:'جمع',it:'Comodità (بدون تغيير)'}],
+  'riposo':[{label:'مفرد',it:'Riposo'},{label:'جمع',it:'Riposi'}],
+  'pausa':[{label:'مفرد',it:'Pausa'},{label:'جمع',it:'Pause'}],
+  'gita':[{label:'مفرد',it:'Gita'},{label:'جمع',it:'Gite'}],
+  'luogo':[{label:'مفرد',it:'Luogo'},{label:'جمع',it:'Luoghi'}],
+  'disagio':[{label:'مفرد',it:'Disagio'},{label:'جمع',it:'Disagi'}],
+  'questione':[{label:'مفرد',it:'Questione'},{label:'جمع',it:'Questioni'}],
+  // ---- أفعال (فعل الأمر فقط — إنت / حضرتك / إحنا / إنتوا) ----
+  'andare':[{label:'أمر - إنت',it:"Va' / Vai"},{label:'أمر - حضرتك',it:'Vada'},{label:'أمر - إحنا',it:'Andiamo'},{label:'أمر - إنتوا',it:'Andate'}],
+  'va':[{label:'أمر - إنت',it:"Va' / Vai"},{label:'أمر - حضرتك',it:'Vada'},{label:'أمر - إحنا',it:'Andiamo'},{label:'أمر - إنتوا',it:'Andate'}],
+  'stare':[{label:'أمر - إنت',it:"Sta' / Stai"},{label:'أمر - حضرتك',it:'Stia'},{label:'أمر - إحنا',it:'Stiamo'},{label:'أمر - إنتوا',it:'State'}],
+  'stiamo':[{label:'أمر - إنت',it:"Sta' / Stai"},{label:'أمر - حضرتك',it:'Stia'},{label:'أمر - إحنا',it:'Stiamo'},{label:'أمر - إنتوا',it:'State'}],
+  'giocare':[{label:'أمر - إنت',it:'Gioca'},{label:'أمر - حضرتك',it:'Giochi'},{label:'أمر - إحنا',it:'Giochiamo'},{label:'أمر - إنتوا',it:'Giocate'}],
+  'avere':[{label:'أمر - إنت',it:'Abbi'},{label:'أمر - حضرتك',it:'Abbia'},{label:'أمر - إحنا',it:'Abbiamo'},{label:'أمر - إنتوا',it:'Abbiate'}],
+  'sentire':[{label:'أمر - إنت',it:'Senti'},{label:'أمر - حضرتك',it:'Senta'},{label:'أمر - إحنا',it:'Sentiamo'},{label:'أمر - إنتوا',it:'Sentite'}],
+  'fare':[{label:'أمر - إنت',it:"Fa' / Fai"},{label:'أمر - حضرتك',it:'Faccia'},{label:'أمر - إحنا',it:'Facciamo'},{label:'أمر - إنتوا',it:'Fate'}],
+  'fa':[{label:'أمر - إنت',it:"Fa' / Fai"},{label:'أمر - حضرتك',it:'Faccia'},{label:'أمر - إحنا',it:'Facciamo'},{label:'أمر - إنتوا',it:'Fate'}],
+  'tornare':[{label:'أمر - إنت',it:'Torna'},{label:'أمر - حضرتك',it:'Torni'},{label:'أمر - إحنا',it:'Torniamo'},{label:'أمر - إنتوا',it:'Tornate'}],
+  'conoscere':[{label:'أمر - إنت',it:'Conosci'},{label:'أمر - حضرتك',it:'Conosca'},{label:'أمر - إحنا',it:'Conosciamo'},{label:'أمر - إنتوا',it:'Conoscete'}],
+  'essere':[{label:'أمر - إنت',it:'Sii'},{label:'أمر - حضرتك',it:'Sia'},{label:'أمر - إحنا',it:'Siamo'},{label:'أمر - إنتوا',it:'Siate'}],
+  'lavorare':[{label:'أمر - إنت',it:'Lavora'},{label:'أمر - حضرتك',it:'Lavori'},{label:'أمر - إحنا',it:'Lavoriamo'},{label:'أمر - إنتوا',it:'Lavorate'}],
+  'lavora':[{label:'أمر - إنت',it:'Lavora'},{label:'أمر - حضرتك',it:'Lavori'},{label:'أمر - إحنا',it:'Lavoriamo'},{label:'أمر - إنتوا',it:'Lavorate'}],
+  'trovare':[{label:'أمر - إنت',it:'Trova'},{label:'أمر - حضرتك',it:'Trovi'},{label:'أمر - إحنا',it:'Troviamo'},{label:'أمر - إنتوا',it:'Trovate'}],
+  'cambiare':[{label:'أمر - إنت',it:'Cambia'},{label:'أمر - حضرتك',it:'Cambi'},{label:'أمر - إحنا',it:'Cambiamo'},{label:'أمر - إنتوا',it:'Cambiate'}],
+  'dire':[{label:'أمر - إنت',it:"Di' / Dì"},{label:'أمر - حضرتك',it:'Dica'},{label:'أمر - إحنا',it:'Diciamo'},{label:'أمر - إنتوا',it:'Dite'}],
+  'dice':[{label:'أمر - إنت',it:"Di' / Dì"},{label:'أمر - حضرتك',it:'Dica'},{label:'أمر - إحنا',it:'Diciamo'},{label:'أمر - إنتوا',it:'Dite'}],
+  'sperare':[{label:'أمر - إنت',it:'Spera'},{label:'أمر - حضرتك',it:'Speri'},{label:'أمر - إحنا',it:'Speriamo'},{label:'أمر - إنتوا',it:'Sperate'}],
+  'spera':[{label:'أمر - إنت',it:'Spera'},{label:'أمر - حضرتك',it:'Speri'},{label:'أمر - إحنا',it:'Speriamo'},{label:'أمر - إنتوا',it:'Sperate'}],
+  'passano':[{label:'أمر - إنت',it:'Passa'},{label:'أمر - حضرتك',it:'Passi'},{label:'أمر - إحنا',it:'Passiamo'},{label:'أمر - إنتوا',it:'Passate'}],
+  'vedo':[{label:'أمر - إنت',it:'Vedi'},{label:'أمر - حضرتك',it:'Veda'},{label:'أمر - إحنا',it:'Vediamo'},{label:'أمر - إنتوا',it:'Vedete'}]
+};
+function findWordInfo(rawWord){
+  return WORD_INFO_DATA[normalizeGrammarWord(rawWord)]||null;
+}
+function openWordInfo(rawWord,arMeaning,noteTxt){
+  const info=findWordInfo(rawWord);
+  if(!info||!info.length)return;
+  document.getElementById('winfoWord').textContent=rawWord;
+  const meaningHtml=(arMeaning?'<div class="winfo-meaning">= '+escWfam(arMeaning)+(noteTxt?'<br>💡 '+escWfam(noteTxt):'')+'</div>':'');
+  document.getElementById('winfoBody').innerHTML=meaningHtml+info.map(f=>{
+    const fSpeak=escWfam(f.it).replace(/'/g,"\\'");
+    return '<div class="winfo-row" onclick="event.stopPropagation();speakWord(\''+fSpeak+'\')"><span class="winfo-label">'+escWfam(f.label)+'</span><span class="winfo-it">🔊 '+escWfam(f.it)+'</span></div>';
+  }).join('');
+  document.getElementById('winfoOverlay').classList.add('show');
+}
+function closeWordInfo(){
+  document.getElementById('winfoOverlay').classList.remove('show');
+}
+function closeWordInfoOnOverlay(e){
+  if(e.target&&e.target.id==='winfoOverlay')closeWordInfo();
+}
+// دوسة على كلمة جوه شرح كلمات قطعة الاستماع: تنطقها زي ما كانت بتعمل بالظبط،
+// وكمان لو عندها عيلة كلمة محفوظة تفتح popup صغير بيها (من غير ما تلمس زرار
+// القاعدة 📘 أو زرار الفعل 📗 اللي شغالين لوحدهم زي ما هما).
+function lpBdWordTap(rawWord){
+  speakWord(rawWord);
+  openWordFamily(rawWord);
+}
+
 // ===== VERB NOTE PARSING (tap-to-popup conjugation for words like "cucinavo") =====
 // notes الخاص بـة الأفعال في sentences.js متسقة بالشكل: "InfinitoVerbo، Tense"
 // (Tense وحدة من: Presente / Passato Prossimo / Imperfetto)
@@ -3092,6 +3302,14 @@ function renderGrammarBlocks(blocks,topicId){
         const badge=views>0?' <span class="gm-word-views">👁'+toArabicDigits(views)+'</span>':'';
         html+='<div class="gm-ex-row" onclick="bumpTopicWordView(\''+tidEsc+'\',\''+escGm(ex.it).replace(/'/g,"\\'")+'\');speakWord(\''+escGm(ex.it).replace(/'/g,"\\'")+'\');refreshGrammarModalBody();"><span class="gm-ex-it">'+escGm(ex.it)+badge+'</span><span class="gm-ex-ar">'+escGm(ex.ar)+'</span></div>';
       });
+      if(findWordFamily(b.it)){
+        html+='<button class="wfv-trigger-btn" onclick="event.stopPropagation();openWordFamily(\''+itSpeak+'\')">🌿 WFV — عيلة الكلمة</button>';
+      }
+      if(findWordInfo(b.it)){
+        const arEsc=escGm(b.ar||'').replace(/'/g,"\\'");
+        const noteEsc=escGm(b.note||'').replace(/'/g,"\\'");
+        html+='<button class="winfo-trigger-btn" onclick="event.stopPropagation();openWordInfo(\''+itSpeak+'\',\''+arEsc+'\',\''+noteEsc+'\')">🔤 معلومات وتحويلات الكلمة</button>';
+      }
       html+='</div>';
       return html;
     }

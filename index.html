@@ -293,6 +293,30 @@
   </div>
 </div>
 
+<!-- Word family popup (🌳 عيلة الكلمة) — بس لكلمات breakdown قطع الاستماع -->
+<div class="wfam-overlay" id="wfamOverlay" onclick="closeWordFamilyOnOverlay(event)">
+  <div class="wfam-popup">
+    <div class="wfam-head">
+      <div class="wfam-title">🌳 عيلة الكلمة</div>
+      <div class="wfam-word" id="wfamWord"></div>
+    </div>
+    <div class="wfam-body" id="wfamBody"></div>
+    <button class="wfam-close" onclick="closeWordFamily()">✕ إغلاق</button>
+  </div>
+</div>
+
+<!-- Word info / morphology popup (🔤 مذكر-مؤنث-مفرد-جمع / فعل الأمر) -->
+<div class="wfam-overlay" id="winfoOverlay" onclick="closeWordInfoOnOverlay(event)">
+  <div class="wfam-popup">
+    <div class="wfam-head">
+      <div class="wfam-title">🔤 معلومات وتحويلات الكلمة</div>
+      <div class="wfam-word" id="winfoWord"></div>
+    </div>
+    <div class="wfam-body" id="winfoBody"></div>
+    <button class="wfam-close" onclick="closeWordInfo()">✕ إغلاق</button>
+  </div>
+</div>
+
 <script src="sentences.js"></script>
 <script src="verbs.js"></script>
 <script src="grammar.js"></script>

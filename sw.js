@@ -1,6 +1,6 @@
-// Parla Italiano — Service Worker v30 (تحديث تاب "استماع": القطعة الأولى +
-// شرح كلمة بكلمة أكورديون)
-const SHELL_CACHE = 'parla-shell-v30';
+// Parla Italiano — Service Worker v33 (🔤 زرار جديد جنب WFV: معلومات
+// الكلمة بالعربي + تذكير/تأنيث/مفرد/جمع، وفعل الأمر بس للأفعال)
+const SHELL_CACHE = 'parla-shell-v33';
 // نحافظ على كاش الموديلات بين إصدارات واجهة التطبيق لتجنب إعادة تنزيلها.
 const MODEL_CACHE = 'parla-models-v1';
 

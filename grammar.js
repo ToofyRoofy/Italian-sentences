@@ -3565,7 +3565,29 @@ const GRAMMAR = [
       "comode",
       "facile",
       "vero",
-      "falso"
+      "falso",
+      "caldo",
+      "fresca",
+      "fresco",
+      "fresche",
+      "freschi",
+      "rossa",
+      "rosso",
+      "rosse",
+      "rossi",
+      "gialla",
+      "giallo",
+      "gialle",
+      "gialli",
+      "stanca",
+      "stanco",
+      "stanche",
+      "stanchi",
+      "felice",
+      "felici",
+      "infrasettimanale",
+      "solito",
+      "familiare"
     ],
     "blocks": [
       {
@@ -3590,7 +3612,16 @@ const GRAMMAR = [
       {"type":"item","it":"Comodo","ar":"مريح / أريح","note":"جمعها Comodi، ومؤنثها Comoda/Comode","examples":[{"it":"Più comodi dei negozi","ar":"أريح من المحلات"}]},
       {"type":"item","it":"Facile","ar":"سهل","note":"عكس Difficile","examples":null},
       {"type":"item","it":"Vero","ar":"صح / حقيقي","note":"عكس Falso — بيتستخدم في أسئلة Vero o Falso","examples":null},
-      {"type":"item","it":"Falso","ar":"غلط / مش صح","note":"عكس Vero","examples":null}
+      {"type":"item","it":"Falso","ar":"غلط / مش صح","note":"عكس Vero","examples":null},
+      {"type":"item","it":"Caldo","ar":"سخن / حار","note":"جمعها Caldi، ومؤنثها Calda/Calde","examples":[{"it":"Un caffè caldo","ar":"قهوة سخنة"}]},
+      {"type":"item","it":"Fresco","ar":"طازة / بارد","note":"جمعها Freschi، ومؤنثها Fresca/Fresche","examples":[{"it":"Frutta fresca","ar":"فاكهة طازة"}]},
+      {"type":"item","it":"Rosso","ar":"أحمر","note":"جمعها Rossi، ومؤنثها Rossa/Rosse","examples":[{"it":"Mele rosse","ar":"تفاح أحمر"}]},
+      {"type":"item","it":"Giallo","ar":"أصفر","note":"جمعها Gialli، ومؤنثها Gialla/Gialle","examples":[{"it":"Banane gialle","ar":"موز أصفر"}]},
+      {"type":"item","it":"Stanco","ar":"تعبان","note":"جمعها Stanchi، ومؤنثها Stanca/Stanche","examples":null},
+      {"type":"item","it":"Felice","ar":"سعيد / مبسوط","note":"مفرد (مذكر ومؤنث)، جمعها Felici","examples":null},
+      {"type":"item","it":"Infrasettimanale","ar":"في نص الأسبوع","note":"صفة من settimana","examples":null},
+      {"type":"item","it":"Solito","ar":"معتاد / عادي","note":"في تعبير ثابت: di solito = عادةً","examples":[{"it":"Di solito","ar":"عادةً"}]},
+      {"type":"item","it":"Familiare","ar":"عائلي / خاص بالعيلة","note":"صفة من famiglia","examples":null}
     ]
   },
   {
@@ -3642,7 +3673,30 @@ const GRAMMAR = [
       "chiesa",
       "luoghi",
       "identità",
-      "situazione"
+      "situazione",
+      "sveglia",
+      "caffè",
+      "pane",
+      "marmellata",
+      "colazione",
+      "mercato",
+      "frutta",
+      "mele",
+      "banane",
+      "arance",
+      "italiano",
+      "amica",
+      "amico",
+      "cena",
+      "film",
+      "commessi",
+      "commessa",
+      "mariti",
+      "marito",
+      "mogli",
+      "moglie",
+      "scuola",
+      "vita"
     ],
     "blocks": [
       {
@@ -3684,7 +3738,26 @@ const GRAMMAR = [
       {"type":"item","it":"Parcheggio","ar":"جراج / مكان ركن العربيات","note":null,"examples":null},
       {"type":"item","it":"Chiesa","ar":"كنيسة","note":null,"examples":null},
       {"type":"item","it":"Identità","ar":"هوية / طابع شخصي","note":null,"examples":null},
-      {"type":"item","it":"Situazione","ar":"وضع / موقف","note":null,"examples":null}
+      {"type":"item","it":"Situazione","ar":"وضع / موقف","note":null,"examples":null},
+      {"type":"item","it":"Sveglia","ar":"منبه (وكمان: بيصحى/بتصحى)","note":"من الفعل الانعكاسي Svegliarsi","examples":[{"it":"Chiara si sveglia alle 8","ar":"شيرا بتصحى الساعة ٨"}]},
+      {"type":"item","it":"Caffè","ar":"قهوة","note":"كلمة ثابتة الشكل مفرد وجمع","examples":null},
+      {"type":"item","it":"Pane","ar":"عيش (خبز)","note":null,"examples":null},
+      {"type":"item","it":"Marmellata","ar":"مربى","note":null,"examples":null},
+      {"type":"item","it":"Colazione","ar":"فطار","note":null,"examples":[{"it":"Fare colazione","ar":"يفطر"}]},
+      {"type":"item","it":"Mercato","ar":"سوق","note":null,"examples":null},
+      {"type":"item","it":"Frutta","ar":"فاكهة","note":null,"examples":null},
+      {"type":"item","it":"Mela","ar":"تفاحة","note":"جمعها Mele","examples":null},
+      {"type":"item","it":"Banana","ar":"موزة","note":"جمعها Banane","examples":null},
+      {"type":"item","it":"Arancia","ar":"برتقالة","note":"جمعها Arance","examples":null},
+      {"type":"item","it":"Italiano","ar":"إيطالي / اللغة الإيطالية","note":null,"examples":[{"it":"Studia l'italiano","ar":"بتذاكر إيطالي"}]},
+      {"type":"item","it":"Amica","ar":"صاحبة","note":"مذكرها Amico","examples":null},
+      {"type":"item","it":"Cena","ar":"عشا (وكمان: بيتعشى/بتتعشى)","note":"من الفعل Cenare","examples":null},
+      {"type":"item","it":"Film","ar":"فيلم","note":"كلمة ثابتة الشكل مفرد وجمع","examples":null},
+      {"type":"item","it":"Commessi","ar":"بائعين (محل)","note":"جمع Commesso، ومؤنثها Commessa","examples":null},
+      {"type":"item","it":"Marito","ar":"زوج","note":"جمعها Mariti","examples":null},
+      {"type":"item","it":"Moglie","ar":"زوجة","note":"جمعها Mogli","examples":null},
+      {"type":"item","it":"Scuola","ar":"مدرسة","note":null,"examples":null},
+      {"type":"item","it":"Vita","ar":"حياة","note":null,"examples":null}
     ]
   },
   {
@@ -3718,7 +3791,32 @@ const GRAMMAR = [
       "piove",
       "piace",
       "spera",
-      "cambiare"
+      "cambiare",
+      "torno",
+      "conosco",
+      "basta",
+      "organizzarsi",
+      "può",
+      "posso",
+      "uscire",
+      "faccio",
+      "pagare",
+      "vanno",
+      "beve",
+      "bere",
+      "mangia",
+      "mangiare",
+      "comprano",
+      "comprare",
+      "studia",
+      "studiare",
+      "esce",
+      "torna",
+      "cenare",
+      "guarda",
+      "guardare",
+      "dormire",
+      "svegliarsi"
     ],
     "blocks": [
       {
@@ -3749,7 +3847,27 @@ const GRAMMAR = [
       {"type":"item","it":"Piove","ar":"بتمطر","note":"Piovere، Presente","examples":null},
       {"type":"item","it":"Piace","ar":"بيعجبه / عاجبها","note":"Piacere، Presente — بيتعدى بضمير غير مباشر: mi piace, le piace...","examples":[{"it":"Non le piace questa situazione","ar":"الوضع ده مش عاجبها"}]},
       {"type":"item","it":"Spera","ar":"بتتمنى / بترجى","note":"Sperare، Presente (لِيه/هي)","examples":null},
-      {"type":"item","it":"Cambiare","ar":"يغيّر","note":"مصدر","examples":null}
+      {"type":"item","it":"Cambiare","ar":"يغيّر","note":"مصدر","examples":null},
+      {"type":"item","it":"Torno","ar":"بارجع","note":"Tornare، Presente (أنا)","examples":null},
+      {"type":"item","it":"Conosco","ar":"أنا عارف/عارفة","note":"Conoscere، Presente (أنا)","examples":null},
+      {"type":"item","it":"Basta","ar":"يكفي","note":"Bastare، Presente","examples":null},
+      {"type":"item","it":"Organizzarsi","ar":"ينظم نفسه","note":"فعل انعكاسي، مصدر","examples":null},
+      {"type":"item","it":"Può","ar":"يقدر","note":"Potere، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Posso","ar":"أقدر","note":"Potere، Presente (أنا)","examples":null},
+      {"type":"item","it":"Uscire","ar":"يطلع / يخرج","note":"مصدر","examples":null},
+      {"type":"item","it":"Faccio","ar":"بعمل","note":"Fare، Presente (أنا)","examples":null},
+      {"type":"item","it":"Pagare","ar":"يدفع","note":"مصدر","examples":null},
+      {"type":"item","it":"Vanno","ar":"بيروحوا","note":"Andare، Presente (هم)","examples":null},
+      {"type":"item","it":"Beve","ar":"بيشرب / بتشرب","note":"Bere، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Mangia","ar":"بياكل / بتاكل","note":"Mangiare، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Comprano","ar":"بيشتروا","note":"Comprare، Presente (هم)","examples":null},
+      {"type":"item","it":"Studia","ar":"بيذاكر / بتذاكر","note":"Studiare، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Esce","ar":"بيطلع / بتطلع","note":"Uscire، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Torna","ar":"بيرجع / بترجع","note":"Tornare، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Cenare","ar":"يتعشى","note":"مصدر","examples":null},
+      {"type":"item","it":"Guarda","ar":"بيتفرج / بتتفرج","note":"Guardare، Presente (لِيه/هي)","examples":null},
+      {"type":"item","it":"Dormire","ar":"ينام","note":"مصدر","examples":null},
+      {"type":"item","it":"Svegliarsi","ar":"يصحى من النوم","note":"فعل انعكاسي، مصدر","examples":[{"it":"Chiara si sveglia alle 8","ar":"شيرا بتصحى الساعة ٨"}]}
     ]
   },
   {
@@ -3765,7 +3883,9 @@ const GRAMMAR = [
       "non",
       "adesso",
       "meno",
-      "presto"
+      "presto",
+      "certamente",
+      "naturalmente"
     ],
     "blocks": [
       {
@@ -3779,7 +3899,9 @@ const GRAMMAR = [
       {"type":"item","it":"Non","ar":"أداة نفي (مش/لا)","note":"بتيجي قبل الفعل مباشرة","examples":[{"it":"Non ho tempo","ar":"معنديش وقت"}]},
       {"type":"item","it":"Adesso","ar":"دلوقتي","note":null,"examples":null},
       {"type":"item","it":"Meno","ar":"أقل","note":"عكس Più","examples":[{"it":"Meno piacevole","ar":"أقل متعة"}]},
-      {"type":"item","it":"Presto","ar":"قريب / بسرعة","note":null,"examples":null}
+      {"type":"item","it":"Presto","ar":"قريب / بسرعة","note":null,"examples":null},
+      {"type":"item","it":"Certamente","ar":"أكيد","note":null,"examples":null},
+      {"type":"item","it":"Naturalmente","ar":"طبعاً","note":null,"examples":null}
     ]
   },
   {
