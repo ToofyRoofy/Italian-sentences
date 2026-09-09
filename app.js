@@ -2676,7 +2676,16 @@ function renderListeningLibrary(){
 // الكلمة اتكتبت لوحدها هناك، وإلا لو هي جزء من عبارة محفوظة (زي "fare la
 // spesa")، وإلا بيدور على قاعدة جرامر مرتبطة بيها (triggers). لو مفيش أي حاجة
 // بيرجع null والدوسة بتتحول لمجرد نطق الكلمة صوتيًا مفيش بوب أب.
+// بيدور على كلمة متلقطة من نص القطعة: أولوية لقاعدة الجرامر لو الكلمة
+// مصنّفة (بتفتح بوب أب غني فيه الترجمة + التصنيف + أمثلة)، وبعدين لو مالهاش
+// تصنيف جرامري بس ليها ترجمة محفوظة (زي عبارة "fare la spesa")، وإلا بيرجع
+// null والدوسة بتتحول لمجرد نطق الكلمة صوتيًا مفيش بوب أب. الأولوية دي
+// مهمة: لو سبنا الترجمة المحفوظة تسبق قاعدة الجرامر، كلمة مصنّفة زي
+// "favorevole" (موجودة في breakdown القطعة وكمان في lex_aggettivi) كانت
+// هتفضل عالقة على "ترجمة بس" وماتفتحش صندوق الجرامر بتاعها خالص.
 function lpFindWordMatch(paraIdx,rawWord){
+  const gTopicId=findGrammarTopicId(rawWord);
+  if(gTopicId)return{type:'grammar',topicId:gTopicId};
   const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
   const para=p&&p.paragraphs[paraIdx];
   const words=(para&&para.words)||[];
@@ -2689,12 +2698,40 @@ function lpFindWordMatch(paraIdx,rawWord){
   });
   if(exactIdx!==-1)return{type:'curated',idx:exactIdx};
   if(phraseIdx!==-1)return{type:'curated',idx:phraseIdx};
-  const gTopicId=findGrammarTopicId(rawWord);
-  if(gTopicId)return{type:'grammar',topicId:gTopicId};
   return null;
+}
+// ألوان حروف الجر في نص القطع، بترتيب ظهورها بالظبط جوه كل فقرة، مطابقة لنفس
+// الألوان المعرّفة في قاعدة كل حرف جر (usage blocks) جوه grammar.js — كل حرف
+// جر بيتلوّن بلون المعنى المقصود بيه في السياق ده تحديدًا (مش لون واحد ثابت
+// للحرف كله، لأن نفس الحرف زي "di" بيتكرر بمعاني ملوّنة مختلفة). لو الاستخدام
+// تعبير جامد أو مقارنة مش من ضمن المعاني الملوّنة في القاعدة (زي "per esempio"،
+// "a volte"، "di solito"، أو "di" في المقارنة) بيتسيب null من غير لون خاص.
+const PREP_TOPIC_IDS=['prep_di','prep_a','prep_da','prep_in','prep_con','prep_su','prep_per','prep_tra_fra','prep_semplici','improprie'];
+const PREP_COLOR_SEQUENCE={
+  'chiara_weekend':[
+    ['#43a047','#1e88e5'],
+    [null,'#e53935','#1e88e5'],
+    ['#00acc1','#00897b','#1e88e5','#e53935'],
+    ['#e53935','#1e88e5',null,'#6d4c41']
+  ],
+  'centri_commerciali_domenica':[
+    ['#43a047','#00897b',null,'#6d4c41',null,'#e53935','#8e24aa',null,'#fb8c00','#fb8c00'],
+    ['#43a047','#fb8c00','#fb8c00','#8e24aa','#8e24aa',null,'#1e88e5','#1e88e5','#e53935',null,'#8e24aa'],
+    ['#6d4c41','#d81b60',null,'#8e24aa','#e53935','#d81b60','#e53935','#e53935',null,null,null,null,'#6d4c41','#fb8c00','#e53935','#e53935'],
+    [null,'#8e24aa','#e53935']
+  ]
+};
+let lpPrepColorCounters={};
+function lpNextPrepColor(paraIdx){
+  const seq=(PREP_COLOR_SEQUENCE[currentListeningPassageId]||[])[paraIdx];
+  if(!seq)return null;
+  const n=lpPrepColorCounters[paraIdx]||0;
+  lpPrepColorCounters[paraIdx]=n+1;
+  return seq[n]!==undefined?seq[n]:null;
 }
 // بيقسّم نص القطعة لكلمات قابلة للدوس عليها مباشرة (مش بس القايمة تحت).
 function lpRenderInlineText(text,paraIdx){
+  lpPrepColorCounters[paraIdx]=0;
   const re=/[A-Za-zÀ-öø-ÿ]+/g;
   let out='',last=0,m;
   while((m=re.exec(text))){
@@ -2703,7 +2740,13 @@ function lpRenderInlineText(text,paraIdx){
     const match=lpFindWordMatch(paraIdx,w);
     const cls='lp-word'+(match?(match.type==='grammar'?' has-grammar':' has-info'):'');
     const wEsc=escHtml(w).replace(/'/g,'&#39;');
-    out+='<span class="'+cls+'" id="lpTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\','+m.index+')">'+escHtml(w)+'</span>';
+    let styleAttr='',color=null;
+    if(match&&match.type==='grammar'&&PREP_TOPIC_IDS.includes(match.topicId)){
+      color=lpNextPrepColor(paraIdx);
+      if(color)styleAttr=' style="color:'+color+';font-weight:800;border-bottom-color:'+color+'"';
+    }
+    const colorArg=color?',\''+color+'\'':'';
+    out+='<span class="'+cls+'"'+styleAttr+' id="lpTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\','+m.index+colorArg+')">'+escHtml(w)+'</span>';
     last=re.lastIndex;
   }
   out+=escHtml(text.slice(last));
@@ -2715,7 +2758,10 @@ function lpRenderInlineText(text,paraIdx){
 // ما يحرك مكان قراءتك). كلمة عندها ترجمة محفوظة بس من غير قاعدة جرامر:
 // بتتنطق بس، من غير ما ننزلك لقايمة الشرح تحت. زرار "اسمع من هنا" تحت
 // الفقرة بيقرا من النقطة دي لحد آخر الفقرة، وتقدر تدوسه كذا مرة براحتك.
-function lpWordTap(paraIdx,rawWord,charIndex){
+// لو الكلمة حرف جر ملوّن (لونه معروف من السياق بالظبط)، بنبعت اللون ده مع
+// الفتح عشان يوصلك على طول لنفس صندوق الاستخدام بنفس اللون اللي شايفه في
+// النص، مش أول صندوق بيتطابق مع الكلمة عشوائيًا.
+function lpWordTap(paraIdx,rawWord,charIndex,focusColor){
   speakWord(rawWord);
   if(charIndex!==undefined){
     const prevPos=lpMarkerPos[paraIdx];
@@ -2732,7 +2778,7 @@ function lpWordTap(paraIdx,rawWord,charIndex){
   const match=lpFindWordMatch(paraIdx,rawWord);
   if(!match)return;
   if(match.type==='grammar'){
-    openGrammarModal(match.topicId,rawWord);
+    openGrammarModal(match.topicId,rawWord,focusColor);
     return;
   }
   // كلمة عندها ترجمة محفوظة بس (مش قاعدة جرامر): نكتفي بالنطق، من غير ما
@@ -3224,7 +3270,7 @@ function refreshGrammarModalBody(){
   if(!topic)return;
   document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],currentGmTopicId);
 }
-function openGrammarModal(topicId,focusWord){
+function openGrammarModal(topicId,focusWord,focusColor){
   const topic=getGrammarTopic(topicId);
   if(!topic)return;
   currentGmTopicId=topicId;
@@ -3246,7 +3292,12 @@ function openGrammarModal(topicId,focusWord){
     const norm=normalizeGrammarWord(focusWord);
     const body=document.getElementById('gmBody');
     let item=null;
-    try{ item=body.querySelector('[data-word~="'+CSS.escape(norm)+'"]'); }catch(e){ item=null; }
+    try{
+      // لو عندنا لون محدد (حرف جر اتلوّن بمعنى معين في النص)، ندوّر الأول على
+      // نفس الكلمة بنفس اللون بالظبط، مش أي صندوق بيتطابق مع الكلمة عشوائيًا.
+      if(focusColor)item=body.querySelector('[data-word~="'+CSS.escape(norm)+'"][data-color="'+focusColor.replace(/"/g,'')+'"]');
+      if(!item)item=body.querySelector('[data-word~="'+CSS.escape(norm)+'"]');
+    }catch(e){ item=null; }
     if(item){
       setTimeout(()=>{
         item.scrollIntoView({behavior:'smooth',block:'center'});
@@ -3315,12 +3366,17 @@ function renderGrammarBlocks(blocks,topicId){
     }
     if(b.type==='usage'){
       const formNorm=normalizeGrammarWord(b.form||b.title||'').replace(/"/g,'&quot;');
-      let html='<div class="gm-usage-block" data-word="'+formNorm+'" style="border:1px solid '+escGm(b.color||'#64748b')+';border-right:6px solid '+escGm(b.color||'#64748b')+';border-radius:12px;padding:10px;margin:10px 0;background:color-mix(in srgb,'+escGm(b.color||'#64748b')+' 9%,transparent)">';
+      let html='<div class="gm-usage-block" data-word="'+formNorm+'" data-color="'+escGm(b.color||'')+'" style="border:1px solid '+escGm(b.color||'#64748b')+';border-right:6px solid '+escGm(b.color||'#64748b')+';border-radius:12px;padding:10px;margin:10px 0;background:color-mix(in srgb,'+escGm(b.color||'#64748b')+' 9%,transparent)">';
       html+='<div style="font-weight:900;color:'+escGm(b.color||'#64748b')+'">'+escGm(b.title)+' — '+escGm(b.meaning)+'</div>';
       html+='<div style="margin:5px 0">'+escGm(b.description||'')+'</div>';
       (b.examples||[]).forEach(ex=>{
         let txt=escGm(ex.it);const target=escGm(ex.form||b.form||'');
-        if(target)txt=txt.replace(target,'<span style="color:'+escGm(b.color||'#64748b')+';font-weight:900;text-decoration:underline;text-decoration-thickness:3px">'+target+'</span>');
+        if(target){
+          const escRe=target.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+          const wordRe=new RegExp('(^|[^A-Za-zÀ-öø-ÿ])('+escRe+')(?=[^A-Za-zÀ-öø-ÿ]|$)');
+          const m=txt.match(wordRe);
+          if(m)txt=txt.slice(0,m.index)+m[1]+'<span style="color:'+escGm(b.color||'#64748b')+';font-weight:900;text-decoration:underline;text-decoration-thickness:3px">'+m[2]+'</span>'+txt.slice(m.index+m[0].length);
+        }
         const views=tid?getTopicWordViews(tid,ex.it):0;
         const badge=views>0?' <span class="gm-word-views">👁'+toArabicDigits(views)+'</span>':'';
         html+='<div class="gm-ex-row" onclick="bumpTopicWordView(\''+tidEsc+'\',\''+escGm(ex.it).replace(/'/g,"\\'")+'\');speakWord(\''+escGm(ex.it).replace(/'/g,"\\'")+'\');refreshGrammarModalBody();"><span class="gm-ex-it">'+txt+badge+'</span><span class="gm-ex-ar">'+escGm(ex.ar)+'</span></div>';

@@ -3932,6 +3932,7 @@ const GRAMMAR = [
         "color": "#e53935",
         "form": "di",
         "examples": [
+            {"it": "La figlia di 5 anni", "ar": "البنت اللي عندها ٥ سنين", "form": "di"},
           {
             "it": "Il telefono di Leo è nuovo",
             "ar": "تليفون ليو جديد",
@@ -4052,6 +4053,7 @@ const GRAMMAR = [
         "color": "#00897b",
         "form": "di",
         "examples": [
+            {"it": "È una questione di comodità", "ar": "دي مسألة راحة", "form": "di"},
           {"it":"Parliamo di calcio","ar":"نتحدث عن كرة القدم","form":"di","words":[{"it":"Parliamo","ar":"بنتكلم","note":"Parlare، Presente","type":"verbo"},{"it":"di","ar":"","type":"preposizione","grammarId":"prep_di","note":null},{"it":"calcio","ar":"كرة القدم","note":null,"type":"altro"}]},
           {"it":"Il film parla di guerra","ar":"الفيلم بيتكلم عن الحرب","form":"di","words":[{"it":"Il","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"film","ar":"فيلم","note":null,"type":"altro"},{"it":"parla","ar":"بيتكلم","note":"Parlare، Presente","type":"verbo"},{"it":"di","ar":"","type":"preposizione","grammarId":"prep_di","note":null},{"it":"guerra","ar":"حرب","note":null,"type":"altro"}]},
           {"it":"Scriviamo di storia","ar":"بنكتب عن التاريخ","form":"di","words":[{"it":"Scriviamo","ar":"بنكتب","note":"Scrivere، Presente","type":"verbo"},{"it":"di","ar":"","type":"preposizione","grammarId":"prep_di","note":null},{"it":"storia","ar":"تاريخ","note":null,"type":"altro"}]},
@@ -4067,6 +4069,7 @@ const GRAMMAR = [
         "color": "#fb8c00",
         "form": "di",
         "examples": [
+            {"it": "Un giorno di pausa e di riposo", "ar": "يوم راحة واسترخاء", "form": "di"},
           {
             "it": "Leggo un libro di storia",
             "ar": "أقرأ كتاب تاريخ",
@@ -4107,6 +4110,7 @@ const GRAMMAR = [
         "color": "#43a047",
         "form": "di",
         "examples": [
+            {"it": "Si sveglia la mattina di sabato", "ar": "بتصحى صبح يوم السبت", "form": "di"},
           {
             "it": "Studio di notte",
             "ar": "أذاكر في الليل",
@@ -4267,6 +4271,8 @@ const GRAMMAR = [
         "color": "#6d4c41",
         "form": "di",
         "examples": [
+            {"it": "Non ha tempo di fare la spesa", "ar": "معندهوش وقت يتسوق", "form": "di"},
+            {"it": "Non ho tempo di fare", "ar": "معنديش وقت أعمل", "form": "di"},
           {
             "it": "Ho deciso di partire",
             "ar": "قررت أن أغادر",
@@ -4343,6 +4349,13 @@ const GRAMMAR = [
         "color": "#e53935",
         "form": "a",
         "examples": [
+            {"it": "Va al mercato", "ar": "بيروح السوق", "form": "al"},
+            {"it": "Vanno al cinema", "ar": "بيروحوا السينما", "form": "al"},
+            {"it": "Torna a casa", "ar": "بترجع البيت", "form": "a"},
+            {"it": "Torno a casa", "ar": "بارجع البيت", "form": "a"},
+            {"it": "Andare al lavoro", "ar": "يروح الشغل", "form": "al"},
+            {"it": "I figli vanno a scuola", "ar": "الأولاد بيروحوا المدرسة", "form": "a"},
+            {"it": "Sono a scuola e al lavoro", "ar": "هما في المدرسة وفي الشغل", "form": "a"},
           {"it":"Vado a Milano","ar":"أذهب إلى ميلانو","form":"a","words":[{"it":"Vado","ar":"أذهب","note":"Andare، Presente","type":"verbo"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"Milano","ar":"ميلانو","note":null,"type":"altro"}]},
           {"it":"Andiamo al mare domani","ar":"هنروح البحر بكرة","form":"al","words":[{"it":"Andiamo","ar":"هنروح","note":"Andare، Presente","type":"verbo"},{"it":"al","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"mare","ar":"بحر","note":null,"type":"altro"},{"it":"domani","ar":"بكرة","note":null,"type":"altro"}]},
           {"it":"Torno a casa presto","ar":"بارجع البيت بدري","form":"a","words":[{"it":"Torno","ar":"بارجع","note":"Tornare، Presente","type":"verbo"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"casa","ar":"بيت","note":null,"type":"altro"},{"it":"presto","ar":"بدري","note":null,"type":"altro"}]},
@@ -4373,6 +4386,8 @@ const GRAMMAR = [
         "color": "#8e24aa",
         "form": "alle",
         "examples": [
+            {"it": "Torno a casa ogni giorno alle 18", "ar": "بارجع البيت كل يوم الساعة ٦", "form": "alle"},
+            {"it": "Fino alle 21-22", "ar": "لحد الساعة ٩ أو ١٠ بالليل", "form": "alle"},
           {"it":"Arrivo alle tre","ar":"أصل في تمام الثالثة","form":"alle","words":[{"it":"Arrivo","ar":"أوصل","note":"Arrivare، Presente","type":"verbo"},{"it":"alle","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"tre","ar":"ثلاثة","note":"رقم — هنا بمعنى الساعة ٣","type":"altro"}]},
           {"it":"Il film inizia alle otto","ar":"الفيلم يبدأ الساعة ثمانية","form":"alle","words":[{"it":"Il","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"film","ar":"فيلم","note":null,"type":"altro"},{"it":"inizia","ar":"بيبدأ","note":"Iniziare، Presente","type":"verbo"},{"it":"alle","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"otto","ar":"ثمانية","note":"رقم — هنا بمعنى الساعة ٨","type":"altro"}]},
           {"it":"Pranziamo a mezzogiorno","ar":"بنتغدى الساعة اتناشر الضهر","form":"a","words":[{"it":"Pranziamo","ar":"بنتغدى","note":"Pranzare، Presente","type":"verbo"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"mezzogiorno","ar":"الساعة اتناشر الضهر","note":null,"type":"altro"}]},
@@ -4418,6 +4433,7 @@ const GRAMMAR = [
         "color": "#43a047",
         "form": "a",
         "examples": [
+            {"it": "Sono favorevole all'apertura domenicale", "ar": "أنا موافق على الفتح يوم الحد", "form": "all"},
           {"it":"Telefono a Marco","ar":"أتصل بماركو","form":"a","words":[{"it":"Telefono","ar":"باتصل","note":"Telefonare، Presente","type":"verbo"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"Marco","ar":"ماركو (اسم علم)","note":null,"type":"altro"}]},
           {"it":"Scrivo una lettera a mia madre","ar":"باكتب خطاب لأمي","form":"a","words":[{"it":"Scrivo","ar":"بكتب","note":"Scrivere، Presente","type":"verbo"},{"it":"una","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"lettera","ar":"خطاب","note":null,"type":"altro"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"mia","ar":"ـي","note":"صفة ملكية (مؤنث)","type":"altro"},{"it":"madre","ar":"أم","note":null,"type":"altro"}]},
           {"it":"Do il libro a Sara","ar":"باديّ الكتاب لسارة","form":"a","words":[{"it":"Do","ar":"باديّ","note":"Dare، Presente","type":"verbo"},{"it":"il","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"libro","ar":"كتاب","note":null,"type":"altro"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"Sara","ar":"سارة (اسم علم)","note":null,"type":"altro"}]},
@@ -4433,6 +4449,8 @@ const GRAMMAR = [
         "color": "#d81b60",
         "form": "al",
         "examples": [
+            {"it": "12 ore al giorno", "ar": "١٢ ساعة في اليوم", "form": "al"},
+            {"it": "Un giorno alla settimana", "ar": "يوم واحد في الأسبوع", "form": "alla"},
           {"it":"Prendo la medicina due volte al giorno","ar":"آخذ الدواء مرتين في اليوم","form":"al","words":[{"it":"Prendo","ar":"باخد","note":"Prendere، Presente","type":"verbo"},{"it":"la","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"medicina","ar":"دوا","note":null,"type":"altro"},{"it":"due","ar":"اتنين","note":null,"type":"altro"},{"it":"volte","ar":"مرات","note":null,"type":"altro"},{"it":"al","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"giorno","ar":"يوم","note":null,"type":"altro"}]},
           {"it":"Vado in palestra quattro volte alla settimana","ar":"باروح الجيم ٤ مرات في الأسبوع","form":"alla","words":[{"it":"Vado","ar":"أذهب","note":"Andare، Presente","type":"verbo"},{"it":"in","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"palestra","ar":"جيم","note":null,"type":"altro"},{"it":"quattro","ar":"أربعة","note":null,"type":"altro"},{"it":"volte","ar":"مرات","note":null,"type":"altro"},{"it":"alla","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"settimana","ar":"أسبوع","note":null,"type":"altro"}]},
           {"it":"Mangio la pizza una volta al mese","ar":"باكل بيتزا مرة في الشهر","form":"al","words":[{"it":"Mangio","ar":"باكل","note":"Mangiare، Presente","type":"verbo"},{"it":"la","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"pizza","ar":"بيتزا","note":null,"type":"altro"},{"it":"una","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"volta","ar":"مرة","note":null,"type":"altro"},{"it":"al","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"mese","ar":"شهر","note":null,"type":"altro"}]},
@@ -4625,6 +4643,9 @@ const GRAMMAR = [
         "color": "#fb8c00",
         "form": "in",
         "examples": [
+            {"it": "Passano il weekend nei centri commerciali", "ar": "بيقضوا الويكند في المولات", "form": "nei"},
+            {"it": "Nei centri commerciali ci sono molti negozi", "ar": "في المولات فيه محلات كتير", "form": "Nei"},
+            {"it": "Andare in banca", "ar": "يروح البنك", "form": "in"},
           {
             "it": "Sono in cucina",
             "ar": "أنا في المطبخ",
@@ -4685,6 +4706,7 @@ const GRAMMAR = [
         "color": "#00acc1",
         "form": "in",
         "examples": [
+            {"it": "Nel pomeriggio, studia l'italiano", "ar": "في العصر، بتذاكر إيطالي", "form": "Nel"},
           {
             "it": "Parto in estate",
             "ar": "أسافر في الصيف",
@@ -4761,6 +4783,12 @@ const GRAMMAR = [
         "color": "#1e88e5",
         "form": "con",
         "examples": [
+            {"it": "Mangia il pane con la marmellata", "ar": "بياكل العيش بالمربى", "form": "con"},
+            {"it": "Va al mercato con sua madre", "ar": "بيروح السوق مع أمه", "form": "con"},
+            {"it": "Esce con un'amica", "ar": "بتخرج مع صاحبتها", "form": "con"},
+            {"it": "Cena con la famiglia", "ar": "بيتعشى مع عيلته", "form": "con"},
+            {"it": "Stare con la famiglia", "ar": "يقعد مع عيلته", "form": "con"},
+            {"it": "Giocare con i figli", "ar": "يلعب مع الأولاد", "form": "con"},
           {"it":"Passeggio con Marco","ar":"أتمشى مع ماركو","form":"con","words":[{"it":"Passeggio","ar":"أتمشى","note":"Passeggiare، Presente","type":"verbo"},{"it":"con","ar":"","type":"preposizione","grammarId":"prep_con","note":null},{"it":"Marco","ar":"ماركو (اسم علم)","note":null,"type":"altro"}]},
           {"it":"Vado al cinema con i miei amici","ar":"باروح السينما مع أصحابي","form":"con","words":[{"it":"Vado","ar":"باروح","note":"Andare، Presente","type":"verbo"},{"it":"al","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"cinema","ar":"سينما","note":null,"type":"altro"},{"it":"con","ar":"","type":"preposizione","grammarId":"prep_con","note":null},{"it":"i","ar":"ال","note":"أداة تعريف (جمع مذكر)","type":"altro"},{"it":"miei","ar":"ـي","note":"صفة ملكية (جمع)","type":"altro"},{"it":"amici","ar":"أصحاب","note":null,"type":"altro"}]},
           {"it":"Vivo con mia sorella","ar":"باعيش مع أختي","form":"con","words":[{"it":"Vivo","ar":"باعيش","note":"Vivere، Presente","type":"verbo"},{"it":"con","ar":"","type":"preposizione","grammarId":"prep_con","note":null},{"it":"mia","ar":"ـي","note":"صفة ملكية (مؤنث)","type":"altro"},{"it":"sorella","ar":"أخت","note":null,"type":"altro"}]},
@@ -4906,6 +4934,7 @@ const GRAMMAR = [
         "color": "#6d4c41",
         "form": "su",
         "examples": [
+            {"it": "Aperti 7 giorni su 7", "ar": "فاتحين 7 أيام في الأسبوع", "form": "su"},
           {"it":"Tre studenti su dieci hanno risposto","ar":"ثلاثة طلاب من أصل عشرة أجابوا","form":"su","words":[{"it":"Tre","ar":"ثلاثة","note":null,"type":"altro"},{"it":"studenti","ar":"طلاب","note":null,"type":"altro"},{"it":"su","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"dieci","ar":"عشرة","note":null,"type":"altro"},{"it":"hanno","ar":"","type":"omesso","skipReason":"ausiliare","note":"جزء من الفعل المساعد"},{"it":"risposto","ar":"ردّوا","note":"Rispondere، Passato Prossimo (مع hanno)","type":"verbo"}]},
           {"it":"Due giorni su sette lavoro da casa","ar":"يومين من أصل سبعة باشتغل من البيت","form":"su","words":[{"it":"Due","ar":"اتنين","note":null,"type":"altro"},{"it":"giorni","ar":"أيام","note":null,"type":"altro"},{"it":"su","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"sette","ar":"سبعة","note":null,"type":"altro"},{"it":"lavoro","ar":"شغل","note":null,"type":"altro"},{"it":"da","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"casa","ar":"بيت","note":null,"type":"altro"}]},
           {"it":"Nove volte su dieci ha ragione","ar":"تسع مرات من أصل عشرة بيكون صح","form":"su","words":[{"it":"Nove","ar":"تسعة","note":null,"type":"altro"},{"it":"volte","ar":"مرات","note":null,"type":"altro"},{"it":"su","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"dieci","ar":"عشرة","note":null,"type":"altro"},{"it":"ha","ar":"عنده","note":"Avere، Presente","type":"verbo"},{"it":"ragione","ar":"حق (صح)","note":null,"type":"altro"}]},
@@ -4980,6 +5009,10 @@ const GRAMMAR = [
         "color": "#8e24aa",
         "form": "per",
         "examples": [
+            {"it": "Un giorno di riposo per tutti", "ar": "يوم راحة للجميع", "form": "per"},
+            {"it": "Per chi lavora è difficile", "ar": "بالنسبة للي بيشتغل صعب", "form": "per"},
+            {"it": "Non avere più tempo per la famiglia", "ar": "معندوش وقت للعيلة", "form": "per"},
+            {"it": "Per una madre è doloroso", "ar": "بالنسبة للأم موجع", "form": "per"},
           {"it":"Questo regalo è per te","ar":"هذه الهدية لك","form":"per","words":[{"it":"Questo","ar":"ده","note":null,"type":"altro"},{"it":"regalo","ar":"هدية","note":null,"type":"altro"},{"it":"è","ar":"","note":"Essere، Presente","type":"verbo"},{"it":"per","ar":"","type":"preposizione","grammarId":"prep_per","note":null},{"it":"te","ar":"ـك","note":"ضمير (أنت)","type":"altro"}]},
           {"it":"Compro un fiore per mia madre","ar":"باشتري ورده لأمي","form":"per","words":[{"it":"Compro","ar":"باشتري","note":"Comprare، Presente","type":"verbo"},{"it":"un","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"fiore","ar":"ورده","note":null,"type":"altro"},{"it":"per","ar":"","type":"preposizione","grammarId":"prep_per","note":null},{"it":"mia","ar":"ـي","note":"صفة ملكية (مؤنث)","type":"altro"},{"it":"madre","ar":"أم","note":null,"type":"altro"}]},
           {"it":"Cucino la cena per gli amici","ar":"باطبخ العشا لأصحابي","form":"per","words":[{"it":"Cucino","ar":"باطبخ","note":"Cucinare، Presente","type":"verbo"},{"it":"la","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"cena","ar":"عشا","note":null,"type":"altro"},{"it":"per","ar":"","type":"preposizione","grammarId":"prep_per","note":null},{"it":"gli","ar":"ال","note":"أداة تعريف (جمع مذكر)","type":"altro"},{"it":"amici","ar":"أصحاب","note":null,"type":"altro"}]},
@@ -4995,6 +5028,7 @@ const GRAMMAR = [
         "color": "#00897b",
         "form": "per",
         "examples": [
+            {"it": "Studia l'italiano per due ore", "ar": "بتذاكر إيطالي لمدة ساعتين", "form": "per"},
           {"it":"Ho lavorato per due ore","ar":"عملت لمدة ساعتين","form":"per","words":[{"it":"Ho","ar":"عندي","note":"Avere، Presente","type":"verbo"},{"it":"lavorato","ar":"عملت","note":"Lavorare، Passato Prossimo","type":"verbo"},{"it":"per","ar":"","type":"preposizione","grammarId":"prep_per","note":null},{"it":"due","ar":"اتنين","note":null,"type":"altro"},{"it":"ore","ar":"ساعات","note":null,"type":"altro"}]},
           {"it":"Studio per tre ore al giorno","ar":"بذاكر لمدة ٣ ساعات في اليوم","form":"per","words":[{"it":"Studio","ar":"بذاكر","note":"Studiare، Presente","type":"verbo"},{"it":"per","ar":"","type":"preposizione","grammarId":"prep_per","note":null},{"it":"tre","ar":"ثلاثة","note":null,"type":"altro"},{"it":"ore","ar":"ساعات","note":null,"type":"altro"},{"it":"al","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"giorno","ar":"يوم","note":null,"type":"altro"}]},
           {"it":"Ho dormito per otto ore","ar":"نمت لمدة ٨ ساعات","form":"per","words":[{"it":"Ho","ar":"عندي","note":"Avere، Presente","type":"verbo"},{"it":"dormito","ar":"نمت","note":"Dormire، Passato Prossimo","type":"verbo"},{"it":"per","ar":"","type":"preposizione","grammarId":"prep_per","note":null},{"it":"otto","ar":"ثمانية","note":null,"type":"altro"},{"it":"ore","ar":"ساعات","note":null,"type":"altro"}]},
