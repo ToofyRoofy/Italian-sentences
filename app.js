@@ -2611,7 +2611,7 @@ let lpMarkerPos={}; // {paraIdx: charIndex} — آخر نقطة "ابدأ من �
 let listeningAnswers={}; // {questionIdx: chosenOptionIdx}
 
 const LIB_SECTIONS=[
-  {key:'are',label:'\uD83D\uDCD8 \u0623\u062f\u0648\u0627\u062a \u0648\u0623\u0633\u0645\u0627\u0621 \u0648\u0635\u0641\u0627\u062a \u0648\u0636\u0645\u0627\u0626\u0631',ids:['articoli_determinativi','partitivi','dimostrativi','possessivi','indefiniti','aggettivi_vari','nomi_sostantivi','interrogativi','pronomi_soggetto','pronomi_complemento']},
+  {key:'are',label:'\uD83D\uDCD8 \u0623\u062f\u0648\u0627\u062a \u0648\u0623\u0633\u0645\u0627\u0621 \u0648\u0635\u0641\u0627\u062a \u0648\u0636\u0645\u0627\u0626\u0631',ids:['articoli_determinativi','partitivi','dimostrativi','possessivi','indefiniti','aggettivi_vari','nomi_sostantivi','interrogativi','pronomi_soggetto','pronomi_complemento','pronomi_relativi']},
   {key:'ere',label:'\uD83E\uDDED \u062d\u0631\u0648\u0641 \u0627\u0644\u062c\u0631',ids:['prep_di','prep_a','prep_da','prep_in','prep_con','prep_su','prep_per','prep_tra_fra','prep_semplici','improprie']},
   {key:'ire',label:'\uD83D\uDD17 \u0627\u0644\u0631\u0628\u0637 \u0648\u0627\u0644\u0638\u0631\u0648\u0641 \u0648\u0627\u0644\u0645\u0641\u0631\u062f\u0627\u062a',ids:['congiunzioni','avverbi_tempo','avverbio_modo','parole_multitasking','giorni_settimana','momenti_giornata']},
   {key:'are',label:'\u23F3 \u0627\u0644\u0623\u0632\u0645\u0646\u0629 \u0648\u0627\u0644\u0623\u0641\u0639\u0627\u0644 \u0627\u0644\u0645\u0633\u0627\u0639\u062f\u0629',ids:['ausiliari_passato']},
@@ -2683,7 +2683,31 @@ function renderListeningLibrary(){
 // مهمة: لو سبنا الترجمة المحفوظة تسبق قاعدة الجرامر، كلمة مصنّفة زي
 // "favorevole" (موجودة في breakdown القطعة وكمان في lex_aggettivi) كانت
 // هتفضل عالقة على "ترجمة بس" وماتفتحش صندوق الجرامر بتاعها خالص.
+// كلمات ليها أكتر من معنى/قاعدة مختلفة تمامًا (زي "che": سؤال "ماذا" أو أداة
+// وصل "اللي") — القاعدة الافتراضية (لو الكلمة مش موجودة هنا) هي اللي في
+// GRAMMAR trigger العادي. المصفوفة دي بتحدد، بترتيب الظهور بالظبط جوه كل
+// فقرة، القاعدة الصح لكل ظهور فعلي لكل كلمة من دول — بنفس فكرة تلوين حروف
+// الجر، بس هنا بنحدد "القاعدة" نفسها مش بس اللون.
+const WORD_TOPIC_OVERRIDES={
+  'centri_commerciali_domenica':{
+    0:{'che':['pronomi_relativi']},
+    2:{'che':['pronomi_relativi','pronomi_relativi']},
+    3:{'che':['pronomi_relativi']}
+  }
+};
+let lpTopicOverrideCounters={};
+function lpTopicOverride(paraIdx,rawWord){
+  const norm=normalizeGrammarWord(rawWord);
+  const seq=((WORD_TOPIC_OVERRIDES[currentListeningPassageId]||{})[paraIdx]||{})[norm];
+  if(!seq)return null;
+  const key=paraIdx+'_'+norm;
+  const n=lpTopicOverrideCounters[key]||0;
+  lpTopicOverrideCounters[key]=n+1;
+  return seq[n]!==undefined?seq[n]:null;
+}
 function lpFindWordMatch(paraIdx,rawWord){
+  const override=lpTopicOverride(paraIdx,rawWord);
+  if(override)return{type:'grammar',topicId:override};
   const gTopicId=findGrammarTopicId(rawWord);
   if(gTopicId)return{type:'grammar',topicId:gTopicId};
   const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
@@ -2732,6 +2756,7 @@ function lpNextPrepColor(paraIdx){
 // بيقسّم نص القطعة لكلمات قابلة للدوس عليها مباشرة (مش بس القايمة تحت).
 function lpRenderInlineText(text,paraIdx){
   lpPrepColorCounters[paraIdx]=0;
+  Object.keys(lpTopicOverrideCounters).forEach(k=>{if(k.startsWith(paraIdx+'_'))delete lpTopicOverrideCounters[k];});
   const re=/[A-Za-zÀ-öø-ÿ]+/g;
   let out='',last=0,m;
   while((m=re.exec(text))){
@@ -2745,8 +2770,9 @@ function lpRenderInlineText(text,paraIdx){
       color=lpNextPrepColor(paraIdx);
       if(color)styleAttr=' style="color:'+color+';font-weight:800;border-bottom-color:'+color+'"';
     }
-    const colorArg=color?',\''+color+'\'':'';
-    out+='<span class="'+cls+'"'+styleAttr+' id="lpTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\','+m.index+colorArg+')">'+escHtml(w)+'</span>';
+    const colorArg=color?',\''+color+'\'':',null';
+    const topicArg=(match&&match.type==='grammar')?',\''+match.topicId+'\'':',null';
+    out+='<span class="'+cls+'"'+styleAttr+' id="lpTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\','+m.index+colorArg+topicArg+')">'+escHtml(w)+'</span>';
     last=re.lastIndex;
   }
   out+=escHtml(text.slice(last));
@@ -2758,10 +2784,11 @@ function lpRenderInlineText(text,paraIdx){
 // ما يحرك مكان قراءتك). كلمة عندها ترجمة محفوظة بس من غير قاعدة جرامر:
 // بتتنطق بس، من غير ما ننزلك لقايمة الشرح تحت. زرار "اسمع من هنا" تحت
 // الفقرة بيقرا من النقطة دي لحد آخر الفقرة، وتقدر تدوسه كذا مرة براحتك.
-// لو الكلمة حرف جر ملوّن (لونه معروف من السياق بالظبط)، بنبعت اللون ده مع
-// الفتح عشان يوصلك على طول لنفس صندوق الاستخدام بنفس اللون اللي شايفه في
-// النص، مش أول صندوق بيتطابق مع الكلمة عشوائيًا.
-function lpWordTap(paraIdx,rawWord,charIndex,focusColor){
+// لو الكلمة حرف جر ملوّن أو كلمة ليها أكتر من قاعدة (زي che)، بنبعت اللون/
+// القاعدة المحسوبين وقت الرسم مباشرة (مش بنحسبهم تاني وقت الدوسة) — عشان
+// عدادات الترتيب (زي ترتيب ظهور che أو ألوان حروف الجر) ما تتحسبش مرتين
+// لنفس الكلمة (مرة وقت الرسم، ومرة وقت الدوسة) وتحصل إزاحة غلط.
+function lpWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId){
   speakWord(rawWord);
   if(charIndex!==undefined){
     const prevPos=lpMarkerPos[paraIdx];
@@ -2775,14 +2802,12 @@ function lpWordTap(paraIdx,rawWord,charIndex,focusColor){
     const playBtn=document.getElementById('lpPlayFromBtn'+paraIdx);
     if(playBtn)playBtn.style.display='inline-block';
   }
-  const match=lpFindWordMatch(paraIdx,rawWord);
-  if(!match)return;
-  if(match.type==='grammar'){
-    openGrammarModal(match.topicId,rawWord,focusColor);
-    return;
+  if(forcedTopicId){
+    openGrammarModal(forcedTopicId,rawWord,focusColor);
   }
-  // كلمة عندها ترجمة محفوظة بس (مش قاعدة جرامر): نكتفي بالنطق، من غير ما
-  // ننقل الشاشة لقايمة الشرح تحت — عشان الدوسة ما تضيّعش مكان قراءتك.
+  // مفيش forcedTopicId؟ يبقى الكلمة إما عندها ترجمة محفوظة بس (بنكتفي
+  // بالنطق اللي حصل فوق، من غير ما ننقل الشاشة لقايمة الشرح تحت عشان
+  // الدوسة ما تضيّعش مكان قراءتك) وإما مالهاش أي معلومة خالص.
 }
 // بيقرا من نقطة البداية المحفوظة (آخر كلمة دوست عليها) لحد آخر الفقرة —
 // تقدر تدوس الزرار ده كذا مرة براحتك عشان تسمع نفس الجزء تاني.

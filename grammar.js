@@ -68,7 +68,7 @@ const GRAMMAR = [
         "type": "item",
         "it": "Chi",
         "ar": "مَن / مَن",
-        "note": "تُستخدم مع الأشخاص فقط (للعاقل)، وشكلها ثابت مع المفرد والجمع",
+        "note": "تُستخدم مع الأشخاص فقط (للعاقل)، وشكلها ثابت مع المفرد والجمع. ملحوظة: أحيانًا بتيجي من غير علامة استفهام بمعنى \"اللي / مين ما\" (indefinite)، زي: Per chi lavora è difficile = بالنسبة لِلي بيشتغل صعب — هنا مش سؤال، دي جملة وصفية عامة.",
         "examples": [
           {
             "it": "Di chi è questo?",
@@ -89,6 +89,10 @@ const GRAMMAR = [
           {
             "it": "Da chi viene?",
             "ar": "جاي من عند مَن؟"
+          },
+          {
+            "it": "Per chi lavora è difficile fare la spesa",
+            "ar": "بالنسبة للي بيشتغل صعب يتسوق (استخدام غير استفهامي: chi = اللي)"
           }
         ]
       },
@@ -117,7 +121,7 @@ const GRAMMAR = [
         "type": "item",
         "it": "Che / Cosa / Che cosa",
         "ar": "ما / ماذا",
-        "note": "الثلاثة معناهم واحد، وCosa هي الأكثر استخدام في المحادثة اليومية",
+        "note": "الثلاثة معناهم واحد، وCosa هي الأكثر استخدام في المحادثة اليومية. ملحوظة: Che ليها استخدام تاني مختلف تمامًا كأداة وصل (pronome relativo، معناها اللي/الذي) — شوف قاعدة \"ضمائر الوصل\" لو شفتها بالمعنى ده.",
         "examples": [
           {
             "it": "Che ore sono?",
@@ -149,6 +153,69 @@ const GRAMMAR = [
           {
             "it": "Ti ho chiamato quando sono arrivato",
             "ar": "كلمتك لما وصلت"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pronomi_relativi",
+    "it": "Pronomi relativi",
+    "ar": "ضمائر الوصل (اللي / الذي)",
+    "icon": "🔗",
+    "triggers": [
+      "cui"
+    ],
+    "blocks": [
+      {
+        "type": "note",
+        "ar": "ضمير الوصل بيربط جملتين ببعض ويحل محل اسم اتكرر — مختلف تمامًا عن \"che\" كأداة استفهام (ما/ماذا). ده شكله ثابت، مش بيتغير مع المذكر/المؤنث ولا المفرد/الجمع."
+      },
+      {
+        "type": "item",
+        "it": "Che",
+        "ar": "اللي / الذي / التي / اللذين",
+        "note": "بيربط جملة وصف بشخص أو حاجة اتكررت قبل كده — بييجي بعد اسم مباشرة",
+        "examples": [
+          {
+            "it": "Conosco molte persone che passano il fine settimana nei centri commerciali",
+            "ar": "أنا عارفة ناس كتير اللي بتقضي الويكند في المولات"
+          },
+          {
+            "it": "Faccio cose che di solito non ho tempo di fare",
+            "ar": "بعمل حاجات اللي عادة معنديش وقت أعملها"
+          },
+          {
+            "it": "Sentire la figlia che dice questo",
+            "ar": "تسمع بنتها اللي بتقول كده"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "it": "Adesso che / Ora che",
+        "ar": "دلوقتي إن / بما إن (أداة ربط)",
+        "note": "هنا Che بتشتغل كأداة ربط بمعنى \"إن/بما إن\"، مش ضمير وصل بيوصف اسم — تعبير ثابت بيبدأ جملة سبب/وقت",
+        "examples": [
+          {
+            "it": "Adesso che i centri commerciali sono aperti 7 giorni su 7",
+            "ar": "دلوقتي إن المولات بقت فاتحة 7 أيام في الأسبوع"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "it": "Cui",
+        "ar": "اللي (بعد حرف جر)",
+        "note": "زي Che بالظبط بس لازم تستخدمها بعد حرف جر (di cui, a cui, con cui...)، مش لوحدها",
+        "examples": [
+          {
+            "it": "La persona di cui parlo",
+            "ar": "الشخص اللي بتكلم عنه"
+          },
+          {
+            "it": "Il libro a cui penso",
+            "ar": "الكتاب اللي بفكر فيه"
           }
         ]
       }
