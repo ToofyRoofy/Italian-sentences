@@ -2691,7 +2691,7 @@ function renderListeningLibrary(){
 const WORD_TOPIC_OVERRIDES={
   'centri_commerciali_domenica':{
     0:{'che':['pronomi_relativi']},
-    2:{'che':['pronomi_relativi','pronomi_relativi']},
+    2:{'che':['pronomi_relativi',{topic:'pronomi_relativi',focus:'adesso'}]},
     3:{'che':['pronomi_relativi']}
   }
 };
@@ -2703,11 +2703,13 @@ function lpTopicOverride(paraIdx,rawWord){
   const key=paraIdx+'_'+norm;
   const n=lpTopicOverrideCounters[key]||0;
   lpTopicOverrideCounters[key]=n+1;
-  return seq[n]!==undefined?seq[n]:null;
+  const entry=seq[n];
+  if(entry===undefined)return null;
+  return typeof entry==='string'?{topicId:entry,focusWord:rawWord}:{topicId:entry.topic,focusWord:entry.focus||rawWord};
 }
 function lpFindWordMatch(paraIdx,rawWord){
   const override=lpTopicOverride(paraIdx,rawWord);
-  if(override)return{type:'grammar',topicId:override};
+  if(override)return{type:'grammar',topicId:override.topicId,focusWord:override.focusWord};
   const gTopicId=findGrammarTopicId(rawWord);
   if(gTopicId)return{type:'grammar',topicId:gTopicId};
   const p=LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId);
@@ -2772,7 +2774,9 @@ function lpRenderInlineText(text,paraIdx){
     }
     const colorArg=color?',\''+color+'\'':',null';
     const topicArg=(match&&match.type==='grammar')?',\''+match.topicId+'\'':',null';
-    out+='<span class="'+cls+'"'+styleAttr+' id="lpTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\','+m.index+colorArg+topicArg+')">'+escHtml(w)+'</span>';
+    const focusWordEsc=(match&&match.type==='grammar'&&match.focusWord)?escHtml(match.focusWord).replace(/'/g,'&#39;'):w;
+    const focusArg=',\''+focusWordEsc.replace(/'/g,"\\'")+'\'';
+    out+='<span class="'+cls+'"'+styleAttr+' id="lpTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lpWordTap('+paraIdx+',\''+wEsc+'\','+m.index+colorArg+topicArg+focusArg+')">'+escHtml(w)+'</span>';
     last=re.lastIndex;
   }
   out+=escHtml(text.slice(last));
@@ -2788,7 +2792,7 @@ function lpRenderInlineText(text,paraIdx){
 // القاعدة المحسوبين وقت الرسم مباشرة (مش بنحسبهم تاني وقت الدوسة) — عشان
 // عدادات الترتيب (زي ترتيب ظهور che أو ألوان حروف الجر) ما تتحسبش مرتين
 // لنفس الكلمة (مرة وقت الرسم، ومرة وقت الدوسة) وتحصل إزاحة غلط.
-function lpWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId){
+function lpWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordForModal){
   speakWord(rawWord);
   if(charIndex!==undefined){
     const prevPos=lpMarkerPos[paraIdx];
@@ -2803,7 +2807,7 @@ function lpWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId){
     if(playBtn)playBtn.style.display='inline-block';
   }
   if(forcedTopicId){
-    openGrammarModal(forcedTopicId,rawWord,focusColor);
+    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor);
   }
   // مفيش forcedTopicId؟ يبقى الكلمة إما عندها ترجمة محفوظة بس (بنكتفي
   // بالنطق اللي حصل فوق، من غير ما ننقل الشاشة لقايمة الشرح تحت عشان
