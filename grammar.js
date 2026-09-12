@@ -246,8 +246,7 @@ const GRAMMAR = [
       "vostro",
       "vostra",
       "vostri",
-      "vostre",
-      "loro"
+      "vostre"
     ],
     "blocks": [
       {
@@ -2379,6 +2378,77 @@ const GRAMMAR = [
     ]
   },
   {
+    "id": "esserci",
+    "it": "C'è / Ci sono (Esserci)",
+    "ar": "تعبير \"فيه / موجود\"",
+    "icon": "📍",
+    "triggers": [
+      "c'è",
+      "c’è",
+      "c'era",
+      "c’era",
+      "c'erano",
+      "c’erano",
+      "c'è stato",
+      "c'è stata"
+    ],
+    "blocks": [
+      {
+        "type": "note",
+        "ar": "\"Esserci\" تعبير بنستخدمه عشان نقول إن حاجة موجودة/فيه حاجة في مكان معين. \"C'è\" (فيه/موجود) بتتقال مع المفرد، و\"Ci sono\" (فيه/موجودين) بتتقال مع الجمع. لاحظ: \"Ci\" هنا مالهاش علاقة بضمائر المفعول (Mi/Ti/Ci/Vi...) رغم إنها بتتكتب زيهم بالظبط — هنا هي جزء من التعبير نفسه ومعناها \"هناك\" مش \"لينا/إحنا\"."
+      },
+      {
+        "type": "table",
+        "title": "التصريف حسب الزمن",
+        "headers": [
+          "الزمن",
+          "مفرد",
+          "جمع"
+        ],
+        "rows": [
+          [
+            "Presente (المضارع)",
+            "C'è",
+            "Ci sono"
+          ],
+          [
+            "Passato Prossimo (الماضي)",
+            "C'è stato/a",
+            "Ci sono stati/e"
+          ],
+          [
+            "Imperfetto (الماضي المستمر)",
+            "C'era",
+            "C'erano"
+          ]
+        ]
+      },
+      {
+        "type": "item",
+        "it": "أمثلة",
+        "ar": "",
+        "examples": [
+          {
+            "it": "C'è il cinema qui vicino",
+            "ar": "فيه سينما هنا قريب"
+          },
+          {
+            "it": "Ci sono molti negozi in centro",
+            "ar": "فيه محلات كتير في الوسط"
+          },
+          {
+            "it": "Non c'è nessuno a casa",
+            "ar": "مفيش حد في البيت"
+          },
+          {
+            "it": "C'era una volta...",
+            "ar": "كان يا ما كان... (فيه حاجة كانت موجودة زمان)"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "pronomi_soggetto",
     "it": "Pronomi personali soggetto",
     "ar": "الضمائر الشخصية الفاعلة",
@@ -3639,11 +3709,9 @@ const GRAMMAR = [
       "fresche",
       "freschi",
       "rossa",
-      "rosso",
       "rosse",
       "rossi",
       "gialla",
-      "giallo",
       "gialle",
       "gialli",
       "stanca",
@@ -4660,9 +4728,9 @@ const GRAMMAR = [
         "form": "da",
         "examples": [
           {"it":"Ho molto da fare","ar":"عندي الكثير لأفعله","form":"da","words":[{"it":"Ho","ar":"عندي","note":"Avere، Presente","type":"verbo"},{"it":"molto","ar":"كتير","note":null,"type":"altro"},{"it":"da","ar":"","type":"preposizione","grammarId":"prep_da","note":null},{"it":"fare","ar":"أعمل","note":"Fare، مصدر","type":"verbo"}]},
-          {"it":"Non c'è niente da dire","ar":"مفيش حاجة تتقال","form":"da","words":[{"it":"Non","ar":"لا","note":"أداة نفي","type":"altro"},{"it":"c'è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo"},{"it":"niente","ar":"حاجة","note":null,"type":"altro"},{"it":"da","ar":"","type":"preposizione","grammarId":"prep_da","note":null},{"it":"dire","ar":"أقول","note":"Dire، مصدر","type":"verbo"}]},
+          {"it":"Non c'è niente da dire","ar":"مفيش حاجة تتقال","form":"da","words":[{"it":"Non","ar":"لا","note":"أداة نفي","type":"altro"},{"it":"c'è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo","grammarId":"esserci"},{"it":"niente","ar":"حاجة","note":null,"type":"altro"},{"it":"da","ar":"","type":"preposizione","grammarId":"prep_da","note":null},{"it":"dire","ar":"أقول","note":"Dire، مصدر","type":"verbo"}]},
           {"it":"Ho una lezione da preparare","ar":"عندي حصة لازم أحضرها","form":"da","words":[{"it":"Ho","ar":"عندي","note":"Avere، Presente","type":"verbo"},{"it":"una","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"lezione","ar":"حصة","note":null,"type":"altro"},{"it":"da","ar":"","type":"preposizione","grammarId":"prep_da","note":null},{"it":"preparare","ar":"أحضّر","note":"Preparare، مصدر","type":"verbo"}]},
-          {"it":"C'è molto da studiare","ar":"فيه كتير للمذاكرة","form":"da","words":[{"it":"C'è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo"},{"it":"molto","ar":"كتير","note":null,"type":"altro"},{"it":"da","ar":"","type":"preposizione","grammarId":"prep_da","note":null},{"it":"studiare","ar":"أذاكر","note":"Studiare، مصدر","type":"verbo"}]},
+          {"it":"C'è molto da studiare","ar":"فيه كتير للمذاكرة","form":"da","words":[{"it":"C'è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo","grammarId":"esserci"},{"it":"molto","ar":"كتير","note":null,"type":"altro"},{"it":"da","ar":"","type":"preposizione","grammarId":"prep_da","note":null},{"it":"studiare","ar":"أذاكر","note":"Studiare، مصدر","type":"verbo"}]},
           {"it":"Non ho tempo da perdere","ar":"معنديش وقت أضيّعه","form":"da","words":[{"it":"Non","ar":"لا","note":"أداة نفي","type":"altro"},{"it":"ho","ar":"عندي","note":"Avere، Presente","type":"verbo"},{"it":"tempo","ar":"وقت","note":null,"type":"altro"},{"it":"da","ar":"","type":"preposizione","grammarId":"prep_da","note":null},{"it":"perdere","ar":"أضيّع","note":"Perdere، مصدر","type":"verbo"}]}
         ]
       },
@@ -4959,7 +5027,7 @@ const GRAMMAR = [
           {"it":"Il libro è sul tavolo","ar":"الكتاب على الطاولة","form":"sul","words":[{"it":"Il","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"libro","ar":"كتاب","note":null,"type":"altro"},{"it":"è","ar":"","note":"Essere، Presente","type":"verbo"},{"it":"sul","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"tavolo","ar":"طاولة","note":null,"type":"altro"}]},
           {"it":"La borsa è sulla sedia","ar":"الشنطة على الكرسي","form":"sulla","words":[{"it":"La","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"borsa","ar":"شنطة","note":null,"type":"altro"},{"it":"è","ar":"","note":"Essere، Presente","type":"verbo"},{"it":"sulla","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"sedia","ar":"كرسي","note":null,"type":"altro"}]},
           {"it":"Le chiavi sono sul letto","ar":"المفاتيح على السرير","form":"sul","words":[{"it":"Le","ar":"ال","note":"أداة تعريف (جمع مؤنث)","type":"altro"},{"it":"chiavi","ar":"مفاتيح","note":null,"type":"altro"},{"it":"sono","ar":"","note":"Essere، Presente","type":"verbo"},{"it":"sul","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"letto","ar":"سرير","note":null,"type":"altro"}]},
-          {"it":"C'è polvere sugli scaffali","ar":"فيه تراب على الرفوف","form":"sugli","words":[{"it":"C'è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo"},{"it":"polvere","ar":"تراب","note":null,"type":"altro"},{"it":"sugli","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"scaffali","ar":"رفوف","note":null,"type":"altro"}]},
+          {"it":"C'è polvere sugli scaffali","ar":"فيه تراب على الرفوف","form":"sugli","words":[{"it":"C'è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo","grammarId":"esserci"},{"it":"polvere","ar":"تراب","note":null,"type":"altro"},{"it":"sugli","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"scaffali","ar":"رفوف","note":null,"type":"altro"}]},
           {"it":"Metto il vaso sulla finestra","ar":"بحط الڤاصة على الشباك","form":"sulla","words":[{"it":"Metto","ar":"بحط","note":"Mettere، Presente","type":"verbo"},{"it":"il","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"vaso","ar":"ڤاصة","note":null,"type":"altro"},{"it":"sulla","ar":"","type":"preposizione","grammarId":"prep_su","note":null},{"it":"finestra","ar":"شباك","note":null,"type":"altro"}]}
         ]
       },
@@ -5202,10 +5270,10 @@ const GRAMMAR = [
         "color": "#6d4c41",
         "form": "tra",
         "examples": [
-          {"it":"C’è fiducia tra noi","ar":"هناك ثقة بيننا","form":"tra","words":[{"it":"C’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo"},{"it":"fiducia","ar":"ثقة","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"noi","ar":"إحنا","note":null,"type":"altro"}]},
-          {"it":"C’è una grande amicizia tra loro","ar":"فيه صداقة كبيرة بينهم","form":"tra","words":[{"it":"C’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo"},{"it":"una","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"grande","ar":"كبيرة","note":null,"type":"altro"},{"it":"amicizia","ar":"صداقة","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"loro","ar":"هم","note":null,"type":"altro"}]},
-          {"it":"Non c’è nessun problema tra di noi","ar":"مفيش أي مشكلة بينا","form":"tra","words":[{"it":"Non","ar":"لا","note":"أداة نفي","type":"altro"},{"it":"c’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo"},{"it":"nessun","ar":"ولا","note":null,"type":"altro"},{"it":"problema","ar":"مشكلة","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"di","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"noi","ar":"إحنا","note":null,"type":"altro"}]},
-          {"it":"C’è molta differenza tra i due film","ar":"فيه فرق كبير بين الفيلمين","form":"tra","words":[{"it":"C’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo"},{"it":"molta","ar":"كتير","note":null,"type":"altro"},{"it":"differenza","ar":"فرق","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"i","ar":"ال","note":"أداة تعريف (جمع مذكر)","type":"altro"},{"it":"due","ar":"اتنين","note":null,"type":"altro"},{"it":"film","ar":"فيلم","note":null,"type":"altro"}]},
+          {"it":"C’è fiducia tra noi","ar":"هناك ثقة بيننا","form":"tra","words":[{"it":"C’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo","grammarId":"esserci"},{"it":"fiducia","ar":"ثقة","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"noi","ar":"إحنا","note":null,"type":"altro"}]},
+          {"it":"C’è una grande amicizia tra loro","ar":"فيه صداقة كبيرة بينهم","form":"tra","words":[{"it":"C’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo","grammarId":"esserci"},{"it":"una","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"grande","ar":"كبيرة","note":null,"type":"altro"},{"it":"amicizia","ar":"صداقة","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"loro","ar":"هم","note":null,"type":"altro"}]},
+          {"it":"Non c’è nessun problema tra di noi","ar":"مفيش أي مشكلة بينا","form":"tra","words":[{"it":"Non","ar":"لا","note":"أداة نفي","type":"altro"},{"it":"c’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo","grammarId":"esserci"},{"it":"nessun","ar":"ولا","note":null,"type":"altro"},{"it":"problema","ar":"مشكلة","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"di","ar":"","type":"omesso","skipReason":"ausiliare","note":null},{"it":"noi","ar":"إحنا","note":null,"type":"altro"}]},
+          {"it":"C’è molta differenza tra i due film","ar":"فيه فرق كبير بين الفيلمين","form":"tra","words":[{"it":"C’è","ar":"فيه","note":"Esserci، Presente (تعبير: فيه/موجود)","type":"verbo","grammarId":"esserci"},{"it":"molta","ar":"كتير","note":null,"type":"altro"},{"it":"differenza","ar":"فرق","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"i","ar":"ال","note":"أداة تعريف (جمع مذكر)","type":"altro"},{"it":"due","ar":"اتنين","note":null,"type":"altro"},{"it":"film","ar":"فيلم","note":null,"type":"altro"}]},
           {"it":"Il legame tra i due è forte","ar":"الرابطة بين الاتنين قوية","form":"tra","words":[{"it":"Il","ar":"ال","note":"أداة تعريف","type":"altro"},{"it":"legame","ar":"رابطة","note":null,"type":"altro"},{"it":"tra","ar":"","type":"preposizione","grammarId":"prep_tra_fra","note":null},{"it":"i","ar":"ال","note":"أداة تعريف (جمع مذكر)","type":"altro"},{"it":"due","ar":"اتنين","note":null,"type":"altro"},{"it":"è","ar":"","note":"Essere، Presente","type":"verbo"},{"it":"forte","ar":"قوية","note":null,"type":"altro"}]}
         ]
       },

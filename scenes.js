@@ -2366,7 +2366,8 @@ const SCENES = [
             "ar": "يوجد",
             "type": "verbo",
             "quiz": [],
-            "note": "Esserci، Presente"
+            "note": "Esserci، Presente",
+            "grammarId": "esserci"
           },
           {
             "it": "dei libri",

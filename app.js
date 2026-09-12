@@ -2690,9 +2690,9 @@ function renderListeningLibrary(){
 // الجر، بس هنا بنحدد "القاعدة" نفسها مش بس اللون.
 const WORD_TOPIC_OVERRIDES={
   'centri_commerciali_domenica':{
-    0:{'che':['pronomi_relativi']},
+    0:{'che':['pronomi_relativi'],'dei':['prep_di','prep_di'],'ci':['esserci']},
     2:{'che':['pronomi_relativi',{topic:'pronomi_relativi',focus:'adesso'}]},
-    3:{'che':['pronomi_relativi']}
+    3:{'che':['pronomi_relativi'],'ci':['esserci']}
   }
 };
 let lpTopicOverrideCounters={};
