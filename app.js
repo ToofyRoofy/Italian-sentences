@@ -2741,10 +2741,10 @@ const PREP_COLOR_SEQUENCE={
     ['#e53935','#1e88e5',null,'#6d4c41']
   ],
   'centri_commerciali_domenica':[
-    ['#43a047','#e53935','#00897b',null,'#6d4c41',null,'#e53935','#8e24aa',null,'#fb8c00','#e53935','#e53935','#fb8c00'],
+    ['#43a047','#e53935','#00897b',null,'#6d4c41',null,'#e53935','#8e24aa',null,'#fb8c00',null,'#e53935','#fb8c00'],
     ['#43a047','#fb8c00','#fb8c00','#8e24aa','#8e24aa',null,'#1e88e5','#1e88e5','#e53935',null,'#8e24aa'],
-    ['#6d4c41','#d81b60',null,'#8e24aa','#e53935','#d81b60','#e53935','#e53935',null,null,null,null,'#6d4c41','#fb8c00','#e53935','#e53935'],
-    [null,'#8e24aa','#e53935']
+    ['#6d4c41','#d81b60',null,'#8e24aa','#1e88e5','#d81b60','#1e88e5','#e53935',null,null,null,null,'#6d4c41','#fb8c00','#fb8c00','#1e88e5','#1e88e5'],
+    [null,'#8e24aa','#d81b60']
   ]
 };
 let lpPrepColorCounters={};
