@@ -4066,6 +4066,7 @@ const GRAMMAR = [
         "description": "يربط الشيء بمالكه أو بما يخصه.",
         "color": "#e53935",
         "form": "di",
+        "formAliases": ["dei","degli","delle","del","della","dello"],
         "examples": [
             {"it": "La figlia di 5 anni", "ar": "البنت اللي عندها ٥ سنين", "form": "di"},
           {

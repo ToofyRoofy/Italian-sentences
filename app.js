@@ -2690,7 +2690,7 @@ function renderListeningLibrary(){
 // الجر، بس هنا بنحدد "القاعدة" نفسها مش بس اللون.
 const WORD_TOPIC_OVERRIDES={
   'centri_commerciali_domenica':{
-    0:{'che':['pronomi_relativi'],'dei':['prep_di','prep_di'],'ci':['esserci']},
+    0:{'che':['pronomi_relativi'],'dei':['prep_di','prep_di'],'del':['prep_di'],'ci':['esserci']},
     2:{'che':['pronomi_relativi',{topic:'pronomi_relativi',focus:'adesso'}]},
     3:{'che':['pronomi_relativi'],'ci':['esserci']}
   }
@@ -2741,7 +2741,7 @@ const PREP_COLOR_SEQUENCE={
     ['#e53935','#1e88e5',null,'#6d4c41']
   ],
   'centri_commerciali_domenica':[
-    ['#43a047','#00897b',null,'#6d4c41',null,'#e53935','#8e24aa',null,'#fb8c00','#fb8c00'],
+    ['#43a047','#e53935','#00897b',null,'#6d4c41',null,'#e53935','#8e24aa',null,'#fb8c00','#e53935','#e53935','#fb8c00'],
     ['#43a047','#fb8c00','#fb8c00','#8e24aa','#8e24aa',null,'#1e88e5','#1e88e5','#e53935',null,'#8e24aa'],
     ['#6d4c41','#d81b60',null,'#8e24aa','#e53935','#d81b60','#e53935','#e53935',null,null,null,null,'#6d4c41','#fb8c00','#e53935','#e53935'],
     [null,'#8e24aa','#e53935']
@@ -3318,6 +3318,7 @@ function openGrammarModal(topicId,focusWord,focusColor){
     comboBtn.textContent=topic.comboButtonLabel||'🔀 اختبار شامل (تمييز + تحويل)';
   }
   document.getElementById('grammarModalOverlay').classList.add('show');
+  document.getElementById('gmBody').scrollTop=0;
   if(focusWord){
     const norm=normalizeGrammarWord(focusWord);
     const body=document.getElementById('gmBody');
@@ -3395,7 +3396,8 @@ function renderGrammarBlocks(blocks,topicId){
       return html;
     }
     if(b.type==='usage'){
-      const formNorm=normalizeGrammarWord(b.form||b.title||'').replace(/"/g,'&quot;');
+      const aliasNorms=(b.formAliases||[]).map(a=>normalizeGrammarWord(a));
+      const formNorm=[normalizeGrammarWord(b.form||b.title||''),...aliasNorms].filter(Boolean).join(' ').replace(/"/g,'&quot;');
       let html='<div class="gm-usage-block" data-word="'+formNorm+'" data-color="'+escGm(b.color||'')+'" style="border:1px solid '+escGm(b.color||'#64748b')+';border-right:6px solid '+escGm(b.color||'#64748b')+';border-radius:12px;padding:10px;margin:10px 0;background:color-mix(in srgb,'+escGm(b.color||'#64748b')+' 9%,transparent)">';
       html+='<div style="font-weight:900;color:'+escGm(b.color||'#64748b')+'">'+escGm(b.title)+' — '+escGm(b.meaning)+'</div>';
       html+='<div style="margin:5px 0">'+escGm(b.description||'')+'</div>';
