@@ -45,31 +45,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho aiutato"
+          "form": "Ho aiutato",
+          "ar": "ساعدت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai aiutato"
+          "form": "Hai aiutato",
+          "ar": "ساعدت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha aiutato"
+          "form": "Ha aiutato",
+          "ar": "ساعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha aiutato"
+          "form": "Ha aiutato",
+          "ar": "ساعدت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo aiutato"
+          "form": "Abbiamo aiutato",
+          "ar": "ساعدنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete aiutato"
+          "form": "Avete aiutato",
+          "ar": "ساعدتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno aiutato"
+          "form": "Hanno aiutato",
+          "ar": "ساعدوا"
         }
       ]
     },
@@ -185,31 +192,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono andato/a"
+          "form": "Sono andato/a",
+          "ar": "رحت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei andato/a"
+          "form": "Sei andato/a",
+          "ar": "رحت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È andato"
+          "form": "È andato",
+          "ar": "راح"
         },
         {
           "person": "Lei (هي)",
-          "form": "È andata"
+          "form": "È andata",
+          "ar": "راحت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo andati/e"
+          "form": "Siamo andati/e",
+          "ar": "رحنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete andati/e"
+          "form": "Siete andati/e",
+          "ar": "رحتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono andati/e"
+          "form": "Sono andati/e",
+          "ar": "راحوا"
         }
       ]
     },
@@ -325,31 +339,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono arrivato/a"
+          "form": "Sono arrivato/a",
+          "ar": "وصلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei arrivato/a"
+          "form": "Sei arrivato/a",
+          "ar": "وصلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È arrivato"
+          "form": "È arrivato",
+          "ar": "وصل"
         },
         {
           "person": "Lei (هي)",
-          "form": "È arrivata"
+          "form": "È arrivata",
+          "ar": "وصلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo arrivati/e"
+          "form": "Siamo arrivati/e",
+          "ar": "وصلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete arrivati/e"
+          "form": "Siete arrivati/e",
+          "ar": "وصلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono arrivati/e"
+          "form": "Sono arrivati/e",
+          "ar": "وصلوا"
         }
       ]
     },
@@ -465,31 +486,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho ascoltato"
+          "form": "Ho ascoltato",
+          "ar": "سمعت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai ascoltato"
+          "form": "Hai ascoltato",
+          "ar": "سمعت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha ascoltato"
+          "form": "Ha ascoltato",
+          "ar": "سمع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha ascoltato"
+          "form": "Ha ascoltato",
+          "ar": "سمعت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo ascoltato"
+          "form": "Abbiamo ascoltato",
+          "ar": "سمعنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete ascoltato"
+          "form": "Avete ascoltato",
+          "ar": "سمعتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno ascoltato"
+          "form": "Hanno ascoltato",
+          "ar": "سمعوا"
         }
       ]
     },
@@ -605,31 +633,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho aspettato"
+          "form": "Ho aspettato",
+          "ar": "انتظرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai aspettato"
+          "form": "Hai aspettato",
+          "ar": "انتظرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha aspettato"
+          "form": "Ha aspettato",
+          "ar": "انتظر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha aspettato"
+          "form": "Ha aspettato",
+          "ar": "انتظرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo aspettato"
+          "form": "Abbiamo aspettato",
+          "ar": "انتظرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete aspettato"
+          "form": "Avete aspettato",
+          "ar": "انتظرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno aspettato"
+          "form": "Hanno aspettato",
+          "ar": "انتظروا"
         }
       ]
     },
@@ -745,31 +780,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho bussato"
+          "form": "Ho bussato",
+          "ar": "خبطت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai bussato"
+          "form": "Hai bussato",
+          "ar": "خبطت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha bussato"
+          "form": "Ha bussato",
+          "ar": "خبط"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha bussato"
+          "form": "Ha bussato",
+          "ar": "خبطت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo bussato"
+          "form": "Abbiamo bussato",
+          "ar": "خبطنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete bussato"
+          "form": "Avete bussato",
+          "ar": "خبطتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno bussato"
+          "form": "Hanno bussato",
+          "ar": "خبطوا"
         }
       ]
     },
@@ -885,31 +927,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho camminato"
+          "form": "Ho camminato",
+          "ar": "مشيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai camminato"
+          "form": "Hai camminato",
+          "ar": "مشيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha camminato"
+          "form": "Ha camminato",
+          "ar": "مشى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha camminato"
+          "form": "Ha camminato",
+          "ar": "مشت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo camminato"
+          "form": "Abbiamo camminato",
+          "ar": "مشينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete camminato"
+          "form": "Avete camminato",
+          "ar": "مشيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno camminato"
+          "form": "Hanno camminato",
+          "ar": "مشيوا"
         }
       ]
     },
@@ -1025,31 +1074,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho cercato"
+          "form": "Ho cercato",
+          "ar": "بحثت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai cercato"
+          "form": "Hai cercato",
+          "ar": "بحثت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha cercato"
+          "form": "Ha cercato",
+          "ar": "بحث"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha cercato"
+          "form": "Ha cercato",
+          "ar": "بحثت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo cercato"
+          "form": "Abbiamo cercato",
+          "ar": "بحثنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete cercato"
+          "form": "Avete cercato",
+          "ar": "بحثتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno cercato"
+          "form": "Hanno cercato",
+          "ar": "بحثوا"
         }
       ]
     },
@@ -1165,31 +1221,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho chiamato"
+          "form": "Ho chiamato",
+          "ar": "ناديت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai chiamato"
+          "form": "Hai chiamato",
+          "ar": "ناديت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha chiamato"
+          "form": "Ha chiamato",
+          "ar": "نادى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha chiamato"
+          "form": "Ha chiamato",
+          "ar": "نادت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo chiamato"
+          "form": "Abbiamo chiamato",
+          "ar": "نادينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete chiamato"
+          "form": "Avete chiamato",
+          "ar": "ناديتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno chiamato"
+          "form": "Hanno chiamato",
+          "ar": "نادوا"
         }
       ]
     },
@@ -1305,31 +1368,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho comprato"
+          "form": "Ho comprato",
+          "ar": "اشتريت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai comprato"
+          "form": "Hai comprato",
+          "ar": "اشتريت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha comprato"
+          "form": "Ha comprato",
+          "ar": "اشترى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha comprato"
+          "form": "Ha comprato",
+          "ar": "اشترت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo comprato"
+          "form": "Abbiamo comprato",
+          "ar": "اشترينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete comprato"
+          "form": "Avete comprato",
+          "ar": "اشتريتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno comprato"
+          "form": "Hanno comprato",
+          "ar": "اشتروا"
         }
       ]
     },
@@ -1445,31 +1515,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho giocato"
+          "form": "Ho giocato",
+          "ar": "لعبت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai giocato"
+          "form": "Hai giocato",
+          "ar": "لعبت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha giocato"
+          "form": "Ha giocato",
+          "ar": "لعب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha giocato"
+          "form": "Ha giocato",
+          "ar": "لعبت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo giocato"
+          "form": "Abbiamo giocato",
+          "ar": "لعبنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete giocato"
+          "form": "Avete giocato",
+          "ar": "لعبتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno giocato"
+          "form": "Hanno giocato",
+          "ar": "لعبوا"
         }
       ]
     },
@@ -1585,31 +1662,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho guardato"
+          "form": "Ho guardato",
+          "ar": "اتفرجت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai guardato"
+          "form": "Hai guardato",
+          "ar": "اتفرجت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha guardato"
+          "form": "Ha guardato",
+          "ar": "اتفرج"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha guardato"
+          "form": "Ha guardato",
+          "ar": "اتفرجت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo guardato"
+          "form": "Abbiamo guardato",
+          "ar": "اتفرجنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete guardato"
+          "form": "Avete guardato",
+          "ar": "اتفرجتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno guardato"
+          "form": "Hanno guardato",
+          "ar": "اتفرجوا"
         }
       ]
     },
@@ -1725,31 +1809,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho incontrato"
+          "form": "Ho incontrato",
+          "ar": "قابلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai incontrato"
+          "form": "Hai incontrato",
+          "ar": "قابلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha incontrato"
+          "form": "Ha incontrato",
+          "ar": "قابل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha incontrato"
+          "form": "Ha incontrato",
+          "ar": "قابلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo incontrato"
+          "form": "Abbiamo incontrato",
+          "ar": "قابلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete incontrato"
+          "form": "Avete incontrato",
+          "ar": "قابلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno incontrato"
+          "form": "Hanno incontrato",
+          "ar": "قابلوا"
         }
       ]
     },
@@ -1865,31 +1956,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho lavorato"
+          "form": "Ho lavorato",
+          "ar": "اشتغلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai lavorato"
+          "form": "Hai lavorato",
+          "ar": "اشتغلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha lavorato"
+          "form": "Ha lavorato",
+          "ar": "اشتغل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha lavorato"
+          "form": "Ha lavorato",
+          "ar": "اشتغلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo lavorato"
+          "form": "Abbiamo lavorato",
+          "ar": "اشتغلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete lavorato"
+          "form": "Avete lavorato",
+          "ar": "اشتغلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno lavorato"
+          "form": "Hanno lavorato",
+          "ar": "اشتغلوا"
         }
       ]
     },
@@ -2005,31 +2103,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho mangiato"
+          "form": "Ho mangiato",
+          "ar": "أكلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai mangiato"
+          "form": "Hai mangiato",
+          "ar": "أكلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha mangiato"
+          "form": "Ha mangiato",
+          "ar": "أكل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha mangiato"
+          "form": "Ha mangiato",
+          "ar": "أكلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo mangiato"
+          "form": "Abbiamo mangiato",
+          "ar": "أكلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete mangiato"
+          "form": "Avete mangiato",
+          "ar": "أكلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno mangiato"
+          "form": "Hanno mangiato",
+          "ar": "أكلوا"
         }
       ]
     },
@@ -2145,31 +2250,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho pagato"
+          "form": "Ho pagato",
+          "ar": "دفعت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai pagato"
+          "form": "Hai pagato",
+          "ar": "دفعت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha pagato"
+          "form": "Ha pagato",
+          "ar": "دفع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha pagato"
+          "form": "Ha pagato",
+          "ar": "دفعت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo pagato"
+          "form": "Abbiamo pagato",
+          "ar": "دفعنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete pagato"
+          "form": "Avete pagato",
+          "ar": "دفعتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno pagato"
+          "form": "Hanno pagato",
+          "ar": "دفعوا"
         }
       ]
     },
@@ -2285,31 +2397,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho portato"
+          "form": "Ho portato",
+          "ar": "جبت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai portato"
+          "form": "Hai portato",
+          "ar": "جبت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha portato"
+          "form": "Ha portato",
+          "ar": "جاب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha portato"
+          "form": "Ha portato",
+          "ar": "جابت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo portato"
+          "form": "Abbiamo portato",
+          "ar": "جبنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete portato"
+          "form": "Avete portato",
+          "ar": "جبتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno portato"
+          "form": "Hanno portato",
+          "ar": "جابوا"
         }
       ]
     },
@@ -2425,31 +2544,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono restato/a"
+          "form": "Sono restato/a",
+          "ar": "فضلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei restato/a"
+          "form": "Sei restato/a",
+          "ar": "فضلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È restato"
+          "form": "È restato",
+          "ar": "فضل"
         },
         {
           "person": "Lei (هي)",
-          "form": "È restata"
+          "form": "È restata",
+          "ar": "فضلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo restati/e"
+          "form": "Siamo restati/e",
+          "ar": "فضلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete restati/e"
+          "form": "Siete restati/e",
+          "ar": "فضلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono restati/e"
+          "form": "Sono restati/e",
+          "ar": "فضلوا"
         }
       ]
     },
@@ -2565,31 +2691,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho ringraziato"
+          "form": "Ho ringraziato",
+          "ar": "شكرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai ringraziato"
+          "form": "Hai ringraziato",
+          "ar": "شكرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha ringraziato"
+          "form": "Ha ringraziato",
+          "ar": "شكر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha ringraziato"
+          "form": "Ha ringraziato",
+          "ar": "شكرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo ringraziato"
+          "form": "Abbiamo ringraziato",
+          "ar": "شكرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete ringraziato"
+          "form": "Avete ringraziato",
+          "ar": "شكرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno ringraziato"
+          "form": "Hanno ringraziato",
+          "ar": "شكروا"
         }
       ]
     },
@@ -2705,31 +2838,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho salutato"
+          "form": "Ho salutato",
+          "ar": "سلمت على"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai salutato"
+          "form": "Hai salutato",
+          "ar": "سلمت على"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha salutato"
+          "form": "Ha salutato",
+          "ar": "سلم على"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha salutato"
+          "form": "Ha salutato",
+          "ar": "سلمت على"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo salutato"
+          "form": "Abbiamo salutato",
+          "ar": "سلمنا على"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete salutato"
+          "form": "Avete salutato",
+          "ar": "سلمتوا على"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno salutato"
+          "form": "Hanno salutato",
+          "ar": "سلموا على"
         }
       ]
     },
@@ -2845,31 +2985,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho studiato"
+          "form": "Ho studiato",
+          "ar": "درست"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai studiato"
+          "form": "Hai studiato",
+          "ar": "درست"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha studiato"
+          "form": "Ha studiato",
+          "ar": "درس"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha studiato"
+          "form": "Ha studiato",
+          "ar": "درست"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo studiato"
+          "form": "Abbiamo studiato",
+          "ar": "درسنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete studiato"
+          "form": "Avete studiato",
+          "ar": "درستوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno studiato"
+          "form": "Hanno studiato",
+          "ar": "درسوا"
         }
       ]
     },
@@ -2985,31 +3132,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho telefonato"
+          "form": "Ho telefonato",
+          "ar": "اتصلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai telefonato"
+          "form": "Hai telefonato",
+          "ar": "اتصلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha telefonato"
+          "form": "Ha telefonato",
+          "ar": "اتصل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha telefonato"
+          "form": "Ha telefonato",
+          "ar": "اتصلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo telefonato"
+          "form": "Abbiamo telefonato",
+          "ar": "اتصلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete telefonato"
+          "form": "Avete telefonato",
+          "ar": "اتصلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno telefonato"
+          "form": "Hanno telefonato",
+          "ar": "اتصلوا"
         }
       ]
     },
@@ -3125,31 +3279,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono tornato/a"
+          "form": "Sono tornato/a",
+          "ar": "رجعت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei tornato/a"
+          "form": "Sei tornato/a",
+          "ar": "رجعت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È tornato"
+          "form": "È tornato",
+          "ar": "رجع"
         },
         {
           "person": "Lei (هي)",
-          "form": "È tornata"
+          "form": "È tornata",
+          "ar": "رجعت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo tornati/e"
+          "form": "Siamo tornati/e",
+          "ar": "رجعنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete tornati/e"
+          "form": "Siete tornati/e",
+          "ar": "رجعتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono tornati/e"
+          "form": "Sono tornati/e",
+          "ar": "رجعوا"
         }
       ]
     },
@@ -3265,31 +3426,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho trovato"
+          "form": "Ho trovato",
+          "ar": "لقيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai trovato"
+          "form": "Hai trovato",
+          "ar": "لقيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha trovato"
+          "form": "Ha trovato",
+          "ar": "لقى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha trovato"
+          "form": "Ha trovato",
+          "ar": "لقت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo trovato"
+          "form": "Abbiamo trovato",
+          "ar": "لقينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete trovato"
+          "form": "Avete trovato",
+          "ar": "لقيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno trovato"
+          "form": "Hanno trovato",
+          "ar": "لقوا"
         }
       ]
     },
@@ -3405,31 +3573,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho viaggiato"
+          "form": "Ho viaggiato",
+          "ar": "سافرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai viaggiato"
+          "form": "Hai viaggiato",
+          "ar": "سافرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha viaggiato"
+          "form": "Ha viaggiato",
+          "ar": "سافر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha viaggiato"
+          "form": "Ha viaggiato",
+          "ar": "سافرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo viaggiato"
+          "form": "Abbiamo viaggiato",
+          "ar": "سافرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete viaggiato"
+          "form": "Avete viaggiato",
+          "ar": "سافرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno viaggiato"
+          "form": "Hanno viaggiato",
+          "ar": "سافروا"
         }
       ]
     },
@@ -3545,31 +3720,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho fatto"
+          "form": "Ho fatto",
+          "ar": "عملت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai fatto"
+          "form": "Hai fatto",
+          "ar": "عملت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha fatto"
+          "form": "Ha fatto",
+          "ar": "عمل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha fatto"
+          "form": "Ha fatto",
+          "ar": "عملت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo fatto"
+          "form": "Abbiamo fatto",
+          "ar": "عملنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete fatto"
+          "form": "Avete fatto",
+          "ar": "عملتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno fatto"
+          "form": "Hanno fatto",
+          "ar": "عملوا"
         }
       ]
     },
@@ -3685,31 +3867,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho dato"
+          "form": "Ho dato",
+          "ar": "اديت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai dato"
+          "form": "Hai dato",
+          "ar": "اديت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha dato"
+          "form": "Ha dato",
+          "ar": "ادى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha dato"
+          "form": "Ha dato",
+          "ar": "ادت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo dato"
+          "form": "Abbiamo dato",
+          "ar": "اديـنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete dato"
+          "form": "Avete dato",
+          "ar": "اديتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno dato"
+          "form": "Hanno dato",
+          "ar": "ادوا"
         }
       ]
     },
@@ -3825,31 +4014,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho funzionato"
+          "form": "Ho funzionato",
+          "ar": "اشتغلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai funzionato"
+          "form": "Hai funzionato",
+          "ar": "اشتغلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha funzionato"
+          "form": "Ha funzionato",
+          "ar": "اشتغل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha funzionato"
+          "form": "Ha funzionato",
+          "ar": "اشتغلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo funzionato"
+          "form": "Abbiamo funzionato",
+          "ar": "اشتغلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete funzionato"
+          "form": "Avete funzionato",
+          "ar": "اشتغلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno funzionato"
+          "form": "Hanno funzionato",
+          "ar": "اشتغلوا"
         }
       ]
     },
@@ -3965,31 +4161,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho parlato"
+          "form": "Ho parlato",
+          "ar": "اتكلمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai parlato"
+          "form": "Hai parlato",
+          "ar": "اتكلمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha parlato"
+          "form": "Ha parlato",
+          "ar": "اتكلم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha parlato"
+          "form": "Ha parlato",
+          "ar": "اتكلمت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo parlato"
+          "form": "Abbiamo parlato",
+          "ar": "اتكلمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete parlato"
+          "form": "Avete parlato",
+          "ar": "اتكلمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno parlato"
+          "form": "Hanno parlato",
+          "ar": "اتكلموا"
         }
       ]
     },
@@ -4105,31 +4308,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho passeggiato"
+          "form": "Ho passeggiato",
+          "ar": "اتمشيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai passeggiato"
+          "form": "Hai passeggiato",
+          "ar": "اتمشيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha passeggiato"
+          "form": "Ha passeggiato",
+          "ar": "اتمشى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha passeggiato"
+          "form": "Ha passeggiato",
+          "ar": "اتمشت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo passeggiato"
+          "form": "Abbiamo passeggiato",
+          "ar": "اتمشينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete passeggiato"
+          "form": "Avete passeggiato",
+          "ar": "اتمشيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno passeggiato"
+          "form": "Hanno passeggiato",
+          "ar": "اتمشوا"
         }
       ]
     },
@@ -4245,31 +4455,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono svegliato/a"
+          "form": "Mi sono svegliato/a",
+          "ar": "صحيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei svegliato/a"
+          "form": "Ti sei svegliato/a",
+          "ar": "صحيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è svegliato"
+          "form": "Si è svegliato",
+          "ar": "صحي"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è svegliata"
+          "form": "Si è svegliata",
+          "ar": "صحيت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo svegliati/e"
+          "form": "Ci siamo svegliati/e",
+          "ar": "صحينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete svegliati/e"
+          "form": "Vi siete svegliati/e",
+          "ar": "صحيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono svegliati/e"
+          "form": "Si sono svegliati/e",
+          "ar": "صحيوا"
         }
       ]
     },
@@ -4387,31 +4604,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho creduto"
+          "form": "Ho creduto",
+          "ar": "صدقت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai creduto"
+          "form": "Hai creduto",
+          "ar": "صدقت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha creduto"
+          "form": "Ha creduto",
+          "ar": "صدق"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha creduto"
+          "form": "Ha creduto",
+          "ar": "صدقت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo creduto"
+          "form": "Abbiamo creduto",
+          "ar": "صدقنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete creduto"
+          "form": "Avete creduto",
+          "ar": "صدقتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno creduto"
+          "form": "Hanno creduto",
+          "ar": "صدقوا"
         }
       ]
     },
@@ -4527,31 +4751,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho letto"
+          "form": "Ho letto",
+          "ar": "قريت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai letto"
+          "form": "Hai letto",
+          "ar": "قريت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha letto"
+          "form": "Ha letto",
+          "ar": "قرا"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha letto"
+          "form": "Ha letto",
+          "ar": "قرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo letto"
+          "form": "Abbiamo letto",
+          "ar": "قرينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete letto"
+          "form": "Avete letto",
+          "ar": "قريتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno letto"
+          "form": "Hanno letto",
+          "ar": "قروا"
         }
       ]
     },
@@ -4667,31 +4898,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho preso"
+          "form": "Ho preso",
+          "ar": "اخدت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai preso"
+          "form": "Hai preso",
+          "ar": "اخدت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha preso"
+          "form": "Ha preso",
+          "ar": "اخد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha preso"
+          "form": "Ha preso",
+          "ar": "اخدت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo preso"
+          "form": "Abbiamo preso",
+          "ar": "اخدنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete preso"
+          "form": "Avete preso",
+          "ar": "اخدتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno preso"
+          "form": "Hanno preso",
+          "ar": "اخدوا"
         }
       ]
     },
@@ -4807,31 +5045,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho promesso"
+          "form": "Ho promesso",
+          "ar": "وعدت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai promesso"
+          "form": "Hai promesso",
+          "ar": "وعدت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha promesso"
+          "form": "Ha promesso",
+          "ar": "وعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha promesso"
+          "form": "Ha promesso",
+          "ar": "وعدت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo promesso"
+          "form": "Abbiamo promesso",
+          "ar": "وعدنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete promesso"
+          "form": "Avete promesso",
+          "ar": "وعدتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno promesso"
+          "form": "Hanno promesso",
+          "ar": "وعدوا"
         }
       ]
     },
@@ -4947,31 +5192,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho scritto"
+          "form": "Ho scritto",
+          "ar": "كتبت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai scritto"
+          "form": "Hai scritto",
+          "ar": "كتبت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha scritto"
+          "form": "Ha scritto",
+          "ar": "كتب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha scritto"
+          "form": "Ha scritto",
+          "ar": "كتبت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo scritto"
+          "form": "Abbiamo scritto",
+          "ar": "كتبنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete scritto"
+          "form": "Avete scritto",
+          "ar": "كتبتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno scritto"
+          "form": "Hanno scritto",
+          "ar": "كتبوا"
         }
       ]
     },
@@ -5087,31 +5339,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho visto"
+          "form": "Ho visto",
+          "ar": "شفت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai visto"
+          "form": "Hai visto",
+          "ar": "شفت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha visto"
+          "form": "Ha visto",
+          "ar": "شاف"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha visto"
+          "form": "Ha visto",
+          "ar": "شافت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo visto"
+          "form": "Abbiamo visto",
+          "ar": "شفنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete visto"
+          "form": "Avete visto",
+          "ar": "شفتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno visto"
+          "form": "Hanno visto",
+          "ar": "شافوا"
         }
       ]
     },
@@ -5227,31 +5486,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho venduto"
+          "form": "Ho venduto",
+          "ar": "بعت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai venduto"
+          "form": "Hai venduto",
+          "ar": "بعت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha venduto"
+          "form": "Ha venduto",
+          "ar": "باع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha venduto"
+          "form": "Ha venduto",
+          "ar": "باعت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo venduto"
+          "form": "Abbiamo venduto",
+          "ar": "بعنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete venduto"
+          "form": "Avete venduto",
+          "ar": "بعتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno venduto"
+          "form": "Hanno venduto",
+          "ar": "باعوا"
         }
       ]
     },
@@ -5367,31 +5633,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho avuto"
+          "form": "Ho avuto",
+          "ar": "كان عندي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai avuto"
+          "form": "Hai avuto",
+          "ar": "كان عندك"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha avuto"
+          "form": "Ha avuto",
+          "ar": "كان عنده"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha avuto"
+          "form": "Ha avuto",
+          "ar": "كان عندها"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo avuto"
+          "form": "Abbiamo avuto",
+          "ar": "كان عندنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete avuto"
+          "form": "Avete avuto",
+          "ar": "كان عندكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno avuto"
+          "form": "Hanno avuto",
+          "ar": "كان عندهم"
         }
       ]
     },
@@ -5507,31 +5780,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono stato/a"
+          "form": "Sono stato/a",
+          "ar": "كنت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei stato/a"
+          "form": "Sei stato/a",
+          "ar": "كنت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È stato"
+          "form": "È stato",
+          "ar": "كان"
         },
         {
           "person": "Lei (هي)",
-          "form": "È stata"
+          "form": "È stata",
+          "ar": "كانت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo stati/e"
+          "form": "Siamo stati/e",
+          "ar": "كنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete stati/e"
+          "form": "Siete stati/e",
+          "ar": "كنتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono stati/e"
+          "form": "Sono stati/e",
+          "ar": "كانوا"
         }
       ]
     },
@@ -5647,31 +5927,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho potuto"
+          "form": "Ho potuto",
+          "ar": "قدرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai potuto"
+          "form": "Hai potuto",
+          "ar": "قدرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha potuto"
+          "form": "Ha potuto",
+          "ar": "قدر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha potuto"
+          "form": "Ha potuto",
+          "ar": "قدرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo potuto"
+          "form": "Abbiamo potuto",
+          "ar": "قدرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete potuto"
+          "form": "Avete potuto",
+          "ar": "قدرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno potuto"
+          "form": "Hanno potuto",
+          "ar": "قدروا"
         }
       ]
     },
@@ -5787,31 +6074,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho saputo"
+          "form": "Ho saputo",
+          "ar": "عرفت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai saputo"
+          "form": "Hai saputo",
+          "ar": "عرفت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha saputo"
+          "form": "Ha saputo",
+          "ar": "عرف"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha saputo"
+          "form": "Ha saputo",
+          "ar": "عرفت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo saputo"
+          "form": "Abbiamo saputo",
+          "ar": "عرفنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete saputo"
+          "form": "Avete saputo",
+          "ar": "عرفتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno saputo"
+          "form": "Hanno saputo",
+          "ar": "عرفوا"
         }
       ]
     },
@@ -5927,31 +6221,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho voluto"
+          "form": "Ho voluto",
+          "ar": "كنت عايز"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai voluto"
+          "form": "Hai voluto",
+          "ar": "كنت عايز"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha voluto"
+          "form": "Ha voluto",
+          "ar": "كان عايز"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha voluto"
+          "form": "Ha voluto",
+          "ar": "كانت عايزة"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo voluto"
+          "form": "Abbiamo voluto",
+          "ar": "كنا عايزين"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete voluto"
+          "form": "Avete voluto",
+          "ar": "كنتوا عايزين"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno voluto"
+          "form": "Hanno voluto",
+          "ar": "كانوا عايزين"
         }
       ]
     },
@@ -6067,31 +6368,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho taciuto"
+          "form": "Ho taciuto",
+          "ar": "سكتّ"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai taciuto"
+          "form": "Hai taciuto",
+          "ar": "سكتّ"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha taciuto"
+          "form": "Ha taciuto",
+          "ar": "سكت"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha taciuto"
+          "form": "Ha taciuto",
+          "ar": "سكتت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo taciuto"
+          "form": "Abbiamo taciuto",
+          "ar": "سكتنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete taciuto"
+          "form": "Avete taciuto",
+          "ar": "سكتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno taciuto"
+          "form": "Hanno taciuto",
+          "ar": "سكتوا"
         }
       ]
     },
@@ -6207,31 +6515,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho appreso"
+          "form": "Ho appreso",
+          "ar": "اتعلمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai appreso"
+          "form": "Hai appreso",
+          "ar": "اتعلمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha appreso"
+          "form": "Ha appreso",
+          "ar": "اتعلم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha appreso"
+          "form": "Ha appreso",
+          "ar": "اتعلمت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo appreso"
+          "form": "Abbiamo appreso",
+          "ar": "اتعلمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete appreso"
+          "form": "Avete appreso",
+          "ar": "اتعلمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno appreso"
+          "form": "Hanno appreso",
+          "ar": "اتعلموا"
         }
       ]
     },
@@ -6347,31 +6662,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho capito"
+          "form": "Ho capito",
+          "ar": "فهمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai capito"
+          "form": "Hai capito",
+          "ar": "فهمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha capito"
+          "form": "Ha capito",
+          "ar": "فهم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha capito"
+          "form": "Ha capito",
+          "ar": "فهمت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo capito"
+          "form": "Abbiamo capito",
+          "ar": "فهمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete capito"
+          "form": "Avete capito",
+          "ar": "فهمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno capito"
+          "form": "Hanno capito",
+          "ar": "فهموا"
         }
       ]
     },
@@ -6487,31 +6809,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho detto"
+          "form": "Ho detto",
+          "ar": "قلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai detto"
+          "form": "Hai detto",
+          "ar": "قلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha detto"
+          "form": "Ha detto",
+          "ar": "قال"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha detto"
+          "form": "Ha detto",
+          "ar": "قالت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo detto"
+          "form": "Abbiamo detto",
+          "ar": "قلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete detto"
+          "form": "Avete detto",
+          "ar": "قلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno detto"
+          "form": "Hanno detto",
+          "ar": "قالوا"
         }
       ]
     },
@@ -6627,31 +6956,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho finito"
+          "form": "Ho finito",
+          "ar": "خلصت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai finito"
+          "form": "Hai finito",
+          "ar": "خلصت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha finito"
+          "form": "Ha finito",
+          "ar": "خلص"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha finito"
+          "form": "Ha finito",
+          "ar": "خلصت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo finito"
+          "form": "Abbiamo finito",
+          "ar": "خلصنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete finito"
+          "form": "Avete finito",
+          "ar": "خلصتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno finito"
+          "form": "Hanno finito",
+          "ar": "خلصوا"
         }
       ]
     },
@@ -6767,31 +7103,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono partito/a"
+          "form": "Sono partito/a",
+          "ar": "سافرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei partito/a"
+          "form": "Sei partito/a",
+          "ar": "سافرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È partito"
+          "form": "È partito",
+          "ar": "سافر"
         },
         {
           "person": "Lei (هي)",
-          "form": "È partita"
+          "form": "È partita",
+          "ar": "سافرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo partiti/e"
+          "form": "Siamo partiti/e",
+          "ar": "سافرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete partiti/e"
+          "form": "Siete partiti/e",
+          "ar": "سافرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono partiti/e"
+          "form": "Sono partiti/e",
+          "ar": "سافروا"
         }
       ]
     },
@@ -6907,31 +7250,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho pulito"
+          "form": "Ho pulito",
+          "ar": "نظفت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai pulito"
+          "form": "Hai pulito",
+          "ar": "نظفت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha pulito"
+          "form": "Ha pulito",
+          "ar": "نظف"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha pulito"
+          "form": "Ha pulito",
+          "ar": "نظفت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo pulito"
+          "form": "Abbiamo pulito",
+          "ar": "نظفنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete pulito"
+          "form": "Avete pulito",
+          "ar": "نظفتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno pulito"
+          "form": "Hanno pulito",
+          "ar": "نظفوا"
         }
       ]
     },
@@ -7047,31 +7397,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono uscito/a"
+          "form": "Sono uscito/a",
+          "ar": "خرجت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei uscito/a"
+          "form": "Sei uscito/a",
+          "ar": "خرجت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È uscito"
+          "form": "È uscito",
+          "ar": "خرج"
         },
         {
           "person": "Lei (هي)",
-          "form": "È uscita"
+          "form": "È uscita",
+          "ar": "خرجت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo usciti/e"
+          "form": "Siamo usciti/e",
+          "ar": "خرجنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete usciti/e"
+          "form": "Siete usciti/e",
+          "ar": "خرجتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono usciti/e"
+          "form": "Sono usciti/e",
+          "ar": "خرجوا"
         }
       ]
     },
@@ -7187,31 +7544,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho cucinato"
+          "form": "Ho cucinato",
+          "ar": "طبخت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai cucinato"
+          "form": "Hai cucinato",
+          "ar": "طبخت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha cucinato"
+          "form": "Ha cucinato",
+          "ar": "طبخ"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha cucinato"
+          "form": "Ha cucinato",
+          "ar": "طبخت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo cucinato"
+          "form": "Abbiamo cucinato",
+          "ar": "طبخنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete cucinato"
+          "form": "Avete cucinato",
+          "ar": "طبختوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno cucinato"
+          "form": "Hanno cucinato",
+          "ar": "طبخوا"
         }
       ]
     },
@@ -7327,31 +7691,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho pensato"
+          "form": "Ho pensato",
+          "ar": "فكرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai pensato"
+          "form": "Hai pensato",
+          "ar": "فكرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha pensato"
+          "form": "Ha pensato",
+          "ar": "فكر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha pensato"
+          "form": "Ha pensato",
+          "ar": "فكرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo pensato"
+          "form": "Abbiamo pensato",
+          "ar": "فكرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete pensato"
+          "form": "Avete pensato",
+          "ar": "فكرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno pensato"
+          "form": "Hanno pensato",
+          "ar": "فكروا"
         }
       ]
     },
@@ -7467,31 +7838,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho pianto"
+          "form": "Ho pianto",
+          "ar": "عيطت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai pianto"
+          "form": "Hai pianto",
+          "ar": "عيطت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha pianto"
+          "form": "Ha pianto",
+          "ar": "عيط"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha pianto"
+          "form": "Ha pianto",
+          "ar": "عيطت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo pianto"
+          "form": "Abbiamo pianto",
+          "ar": "عيطنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete pianto"
+          "form": "Avete pianto",
+          "ar": "عيطتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno pianto"
+          "form": "Hanno pianto",
+          "ar": "عيطوا"
         }
       ]
     },
@@ -7607,31 +7985,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho riso"
+          "form": "Ho riso",
+          "ar": "ضحكت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai riso"
+          "form": "Hai riso",
+          "ar": "ضحكت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha riso"
+          "form": "Ha riso",
+          "ar": "ضحك"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha riso"
+          "form": "Ha riso",
+          "ar": "ضحكت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo riso"
+          "form": "Abbiamo riso",
+          "ar": "ضحكنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete riso"
+          "form": "Avete riso",
+          "ar": "ضحكتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno riso"
+          "form": "Hanno riso",
+          "ar": "ضحكوا"
         }
       ]
     },
@@ -7747,31 +8132,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho dormito"
+          "form": "Ho dormito",
+          "ar": "نمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai dormito"
+          "form": "Hai dormito",
+          "ar": "نمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha dormito"
+          "form": "Ha dormito",
+          "ar": "نام"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha dormito"
+          "form": "Ha dormito",
+          "ar": "نامت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo dormito"
+          "form": "Abbiamo dormito",
+          "ar": "نمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete dormito"
+          "form": "Avete dormito",
+          "ar": "نمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno dormito"
+          "form": "Hanno dormito",
+          "ar": "ناموا"
         }
       ]
     },
@@ -7887,31 +8279,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho sognato"
+          "form": "Ho sognato",
+          "ar": "حلمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai sognato"
+          "form": "Hai sognato",
+          "ar": "حلمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha sognato"
+          "form": "Ha sognato",
+          "ar": "حلم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha sognato"
+          "form": "Ha sognato",
+          "ar": "حلمت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo sognato"
+          "form": "Abbiamo sognato",
+          "ar": "حلمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete sognato"
+          "form": "Avete sognato",
+          "ar": "حلمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno sognato"
+          "form": "Hanno sognato",
+          "ar": "حلموا"
         }
       ]
     },
@@ -8027,31 +8426,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho sperato"
+          "form": "Ho sperato",
+          "ar": "اتمنيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai sperato"
+          "form": "Hai sperato",
+          "ar": "اتمنيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha sperato"
+          "form": "Ha sperato",
+          "ar": "اتمنى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha sperato"
+          "form": "Ha sperato",
+          "ar": "اتمنت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo sperato"
+          "form": "Abbiamo sperato",
+          "ar": "اتمنينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete sperato"
+          "form": "Avete sperato",
+          "ar": "اتمنيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno sperato"
+          "form": "Hanno sperato",
+          "ar": "اتمنوا"
         }
       ]
     },
@@ -8167,31 +8573,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho spiegato"
+          "form": "Ho spiegato",
+          "ar": "شرحت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai spiegato"
+          "form": "Hai spiegato",
+          "ar": "شرحت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha spiegato"
+          "form": "Ha spiegato",
+          "ar": "شرح"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha spiegato"
+          "form": "Ha spiegato",
+          "ar": "شرحت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo spiegato"
+          "form": "Abbiamo spiegato",
+          "ar": "شرحنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete spiegato"
+          "form": "Avete spiegato",
+          "ar": "شرحتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno spiegato"
+          "form": "Hanno spiegato",
+          "ar": "شرحوا"
         }
       ]
     },
@@ -8307,31 +8720,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono stato/a"
+          "form": "Sono stato/a",
+          "ar": "قعدت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei stato/a"
+          "form": "Sei stato/a",
+          "ar": "قعدت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È stato"
+          "form": "È stato",
+          "ar": "قعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "È stata"
+          "form": "È stata",
+          "ar": "قعدت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo stati/e"
+          "form": "Siamo stati/e",
+          "ar": "قعدنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete stati/e"
+          "form": "Siete stati/e",
+          "ar": "قعدتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono stati/e"
+          "form": "Sono stati/e",
+          "ar": "قعدوا"
         }
       ]
     },
@@ -8447,31 +8867,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho bevuto"
+          "form": "Ho bevuto",
+          "ar": "شربت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai bevuto"
+          "form": "Hai bevuto",
+          "ar": "شربت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha bevuto"
+          "form": "Ha bevuto",
+          "ar": "شرب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha bevuto"
+          "form": "Ha bevuto",
+          "ar": "شربت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo bevuto"
+          "form": "Abbiamo bevuto",
+          "ar": "شربنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete bevuto"
+          "form": "Avete bevuto",
+          "ar": "شربتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno bevuto"
+          "form": "Hanno bevuto",
+          "ar": "شربوا"
         }
       ]
     },
@@ -8587,31 +9014,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho posto"
+          "form": "Ho posto",
+          "ar": "حطيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai posto"
+          "form": "Hai posto",
+          "ar": "حطيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha posto"
+          "form": "Ha posto",
+          "ar": "حط"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha posto"
+          "form": "Ha posto",
+          "ar": "حطت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo posto"
+          "form": "Abbiamo posto",
+          "ar": "حطينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete posto"
+          "form": "Avete posto",
+          "ar": "حطيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno posto"
+          "form": "Hanno posto",
+          "ar": "حطوا"
         }
       ]
     },
@@ -8727,31 +9161,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho tradotto"
+          "form": "Ho tradotto",
+          "ar": "ترجمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai tradotto"
+          "form": "Hai tradotto",
+          "ar": "ترجمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha tradotto"
+          "form": "Ha tradotto",
+          "ar": "ترجم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha tradotto"
+          "form": "Ha tradotto",
+          "ar": "ترجمت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo tradotto"
+          "form": "Abbiamo tradotto",
+          "ar": "ترجمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete tradotto"
+          "form": "Avete tradotto",
+          "ar": "ترجمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno tradotto"
+          "form": "Hanno tradotto",
+          "ar": "ترجموا"
         }
       ]
     },
@@ -8867,31 +9308,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho prodotto"
+          "form": "Ho prodotto",
+          "ar": "انتجت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai prodotto"
+          "form": "Hai prodotto",
+          "ar": "انتجت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha prodotto"
+          "form": "Ha prodotto",
+          "ar": "انتج"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha prodotto"
+          "form": "Ha prodotto",
+          "ar": "انتجت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo prodotto"
+          "form": "Abbiamo prodotto",
+          "ar": "انتجنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete prodotto"
+          "form": "Avete prodotto",
+          "ar": "انتجتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno prodotto"
+          "form": "Hanno prodotto",
+          "ar": "انتجوا"
         }
       ]
     },
@@ -9009,31 +9457,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono alzato/a"
+          "form": "Mi sono alzato/a",
+          "ar": "قمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei alzato/a"
+          "form": "Ti sei alzato/a",
+          "ar": "قمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è alzato"
+          "form": "Si è alzato",
+          "ar": "قام"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è alzata"
+          "form": "Si è alzata",
+          "ar": "قامت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo alzati/e"
+          "form": "Ci siamo alzati/e",
+          "ar": "قمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete alzati/e"
+          "form": "Vi siete alzati/e",
+          "ar": "قمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono alzati/e"
+          "form": "Si sono alzati/e",
+          "ar": "قاموا"
         }
       ]
     },
@@ -9151,31 +9606,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono lavato/a"
+          "form": "Mi sono lavato/a",
+          "ar": "اتغسلت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei lavato/a"
+          "form": "Ti sei lavato/a",
+          "ar": "اتغسلت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è lavato"
+          "form": "Si è lavato",
+          "ar": "اتغسل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è lavata"
+          "form": "Si è lavata",
+          "ar": "اتغسلت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo lavati/e"
+          "form": "Ci siamo lavati/e",
+          "ar": "اتغسلنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete lavati/e"
+          "form": "Vi siete lavati/e",
+          "ar": "اتغسلتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono lavati/e"
+          "form": "Si sono lavati/e",
+          "ar": "اتغسلوا"
         }
       ]
     },
@@ -9293,31 +9755,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono chiamato/a"
+          "form": "Mi sono chiamato/a",
+          "ar": "كان اسمي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei chiamato/a"
+          "form": "Ti sei chiamato/a",
+          "ar": "كان اسمك"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è chiamato"
+          "form": "Si è chiamato",
+          "ar": "كان اسمه"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è chiamata"
+          "form": "Si è chiamata",
+          "ar": "كان اسمها"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo chiamati/e"
+          "form": "Ci siamo chiamati/e",
+          "ar": "كان اسمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete chiamati/e"
+          "form": "Vi siete chiamati/e",
+          "ar": "كان اسمكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono chiamati/e"
+          "form": "Si sono chiamati/e",
+          "ar": "كان اسمهم"
         }
       ]
     },
@@ -9435,31 +9904,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono riposato/a"
+          "form": "Mi sono riposato/a",
+          "ar": "ارتحت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei riposato/a"
+          "form": "Ti sei riposato/a",
+          "ar": "ارتحت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è riposato"
+          "form": "Si è riposato",
+          "ar": "ارتاح"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è riposata"
+          "form": "Si è riposata",
+          "ar": "ارتاحت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo riposati/e"
+          "form": "Ci siamo riposati/e",
+          "ar": "ارتحنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete riposati/e"
+          "form": "Vi siete riposati/e",
+          "ar": "ارتحتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono riposati/e"
+          "form": "Si sono riposati/e",
+          "ar": "ارتاحوا"
         }
       ]
     },
@@ -9577,31 +10053,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono preparato/a"
+          "form": "Mi sono preparato/a",
+          "ar": "استعديت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei preparato/a"
+          "form": "Ti sei preparato/a",
+          "ar": "استعديت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è preparato"
+          "form": "Si è preparato",
+          "ar": "استعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è preparata"
+          "form": "Si è preparata",
+          "ar": "استعدت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo preparati/e"
+          "form": "Ci siamo preparati/e",
+          "ar": "استعدينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete preparati/e"
+          "form": "Vi siete preparati/e",
+          "ar": "استعديتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono preparati/e"
+          "form": "Si sono preparati/e",
+          "ar": "استعدوا"
         }
       ]
     },
@@ -9719,31 +10202,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono arrabbiato/a"
+          "form": "Mi sono arrabbiato/a",
+          "ar": "غضبت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei arrabbiato/a"
+          "form": "Ti sei arrabbiato/a",
+          "ar": "غضبت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è arrabbiato"
+          "form": "Si è arrabbiato",
+          "ar": "غضب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è arrabbiata"
+          "form": "Si è arrabbiata",
+          "ar": "غضبت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo arrabbiati/e"
+          "form": "Ci siamo arrabbiati/e",
+          "ar": "غضبنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete arrabbiati/e"
+          "form": "Vi siete arrabbiati/e",
+          "ar": "غضبتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono arrabbiati/e"
+          "form": "Si sono arrabbiati/e",
+          "ar": "غضبوا"
         }
       ]
     },
@@ -9861,31 +10351,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono ricordato/a"
+          "form": "Mi sono ricordato/a",
+          "ar": "اتذكرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei ricordato/a"
+          "form": "Ti sei ricordato/a",
+          "ar": "اتذكرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è ricordato"
+          "form": "Si è ricordato",
+          "ar": "اتذكر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è ricordata"
+          "form": "Si è ricordata",
+          "ar": "اتذكرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo ricordati/e"
+          "form": "Ci siamo ricordati/e",
+          "ar": "اتذكرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete ricordati/e"
+          "form": "Vi siete ricordati/e",
+          "ar": "اتذكرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono ricordati/e"
+          "form": "Si sono ricordati/e",
+          "ar": "اتذكروا"
         }
       ]
     },
@@ -10003,31 +10500,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono addormentato/a"
+          "form": "Mi sono addormentato/a",
+          "ar": "نمت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei addormentato/a"
+          "form": "Ti sei addormentato/a",
+          "ar": "نمت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è addormentato"
+          "form": "Si è addormentato",
+          "ar": "نام"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è addormentata"
+          "form": "Si è addormentata",
+          "ar": "نامت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo addormentati/e"
+          "form": "Ci siamo addormentati/e",
+          "ar": "نمنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete addormentati/e"
+          "form": "Vi siete addormentati/e",
+          "ar": "نمتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono addormentati/e"
+          "form": "Si sono addormentati/e",
+          "ar": "ناموا"
         }
       ]
     },
@@ -10145,31 +10649,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono trovato/a"
+          "form": "Mi sono trovato/a",
+          "ar": "كنت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei trovato/a"
+          "form": "Ti sei trovato/a",
+          "ar": "كنت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è trovato"
+          "form": "Si è trovato",
+          "ar": "كان"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è trovata"
+          "form": "Si è trovata",
+          "ar": "كانت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo trovati/e"
+          "form": "Ci siamo trovati/e",
+          "ar": "كنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete trovati/e"
+          "form": "Vi siete trovati/e",
+          "ar": "كنتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono trovati/e"
+          "form": "Si sono trovati/e",
+          "ar": "كانوا"
         }
       ]
     },
@@ -10287,31 +10798,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono sposato/a"
+          "form": "Mi sono sposato/a",
+          "ar": "اتجوزت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei sposato/a"
+          "form": "Ti sei sposato/a",
+          "ar": "اتجوزت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è sposato"
+          "form": "Si è sposato",
+          "ar": "اتجوز"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è sposata"
+          "form": "Si è sposata",
+          "ar": "اتجوزت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo sposati/e"
+          "form": "Ci siamo sposati/e",
+          "ar": "اتجوزنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete sposati/e"
+          "form": "Vi siete sposati/e",
+          "ar": "اتجوزتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono sposati/e"
+          "form": "Si sono sposati/e",
+          "ar": "اتجوزوا"
         }
       ]
     },
@@ -10429,31 +10947,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono laureato/a"
+          "form": "Mi sono laureato/a",
+          "ar": "اتخرجت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei laureato/a"
+          "form": "Ti sei laureato/a",
+          "ar": "اتخرجت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è laureato"
+          "form": "Si è laureato",
+          "ar": "اتخرج"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è laureata"
+          "form": "Si è laureata",
+          "ar": "اتخرجت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo laureati/e"
+          "form": "Ci siamo laureati/e",
+          "ar": "اتخرجنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete laureati/e"
+          "form": "Vi siete laureati/e",
+          "ar": "اتخرجتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono laureati/e"
+          "form": "Si sono laureati/e",
+          "ar": "اتخرجوا"
         }
       ]
     },
@@ -10571,31 +11096,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono annoiato/a"
+          "form": "Mi sono annoiato/a",
+          "ar": "زهقت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei annoiato/a"
+          "form": "Ti sei annoiato/a",
+          "ar": "زهقت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è annoiato"
+          "form": "Si è annoiato",
+          "ar": "زهق"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è annoiata"
+          "form": "Si è annoiata",
+          "ar": "زهقت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo annoiati/e"
+          "form": "Ci siamo annoiati/e",
+          "ar": "زهقنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete annoiati/e"
+          "form": "Vi siete annoiati/e",
+          "ar": "زهقتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono annoiati/e"
+          "form": "Si sono annoiati/e",
+          "ar": "زهقوا"
         }
       ]
     },
@@ -10713,31 +11245,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono pettinato/a"
+          "form": "Mi sono pettinato/a",
+          "ar": "مشطت شعري"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei pettinato/a"
+          "form": "Ti sei pettinato/a",
+          "ar": "مشطت شعرك"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è pettinato"
+          "form": "Si è pettinato",
+          "ar": "مشط شعره"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è pettinata"
+          "form": "Si è pettinata",
+          "ar": "مشطت شعرها"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo pettinati/e"
+          "form": "Ci siamo pettinati/e",
+          "ar": "مشطنا شعرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete pettinati/e"
+          "form": "Vi siete pettinati/e",
+          "ar": "مشطتوا شعركوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono pettinati/e"
+          "form": "Si sono pettinati/e",
+          "ar": "مشطوا شعرهم"
         }
       ]
     },
@@ -10855,31 +11394,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono vestito/a"
+          "form": "Mi sono vestito/a",
+          "ar": "لبست"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei vestito/a"
+          "form": "Ti sei vestito/a",
+          "ar": "لبست"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è vestito"
+          "form": "Si è vestito",
+          "ar": "لبس"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è vestita"
+          "form": "Si è vestita",
+          "ar": "لبست"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo vestiti/e"
+          "form": "Ci siamo vestiti/e",
+          "ar": "لبسنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete vestiti/e"
+          "form": "Vi siete vestiti/e",
+          "ar": "لبستوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono vestiti/e"
+          "form": "Si sono vestiti/e",
+          "ar": "لبسوا"
         }
       ]
     },
@@ -10997,31 +11543,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono divertito/a"
+          "form": "Mi sono divertito/a",
+          "ar": "استمتعت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei divertito/a"
+          "form": "Ti sei divertito/a",
+          "ar": "استمتعت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è divertito"
+          "form": "Si è divertito",
+          "ar": "استمتع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è divertita"
+          "form": "Si è divertita",
+          "ar": "استمتعت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo divertiti/e"
+          "form": "Ci siamo divertiti/e",
+          "ar": "استمتعنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete divertiti/e"
+          "form": "Vi siete divertiti/e",
+          "ar": "استمتعتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono divertiti/e"
+          "form": "Si sono divertiti/e",
+          "ar": "استمتعوا"
         }
       ]
     },
@@ -11139,31 +11692,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono sentito/a"
+          "form": "Mi sono sentito/a",
+          "ar": "حسيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei sentito/a"
+          "form": "Ti sei sentito/a",
+          "ar": "حسيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è sentito"
+          "form": "Si è sentito",
+          "ar": "حس"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è sentita"
+          "form": "Si è sentita",
+          "ar": "حست"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo sentiti/e"
+          "form": "Ci siamo sentiti/e",
+          "ar": "حسينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete sentiti/e"
+          "form": "Vi siete sentiti/e",
+          "ar": "حسيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono sentiti/e"
+          "form": "Si sono sentiti/e",
+          "ar": "حسوا"
         }
       ]
     },
@@ -11281,31 +11841,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono messo/a"
+          "form": "Mi sono messo/a",
+          "ar": "لبست"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei messo/a"
+          "form": "Ti sei messo/a",
+          "ar": "لبست"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è messo"
+          "form": "Si è messo",
+          "ar": "لبس"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è messa"
+          "form": "Si è messa",
+          "ar": "لبست"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo messi/e"
+          "form": "Ci siamo messi/e",
+          "ar": "لبسنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete messi/e"
+          "form": "Vi siete messi/e",
+          "ar": "لبستوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono messi/e"
+          "form": "Si sono messi/e",
+          "ar": "لبسوا"
         }
       ]
     },
@@ -11423,31 +11990,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono seduto/a"
+          "form": "Mi sono seduto/a",
+          "ar": "قعدت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei seduto/a"
+          "form": "Ti sei seduto/a",
+          "ar": "قعدت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è seduto"
+          "form": "Si è seduto",
+          "ar": "قعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è seduta"
+          "form": "Si è seduta",
+          "ar": "قعدت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo seduti/e"
+          "form": "Ci siamo seduti/e",
+          "ar": "قعدنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete seduti/e"
+          "form": "Vi siete seduti/e",
+          "ar": "قعدتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono seduti/e"
+          "form": "Si sono seduti/e",
+          "ar": "قعدوا"
         }
       ]
     },
@@ -11565,31 +12139,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono accorto/a"
+          "form": "Mi sono accorto/a",
+          "ar": "لاحظت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei accorto/a"
+          "form": "Ti sei accorto/a",
+          "ar": "لاحظت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è accorto"
+          "form": "Si è accorto",
+          "ar": "لاحظ"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è accorta"
+          "form": "Si è accorta",
+          "ar": "لاحظت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo accorti/e"
+          "form": "Ci siamo accorti/e",
+          "ar": "لاحظنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete accorti/e"
+          "form": "Vi siete accorti/e",
+          "ar": "لاحظتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono accorti/e"
+          "form": "Si sono accorti/e",
+          "ar": "لاحظوا"
         }
       ]
     },
@@ -11705,31 +12286,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho passato"
+          "form": "Ho passato",
+          "ar": "قضيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai passato"
+          "form": "Hai passato",
+          "ar": "قضيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha passato"
+          "form": "Ha passato",
+          "ar": "قضى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha passato"
+          "form": "Ha passato",
+          "ar": "قضت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo passato"
+          "form": "Abbiamo passato",
+          "ar": "قضينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete passato"
+          "form": "Avete passato",
+          "ar": "قضيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno passato"
+          "form": "Hanno passato",
+          "ar": "قضوا"
         }
       ]
     },
@@ -11845,31 +12433,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho significato"
+          "form": "Ho significato",
+          "ar": "عنيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai significato"
+          "form": "Hai significato",
+          "ar": "عنيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha significato"
+          "form": "Ha significato",
+          "ar": "عنى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha significato"
+          "form": "Ha significato",
+          "ar": "عنت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo significato"
+          "form": "Abbiamo significato",
+          "ar": "عنينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete significato"
+          "form": "Avete significato",
+          "ar": "عنيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno significato"
+          "form": "Hanno significato",
+          "ar": "عنوا"
         }
       ]
     },
@@ -11985,31 +12580,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho sentito"
+          "form": "Ho sentito",
+          "ar": "سمعت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai sentito"
+          "form": "Hai sentito",
+          "ar": "سمعت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha sentito"
+          "form": "Ha sentito",
+          "ar": "سمع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha sentito"
+          "form": "Ha sentito",
+          "ar": "سمعت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo sentito"
+          "form": "Abbiamo sentito",
+          "ar": "سمعنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete sentito"
+          "form": "Avete sentito",
+          "ar": "سمعتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno sentito"
+          "form": "Hanno sentito",
+          "ar": "سمعوا"
         }
       ]
     },
@@ -12125,31 +12727,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho conosciuto"
+          "form": "Ho conosciuto",
+          "ar": "عرفت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai conosciuto"
+          "form": "Hai conosciuto",
+          "ar": "عرفت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha conosciuto"
+          "form": "Ha conosciuto",
+          "ar": "عرف"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha conosciuto"
+          "form": "Ha conosciuto",
+          "ar": "عرفت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo conosciuto"
+          "form": "Abbiamo conosciuto",
+          "ar": "عرفنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete conosciuto"
+          "form": "Avete conosciuto",
+          "ar": "عرفتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno conosciuto"
+          "form": "Hanno conosciuto",
+          "ar": "عرفوا"
         }
       ]
     },
@@ -12265,31 +12874,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho dovuto"
+          "form": "Ho dovuto",
+          "ar": "كان لازم"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai dovuto"
+          "form": "Hai dovuto",
+          "ar": "كان لازم"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha dovuto"
+          "form": "Ha dovuto",
+          "ar": "كان لازم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha dovuto"
+          "form": "Ha dovuto",
+          "ar": "كان لازم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo dovuto"
+          "form": "Abbiamo dovuto",
+          "ar": "كان لازم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete dovuto"
+          "form": "Avete dovuto",
+          "ar": "كان لازم"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno dovuto"
+          "form": "Hanno dovuto",
+          "ar": "كان لازم"
         }
       ]
     },
@@ -12405,31 +13021,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho piovuto"
+          "form": "Ho piovuto",
+          "ar": "مطرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai piovuto"
+          "form": "Hai piovuto",
+          "ar": "مطرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha piovuto"
+          "form": "Ha piovuto",
+          "ar": "مطرت"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha piovuto"
+          "form": "Ha piovuto",
+          "ar": "مطرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo piovuto"
+          "form": "Abbiamo piovuto",
+          "ar": "مطرت"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete piovuto"
+          "form": "Avete piovuto",
+          "ar": "مطرت"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno piovuto"
+          "form": "Hanno piovuto",
+          "ar": "مطرت"
         }
       ]
     },
@@ -12545,31 +13168,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono piaciuto/a"
+          "form": "Sono piaciuto/a",
+          "ar": "عجبت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei piaciuto/a"
+          "form": "Sei piaciuto/a",
+          "ar": "عجبت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È piaciuto"
+          "form": "È piaciuto",
+          "ar": "عجب"
         },
         {
           "person": "Lei (هي)",
-          "form": "È piaciuta"
+          "form": "È piaciuta",
+          "ar": "عجبت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo piaciuti/e"
+          "form": "Siamo piaciuti/e",
+          "ar": "عجبنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete piaciuti/e"
+          "form": "Siete piaciuti/e",
+          "ar": "عجبتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono piaciuti/e"
+          "form": "Sono piaciuti/e",
+          "ar": "عجبوا"
         }
       ]
     },
@@ -12685,31 +13315,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho cambiato"
+          "form": "Ho cambiato",
+          "ar": "غيرت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai cambiato"
+          "form": "Hai cambiato",
+          "ar": "غيرت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha cambiato"
+          "form": "Ha cambiato",
+          "ar": "غير"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha cambiato"
+          "form": "Ha cambiato",
+          "ar": "غيرت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo cambiato"
+          "form": "Abbiamo cambiato",
+          "ar": "غيرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete cambiato"
+          "form": "Avete cambiato",
+          "ar": "غيرتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno cambiato"
+          "form": "Hanno cambiato",
+          "ar": "غيروا"
         }
       ]
     },
@@ -12825,31 +13462,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sono bastato/a"
+          "form": "Sono bastato/a",
+          "ar": "كفيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sei bastato/a"
+          "form": "Sei bastato/a",
+          "ar": "كفيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "È bastato"
+          "form": "È bastato",
+          "ar": "كفى"
         },
         {
           "person": "Lei (هي)",
-          "form": "È bastata"
+          "form": "È bastata",
+          "ar": "كفت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo bastati/e"
+          "form": "Siamo bastati/e",
+          "ar": "كفينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siete bastati/e"
+          "form": "Siete bastati/e",
+          "ar": "كفيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sono bastati/e"
+          "form": "Sono bastati/e",
+          "ar": "كفوا"
         }
       ]
     },
@@ -12967,31 +13611,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sono organizzato/a"
+          "form": "Mi sono organizzato/a",
+          "ar": "نظمت وقتي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sei organizzato/a"
+          "form": "Ti sei organizzato/a",
+          "ar": "نظمت وقتك"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si è organizzato"
+          "form": "Si è organizzato",
+          "ar": "نظم وقته"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si è organizzata"
+          "form": "Si è organizzata",
+          "ar": "نظمت وقتها"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci siamo organizzati/e"
+          "form": "Ci siamo organizzati/e",
+          "ar": "نظمنا وقتنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi siete organizzati/e"
+          "form": "Vi siete organizzati/e",
+          "ar": "نظمتوا وقتكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sono organizzati/e"
+          "form": "Si sono organizzati/e",
+          "ar": "نظموا وقتهم"
         }
       ]
     },
@@ -13107,31 +13758,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ho cenato"
+          "form": "Ho cenato",
+          "ar": "اتعشيت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Hai cenato"
+          "form": "Hai cenato",
+          "ar": "اتعشيت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ha cenato"
+          "form": "Ha cenato",
+          "ar": "اتعشى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ha cenato"
+          "form": "Ha cenato",
+          "ar": "اتعشت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo cenato"
+          "form": "Abbiamo cenato",
+          "ar": "اتعشينا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avete cenato"
+          "form": "Avete cenato",
+          "ar": "اتعشيتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Hanno cenato"
+          "form": "Hanno cenato",
+          "ar": "اتعشوا"
         }
       ]
     },
