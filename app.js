@@ -3397,7 +3397,12 @@ function renderGrammarBlocks(blocks,topicId){
     }
     if(b.type==='usage'){
       const aliasNorms=(b.formAliases||[]).map(a=>normalizeGrammarWord(a));
-      const formNorm=[normalizeGrammarWord(b.form||b.title||''),...aliasNorms].filter(Boolean).join(' ').replace(/"/g,'&quot;');
+      // بالإضافة للـ form الأساسي وأي formAliases يدوية، بنضيف كل صيغة مدمجة
+      // (al/dei/nel/sul...) مسجلة فعليًا جوه form بتاع كل مثال في البلوك ده —
+      // عشان الدوسة على أي شكل مدمج فعلي تلاقي مكانها الصح من غير ما نكتب كل
+      // صيغة يدويًا لكل بلوك (ده اللي كان بيسبب "al"/"dei" ما تتلاقيش).
+      const exampleFormNorms=(b.examples||[]).map(ex=>normalizeGrammarWord(ex.form||'')).filter(Boolean);
+      const formNorm=[normalizeGrammarWord(b.form||b.title||''),...aliasNorms,...exampleFormNorms].filter(Boolean).join(' ').replace(/"/g,'&quot;');
       let html='<div class="gm-usage-block" data-word="'+formNorm+'" data-color="'+escGm(b.color||'')+'" style="border:1px solid '+escGm(b.color||'#64748b')+';border-right:6px solid '+escGm(b.color||'#64748b')+';border-radius:12px;padding:10px;margin:10px 0;background:color-mix(in srgb,'+escGm(b.color||'#64748b')+' 9%,transparent)">';
       html+='<div style="font-weight:900;color:'+escGm(b.color||'#64748b')+'">'+escGm(b.title)+' — '+escGm(b.meaning)+'</div>';
       html+='<div style="margin:5px 0">'+escGm(b.description||'')+'</div>';
