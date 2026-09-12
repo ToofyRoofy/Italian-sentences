@@ -125,23 +125,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Aiuta"
+          "form": "Aiuta",
+          "ar": "ساعد"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Aiuti"
+          "form": "Aiuti",
+          "ar": "ساعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Aiutiamo"
+          "form": "Aiutiamo",
+          "ar": "يلا نساعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Aiutate"
+          "form": "Aiutate",
+          "ar": "ساعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Aiutino"
+          "form": "Aiutino",
+          "ar": "ساعدوا"
         }
       ]
     }
@@ -272,23 +277,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Va' / Vai"
+          "form": "Va' / Vai",
+          "ar": "روح"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Vada"
+          "form": "Vada",
+          "ar": "روح"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Andiamo"
+          "form": "Andiamo",
+          "ar": "يلا بينا نروح"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Andate"
+          "form": "Andate",
+          "ar": "روحوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Vadano"
+          "form": "Vadano",
+          "ar": "روحوا"
         }
       ]
     }
@@ -419,23 +429,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Arriva"
+          "form": "Arriva",
+          "ar": "وصل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Arrivi"
+          "form": "Arrivi",
+          "ar": "وصل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Arriviamo"
+          "form": "Arriviamo",
+          "ar": "يلا نوصل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Arrivate"
+          "form": "Arrivate",
+          "ar": "وصلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Arrivino"
+          "form": "Arrivino",
+          "ar": "وصلوا"
         }
       ]
     }
@@ -566,23 +581,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Ascolta"
+          "form": "Ascolta",
+          "ar": "اسمع"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Ascolti"
+          "form": "Ascolti",
+          "ar": "اسمع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ascoltiamo"
+          "form": "Ascoltiamo",
+          "ar": "يلا نسمع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ascoltate"
+          "form": "Ascoltate",
+          "ar": "اسمعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Ascoltino"
+          "form": "Ascoltino",
+          "ar": "اسمعوا"
         }
       ]
     }
@@ -713,23 +733,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Aspetta"
+          "form": "Aspetta",
+          "ar": "انتظر"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Aspetti"
+          "form": "Aspetti",
+          "ar": "انتظر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Aspettiamo"
+          "form": "Aspettiamo",
+          "ar": "يلا ننتظر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Aspettate"
+          "form": "Aspettate",
+          "ar": "انتظروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Aspettino"
+          "form": "Aspettino",
+          "ar": "انتظروا"
         }
       ]
     }
@@ -860,23 +885,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Bussa"
+          "form": "Bussa",
+          "ar": "اخبط"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Bussi"
+          "form": "Bussi",
+          "ar": "اخبط"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Bussiamo"
+          "form": "Bussiamo",
+          "ar": "يلا نخبط"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Bussate"
+          "form": "Bussate",
+          "ar": "اخبطوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Bussino"
+          "form": "Bussino",
+          "ar": "اخبطوا"
         }
       ]
     }
@@ -1007,23 +1037,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Cammina"
+          "form": "Cammina",
+          "ar": "امشي"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Cammini"
+          "form": "Cammini",
+          "ar": "امشي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Camminiamo"
+          "form": "Camminiamo",
+          "ar": "يلا نمشي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Camminate"
+          "form": "Camminate",
+          "ar": "امشوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Camminino"
+          "form": "Camminino",
+          "ar": "امشوا"
         }
       ]
     }
@@ -1154,23 +1189,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Cerca"
+          "form": "Cerca",
+          "ar": "ابحث"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Cerchi"
+          "form": "Cerchi",
+          "ar": "ابحث"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Cerchiamo"
+          "form": "Cerchiamo",
+          "ar": "يلا نبحث"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cercate"
+          "form": "Cercate",
+          "ar": "ابحثوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cerchino"
+          "form": "Cerchino",
+          "ar": "ابحثوا"
         }
       ]
     }
@@ -1301,23 +1341,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Chiama"
+          "form": "Chiama",
+          "ar": "نادي"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Chiami"
+          "form": "Chiami",
+          "ar": "نادي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Chiamiamo"
+          "form": "Chiamiamo",
+          "ar": "يلا ننادي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Chiamate"
+          "form": "Chiamate",
+          "ar": "نادوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Chiamino"
+          "form": "Chiamino",
+          "ar": "نادوا"
         }
       ]
     }
@@ -1448,23 +1493,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Compra"
+          "form": "Compra",
+          "ar": "اشتري"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Compri"
+          "form": "Compri",
+          "ar": "اشتري"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Compriamo"
+          "form": "Compriamo",
+          "ar": "يلا نشتري"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Comprate"
+          "form": "Comprate",
+          "ar": "اشتروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Comprino"
+          "form": "Comprino",
+          "ar": "اشتروا"
         }
       ]
     }
@@ -1595,23 +1645,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Gioca"
+          "form": "Gioca",
+          "ar": "العب"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Giochi"
+          "form": "Giochi",
+          "ar": "العب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Giochiamo"
+          "form": "Giochiamo",
+          "ar": "يلا نلعب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Giocate"
+          "form": "Giocate",
+          "ar": "العبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Giochino"
+          "form": "Giochino",
+          "ar": "العبوا"
         }
       ]
     }
@@ -1742,23 +1797,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Guarda"
+          "form": "Guarda",
+          "ar": "اتفرج"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Guardi"
+          "form": "Guardi",
+          "ar": "اتفرج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Guardiamo"
+          "form": "Guardiamo",
+          "ar": "يلا نتفرج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Guardate"
+          "form": "Guardate",
+          "ar": "اتفرجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Guardino"
+          "form": "Guardino",
+          "ar": "اتفرجوا"
         }
       ]
     }
@@ -1889,23 +1949,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Incontra"
+          "form": "Incontra",
+          "ar": "قابل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Incontri"
+          "form": "Incontri",
+          "ar": "قابل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Incontriamo"
+          "form": "Incontriamo",
+          "ar": "يلا نقابل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Incontrate"
+          "form": "Incontrate",
+          "ar": "قابلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Incontrino"
+          "form": "Incontrino",
+          "ar": "قابلوا"
         }
       ]
     }
@@ -2036,23 +2101,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Lavora"
+          "form": "Lavora",
+          "ar": "اشتغل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Lavori"
+          "form": "Lavori",
+          "ar": "اشتغل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Lavoriamo"
+          "form": "Lavoriamo",
+          "ar": "يلا نشتغل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Lavorate"
+          "form": "Lavorate",
+          "ar": "اشتغلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Lavorino"
+          "form": "Lavorino",
+          "ar": "اشتغلوا"
         }
       ]
     }
@@ -2183,23 +2253,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Mangia"
+          "form": "Mangia",
+          "ar": "كل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Mangi"
+          "form": "Mangi",
+          "ar": "كل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Mangiamo"
+          "form": "Mangiamo",
+          "ar": "يلا ناكل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Mangiate"
+          "form": "Mangiate",
+          "ar": "كلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Mangino"
+          "form": "Mangino",
+          "ar": "كلوا"
         }
       ]
     }
@@ -2330,23 +2405,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Paga"
+          "form": "Paga",
+          "ar": "ادفع"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Paghi"
+          "form": "Paghi",
+          "ar": "ادفع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Paghiamo"
+          "form": "Paghiamo",
+          "ar": "يلا ندفع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Pagate"
+          "form": "Pagate",
+          "ar": "ادفعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Paghino"
+          "form": "Paghino",
+          "ar": "ادفعوا"
         }
       ]
     }
@@ -2477,23 +2557,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Porta"
+          "form": "Porta",
+          "ar": "هات"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Porti"
+          "form": "Porti",
+          "ar": "هات"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Portiamo"
+          "form": "Portiamo",
+          "ar": "يلا نجيب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Portate"
+          "form": "Portate",
+          "ar": "هاتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Portino"
+          "form": "Portino",
+          "ar": "هاتوا"
         }
       ]
     }
@@ -2624,23 +2709,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Resta"
+          "form": "Resta",
+          "ar": "افضل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Resti"
+          "form": "Resti",
+          "ar": "افضل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Restiamo"
+          "form": "Restiamo",
+          "ar": "يلا نفضل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Restate"
+          "form": "Restate",
+          "ar": "افضلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Restino"
+          "form": "Restino",
+          "ar": "افضلوا"
         }
       ]
     }
@@ -2771,23 +2861,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Ringrazia"
+          "form": "Ringrazia",
+          "ar": "اشكر"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Ringrazi"
+          "form": "Ringrazi",
+          "ar": "اشكر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ringraziamo"
+          "form": "Ringraziamo",
+          "ar": "يلا نشكر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ringraziate"
+          "form": "Ringraziate",
+          "ar": "اشكروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Ringrazino"
+          "form": "Ringrazino",
+          "ar": "اشكروا"
         }
       ]
     }
@@ -2918,23 +3013,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Saluta"
+          "form": "Saluta",
+          "ar": "سلم على"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Saluti"
+          "form": "Saluti",
+          "ar": "سلم على"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Salutiamo"
+          "form": "Salutiamo",
+          "ar": "يلا نسلم على"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Salutate"
+          "form": "Salutate",
+          "ar": "سلموا على"
         },
         {
           "person": "Loro (هم)",
-          "form": "Salutino"
+          "form": "Salutino",
+          "ar": "سلموا على"
         }
       ]
     }
@@ -3065,23 +3165,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Studia"
+          "form": "Studia",
+          "ar": "ادرس"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Studi"
+          "form": "Studi",
+          "ar": "ادرس"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Studiamo"
+          "form": "Studiamo",
+          "ar": "يلا ندرس"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Studiate"
+          "form": "Studiate",
+          "ar": "ادرسوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Studino"
+          "form": "Studino",
+          "ar": "ادرسوا"
         }
       ]
     }
@@ -3212,23 +3317,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Telefona"
+          "form": "Telefona",
+          "ar": "اتصل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Telefoni"
+          "form": "Telefoni",
+          "ar": "اتصل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Telefoniamo"
+          "form": "Telefoniamo",
+          "ar": "يلا نتصل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Telefonate"
+          "form": "Telefonate",
+          "ar": "اتصلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Telefonino"
+          "form": "Telefonino",
+          "ar": "اتصلوا"
         }
       ]
     }
@@ -3359,23 +3469,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Torna"
+          "form": "Torna",
+          "ar": "ارجع"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Torni"
+          "form": "Torni",
+          "ar": "ارجع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Torniamo"
+          "form": "Torniamo",
+          "ar": "يلا نرجع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Tornate"
+          "form": "Tornate",
+          "ar": "ارجعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Tornino"
+          "form": "Tornino",
+          "ar": "ارجعوا"
         }
       ]
     }
@@ -3506,23 +3621,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Trova"
+          "form": "Trova",
+          "ar": "لاقي"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Trovi"
+          "form": "Trovi",
+          "ar": "لاقي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Troviamo"
+          "form": "Troviamo",
+          "ar": "يلا نلاقي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Trovate"
+          "form": "Trovate",
+          "ar": "لاقوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Trovino"
+          "form": "Trovino",
+          "ar": "لاقوا"
         }
       ]
     }
@@ -3653,23 +3773,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Viaggia"
+          "form": "Viaggia",
+          "ar": "سافر"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Viaggi"
+          "form": "Viaggi",
+          "ar": "سافر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Viaggiamo"
+          "form": "Viaggiamo",
+          "ar": "يلا نسافر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Viaggiate"
+          "form": "Viaggiate",
+          "ar": "سافروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Viaggino"
+          "form": "Viaggino",
+          "ar": "سافروا"
         }
       ]
     }
@@ -3800,23 +3925,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Fa' / Fai"
+          "form": "Fa' / Fai",
+          "ar": "اعمل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Faccia"
+          "form": "Faccia",
+          "ar": "اعمل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Facciamo"
+          "form": "Facciamo",
+          "ar": "يلا نعمل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Fate"
+          "form": "Fate",
+          "ar": "اعملوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Facciano"
+          "form": "Facciano",
+          "ar": "اعملوا"
         }
       ]
     }
@@ -3947,23 +4077,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Da' / Dai"
+          "form": "Da' / Dai",
+          "ar": "ادّي"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Dia"
+          "form": "Dia",
+          "ar": "ادّي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Diamo"
+          "form": "Diamo",
+          "ar": "يلا نديّ"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Date"
+          "form": "Date",
+          "ar": "ادّوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Diano"
+          "form": "Diano",
+          "ar": "ادّوا"
         }
       ]
     }
@@ -4094,23 +4229,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Funziona"
+          "form": "Funziona",
+          "ar": "اشتغل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Funzioni"
+          "form": "Funzioni",
+          "ar": "اشتغل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Funzioniamo"
+          "form": "Funzioniamo",
+          "ar": "يلا نشغّله"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Funzionate"
+          "form": "Funzionate",
+          "ar": "اشتغلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Funzionino"
+          "form": "Funzionino",
+          "ar": "اشتغلوا"
         }
       ]
     }
@@ -4241,23 +4381,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Parla"
+          "form": "Parla",
+          "ar": "اتكلم"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Parli"
+          "form": "Parli",
+          "ar": "اتكلم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Parliamo"
+          "form": "Parliamo",
+          "ar": "يلا نتكلم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Parlate"
+          "form": "Parlate",
+          "ar": "اتكلموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Parlino"
+          "form": "Parlino",
+          "ar": "اتكلموا"
         }
       ]
     }
@@ -4388,23 +4533,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Passeggia"
+          "form": "Passeggia",
+          "ar": "اتمشى"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Passeggi"
+          "form": "Passeggi",
+          "ar": "اتمشى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Passeggiamo"
+          "form": "Passeggiamo",
+          "ar": "يلا نتمشى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Passeggiate"
+          "form": "Passeggiate",
+          "ar": "اتمشوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Passeggino"
+          "form": "Passeggino",
+          "ar": "اتمشوا"
         }
       ]
     }
@@ -4535,23 +4685,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Svegliati"
+          "form": "Svegliati",
+          "ar": "اصحى"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si svegli"
+          "form": "Si svegli",
+          "ar": "اصحى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Svegliamoci"
+          "form": "Svegliamoci",
+          "ar": "يلا نصحى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Svegliatevi"
+          "form": "Svegliatevi",
+          "ar": "اصحوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sveglino"
+          "form": "Si sveglino",
+          "ar": "اصحوا"
         }
       ]
     },
@@ -4684,23 +4839,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Credi"
+          "form": "Credi",
+          "ar": "صدق"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Creda"
+          "form": "Creda",
+          "ar": "صدق"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Crediamo"
+          "form": "Crediamo",
+          "ar": "يلا نصدق"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Credete"
+          "form": "Credete",
+          "ar": "صدقوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Credano"
+          "form": "Credano",
+          "ar": "صدقوا"
         }
       ]
     }
@@ -4831,23 +4991,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Leggi"
+          "form": "Leggi",
+          "ar": "اقرا"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Legga"
+          "form": "Legga",
+          "ar": "اقرا"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Leggiamo"
+          "form": "Leggiamo",
+          "ar": "يلا نقرا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Leggete"
+          "form": "Leggete",
+          "ar": "اقروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Leggano"
+          "form": "Leggano",
+          "ar": "اقروا"
         }
       ]
     }
@@ -4978,23 +5143,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Prendi"
+          "form": "Prendi",
+          "ar": "خد"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Prenda"
+          "form": "Prenda",
+          "ar": "خد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Prendiamo"
+          "form": "Prendiamo",
+          "ar": "يلا ناخد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Prendete"
+          "form": "Prendete",
+          "ar": "خدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Prendano"
+          "form": "Prendano",
+          "ar": "خدوا"
         }
       ]
     }
@@ -5125,23 +5295,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Prometti"
+          "form": "Prometti",
+          "ar": "اوعد"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Prometta"
+          "form": "Prometta",
+          "ar": "اوعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Promettiamo"
+          "form": "Promettiamo",
+          "ar": "يلا نوعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Promettete"
+          "form": "Promettete",
+          "ar": "اوعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Promettano"
+          "form": "Promettano",
+          "ar": "اوعدوا"
         }
       ]
     }
@@ -5272,23 +5447,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Scrivi"
+          "form": "Scrivi",
+          "ar": "اكتب"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Scriva"
+          "form": "Scriva",
+          "ar": "اكتب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Scriviamo"
+          "form": "Scriviamo",
+          "ar": "يلا نكتب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Scrivete"
+          "form": "Scrivete",
+          "ar": "اكتبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Scrivano"
+          "form": "Scrivano",
+          "ar": "اكتبوا"
         }
       ]
     }
@@ -5419,23 +5599,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Vedi"
+          "form": "Vedi",
+          "ar": "شوف"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Veda"
+          "form": "Veda",
+          "ar": "شوف"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Vediamo"
+          "form": "Vediamo",
+          "ar": "يلا نشوف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vedete"
+          "form": "Vedete",
+          "ar": "شوفوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Vedano"
+          "form": "Vedano",
+          "ar": "شوفوا"
         }
       ]
     }
@@ -5566,23 +5751,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Vendi"
+          "form": "Vendi",
+          "ar": "بيع"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Venda"
+          "form": "Venda",
+          "ar": "بيع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Vendiamo"
+          "form": "Vendiamo",
+          "ar": "يلا نبيع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vendete"
+          "form": "Vendete",
+          "ar": "بيعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Vendano"
+          "form": "Vendano",
+          "ar": "بيعوا"
         }
       ]
     }
@@ -5713,23 +5903,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Abbi"
+          "form": "Abbi",
+          "ar": "امتلك"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Abbia"
+          "form": "Abbia",
+          "ar": "امتلك"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Abbiamo"
+          "form": "Abbiamo",
+          "ar": "يلا نمتلك"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Abbiate"
+          "form": "Abbiate",
+          "ar": "امتلكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Abbiano"
+          "form": "Abbiano",
+          "ar": "امتلكوا"
         }
       ]
     }
@@ -5860,23 +6055,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Sii"
+          "form": "Sii",
+          "ar": "كن"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Sia"
+          "form": "Sia",
+          "ar": "كن"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Siamo"
+          "form": "Siamo",
+          "ar": "يلا نكون"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Siate"
+          "form": "Siate",
+          "ar": "كونوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Siano"
+          "form": "Siano",
+          "ar": "كونوا"
         }
       ]
     }
@@ -6007,23 +6207,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Noi (نحن)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Loro (هم)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         }
       ]
     }
@@ -6154,23 +6359,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Sappi"
+          "form": "Sappi",
+          "ar": "اعرف"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Sappia"
+          "form": "Sappia",
+          "ar": "اعرف"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sappiamo"
+          "form": "Sappiamo",
+          "ar": "يلا نعرف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sappiate"
+          "form": "Sappiate",
+          "ar": "اعرفوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sappiano"
+          "form": "Sappiano",
+          "ar": "اعرفوا"
         }
       ]
     }
@@ -6301,23 +6511,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Noi (نحن)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vogliate"
+          "form": "Vogliate",
+          "ar": "لو سمحتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         }
       ]
     }
@@ -6448,23 +6663,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Taci"
+          "form": "Taci",
+          "ar": "اسكت"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Taccia"
+          "form": "Taccia",
+          "ar": "اسكت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Taciamo"
+          "form": "Taciamo",
+          "ar": "يلا نسكت"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Tacete"
+          "form": "Tacete",
+          "ar": "اسكتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Tacciano"
+          "form": "Tacciano",
+          "ar": "اسكتوا"
         }
       ]
     }
@@ -6595,23 +6815,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Apprendi"
+          "form": "Apprendi",
+          "ar": "اتعلم"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Apprenda"
+          "form": "Apprenda",
+          "ar": "اتعلم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Apprendiamo"
+          "form": "Apprendiamo",
+          "ar": "يلا نتعلم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Apprendete"
+          "form": "Apprendete",
+          "ar": "اتعلموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Apprendano"
+          "form": "Apprendano",
+          "ar": "اتعلموا"
         }
       ]
     }
@@ -6742,23 +6967,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Capisci"
+          "form": "Capisci",
+          "ar": "افهم"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Capisca"
+          "form": "Capisca",
+          "ar": "افهم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Capiamo"
+          "form": "Capiamo",
+          "ar": "يلا نفهم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Capite"
+          "form": "Capite",
+          "ar": "افهموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Capiscano"
+          "form": "Capiscano",
+          "ar": "افهموا"
         }
       ]
     }
@@ -6889,23 +7119,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Di'"
+          "form": "Di'",
+          "ar": "قول"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Dica"
+          "form": "Dica",
+          "ar": "قول"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Diciamo"
+          "form": "Diciamo",
+          "ar": "يلا نقول"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Dite"
+          "form": "Dite",
+          "ar": "قولوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Dicano"
+          "form": "Dicano",
+          "ar": "قولوا"
         }
       ]
     }
@@ -7036,23 +7271,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Finisci"
+          "form": "Finisci",
+          "ar": "خلص"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Finisca"
+          "form": "Finisca",
+          "ar": "خلص"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Finiamo"
+          "form": "Finiamo",
+          "ar": "يلا نخلص"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Finite"
+          "form": "Finite",
+          "ar": "خلصوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Finiscano"
+          "form": "Finiscano",
+          "ar": "خلصوا"
         }
       ]
     }
@@ -7183,23 +7423,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Parti"
+          "form": "Parti",
+          "ar": "سافر"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Parta"
+          "form": "Parta",
+          "ar": "سافر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Partiamo"
+          "form": "Partiamo",
+          "ar": "يلا نسافر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Partite"
+          "form": "Partite",
+          "ar": "سافروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Partano"
+          "form": "Partano",
+          "ar": "سافروا"
         }
       ]
     }
@@ -7330,23 +7575,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Pulisci"
+          "form": "Pulisci",
+          "ar": "نضف"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Pulisca"
+          "form": "Pulisca",
+          "ar": "نضف"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Puliamo"
+          "form": "Puliamo",
+          "ar": "يلا ننضف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Pulite"
+          "form": "Pulite",
+          "ar": "نضفوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Puliscano"
+          "form": "Puliscano",
+          "ar": "نضفوا"
         }
       ]
     }
@@ -7477,23 +7727,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Esci"
+          "form": "Esci",
+          "ar": "اخرج"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Esca"
+          "form": "Esca",
+          "ar": "اخرج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Usciamo"
+          "form": "Usciamo",
+          "ar": "يلا نخرج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Uscite"
+          "form": "Uscite",
+          "ar": "اخرجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Escano"
+          "form": "Escano",
+          "ar": "اخرجوا"
         }
       ]
     }
@@ -7624,23 +7879,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Cucina"
+          "form": "Cucina",
+          "ar": "اطبخ"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Cucini"
+          "form": "Cucini",
+          "ar": "اطبخ"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Cuciniamo"
+          "form": "Cuciniamo",
+          "ar": "يلا نطبخ"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cucinate"
+          "form": "Cucinate",
+          "ar": "اطبخوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cucinino"
+          "form": "Cucinino",
+          "ar": "اطبخوا"
         }
       ]
     }
@@ -7771,23 +8031,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Pensa"
+          "form": "Pensa",
+          "ar": "فكر"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Pensi"
+          "form": "Pensi",
+          "ar": "فكر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Pensiamo"
+          "form": "Pensiamo",
+          "ar": "يلا نفكر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Pensate"
+          "form": "Pensate",
+          "ar": "فكروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Pensino"
+          "form": "Pensino",
+          "ar": "فكروا"
         }
       ]
     }
@@ -7918,23 +8183,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Piangi"
+          "form": "Piangi",
+          "ar": "عيط"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Pianga"
+          "form": "Pianga",
+          "ar": "عيط"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Piangiamo"
+          "form": "Piangiamo",
+          "ar": "يلا نعيط"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Piangete"
+          "form": "Piangete",
+          "ar": "عيطوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Piangano"
+          "form": "Piangano",
+          "ar": "عيطوا"
         }
       ]
     }
@@ -8065,23 +8335,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Ridi"
+          "form": "Ridi",
+          "ar": "اضحك"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Rida"
+          "form": "Rida",
+          "ar": "اضحك"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ridiamo"
+          "form": "Ridiamo",
+          "ar": "يلا نضحك"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ridete"
+          "form": "Ridete",
+          "ar": "اضحكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Ridano"
+          "form": "Ridano",
+          "ar": "اضحكوا"
         }
       ]
     }
@@ -8212,23 +8487,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Dormi"
+          "form": "Dormi",
+          "ar": "نام"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Dorma"
+          "form": "Dorma",
+          "ar": "نام"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Dormiamo"
+          "form": "Dormiamo",
+          "ar": "يلا ننام"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Dormite"
+          "form": "Dormite",
+          "ar": "ناموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Dormano"
+          "form": "Dormano",
+          "ar": "ناموا"
         }
       ]
     }
@@ -8359,23 +8639,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Sogna"
+          "form": "Sogna",
+          "ar": "احلم"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Sogni"
+          "form": "Sogni",
+          "ar": "احلم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sogniamo"
+          "form": "Sogniamo",
+          "ar": "يلا نحلم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sognate"
+          "form": "Sognate",
+          "ar": "احلموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sognino"
+          "form": "Sognino",
+          "ar": "احلموا"
         }
       ]
     }
@@ -8506,23 +8791,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Spera"
+          "form": "Spera",
+          "ar": "اتمنى"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Speri"
+          "form": "Speri",
+          "ar": "اتمنى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Speriamo"
+          "form": "Speriamo",
+          "ar": "يلا نتمنى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sperate"
+          "form": "Sperate",
+          "ar": "اتمنوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sperino"
+          "form": "Sperino",
+          "ar": "اتمنوا"
         }
       ]
     }
@@ -8653,23 +8943,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Spiega"
+          "form": "Spiega",
+          "ar": "اشرح"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Spieghi"
+          "form": "Spieghi",
+          "ar": "اشرح"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Spieghiamo"
+          "form": "Spieghiamo",
+          "ar": "يلا نشرح"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Spiegate"
+          "form": "Spiegate",
+          "ar": "اشرحوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Spieghino"
+          "form": "Spieghino",
+          "ar": "اشرحوا"
         }
       ]
     }
@@ -8800,23 +9095,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Sta'"
+          "form": "Sta'",
+          "ar": "اقعد"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Stia"
+          "form": "Stia",
+          "ar": "اقعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Stiamo"
+          "form": "Stiamo",
+          "ar": "يلا نقعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "State"
+          "form": "State",
+          "ar": "اقعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Stiano"
+          "form": "Stiano",
+          "ar": "اقعدوا"
         }
       ]
     }
@@ -8947,23 +9247,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Bevi"
+          "form": "Bevi",
+          "ar": "اشرب"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Beva"
+          "form": "Beva",
+          "ar": "اشرب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Beviamo"
+          "form": "Beviamo",
+          "ar": "يلا نشرب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Bevete"
+          "form": "Bevete",
+          "ar": "اشربوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Bevano"
+          "form": "Bevano",
+          "ar": "اشربوا"
         }
       ]
     }
@@ -9094,23 +9399,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Poni"
+          "form": "Poni",
+          "ar": "حط"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Ponga"
+          "form": "Ponga",
+          "ar": "حط"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Poniamo"
+          "form": "Poniamo",
+          "ar": "يلا نحط"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ponete"
+          "form": "Ponete",
+          "ar": "حطوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Pongano"
+          "form": "Pongano",
+          "ar": "حطوا"
         }
       ]
     }
@@ -9241,23 +9551,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Traduci"
+          "form": "Traduci",
+          "ar": "ترجم"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Traduca"
+          "form": "Traduca",
+          "ar": "ترجم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Traduciamo"
+          "form": "Traduciamo",
+          "ar": "يلا نترجم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Traducete"
+          "form": "Traducete",
+          "ar": "ترجموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Traducano"
+          "form": "Traducano",
+          "ar": "ترجموا"
         }
       ]
     }
@@ -9388,23 +9703,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Produci"
+          "form": "Produci",
+          "ar": "انتج"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Produca"
+          "form": "Produca",
+          "ar": "انتج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Produciamo"
+          "form": "Produciamo",
+          "ar": "يلا ننتج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Producete"
+          "form": "Producete",
+          "ar": "انتجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Producano"
+          "form": "Producano",
+          "ar": "انتجوا"
         }
       ]
     }
@@ -9537,23 +9857,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Alzati"
+          "form": "Alzati",
+          "ar": "قوم"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si alzi"
+          "form": "Si alzi",
+          "ar": "قوم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Alziamoci"
+          "form": "Alziamoci",
+          "ar": "يلا نقوم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Alzatevi"
+          "form": "Alzatevi",
+          "ar": "قوموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si alzino"
+          "form": "Si alzino",
+          "ar": "قوموا"
         }
       ]
     }
@@ -9686,23 +10011,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Lavati"
+          "form": "Lavati",
+          "ar": "اتغسل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si lavi"
+          "form": "Si lavi",
+          "ar": "اتغسل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Laviamoci"
+          "form": "Laviamoci",
+          "ar": "يلا نتغسل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Lavatevi"
+          "form": "Lavatevi",
+          "ar": "اتغسلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si lavino"
+          "form": "Si lavino",
+          "ar": "اتغسلوا"
         }
       ]
     }
@@ -9835,23 +10165,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Chiamati"
+          "form": "Chiamati",
+          "ar": "سمي نفسك"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si chiami"
+          "form": "Si chiami",
+          "ar": "سمي نفسك"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Chiamiamoci"
+          "form": "Chiamiamoci",
+          "ar": "يلا نسمي نفسنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Chiamatevi"
+          "form": "Chiamatevi",
+          "ar": "سموا نفسكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si chiamino"
+          "form": "Si chiamino",
+          "ar": "سموا نفسهم"
         }
       ]
     }
@@ -9984,23 +10319,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Riposati"
+          "form": "Riposati",
+          "ar": "استريح"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si riposi"
+          "form": "Si riposi",
+          "ar": "استريح"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Riposiamoci"
+          "form": "Riposiamoci",
+          "ar": "يلا نستريح"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Riposatevi"
+          "form": "Riposatevi",
+          "ar": "استريحوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si riposino"
+          "form": "Si riposino",
+          "ar": "استريحوا"
         }
       ]
     }
@@ -10133,23 +10473,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Preparati"
+          "form": "Preparati",
+          "ar": "استعد"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si prepari"
+          "form": "Si prepari",
+          "ar": "استعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Prepariamoci"
+          "form": "Prepariamoci",
+          "ar": "يلا نستعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Preparatevi"
+          "form": "Preparatevi",
+          "ar": "استعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si preparino"
+          "form": "Si preparino",
+          "ar": "استعدوا"
         }
       ]
     }
@@ -10282,23 +10627,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Arrabbiati"
+          "form": "Arrabbiati",
+          "ar": "اغضب"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si arrabbi"
+          "form": "Si arrabbi",
+          "ar": "اغضب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Arrabbiamoci"
+          "form": "Arrabbiamoci",
+          "ar": "يلا نغضب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Arrabbiatevi"
+          "form": "Arrabbiatevi",
+          "ar": "اغضبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si arrabbino"
+          "form": "Si arrabbino",
+          "ar": "اغضبوا"
         }
       ]
     }
@@ -10431,23 +10781,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Ricordati"
+          "form": "Ricordati",
+          "ar": "اتذكر"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si ricordi"
+          "form": "Si ricordi",
+          "ar": "اتذكر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ricordiamoci"
+          "form": "Ricordiamoci",
+          "ar": "يلا نتذكر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ricordatevi"
+          "form": "Ricordatevi",
+          "ar": "اتذكروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si ricordino"
+          "form": "Si ricordino",
+          "ar": "اتذكروا"
         }
       ]
     }
@@ -10580,23 +10935,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Addormentati"
+          "form": "Addormentati",
+          "ar": "نام"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si addormenti"
+          "form": "Si addormenti",
+          "ar": "نام"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Addormentiamoci"
+          "form": "Addormentiamoci",
+          "ar": "يلا ننام"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Addormentatevi"
+          "form": "Addormentatevi",
+          "ar": "ناموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si addormentino"
+          "form": "Si addormentino",
+          "ar": "ناموا"
         }
       ]
     }
@@ -10729,23 +11089,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Trovati"
+          "form": "Trovati",
+          "ar": "كن هناك"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si trovi"
+          "form": "Si trovi",
+          "ar": "كن هناك"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Troviamoci"
+          "form": "Troviamoci",
+          "ar": "يلا نكون هناك"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Trovatevi"
+          "form": "Trovatevi",
+          "ar": "كونوا هناك"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si trovino"
+          "form": "Si trovino",
+          "ar": "كونوا هناك"
         }
       ]
     }
@@ -10878,23 +11243,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Sposati"
+          "form": "Sposati",
+          "ar": "اتجوز"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si sposi"
+          "form": "Si sposi",
+          "ar": "اتجوز"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sposiamoci"
+          "form": "Sposiamoci",
+          "ar": "يلا نتجوز"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sposatevi"
+          "form": "Sposatevi",
+          "ar": "اتجوزوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sposino"
+          "form": "Si sposino",
+          "ar": "اتجوزوا"
         }
       ]
     }
@@ -11027,23 +11397,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Laureati"
+          "form": "Laureati",
+          "ar": "اتخرج"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si laurei"
+          "form": "Si laurei",
+          "ar": "اتخرج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Laureiamoci"
+          "form": "Laureiamoci",
+          "ar": "يلا نتخرج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Laureatevi"
+          "form": "Laureatevi",
+          "ar": "اتخرجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si laureino"
+          "form": "Si laureino",
+          "ar": "اتخرجوا"
         }
       ]
     }
@@ -11176,23 +11551,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Annoiati"
+          "form": "Annoiati",
+          "ar": "ازهق"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si annoi"
+          "form": "Si annoi",
+          "ar": "ازهق"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Annoiamoci"
+          "form": "Annoiamoci",
+          "ar": "يلا نزهق"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Annoiatevi"
+          "form": "Annoiatevi",
+          "ar": "ازهقوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si annoino"
+          "form": "Si annoino",
+          "ar": "ازهقوا"
         }
       ]
     }
@@ -11325,23 +11705,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Pettinati"
+          "form": "Pettinati",
+          "ar": "مشط شعرك"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si pettini"
+          "form": "Si pettini",
+          "ar": "مشط شعرك"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Pettiniamoci"
+          "form": "Pettiniamoci",
+          "ar": "يلا نمشط شعرنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Pettinatevi"
+          "form": "Pettinatevi",
+          "ar": "مشطوا شعركوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si pettinino"
+          "form": "Si pettinino",
+          "ar": "مشطوا شعرهم"
         }
       ]
     }
@@ -11474,23 +11859,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Vestiti"
+          "form": "Vestiti",
+          "ar": "البس"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si vesta"
+          "form": "Si vesta",
+          "ar": "البس"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Vestiamoci"
+          "form": "Vestiamoci",
+          "ar": "يلا نلبس"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vestitevi"
+          "form": "Vestitevi",
+          "ar": "البسوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si vestano"
+          "form": "Si vestano",
+          "ar": "البسوا"
         }
       ]
     }
@@ -11623,23 +12013,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Divertiti"
+          "form": "Divertiti",
+          "ar": "استمتع"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si diverta"
+          "form": "Si diverta",
+          "ar": "استمتع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Divertiamoci"
+          "form": "Divertiamoci",
+          "ar": "يلا نستمتع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Divertitevi"
+          "form": "Divertitevi",
+          "ar": "استمتعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si divertano"
+          "form": "Si divertano",
+          "ar": "استمتعوا"
         }
       ]
     }
@@ -11772,23 +12167,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Sentiti"
+          "form": "Sentiti",
+          "ar": "حس"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si senta"
+          "form": "Si senta",
+          "ar": "حس"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sentiamoci"
+          "form": "Sentiamoci",
+          "ar": "يلا نحس"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sentitevi"
+          "form": "Sentitevi",
+          "ar": "حسوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sentano"
+          "form": "Si sentano",
+          "ar": "حسوا"
         }
       ]
     }
@@ -11921,23 +12321,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Mettiti"
+          "form": "Mettiti",
+          "ar": "البس"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si metta"
+          "form": "Si metta",
+          "ar": "البس"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Mettiamoci"
+          "form": "Mettiamoci",
+          "ar": "يلا نلبس"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Mettetevi"
+          "form": "Mettetevi",
+          "ar": "البسوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si mettano"
+          "form": "Si mettano",
+          "ar": "البسوا"
         }
       ]
     }
@@ -12070,23 +12475,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Siediti"
+          "form": "Siediti",
+          "ar": "اقعد"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si sieda"
+          "form": "Si sieda",
+          "ar": "اقعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sediamoci"
+          "form": "Sediamoci",
+          "ar": "يلا نقعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sedetevi"
+          "form": "Sedetevi",
+          "ar": "اقعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si siedano"
+          "form": "Si siedano",
+          "ar": "اقعدوا"
         }
       ]
     }
@@ -12219,23 +12629,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Accorgiti"
+          "form": "Accorgiti",
+          "ar": "لاحظ"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si accorga"
+          "form": "Si accorga",
+          "ar": "لاحظ"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Accorgiamoci"
+          "form": "Accorgiamoci",
+          "ar": "يلا نلاحظ"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Accorgetevi"
+          "form": "Accorgetevi",
+          "ar": "لاحظوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si accorgano"
+          "form": "Si accorgano",
+          "ar": "لاحظوا"
         }
       ]
     }
@@ -12366,23 +12781,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Passa"
+          "form": "Passa",
+          "ar": "اقضي"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Passi"
+          "form": "Passi",
+          "ar": "اقضي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Passiamo"
+          "form": "Passiamo",
+          "ar": "يلا نقضي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Passate"
+          "form": "Passate",
+          "ar": "اقضوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Passino"
+          "form": "Passino",
+          "ar": "اقضوا"
         }
       ]
     }
@@ -12513,23 +12933,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Significa"
+          "form": "Significa",
+          "ar": "اعني"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Significhi"
+          "form": "Significhi",
+          "ar": "اعني"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Significhiamo"
+          "form": "Significhiamo",
+          "ar": "يلا نعني"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Significate"
+          "form": "Significate",
+          "ar": "اعنوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Significhino"
+          "form": "Significhino",
+          "ar": "اعنوا"
         }
       ]
     }
@@ -12660,23 +13085,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Senti"
+          "form": "Senti",
+          "ar": "اسمع"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Senta"
+          "form": "Senta",
+          "ar": "اسمع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sentiamo"
+          "form": "Sentiamo",
+          "ar": "يلا نسمع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sentite"
+          "form": "Sentite",
+          "ar": "اسمعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sentano"
+          "form": "Sentano",
+          "ar": "اسمعوا"
         }
       ]
     }
@@ -12807,23 +13237,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Conosci"
+          "form": "Conosci",
+          "ar": "اعرف"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Conosca"
+          "form": "Conosca",
+          "ar": "اعرف"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Conosciamo"
+          "form": "Conosciamo",
+          "ar": "يلا نعرف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Conoscete"
+          "form": "Conoscete",
+          "ar": "اعرفوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Conoscano"
+          "form": "Conoscano",
+          "ar": "اعرفوا"
         }
       ]
     }
@@ -12954,23 +13389,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Noi (نحن)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Loro (هم)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         }
       ]
     }
@@ -13101,23 +13541,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Noi (نحن)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         },
         {
           "person": "Loro (هم)",
-          "form": "—"
+          "form": "—",
+          "ar": "—"
         }
       ]
     }
@@ -13248,23 +13693,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Piaci"
+          "form": "Piaci",
+          "ar": "اعجب"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Piaccia"
+          "form": "Piaccia",
+          "ar": "اعجب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Piacciamo"
+          "form": "Piacciamo",
+          "ar": "يلا نعجب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Piacete"
+          "form": "Piacete",
+          "ar": "اعجبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Piacciano"
+          "form": "Piacciano",
+          "ar": "اعجبوا"
         }
       ]
     }
@@ -13395,23 +13845,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Cambia"
+          "form": "Cambia",
+          "ar": "غير"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Cambi"
+          "form": "Cambi",
+          "ar": "غير"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Cambiamo"
+          "form": "Cambiamo",
+          "ar": "يلا نغير"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cambiate"
+          "form": "Cambiate",
+          "ar": "غيروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cambino"
+          "form": "Cambino",
+          "ar": "غيروا"
         }
       ]
     }
@@ -13542,23 +13997,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Basta!"
+          "form": "Basta!",
+          "ar": "بس! يكفي"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Basti"
+          "form": "Basti",
+          "ar": "بس! يكفي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Bastiamo"
+          "form": "Bastiamo",
+          "ar": "يلا نوقف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Bastate"
+          "form": "Bastate",
+          "ar": "بس كده يا جماعة"
         },
         {
           "person": "Loro (هم)",
-          "form": "Bastino"
+          "form": "Bastino",
+          "ar": "بس كده"
         }
       ]
     }
@@ -13691,23 +14151,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Organizzati"
+          "form": "Organizzati",
+          "ar": "نظم وقتك"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Si organizzi"
+          "form": "Si organizzi",
+          "ar": "نظم وقتك"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Organizziamoci"
+          "form": "Organizziamoci",
+          "ar": "يلا ننظم وقتنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Organizzatevi"
+          "form": "Organizzatevi",
+          "ar": "نظموا وقتكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si organizzino"
+          "form": "Si organizzino",
+          "ar": "نظموا وقتهم"
         }
       ]
     }
@@ -13838,23 +14303,28 @@ const VERBS = [
       "rows": [
         {
           "person": "Tu (أنت)",
-          "form": "Cena"
+          "form": "Cena",
+          "ar": "اتعشى"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
-          "form": "Ceni"
+          "form": "Ceni",
+          "ar": "اتعشى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ceniamo"
+          "form": "Ceniamo",
+          "ar": "يلا نتعشى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cenate"
+          "form": "Cenate",
+          "ar": "اتعشوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cenino"
+          "form": "Cenino",
+          "ar": "اتعشوا"
         }
       ]
     }
