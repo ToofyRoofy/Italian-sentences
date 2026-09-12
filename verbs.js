@@ -5,31 +5,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Aiuto"
+        "form": "Aiuto",
+        "ar": "بساعد"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Aiuti"
+        "form": "Aiuti",
+        "ar": "بتساعد"
       },
       {
         "person": "Lui (هو)",
-        "form": "Aiuta"
+        "form": "Aiuta",
+        "ar": "بيساعد"
       },
       {
         "person": "Lei (هي)",
-        "form": "Aiuta"
+        "form": "Aiuta",
+        "ar": "بتساعد"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Aiutiamo"
+        "form": "Aiutiamo",
+        "ar": "بنساعد"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Aiutate"
+        "form": "Aiutate",
+        "ar": "بتساعدوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Aiutano"
+        "form": "Aiutano",
+        "ar": "بيساعدوا"
       }
     ],
     "passato": {
@@ -71,31 +78,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Aiutavo"
+          "form": "Aiutavo",
+          "ar": "كنت بساعد"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Aiutavi"
+          "form": "Aiutavi",
+          "ar": "كنت بتساعد"
         },
         {
           "person": "Lui (هو)",
-          "form": "Aiutava"
+          "form": "Aiutava",
+          "ar": "كان بيساعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Aiutava"
+          "form": "Aiutava",
+          "ar": "كانت بتساعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Aiutavamo"
+          "form": "Aiutavamo",
+          "ar": "كنا بنساعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Aiutavate"
+          "form": "Aiutavate",
+          "ar": "كنتوا بتساعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Aiutavano"
+          "form": "Aiutavano",
+          "ar": "كانوا بيساعدوا"
         }
       ]
     },
@@ -131,31 +145,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Vado"
+        "form": "Vado",
+        "ar": "بروح"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Vai"
+        "form": "Vai",
+        "ar": "بتروح"
       },
       {
         "person": "Lui (هو)",
-        "form": "Va"
+        "form": "Va",
+        "ar": "بيروح"
       },
       {
         "person": "Lei (هي)",
-        "form": "Va"
+        "form": "Va",
+        "ar": "بتروح"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Andiamo"
+        "form": "Andiamo",
+        "ar": "بنروح"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Andate"
+        "form": "Andate",
+        "ar": "بتروحوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Vanno"
+        "form": "Vanno",
+        "ar": "بيروحوا"
       }
     ],
     "passato": {
@@ -197,31 +218,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Andavo"
+          "form": "Andavo",
+          "ar": "كنت بروح"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Andavi"
+          "form": "Andavi",
+          "ar": "كنت بتروح"
         },
         {
           "person": "Lui (هو)",
-          "form": "Andava"
+          "form": "Andava",
+          "ar": "كان بيروح"
         },
         {
           "person": "Lei (هي)",
-          "form": "Andava"
+          "form": "Andava",
+          "ar": "كانت بتروح"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Andavamo"
+          "form": "Andavamo",
+          "ar": "كنا بنروح"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Andavate"
+          "form": "Andavate",
+          "ar": "كنتوا بتروحوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Andavano"
+          "form": "Andavano",
+          "ar": "كانوا بيروحوا"
         }
       ]
     },
@@ -257,31 +285,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Arrivo"
+        "form": "Arrivo",
+        "ar": "بوصل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Arrivi"
+        "form": "Arrivi",
+        "ar": "بتوصل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Arriva"
+        "form": "Arriva",
+        "ar": "بيوصل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Arriva"
+        "form": "Arriva",
+        "ar": "بتوصل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Arriviamo"
+        "form": "Arriviamo",
+        "ar": "بنوصل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Arrivate"
+        "form": "Arrivate",
+        "ar": "بتوصلوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Arrivano"
+        "form": "Arrivano",
+        "ar": "بيوصلوا"
       }
     ],
     "passato": {
@@ -323,31 +358,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Arrivavo"
+          "form": "Arrivavo",
+          "ar": "كنت بوصل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Arrivavi"
+          "form": "Arrivavi",
+          "ar": "كنت بتوصل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Arrivava"
+          "form": "Arrivava",
+          "ar": "كان بيوصل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Arrivava"
+          "form": "Arrivava",
+          "ar": "كانت بتوصل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Arrivavamo"
+          "form": "Arrivavamo",
+          "ar": "كنا بنوصل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Arrivavate"
+          "form": "Arrivavate",
+          "ar": "كنتوا بتوصلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Arrivavano"
+          "form": "Arrivavano",
+          "ar": "كانوا بيوصلوا"
         }
       ]
     },
@@ -383,31 +425,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Ascolto"
+        "form": "Ascolto",
+        "ar": "بسمع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ascolti"
+        "form": "Ascolti",
+        "ar": "بتسمع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Ascolta"
+        "form": "Ascolta",
+        "ar": "بيسمع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Ascolta"
+        "form": "Ascolta",
+        "ar": "بتسمع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ascoltiamo"
+        "form": "Ascoltiamo",
+        "ar": "بنسمع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Ascoltate"
+        "form": "Ascoltate",
+        "ar": "بتسمعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Ascoltano"
+        "form": "Ascoltano",
+        "ar": "بيسمعوا"
       }
     ],
     "passato": {
@@ -449,31 +498,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ascoltavo"
+          "form": "Ascoltavo",
+          "ar": "كنت بسمع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ascoltavi"
+          "form": "Ascoltavi",
+          "ar": "كنت بتسمع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ascoltava"
+          "form": "Ascoltava",
+          "ar": "كان بيسمع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ascoltava"
+          "form": "Ascoltava",
+          "ar": "كانت بتسمع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ascoltavamo"
+          "form": "Ascoltavamo",
+          "ar": "كنا بنسمع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ascoltavate"
+          "form": "Ascoltavate",
+          "ar": "كنتوا بتسمعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Ascoltavano"
+          "form": "Ascoltavano",
+          "ar": "كانوا بيسمعوا"
         }
       ]
     },
@@ -509,31 +565,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Aspetto"
+        "form": "Aspetto",
+        "ar": "بنتظر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Aspetti"
+        "form": "Aspetti",
+        "ar": "بتنتظر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Aspetta"
+        "form": "Aspetta",
+        "ar": "بينتظر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Aspetta"
+        "form": "Aspetta",
+        "ar": "بتنتظر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Aspettiamo"
+        "form": "Aspettiamo",
+        "ar": "بننتظر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Aspettate"
+        "form": "Aspettate",
+        "ar": "بتنتظروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Aspettano"
+        "form": "Aspettano",
+        "ar": "بينتظروا"
       }
     ],
     "passato": {
@@ -575,31 +638,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Aspettavo"
+          "form": "Aspettavo",
+          "ar": "كنت بنتظر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Aspettavi"
+          "form": "Aspettavi",
+          "ar": "كنت بتنتظر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Aspettava"
+          "form": "Aspettava",
+          "ar": "كان بينتظر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Aspettava"
+          "form": "Aspettava",
+          "ar": "كانت بتنتظر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Aspettavamo"
+          "form": "Aspettavamo",
+          "ar": "كنا بننتظر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Aspettavate"
+          "form": "Aspettavate",
+          "ar": "كنتوا بتنتظروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Aspettavano"
+          "form": "Aspettavano",
+          "ar": "كانوا بينتظروا"
         }
       ]
     },
@@ -635,31 +705,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Busso"
+        "form": "Busso",
+        "ar": "بخبط (على الباب)"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Bussi"
+        "form": "Bussi",
+        "ar": "بتخبط (على الباب)"
       },
       {
         "person": "Lui (هو)",
-        "form": "Bussa"
+        "form": "Bussa",
+        "ar": "بيخبط (على الباب)"
       },
       {
         "person": "Lei (هي)",
-        "form": "Bussa"
+        "form": "Bussa",
+        "ar": "بتخبط (على الباب)"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Bussiamo"
+        "form": "Bussiamo",
+        "ar": "بنخبط (على الباب)"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Bussate"
+        "form": "Bussate",
+        "ar": "بتخبطوا (على الباب)"
       },
       {
         "person": "Loro (هم)",
-        "form": "Bussano"
+        "form": "Bussano",
+        "ar": "بيخبطوا (على الباب)"
       }
     ],
     "passato": {
@@ -701,31 +778,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Bussavo"
+          "form": "Bussavo",
+          "ar": "كنت بخبط (على الباب)"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Bussavi"
+          "form": "Bussavi",
+          "ar": "كنت بتخبط (على الباب)"
         },
         {
           "person": "Lui (هو)",
-          "form": "Bussava"
+          "form": "Bussava",
+          "ar": "كان بيخبط (على الباب)"
         },
         {
           "person": "Lei (هي)",
-          "form": "Bussava"
+          "form": "Bussava",
+          "ar": "كانت بتخبط (على الباب)"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Bussavamo"
+          "form": "Bussavamo",
+          "ar": "كنا بنخبط (على الباب)"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Bussavate"
+          "form": "Bussavate",
+          "ar": "كنتوا بتخبطوا (على الباب)"
         },
         {
           "person": "Loro (هم)",
-          "form": "Bussavano"
+          "form": "Bussavano",
+          "ar": "كانوا بيخبطوا (على الباب)"
         }
       ]
     },
@@ -761,31 +845,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Cammino"
+        "form": "Cammino",
+        "ar": "بمشي"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Cammini"
+        "form": "Cammini",
+        "ar": "بتمشي"
       },
       {
         "person": "Lui (هو)",
-        "form": "Cammina"
+        "form": "Cammina",
+        "ar": "بيمشي"
       },
       {
         "person": "Lei (هي)",
-        "form": "Cammina"
+        "form": "Cammina",
+        "ar": "بتمشي"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Camminiamo"
+        "form": "Camminiamo",
+        "ar": "بنمشي"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Camminate"
+        "form": "Camminate",
+        "ar": "بتمشيوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Camminano"
+        "form": "Camminano",
+        "ar": "بيمشيوا"
       }
     ],
     "passato": {
@@ -827,31 +918,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Camminavo"
+          "form": "Camminavo",
+          "ar": "كنت بمشي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Camminavi"
+          "form": "Camminavi",
+          "ar": "كنت بتمشي"
         },
         {
           "person": "Lui (هو)",
-          "form": "Camminava"
+          "form": "Camminava",
+          "ar": "كان بيمشي"
         },
         {
           "person": "Lei (هي)",
-          "form": "Camminava"
+          "form": "Camminava",
+          "ar": "كانت بتمشي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Camminavamo"
+          "form": "Camminavamo",
+          "ar": "كنا بنمشي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Camminavate"
+          "form": "Camminavate",
+          "ar": "كنتوا بتمشيوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Camminavano"
+          "form": "Camminavano",
+          "ar": "كانوا بيمشيوا"
         }
       ]
     },
@@ -887,31 +985,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Cerco"
+        "form": "Cerco",
+        "ar": "ببحث عن"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Cerchi"
+        "form": "Cerchi",
+        "ar": "بتبحث عن"
       },
       {
         "person": "Lui (هو)",
-        "form": "Cerca"
+        "form": "Cerca",
+        "ar": "بيبحث عن"
       },
       {
         "person": "Lei (هي)",
-        "form": "Cerca"
+        "form": "Cerca",
+        "ar": "بتبحث عن"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Cerchiamo"
+        "form": "Cerchiamo",
+        "ar": "بنبحث عن"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Cercate"
+        "form": "Cercate",
+        "ar": "بتبحثوا عن"
       },
       {
         "person": "Loro (هم)",
-        "form": "Cercano"
+        "form": "Cercano",
+        "ar": "بيبحثوا عن"
       }
     ],
     "passato": {
@@ -953,31 +1058,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Cercavo"
+          "form": "Cercavo",
+          "ar": "كنت ببحث عن"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Cercavi"
+          "form": "Cercavi",
+          "ar": "كنت بتبحث عن"
         },
         {
           "person": "Lui (هو)",
-          "form": "Cercava"
+          "form": "Cercava",
+          "ar": "كان بيبحث عن"
         },
         {
           "person": "Lei (هي)",
-          "form": "Cercava"
+          "form": "Cercava",
+          "ar": "كانت بتبحث عن"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Cercavamo"
+          "form": "Cercavamo",
+          "ar": "كنا بنبحث عن"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cercavate"
+          "form": "Cercavate",
+          "ar": "كنتوا بتبحثوا عن"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cercavano"
+          "form": "Cercavano",
+          "ar": "كانوا بيبحثوا عن"
         }
       ]
     },
@@ -1013,31 +1125,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Chiamo"
+        "form": "Chiamo",
+        "ar": "بنادي"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Chiami"
+        "form": "Chiami",
+        "ar": "بتنادي"
       },
       {
         "person": "Lui (هو)",
-        "form": "Chiama"
+        "form": "Chiama",
+        "ar": "بينادي"
       },
       {
         "person": "Lei (هي)",
-        "form": "Chiama"
+        "form": "Chiama",
+        "ar": "بتنادي"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Chiamiamo"
+        "form": "Chiamiamo",
+        "ar": "بننادي"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Chiamate"
+        "form": "Chiamate",
+        "ar": "بتناديوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Chiamano"
+        "form": "Chiamano",
+        "ar": "بيناديوا"
       }
     ],
     "passato": {
@@ -1079,31 +1198,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Chiamavo"
+          "form": "Chiamavo",
+          "ar": "كنت بنادي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Chiamavi"
+          "form": "Chiamavi",
+          "ar": "كنت بتنادي"
         },
         {
           "person": "Lui (هو)",
-          "form": "Chiamava"
+          "form": "Chiamava",
+          "ar": "كان بينادي"
         },
         {
           "person": "Lei (هي)",
-          "form": "Chiamava"
+          "form": "Chiamava",
+          "ar": "كانت بتنادي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Chiamavamo"
+          "form": "Chiamavamo",
+          "ar": "كنا بننادي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Chiamavate"
+          "form": "Chiamavate",
+          "ar": "كنتوا بتناديوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Chiamavano"
+          "form": "Chiamavano",
+          "ar": "كانوا بيناديوا"
         }
       ]
     },
@@ -1139,31 +1265,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Compro"
+        "form": "Compro",
+        "ar": "بشتري"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Compri"
+        "form": "Compri",
+        "ar": "بتشتري"
       },
       {
         "person": "Lui (هو)",
-        "form": "Compra"
+        "form": "Compra",
+        "ar": "بيشتري"
       },
       {
         "person": "Lei (هي)",
-        "form": "Compra"
+        "form": "Compra",
+        "ar": "بتشتري"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Compriamo"
+        "form": "Compriamo",
+        "ar": "بنشتري"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Comprate"
+        "form": "Comprate",
+        "ar": "بتشتريوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Comprano"
+        "form": "Comprano",
+        "ar": "بيشتريوا"
       }
     ],
     "passato": {
@@ -1205,31 +1338,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Compravo"
+          "form": "Compravo",
+          "ar": "كنت بشتري"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Compravi"
+          "form": "Compravi",
+          "ar": "كنت بتشتري"
         },
         {
           "person": "Lui (هو)",
-          "form": "Comprava"
+          "form": "Comprava",
+          "ar": "كان بيشتري"
         },
         {
           "person": "Lei (هي)",
-          "form": "Comprava"
+          "form": "Comprava",
+          "ar": "كانت بتشتري"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Compravamo"
+          "form": "Compravamo",
+          "ar": "كنا بنشتري"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Compravate"
+          "form": "Compravate",
+          "ar": "كنتوا بتشتريوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Compravano"
+          "form": "Compravano",
+          "ar": "كانوا بيشتريوا"
         }
       ]
     },
@@ -1265,31 +1405,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Gioco"
+        "form": "Gioco",
+        "ar": "بلعب"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Giochi"
+        "form": "Giochi",
+        "ar": "بتلعب"
       },
       {
         "person": "Lui (هو)",
-        "form": "Gioca"
+        "form": "Gioca",
+        "ar": "بيلعب"
       },
       {
         "person": "Lei (هي)",
-        "form": "Gioca"
+        "form": "Gioca",
+        "ar": "بتلعب"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Giochiamo"
+        "form": "Giochiamo",
+        "ar": "بنلعب"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Giocate"
+        "form": "Giocate",
+        "ar": "بتلعبوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Giocano"
+        "form": "Giocano",
+        "ar": "بيلعبوا"
       }
     ],
     "passato": {
@@ -1331,31 +1478,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Giocavo"
+          "form": "Giocavo",
+          "ar": "كنت بلعب"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Giocavi"
+          "form": "Giocavi",
+          "ar": "كنت بتلعب"
         },
         {
           "person": "Lui (هو)",
-          "form": "Giocava"
+          "form": "Giocava",
+          "ar": "كان بيلعب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Giocava"
+          "form": "Giocava",
+          "ar": "كانت بتلعب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Giocavamo"
+          "form": "Giocavamo",
+          "ar": "كنا بنلعب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Giocavate"
+          "form": "Giocavate",
+          "ar": "كنتوا بتلعبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Giocavano"
+          "form": "Giocavano",
+          "ar": "كانوا بيلعبوا"
         }
       ]
     },
@@ -1391,31 +1545,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Guardo"
+        "form": "Guardo",
+        "ar": "بتفرج"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Guardi"
+        "form": "Guardi",
+        "ar": "بتتفرج"
       },
       {
         "person": "Lui (هو)",
-        "form": "Guarda"
+        "form": "Guarda",
+        "ar": "بيتفرج"
       },
       {
         "person": "Lei (هي)",
-        "form": "Guarda"
+        "form": "Guarda",
+        "ar": "بتتفرج"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Guardiamo"
+        "form": "Guardiamo",
+        "ar": "بنتفرج"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Guardate"
+        "form": "Guardate",
+        "ar": "بتتفرجوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Guardano"
+        "form": "Guardano",
+        "ar": "بيتفرجوا"
       }
     ],
     "passato": {
@@ -1457,31 +1618,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Guardavo"
+          "form": "Guardavo",
+          "ar": "كنت بتفرج"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Guardavi"
+          "form": "Guardavi",
+          "ar": "كنت بتتفرج"
         },
         {
           "person": "Lui (هو)",
-          "form": "Guardava"
+          "form": "Guardava",
+          "ar": "كان بيتفرج"
         },
         {
           "person": "Lei (هي)",
-          "form": "Guardava"
+          "form": "Guardava",
+          "ar": "كانت بتتفرج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Guardavamo"
+          "form": "Guardavamo",
+          "ar": "كنا بنتفرج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Guardavate"
+          "form": "Guardavate",
+          "ar": "كنتوا بتتفرجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Guardavano"
+          "form": "Guardavano",
+          "ar": "كانوا بيتفرجوا"
         }
       ]
     },
@@ -1517,31 +1685,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Incontro"
+        "form": "Incontro",
+        "ar": "بقابل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Incontri"
+        "form": "Incontri",
+        "ar": "بتقابل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Incontra"
+        "form": "Incontra",
+        "ar": "بيقابل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Incontra"
+        "form": "Incontra",
+        "ar": "بتقابل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Incontriamo"
+        "form": "Incontriamo",
+        "ar": "بنقابل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Incontrate"
+        "form": "Incontrate",
+        "ar": "بتقابلوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Incontrano"
+        "form": "Incontrano",
+        "ar": "بيقابلوا"
       }
     ],
     "passato": {
@@ -1583,31 +1758,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Incontravo"
+          "form": "Incontravo",
+          "ar": "كنت بقابل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Incontravi"
+          "form": "Incontravi",
+          "ar": "كنت بتقابل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Incontrava"
+          "form": "Incontrava",
+          "ar": "كان بيقابل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Incontrava"
+          "form": "Incontrava",
+          "ar": "كانت بتقابل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Incontravamo"
+          "form": "Incontravamo",
+          "ar": "كنا بنقابل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Incontravate"
+          "form": "Incontravate",
+          "ar": "كنتوا بتقابلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Incontravano"
+          "form": "Incontravano",
+          "ar": "كانوا بيقابلوا"
         }
       ]
     },
@@ -1643,31 +1825,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Lavoro"
+        "form": "Lavoro",
+        "ar": "بشتغل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Lavori"
+        "form": "Lavori",
+        "ar": "بتشتغل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Lavora"
+        "form": "Lavora",
+        "ar": "بيشتغل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Lavora"
+        "form": "Lavora",
+        "ar": "بتشتغل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Lavoriamo"
+        "form": "Lavoriamo",
+        "ar": "بنشتغل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Lavorate"
+        "form": "Lavorate",
+        "ar": "بتشتغلوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Lavorano"
+        "form": "Lavorano",
+        "ar": "بيشتغلوا"
       }
     ],
     "passato": {
@@ -1709,31 +1898,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Lavoravo"
+          "form": "Lavoravo",
+          "ar": "كنت بشتغل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Lavoravi"
+          "form": "Lavoravi",
+          "ar": "كنت بتشتغل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Lavorava"
+          "form": "Lavorava",
+          "ar": "كان بيشتغل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Lavorava"
+          "form": "Lavorava",
+          "ar": "كانت بتشتغل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Lavoravamo"
+          "form": "Lavoravamo",
+          "ar": "كنا بنشتغل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Lavoravate"
+          "form": "Lavoravate",
+          "ar": "كنتوا بتشتغلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Lavoravano"
+          "form": "Lavoravano",
+          "ar": "كانوا بيشتغلوا"
         }
       ]
     },
@@ -1769,31 +1965,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mangio"
+        "form": "Mangio",
+        "ar": "بأكل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Mangi"
+        "form": "Mangi",
+        "ar": "بتأكل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Mangia"
+        "form": "Mangia",
+        "ar": "بيأكل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Mangia"
+        "form": "Mangia",
+        "ar": "بتأكل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Mangiamo"
+        "form": "Mangiamo",
+        "ar": "بنأكل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Mangiate"
+        "form": "Mangiate",
+        "ar": "بتأكلوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Mangiano"
+        "form": "Mangiano",
+        "ar": "بيأكلوا"
       }
     ],
     "passato": {
@@ -1835,31 +2038,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mangiavo"
+          "form": "Mangiavo",
+          "ar": "كنت بأكل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Mangiavi"
+          "form": "Mangiavi",
+          "ar": "كنت بتأكل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Mangiava"
+          "form": "Mangiava",
+          "ar": "كان بيأكل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Mangiava"
+          "form": "Mangiava",
+          "ar": "كانت بتأكل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Mangiavamo"
+          "form": "Mangiavamo",
+          "ar": "كنا بنأكل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Mangiavate"
+          "form": "Mangiavate",
+          "ar": "كنتوا بتأكلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Mangiavano"
+          "form": "Mangiavano",
+          "ar": "كانوا بيأكلوا"
         }
       ]
     },
@@ -1895,31 +2105,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Pago"
+        "form": "Pago",
+        "ar": "بدفع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Paghi"
+        "form": "Paghi",
+        "ar": "بتدفع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Paga"
+        "form": "Paga",
+        "ar": "بيدفع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Paga"
+        "form": "Paga",
+        "ar": "بتدفع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Paghiamo"
+        "form": "Paghiamo",
+        "ar": "بندفع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Pagate"
+        "form": "Pagate",
+        "ar": "بتدفعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Pagano"
+        "form": "Pagano",
+        "ar": "بيدفعوا"
       }
     ],
     "passato": {
@@ -1961,31 +2178,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Pagavo"
+          "form": "Pagavo",
+          "ar": "كنت بدفع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Pagavi"
+          "form": "Pagavi",
+          "ar": "كنت بتدفع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Pagava"
+          "form": "Pagava",
+          "ar": "كان بيدفع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Pagava"
+          "form": "Pagava",
+          "ar": "كانت بتدفع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Pagavamo"
+          "form": "Pagavamo",
+          "ar": "كنا بندفع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Pagavate"
+          "form": "Pagavate",
+          "ar": "كنتوا بتدفعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Pagavano"
+          "form": "Pagavano",
+          "ar": "كانوا بيدفعوا"
         }
       ]
     },
@@ -2021,31 +2245,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Porto"
+        "form": "Porto",
+        "ar": "بجيب"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Porti"
+        "form": "Porti",
+        "ar": "بتجيب"
       },
       {
         "person": "Lui (هو)",
-        "form": "Porta"
+        "form": "Porta",
+        "ar": "بيجيب"
       },
       {
         "person": "Lei (هي)",
-        "form": "Porta"
+        "form": "Porta",
+        "ar": "بتجيب"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Portiamo"
+        "form": "Portiamo",
+        "ar": "بنجيب"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Portate"
+        "form": "Portate",
+        "ar": "بتجيبوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Portano"
+        "form": "Portano",
+        "ar": "بيجيبوا"
       }
     ],
     "passato": {
@@ -2087,31 +2318,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Portavo"
+          "form": "Portavo",
+          "ar": "كنت بجيب"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Portavi"
+          "form": "Portavi",
+          "ar": "كنت بتجيب"
         },
         {
           "person": "Lui (هو)",
-          "form": "Portava"
+          "form": "Portava",
+          "ar": "كان بيجيب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Portava"
+          "form": "Portava",
+          "ar": "كانت بتجيب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Portavamo"
+          "form": "Portavamo",
+          "ar": "كنا بنجيب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Portavate"
+          "form": "Portavate",
+          "ar": "كنتوا بتجيبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Portavano"
+          "form": "Portavano",
+          "ar": "كانوا بيجيبوا"
         }
       ]
     },
@@ -2147,31 +2385,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Resto"
+        "form": "Resto",
+        "ar": "بفضل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Resti"
+        "form": "Resti",
+        "ar": "بتفضل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Resta"
+        "form": "Resta",
+        "ar": "بيفضل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Resta"
+        "form": "Resta",
+        "ar": "بتفضل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Restiamo"
+        "form": "Restiamo",
+        "ar": "بنفضل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Restate"
+        "form": "Restate",
+        "ar": "بتفضلوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Restano"
+        "form": "Restano",
+        "ar": "بيفضلوا"
       }
     ],
     "passato": {
@@ -2213,31 +2458,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Restavo"
+          "form": "Restavo",
+          "ar": "كنت بفضل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Restavi"
+          "form": "Restavi",
+          "ar": "كنت بتفضل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Restava"
+          "form": "Restava",
+          "ar": "كان بيفضل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Restava"
+          "form": "Restava",
+          "ar": "كانت بتفضل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Restavamo"
+          "form": "Restavamo",
+          "ar": "كنا بنفضل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Restavate"
+          "form": "Restavate",
+          "ar": "كنتوا بتفضلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Restavano"
+          "form": "Restavano",
+          "ar": "كانوا بيفضلوا"
         }
       ]
     },
@@ -2273,31 +2525,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Ringrazio"
+        "form": "Ringrazio",
+        "ar": "بشكر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ringrazi"
+        "form": "Ringrazi",
+        "ar": "بتشكر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Ringrazia"
+        "form": "Ringrazia",
+        "ar": "بيشكر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Ringrazia"
+        "form": "Ringrazia",
+        "ar": "بتشكر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ringraziamo"
+        "form": "Ringraziamo",
+        "ar": "بنشكر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Ringraziate"
+        "form": "Ringraziate",
+        "ar": "بتشكروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Ringraziano"
+        "form": "Ringraziano",
+        "ar": "بيشكروا"
       }
     ],
     "passato": {
@@ -2339,31 +2598,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ringraziavo"
+          "form": "Ringraziavo",
+          "ar": "كنت بشكر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ringraziavi"
+          "form": "Ringraziavi",
+          "ar": "كنت بتشكر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Ringraziava"
+          "form": "Ringraziava",
+          "ar": "كان بيشكر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Ringraziava"
+          "form": "Ringraziava",
+          "ar": "كانت بتشكر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ringraziavamo"
+          "form": "Ringraziavamo",
+          "ar": "كنا بنشكر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ringraziavate"
+          "form": "Ringraziavate",
+          "ar": "كنتوا بتشكروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Ringraziavano"
+          "form": "Ringraziavano",
+          "ar": "كانوا بيشكروا"
         }
       ]
     },
@@ -2399,31 +2665,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Saluto"
+        "form": "Saluto",
+        "ar": "بسلم على"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Saluti"
+        "form": "Saluti",
+        "ar": "بتسلم على"
       },
       {
         "person": "Lui (هو)",
-        "form": "Saluta"
+        "form": "Saluta",
+        "ar": "بيسلم على"
       },
       {
         "person": "Lei (هي)",
-        "form": "Saluta"
+        "form": "Saluta",
+        "ar": "بتسلم على"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Salutiamo"
+        "form": "Salutiamo",
+        "ar": "بنسلم على"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Salutate"
+        "form": "Salutate",
+        "ar": "بتسلموا على"
       },
       {
         "person": "Loro (هم)",
-        "form": "Salutano"
+        "form": "Salutano",
+        "ar": "بيسلموا على"
       }
     ],
     "passato": {
@@ -2465,31 +2738,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Salutavo"
+          "form": "Salutavo",
+          "ar": "كنت بسلم على"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Salutavi"
+          "form": "Salutavi",
+          "ar": "كنت بتسلم على"
         },
         {
           "person": "Lui (هو)",
-          "form": "Salutava"
+          "form": "Salutava",
+          "ar": "كان بيسلم على"
         },
         {
           "person": "Lei (هي)",
-          "form": "Salutava"
+          "form": "Salutava",
+          "ar": "كانت بتسلم على"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Salutavamo"
+          "form": "Salutavamo",
+          "ar": "كنا بنسلم على"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Salutavate"
+          "form": "Salutavate",
+          "ar": "كنتوا بتسلموا على"
         },
         {
           "person": "Loro (هم)",
-          "form": "Salutavano"
+          "form": "Salutavano",
+          "ar": "كانوا بيسلموا على"
         }
       ]
     },
@@ -2525,31 +2805,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Studio"
+        "form": "Studio",
+        "ar": "بدرس"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Studi"
+        "form": "Studi",
+        "ar": "بتدرس"
       },
       {
         "person": "Lui (هو)",
-        "form": "Studia"
+        "form": "Studia",
+        "ar": "بيدرس"
       },
       {
         "person": "Lei (هي)",
-        "form": "Studia"
+        "form": "Studia",
+        "ar": "بتدرس"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Studiamo"
+        "form": "Studiamo",
+        "ar": "بندرس"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Studiate"
+        "form": "Studiate",
+        "ar": "بتدرسوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Studiano"
+        "form": "Studiano",
+        "ar": "بيدرسوا"
       }
     ],
     "passato": {
@@ -2591,31 +2878,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Studiavo"
+          "form": "Studiavo",
+          "ar": "كنت بدرس"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Studiavi"
+          "form": "Studiavi",
+          "ar": "كنت بتدرس"
         },
         {
           "person": "Lui (هو)",
-          "form": "Studiava"
+          "form": "Studiava",
+          "ar": "كان بيدرس"
         },
         {
           "person": "Lei (هي)",
-          "form": "Studiava"
+          "form": "Studiava",
+          "ar": "كانت بتدرس"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Studiavamo"
+          "form": "Studiavamo",
+          "ar": "كنا بندرس"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Studiavate"
+          "form": "Studiavate",
+          "ar": "كنتوا بتدرسوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Studiavano"
+          "form": "Studiavano",
+          "ar": "كانوا بيدرسوا"
         }
       ]
     },
@@ -2651,31 +2945,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Telefono"
+        "form": "Telefono",
+        "ar": "بتصل تليفونيا"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Telefoni"
+        "form": "Telefoni",
+        "ar": "بتتصل تليفونيا"
       },
       {
         "person": "Lui (هو)",
-        "form": "Telefona"
+        "form": "Telefona",
+        "ar": "بيتصل تليفونيا"
       },
       {
         "person": "Lei (هي)",
-        "form": "Telefona"
+        "form": "Telefona",
+        "ar": "بتتصل تليفونيا"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Telefoniamo"
+        "form": "Telefoniamo",
+        "ar": "بنتصل تليفونيا"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Telefonate"
+        "form": "Telefonate",
+        "ar": "بتتصلوا تليفونيا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Telefonano"
+        "form": "Telefonano",
+        "ar": "بيتصلوا تليفونيا"
       }
     ],
     "passato": {
@@ -2717,31 +3018,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Telefonavo"
+          "form": "Telefonavo",
+          "ar": "كنت بتصل تليفونيا"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Telefonavi"
+          "form": "Telefonavi",
+          "ar": "كنت بتتصل تليفونيا"
         },
         {
           "person": "Lui (هو)",
-          "form": "Telefonava"
+          "form": "Telefonava",
+          "ar": "كان بيتصل تليفونيا"
         },
         {
           "person": "Lei (هي)",
-          "form": "Telefonava"
+          "form": "Telefonava",
+          "ar": "كانت بتتصل تليفونيا"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Telefonavamo"
+          "form": "Telefonavamo",
+          "ar": "كنا بنتصل تليفونيا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Telefonavate"
+          "form": "Telefonavate",
+          "ar": "كنتوا بتتصلوا تليفونيا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Telefonavano"
+          "form": "Telefonavano",
+          "ar": "كانوا بيتصلوا تليفونيا"
         }
       ]
     },
@@ -2777,31 +3085,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Torno"
+        "form": "Torno",
+        "ar": "برجع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Torni"
+        "form": "Torni",
+        "ar": "بترجع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Torna"
+        "form": "Torna",
+        "ar": "بيرجع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Torna"
+        "form": "Torna",
+        "ar": "بترجع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Torniamo"
+        "form": "Torniamo",
+        "ar": "بنرجع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Tornate"
+        "form": "Tornate",
+        "ar": "بترجعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Tornano"
+        "form": "Tornano",
+        "ar": "بيرجعوا"
       }
     ],
     "passato": {
@@ -2843,31 +3158,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Tornavo"
+          "form": "Tornavo",
+          "ar": "كنت برجع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Tornavi"
+          "form": "Tornavi",
+          "ar": "كنت بترجع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Tornava"
+          "form": "Tornava",
+          "ar": "كان بيرجع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Tornava"
+          "form": "Tornava",
+          "ar": "كانت بترجع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Tornavamo"
+          "form": "Tornavamo",
+          "ar": "كنا بنرجع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Tornavate"
+          "form": "Tornavate",
+          "ar": "كنتوا بترجعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Tornavano"
+          "form": "Tornavano",
+          "ar": "كانوا بيرجعوا"
         }
       ]
     },
@@ -2903,31 +3225,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Trovo"
+        "form": "Trovo",
+        "ar": "بلاقي"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Trovi"
+        "form": "Trovi",
+        "ar": "بتلاقي"
       },
       {
         "person": "Lui (هو)",
-        "form": "Trova"
+        "form": "Trova",
+        "ar": "بيلاقي"
       },
       {
         "person": "Lei (هي)",
-        "form": "Trova"
+        "form": "Trova",
+        "ar": "بتلاقي"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Troviamo"
+        "form": "Troviamo",
+        "ar": "بنلاقي"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Trovate"
+        "form": "Trovate",
+        "ar": "بتلاقيوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Trovano"
+        "form": "Trovano",
+        "ar": "بيلاقيوا"
       }
     ],
     "passato": {
@@ -2969,31 +3298,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Trovavo"
+          "form": "Trovavo",
+          "ar": "كنت بلاقي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Trovavi"
+          "form": "Trovavi",
+          "ar": "كنت بتلاقي"
         },
         {
           "person": "Lui (هو)",
-          "form": "Trovava"
+          "form": "Trovava",
+          "ar": "كان بيلاقي"
         },
         {
           "person": "Lei (هي)",
-          "form": "Trovava"
+          "form": "Trovava",
+          "ar": "كانت بتلاقي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Trovavamo"
+          "form": "Trovavamo",
+          "ar": "كنا بنلاقي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Trovavate"
+          "form": "Trovavate",
+          "ar": "كنتوا بتلاقيوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Trovavano"
+          "form": "Trovavano",
+          "ar": "كانوا بيلاقيوا"
         }
       ]
     },
@@ -3029,31 +3365,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Viaggio"
+        "form": "Viaggio",
+        "ar": "بسافر (يرحل)"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Viaggi"
+        "form": "Viaggi",
+        "ar": "بتسافر (يرحل)"
       },
       {
         "person": "Lui (هو)",
-        "form": "Viaggia"
+        "form": "Viaggia",
+        "ar": "بيسافر (يرحل)"
       },
       {
         "person": "Lei (هي)",
-        "form": "Viaggia"
+        "form": "Viaggia",
+        "ar": "بتسافر (يرحل)"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Viaggiamo"
+        "form": "Viaggiamo",
+        "ar": "بنسافر (يرحل)"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Viaggiate"
+        "form": "Viaggiate",
+        "ar": "بتسافروا (يرحل)"
       },
       {
         "person": "Loro (هم)",
-        "form": "Viaggiano"
+        "form": "Viaggiano",
+        "ar": "بيسافروا (يرحل)"
       }
     ],
     "passato": {
@@ -3095,31 +3438,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Viaggiavo"
+          "form": "Viaggiavo",
+          "ar": "كنت بسافر (يرحل)"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Viaggiavi"
+          "form": "Viaggiavi",
+          "ar": "كنت بتسافر (يرحل)"
         },
         {
           "person": "Lui (هو)",
-          "form": "Viaggiava"
+          "form": "Viaggiava",
+          "ar": "كان بيسافر (يرحل)"
         },
         {
           "person": "Lei (هي)",
-          "form": "Viaggiava"
+          "form": "Viaggiava",
+          "ar": "كانت بتسافر (يرحل)"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Viaggiavamo"
+          "form": "Viaggiavamo",
+          "ar": "كنا بنسافر (يرحل)"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Viaggiavate"
+          "form": "Viaggiavate",
+          "ar": "كنتوا بتسافروا (يرحل)"
         },
         {
           "person": "Loro (هم)",
-          "form": "Viaggiavano"
+          "form": "Viaggiavano",
+          "ar": "كانوا بيسافروا (يرحل)"
         }
       ]
     },
@@ -3155,31 +3505,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Faccio"
+        "form": "Faccio",
+        "ar": "بعمل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Fai"
+        "form": "Fai",
+        "ar": "بتعمل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Fa"
+        "form": "Fa",
+        "ar": "بيعمل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Fa"
+        "form": "Fa",
+        "ar": "بتعمل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Facciamo"
+        "form": "Facciamo",
+        "ar": "بنعمل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Fate"
+        "form": "Fate",
+        "ar": "بتعملوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Fanno"
+        "form": "Fanno",
+        "ar": "بيعملوا"
       }
     ],
     "passato": {
@@ -3221,31 +3578,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Facevo"
+          "form": "Facevo",
+          "ar": "كنت بعمل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Facevi"
+          "form": "Facevi",
+          "ar": "كنت بتعمل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Faceva"
+          "form": "Faceva",
+          "ar": "كان بيعمل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Faceva"
+          "form": "Faceva",
+          "ar": "كانت بتعمل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Facevamo"
+          "form": "Facevamo",
+          "ar": "كنا بنعمل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Facevate"
+          "form": "Facevate",
+          "ar": "كنتوا بتعملوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Facevano"
+          "form": "Facevano",
+          "ar": "كانوا بيعملوا"
         }
       ]
     },
@@ -3281,31 +3645,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Do"
+        "form": "Do",
+        "ar": "بعطي"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Dai"
+        "form": "Dai",
+        "ar": "بتعطي"
       },
       {
         "person": "Lui (هو)",
-        "form": "Dà"
+        "form": "Dà",
+        "ar": "بيعطي"
       },
       {
         "person": "Lei (هي)",
-        "form": "Dà"
+        "form": "Dà",
+        "ar": "بتعطي"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Diamo"
+        "form": "Diamo",
+        "ar": "بنعطي"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Date"
+        "form": "Date",
+        "ar": "بتعطيوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Danno"
+        "form": "Danno",
+        "ar": "بيعطيوا"
       }
     ],
     "passato": {
@@ -3347,31 +3718,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Davo"
+          "form": "Davo",
+          "ar": "كنت بعطي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Davi"
+          "form": "Davi",
+          "ar": "كنت بتعطي"
         },
         {
           "person": "Lui (هو)",
-          "form": "Dava"
+          "form": "Dava",
+          "ar": "كان بيعطي"
         },
         {
           "person": "Lei (هي)",
-          "form": "Dava"
+          "form": "Dava",
+          "ar": "كانت بتعطي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Davamo"
+          "form": "Davamo",
+          "ar": "كنا بنعطي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Davate"
+          "form": "Davate",
+          "ar": "كنتوا بتعطيوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Davano"
+          "form": "Davano",
+          "ar": "كانوا بيعطيوا"
         }
       ]
     },
@@ -3407,31 +3785,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Funziono"
+        "form": "Funziono",
+        "ar": "بشتغل (عن جهاز"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Funzioni"
+        "form": "Funzioni",
+        "ar": "بتشتغل (عن جهاز"
       },
       {
         "person": "Lui (هو)",
-        "form": "Funziona"
+        "form": "Funziona",
+        "ar": "بيشتغل (عن جهاز"
       },
       {
         "person": "Lei (هي)",
-        "form": "Funziona"
+        "form": "Funziona",
+        "ar": "بتشتغل (عن جهاز"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Funzioniamo"
+        "form": "Funzioniamo",
+        "ar": "بنشتغل (عن جهاز"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Funzionate"
+        "form": "Funzionate",
+        "ar": "بتشتغلوا (عن جهاز"
       },
       {
         "person": "Loro (هم)",
-        "form": "Funzionano"
+        "form": "Funzionano",
+        "ar": "بيشتغلوا (عن جهاز"
       }
     ],
     "passato": {
@@ -3473,31 +3858,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Funzionavo"
+          "form": "Funzionavo",
+          "ar": "كنت بشتغل (عن جهاز"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Funzionavi"
+          "form": "Funzionavi",
+          "ar": "كنت بتشتغل (عن جهاز"
         },
         {
           "person": "Lui (هو)",
-          "form": "Funzionava"
+          "form": "Funzionava",
+          "ar": "كان بيشتغل (عن جهاز"
         },
         {
           "person": "Lei (هي)",
-          "form": "Funzionava"
+          "form": "Funzionava",
+          "ar": "كانت بتشتغل (عن جهاز"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Funzionavamo"
+          "form": "Funzionavamo",
+          "ar": "كنا بنشتغل (عن جهاز"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Funzionavate"
+          "form": "Funzionavate",
+          "ar": "كنتوا بتشتغلوا (عن جهاز"
         },
         {
           "person": "Loro (هم)",
-          "form": "Funzionavano"
+          "form": "Funzionavano",
+          "ar": "كانوا بيشتغلوا (عن جهاز"
         }
       ]
     },
@@ -3533,31 +3925,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Parlo"
+        "form": "Parlo",
+        "ar": "بتكلم"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Parli"
+        "form": "Parli",
+        "ar": "بتتكلم"
       },
       {
         "person": "Lui (هو)",
-        "form": "Parla"
+        "form": "Parla",
+        "ar": "بيتكلم"
       },
       {
         "person": "Lei (هي)",
-        "form": "Parla"
+        "form": "Parla",
+        "ar": "بتتكلم"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Parliamo"
+        "form": "Parliamo",
+        "ar": "بنتكلم"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Parlate"
+        "form": "Parlate",
+        "ar": "بتتكلموا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Parlano"
+        "form": "Parlano",
+        "ar": "بيتكلموا"
       }
     ],
     "passato": {
@@ -3599,31 +3998,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Parlavo"
+          "form": "Parlavo",
+          "ar": "كنت بتكلم"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Parlavi"
+          "form": "Parlavi",
+          "ar": "كنت بتتكلم"
         },
         {
           "person": "Lui (هو)",
-          "form": "Parlava"
+          "form": "Parlava",
+          "ar": "كان بيتكلم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Parlava"
+          "form": "Parlava",
+          "ar": "كانت بتتكلم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Parlavamo"
+          "form": "Parlavamo",
+          "ar": "كنا بنتكلم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Parlavate"
+          "form": "Parlavate",
+          "ar": "كنتوا بتتكلموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Parlavano"
+          "form": "Parlavano",
+          "ar": "كانوا بيتكلموا"
         }
       ]
     },
@@ -3659,31 +4065,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Passeggio"
+        "form": "Passeggio",
+        "ar": "بتمشى"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Passeggi"
+        "form": "Passeggi",
+        "ar": "بتتمشى"
       },
       {
         "person": "Lui (هو)",
-        "form": "Passeggia"
+        "form": "Passeggia",
+        "ar": "بيتمشى"
       },
       {
         "person": "Lei (هي)",
-        "form": "Passeggia"
+        "form": "Passeggia",
+        "ar": "بتتمشى"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Passeggiamo"
+        "form": "Passeggiamo",
+        "ar": "بنتمشى"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Passeggiate"
+        "form": "Passeggiate",
+        "ar": "بتتمشىوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Passeggiano"
+        "form": "Passeggiano",
+        "ar": "بيتمشىوا"
       }
     ],
     "passato": {
@@ -3725,31 +4138,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Passeggiavo"
+          "form": "Passeggiavo",
+          "ar": "كنت بتمشى"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Passeggiavi"
+          "form": "Passeggiavi",
+          "ar": "كنت بتتمشى"
         },
         {
           "person": "Lui (هو)",
-          "form": "Passeggiava"
+          "form": "Passeggiava",
+          "ar": "كان بيتمشى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Passeggiava"
+          "form": "Passeggiava",
+          "ar": "كانت بتتمشى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Passeggiavamo"
+          "form": "Passeggiavamo",
+          "ar": "كنا بنتمشى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Passeggiavate"
+          "form": "Passeggiavate",
+          "ar": "كنتوا بتتمشىوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Passeggiavano"
+          "form": "Passeggiavano",
+          "ar": "كانوا بيتمشىوا"
         }
       ]
     },
@@ -3785,31 +4205,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi sveglio"
+        "form": "Mi sveglio",
+        "ar": "بصحى"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti svegli"
+        "form": "Ti svegli",
+        "ar": "بتصحى"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si sveglia"
+        "form": "Si sveglia",
+        "ar": "بيصحى"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si sveglia"
+        "form": "Si sveglia",
+        "ar": "بتصحى"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci svegliamo"
+        "form": "Ci svegliamo",
+        "ar": "بنصحى"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi svegliate"
+        "form": "Vi svegliate",
+        "ar": "بتصحىوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si svegliano"
+        "form": "Si svegliano",
+        "ar": "بيصحىوا"
       }
     ],
     "passato": {
@@ -3851,31 +4278,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi svegliavo"
+          "form": "Mi svegliavo",
+          "ar": "كنت بصحى"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti svegliavi"
+          "form": "Ti svegliavi",
+          "ar": "كنت بتصحى"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si svegliava"
+          "form": "Si svegliava",
+          "ar": "كان بيصحى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si svegliava"
+          "form": "Si svegliava",
+          "ar": "كانت بتصحى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci svegliavamo"
+          "form": "Ci svegliavamo",
+          "ar": "كنا بنصحى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi svegliavate"
+          "form": "Vi svegliavate",
+          "ar": "كنتوا بتصحىوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si svegliavano"
+          "form": "Si svegliavano",
+          "ar": "كانوا بيصحىوا"
         }
       ]
     },
@@ -3913,31 +4347,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Credo"
+        "form": "Credo",
+        "ar": "بصدق"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Credi"
+        "form": "Credi",
+        "ar": "بتصدق"
       },
       {
         "person": "Lui (هو)",
-        "form": "Crede"
+        "form": "Crede",
+        "ar": "بيصدق"
       },
       {
         "person": "Lei (هي)",
-        "form": "Crede"
+        "form": "Crede",
+        "ar": "بتصدق"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Crediamo"
+        "form": "Crediamo",
+        "ar": "بنصدق"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Credete"
+        "form": "Credete",
+        "ar": "بتصدقوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Credono"
+        "form": "Credono",
+        "ar": "بيصدقوا"
       }
     ],
     "passato": {
@@ -3979,31 +4420,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Credevo"
+          "form": "Credevo",
+          "ar": "كنت بصدق"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Credevi"
+          "form": "Credevi",
+          "ar": "كنت بتصدق"
         },
         {
           "person": "Lui (هو)",
-          "form": "Credeva"
+          "form": "Credeva",
+          "ar": "كان بيصدق"
         },
         {
           "person": "Lei (هي)",
-          "form": "Credeva"
+          "form": "Credeva",
+          "ar": "كانت بتصدق"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Credevamo"
+          "form": "Credevamo",
+          "ar": "كنا بنصدق"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Credevate"
+          "form": "Credevate",
+          "ar": "كنتوا بتصدقوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Credevano"
+          "form": "Credevano",
+          "ar": "كانوا بيصدقوا"
         }
       ]
     },
@@ -4039,31 +4487,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Leggo"
+        "form": "Leggo",
+        "ar": "بقرأ"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Leggi"
+        "form": "Leggi",
+        "ar": "بتقرأ"
       },
       {
         "person": "Lui (هو)",
-        "form": "Legge"
+        "form": "Legge",
+        "ar": "بيقرأ"
       },
       {
         "person": "Lei (هي)",
-        "form": "Legge"
+        "form": "Legge",
+        "ar": "بتقرأ"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Leggiamo"
+        "form": "Leggiamo",
+        "ar": "بنقرأ"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Leggete"
+        "form": "Leggete",
+        "ar": "بتقرأوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Leggono"
+        "form": "Leggono",
+        "ar": "بيقرأوا"
       }
     ],
     "passato": {
@@ -4105,31 +4560,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Leggevo"
+          "form": "Leggevo",
+          "ar": "كنت بقرأ"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Leggevi"
+          "form": "Leggevi",
+          "ar": "كنت بتقرأ"
         },
         {
           "person": "Lui (هو)",
-          "form": "Leggeva"
+          "form": "Leggeva",
+          "ar": "كان بيقرأ"
         },
         {
           "person": "Lei (هي)",
-          "form": "Leggeva"
+          "form": "Leggeva",
+          "ar": "كانت بتقرأ"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Leggevamo"
+          "form": "Leggevamo",
+          "ar": "كنا بنقرأ"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Leggevate"
+          "form": "Leggevate",
+          "ar": "كنتوا بتقرأوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Leggevano"
+          "form": "Leggevano",
+          "ar": "كانوا بيقرأوا"
         }
       ]
     },
@@ -4165,31 +4627,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Prendo"
+        "form": "Prendo",
+        "ar": "بأخذ"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Prendi"
+        "form": "Prendi",
+        "ar": "بتأخذ"
       },
       {
         "person": "Lui (هو)",
-        "form": "Prende"
+        "form": "Prende",
+        "ar": "بيأخذ"
       },
       {
         "person": "Lei (هي)",
-        "form": "Prende"
+        "form": "Prende",
+        "ar": "بتأخذ"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Prendiamo"
+        "form": "Prendiamo",
+        "ar": "بنأخذ"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Prendete"
+        "form": "Prendete",
+        "ar": "بتأخذوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Prendono"
+        "form": "Prendono",
+        "ar": "بيأخذوا"
       }
     ],
     "passato": {
@@ -4231,31 +4700,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Prendevo"
+          "form": "Prendevo",
+          "ar": "كنت بأخذ"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Prendevi"
+          "form": "Prendevi",
+          "ar": "كنت بتأخذ"
         },
         {
           "person": "Lui (هو)",
-          "form": "Prendeva"
+          "form": "Prendeva",
+          "ar": "كان بيأخذ"
         },
         {
           "person": "Lei (هي)",
-          "form": "Prendeva"
+          "form": "Prendeva",
+          "ar": "كانت بتأخذ"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Prendevamo"
+          "form": "Prendevamo",
+          "ar": "كنا بنأخذ"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Prendevate"
+          "form": "Prendevate",
+          "ar": "كنتوا بتأخذوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Prendevano"
+          "form": "Prendevano",
+          "ar": "كانوا بيأخذوا"
         }
       ]
     },
@@ -4291,31 +4767,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Prometto"
+        "form": "Prometto",
+        "ar": "بوعد"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Prometti"
+        "form": "Prometti",
+        "ar": "بتوعد"
       },
       {
         "person": "Lui (هو)",
-        "form": "Promette"
+        "form": "Promette",
+        "ar": "بيوعد"
       },
       {
         "person": "Lei (هي)",
-        "form": "Promette"
+        "form": "Promette",
+        "ar": "بتوعد"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Promettiamo"
+        "form": "Promettiamo",
+        "ar": "بنوعد"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Promettete"
+        "form": "Promettete",
+        "ar": "بتوعدوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Promettono"
+        "form": "Promettono",
+        "ar": "بيوعدوا"
       }
     ],
     "passato": {
@@ -4357,31 +4840,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Promettevo"
+          "form": "Promettevo",
+          "ar": "كنت بوعد"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Promettevi"
+          "form": "Promettevi",
+          "ar": "كنت بتوعد"
         },
         {
           "person": "Lui (هو)",
-          "form": "Prometteva"
+          "form": "Prometteva",
+          "ar": "كان بيوعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Prometteva"
+          "form": "Prometteva",
+          "ar": "كانت بتوعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Promettevamo"
+          "form": "Promettevamo",
+          "ar": "كنا بنوعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Promettevate"
+          "form": "Promettevate",
+          "ar": "كنتوا بتوعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Promettevano"
+          "form": "Promettevano",
+          "ar": "كانوا بيوعدوا"
         }
       ]
     },
@@ -4417,31 +4907,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Scrivo"
+        "form": "Scrivo",
+        "ar": "بكتب"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Scrivi"
+        "form": "Scrivi",
+        "ar": "بتكتب"
       },
       {
         "person": "Lui (هو)",
-        "form": "Scrive"
+        "form": "Scrive",
+        "ar": "بيكتب"
       },
       {
         "person": "Lei (هي)",
-        "form": "Scrive"
+        "form": "Scrive",
+        "ar": "بتكتب"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Scriviamo"
+        "form": "Scriviamo",
+        "ar": "بنكتب"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Scrivete"
+        "form": "Scrivete",
+        "ar": "بتكتبوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Scrivono"
+        "form": "Scrivono",
+        "ar": "بيكتبوا"
       }
     ],
     "passato": {
@@ -4483,31 +4980,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Scrivevo"
+          "form": "Scrivevo",
+          "ar": "كنت بكتب"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Scrivevi"
+          "form": "Scrivevi",
+          "ar": "كنت بتكتب"
         },
         {
           "person": "Lui (هو)",
-          "form": "Scriveva"
+          "form": "Scriveva",
+          "ar": "كان بيكتب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Scriveva"
+          "form": "Scriveva",
+          "ar": "كانت بتكتب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Scrivevamo"
+          "form": "Scrivevamo",
+          "ar": "كنا بنكتب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Scrivevate"
+          "form": "Scrivevate",
+          "ar": "كنتوا بتكتبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Scrivevano"
+          "form": "Scrivevano",
+          "ar": "كانوا بيكتبوا"
         }
       ]
     },
@@ -4543,31 +5047,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Vedo"
+        "form": "Vedo",
+        "ar": "بشوف"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Vedi"
+        "form": "Vedi",
+        "ar": "بتشوف"
       },
       {
         "person": "Lui (هو)",
-        "form": "Vede"
+        "form": "Vede",
+        "ar": "بيشوف"
       },
       {
         "person": "Lei (هي)",
-        "form": "Vede"
+        "form": "Vede",
+        "ar": "بتشوف"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Vediamo"
+        "form": "Vediamo",
+        "ar": "بنشوف"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vedete"
+        "form": "Vedete",
+        "ar": "بتشوفوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Vedono"
+        "form": "Vedono",
+        "ar": "بيشوفوا"
       }
     ],
     "passato": {
@@ -4609,31 +5120,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Vedevo"
+          "form": "Vedevo",
+          "ar": "كنت بشوف"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Vedevi"
+          "form": "Vedevi",
+          "ar": "كنت بتشوف"
         },
         {
           "person": "Lui (هو)",
-          "form": "Vedeva"
+          "form": "Vedeva",
+          "ar": "كان بيشوف"
         },
         {
           "person": "Lei (هي)",
-          "form": "Vedeva"
+          "form": "Vedeva",
+          "ar": "كانت بتشوف"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Vedevamo"
+          "form": "Vedevamo",
+          "ar": "كنا بنشوف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vedevate"
+          "form": "Vedevate",
+          "ar": "كنتوا بتشوفوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Vedevano"
+          "form": "Vedevano",
+          "ar": "كانوا بيشوفوا"
         }
       ]
     },
@@ -4669,31 +5187,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Vendo"
+        "form": "Vendo",
+        "ar": "ببيع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Vendi"
+        "form": "Vendi",
+        "ar": "بتبيع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Vende"
+        "form": "Vende",
+        "ar": "بيبيع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Vende"
+        "form": "Vende",
+        "ar": "بتبيع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Vendiamo"
+        "form": "Vendiamo",
+        "ar": "بنبيع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vendete"
+        "form": "Vendete",
+        "ar": "بتبيعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Vendono"
+        "form": "Vendono",
+        "ar": "بيبيعوا"
       }
     ],
     "passato": {
@@ -4735,31 +5260,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Vendevo"
+          "form": "Vendevo",
+          "ar": "كنت ببيع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Vendevi"
+          "form": "Vendevi",
+          "ar": "كنت بتبيع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Vendeva"
+          "form": "Vendeva",
+          "ar": "كان بيبيع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Vendeva"
+          "form": "Vendeva",
+          "ar": "كانت بتبيع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Vendevamo"
+          "form": "Vendevamo",
+          "ar": "كنا بنبيع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vendevate"
+          "form": "Vendevate",
+          "ar": "كنتوا بتبيعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Vendevano"
+          "form": "Vendevano",
+          "ar": "كانوا بيبيعوا"
         }
       ]
     },
@@ -4795,31 +5327,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Ho"
+        "form": "Ho",
+        "ar": "عندي"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Hai"
+        "form": "Hai",
+        "ar": "عندك"
       },
       {
         "person": "Lui (هو)",
-        "form": "Ha"
+        "form": "Ha",
+        "ar": "عنده"
       },
       {
         "person": "Lei (هي)",
-        "form": "Ha"
+        "form": "Ha",
+        "ar": "عندها"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Abbiamo"
+        "form": "Abbiamo",
+        "ar": "عندنا"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Avete"
+        "form": "Avete",
+        "ar": "عندكم"
       },
       {
         "person": "Loro (هم)",
-        "form": "Hanno"
+        "form": "Hanno",
+        "ar": "عندهم"
       }
     ],
     "passato": {
@@ -4861,31 +5400,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Avevo"
+          "form": "Avevo",
+          "ar": "كنت عندي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Avevi"
+          "form": "Avevi",
+          "ar": "كنت عندك"
         },
         {
           "person": "Lui (هو)",
-          "form": "Aveva"
+          "form": "Aveva",
+          "ar": "كان عنده"
         },
         {
           "person": "Lei (هي)",
-          "form": "Aveva"
+          "form": "Aveva",
+          "ar": "كانت عندها"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Avevamo"
+          "form": "Avevamo",
+          "ar": "كنا عندنا"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Avevate"
+          "form": "Avevate",
+          "ar": "كنتوا عندكم"
         },
         {
           "person": "Loro (هم)",
-          "form": "Avevano"
+          "form": "Avevano",
+          "ar": "كانوا عندهم"
         }
       ]
     },
@@ -4921,31 +5467,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Sono"
+        "form": "Sono",
+        "ar": "بكون"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Sei"
+        "form": "Sei",
+        "ar": "بتكون"
       },
       {
         "person": "Lui (هو)",
-        "form": "È"
+        "form": "È",
+        "ar": "بيكون"
       },
       {
         "person": "Lei (هي)",
-        "form": "È"
+        "form": "È",
+        "ar": "بتكون"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Siamo"
+        "form": "Siamo",
+        "ar": "بنكون"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Siete"
+        "form": "Siete",
+        "ar": "بتكونوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Sono"
+        "form": "Sono",
+        "ar": "بيكونوا"
       }
     ],
     "passato": {
@@ -4987,31 +5540,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ero"
+          "form": "Ero",
+          "ar": "كنت بكون"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Eri"
+          "form": "Eri",
+          "ar": "كنت بتكون"
         },
         {
           "person": "Lui (هو)",
-          "form": "Era"
+          "form": "Era",
+          "ar": "كان بيكون"
         },
         {
           "person": "Lei (هي)",
-          "form": "Era"
+          "form": "Era",
+          "ar": "كانت بتكون"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Eravamo"
+          "form": "Eravamo",
+          "ar": "كنا بنكون"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Eravate"
+          "form": "Eravate",
+          "ar": "كنتوا بتكونوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Erano"
+          "form": "Erano",
+          "ar": "كانوا بيكونوا"
         }
       ]
     },
@@ -5047,31 +5607,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Posso"
+        "form": "Posso",
+        "ar": "بقدر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Puoi"
+        "form": "Puoi",
+        "ar": "بتقدر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Può"
+        "form": "Può",
+        "ar": "بيقدر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Può"
+        "form": "Può",
+        "ar": "بتقدر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Possiamo"
+        "form": "Possiamo",
+        "ar": "بنقدر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Potete"
+        "form": "Potete",
+        "ar": "بتقدروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Possono"
+        "form": "Possono",
+        "ar": "بيقدروا"
       }
     ],
     "passato": {
@@ -5113,31 +5680,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Potevo"
+          "form": "Potevo",
+          "ar": "كنت بقدر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Potevi"
+          "form": "Potevi",
+          "ar": "كنت بتقدر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Poteva"
+          "form": "Poteva",
+          "ar": "كان بيقدر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Poteva"
+          "form": "Poteva",
+          "ar": "كانت بتقدر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Potevamo"
+          "form": "Potevamo",
+          "ar": "كنا بنقدر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Potevate"
+          "form": "Potevate",
+          "ar": "كنتوا بتقدروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Potevano"
+          "form": "Potevano",
+          "ar": "كانوا بيقدروا"
         }
       ]
     },
@@ -5173,31 +5747,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "So"
+        "form": "So",
+        "ar": "بعرف"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Sai"
+        "form": "Sai",
+        "ar": "بتعرف"
       },
       {
         "person": "Lui (هو)",
-        "form": "Sa"
+        "form": "Sa",
+        "ar": "بيعرف"
       },
       {
         "person": "Lei (هي)",
-        "form": "Sa"
+        "form": "Sa",
+        "ar": "بتعرف"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Sappiamo"
+        "form": "Sappiamo",
+        "ar": "بنعرف"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Sapete"
+        "form": "Sapete",
+        "ar": "بتعرفوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Sanno"
+        "form": "Sanno",
+        "ar": "بيعرفوا"
       }
     ],
     "passato": {
@@ -5239,31 +5820,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sapevo"
+          "form": "Sapevo",
+          "ar": "كنت بعرف"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sapevi"
+          "form": "Sapevi",
+          "ar": "كنت بتعرف"
         },
         {
           "person": "Lui (هو)",
-          "form": "Sapeva"
+          "form": "Sapeva",
+          "ar": "كان بيعرف"
         },
         {
           "person": "Lei (هي)",
-          "form": "Sapeva"
+          "form": "Sapeva",
+          "ar": "كانت بتعرف"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sapevamo"
+          "form": "Sapevamo",
+          "ar": "كنا بنعرف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sapevate"
+          "form": "Sapevate",
+          "ar": "كنتوا بتعرفوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sapevano"
+          "form": "Sapevano",
+          "ar": "كانوا بيعرفوا"
         }
       ]
     },
@@ -5299,31 +5887,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Voglio"
+        "form": "Voglio",
+        "ar": "عايز / عايزة"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Vuoi"
+        "form": "Vuoi",
+        "ar": "عايز / عايزة"
       },
       {
         "person": "Lui (هو)",
-        "form": "Vuole"
+        "form": "Vuole",
+        "ar": "عايز"
       },
       {
         "person": "Lei (هي)",
-        "form": "Vuole"
+        "form": "Vuole",
+        "ar": "عايزة"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Vogliamo"
+        "form": "Vogliamo",
+        "ar": "عايزين"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Volete"
+        "form": "Volete",
+        "ar": "عايزين"
       },
       {
         "person": "Loro (هم)",
-        "form": "Vogliono"
+        "form": "Vogliono",
+        "ar": "عايزين"
       }
     ],
     "passato": {
@@ -5365,31 +5960,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Volevo"
+          "form": "Volevo",
+          "ar": "كنت عايز / عايزة"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Volevi"
+          "form": "Volevi",
+          "ar": "كنت عايز / عايزة"
         },
         {
           "person": "Lui (هو)",
-          "form": "Voleva"
+          "form": "Voleva",
+          "ar": "كان عايز"
         },
         {
           "person": "Lei (هي)",
-          "form": "Voleva"
+          "form": "Voleva",
+          "ar": "كانت عايزة"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Volevamo"
+          "form": "Volevamo",
+          "ar": "كنا عايزين"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Volevate"
+          "form": "Volevate",
+          "ar": "كنتوا عايزين"
         },
         {
           "person": "Loro (هم)",
-          "form": "Volevano"
+          "form": "Volevano",
+          "ar": "كانوا عايزين"
         }
       ]
     },
@@ -5425,31 +6027,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Taccio"
+        "form": "Taccio",
+        "ar": "بسكت"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Taci"
+        "form": "Taci",
+        "ar": "بتسكت"
       },
       {
         "person": "Lui (هو)",
-        "form": "Tace"
+        "form": "Tace",
+        "ar": "بيسكت"
       },
       {
         "person": "Lei (هي)",
-        "form": "Tace"
+        "form": "Tace",
+        "ar": "بتسكت"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Taciamo"
+        "form": "Taciamo",
+        "ar": "بنسكت"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Tacete"
+        "form": "Tacete",
+        "ar": "بتسكتوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Tacciono"
+        "form": "Tacciono",
+        "ar": "بيسكتوا"
       }
     ],
     "passato": {
@@ -5491,31 +6100,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Tacevo"
+          "form": "Tacevo",
+          "ar": "كنت بسكت"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Tacevi"
+          "form": "Tacevi",
+          "ar": "كنت بتسكت"
         },
         {
           "person": "Lui (هو)",
-          "form": "Taceva"
+          "form": "Taceva",
+          "ar": "كان بيسكت"
         },
         {
           "person": "Lei (هي)",
-          "form": "Taceva"
+          "form": "Taceva",
+          "ar": "كانت بتسكت"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Tacevamo"
+          "form": "Tacevamo",
+          "ar": "كنا بنسكت"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Tacevate"
+          "form": "Tacevate",
+          "ar": "كنتوا بتسكتوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Tacevano"
+          "form": "Tacevano",
+          "ar": "كانوا بيسكتوا"
         }
       ]
     },
@@ -5551,31 +6167,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Apprendo"
+        "form": "Apprendo",
+        "ar": "بتعلم"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Apprendi"
+        "form": "Apprendi",
+        "ar": "بتتعلم"
       },
       {
         "person": "Lui (هو)",
-        "form": "Apprende"
+        "form": "Apprende",
+        "ar": "بيتعلم"
       },
       {
         "person": "Lei (هي)",
-        "form": "Apprende"
+        "form": "Apprende",
+        "ar": "بتتعلم"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Apprendiamo"
+        "form": "Apprendiamo",
+        "ar": "بنتعلم"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Apprendete"
+        "form": "Apprendete",
+        "ar": "بتتعلموا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Apprendono"
+        "form": "Apprendono",
+        "ar": "بيتعلموا"
       }
     ],
     "passato": {
@@ -5617,31 +6240,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Apprendevo"
+          "form": "Apprendevo",
+          "ar": "كنت بتعلم"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Apprendevi"
+          "form": "Apprendevi",
+          "ar": "كنت بتتعلم"
         },
         {
           "person": "Lui (هو)",
-          "form": "Apprendeva"
+          "form": "Apprendeva",
+          "ar": "كان بيتعلم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Apprendeva"
+          "form": "Apprendeva",
+          "ar": "كانت بتتعلم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Apprendevamo"
+          "form": "Apprendevamo",
+          "ar": "كنا بنتعلم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Apprendevate"
+          "form": "Apprendevate",
+          "ar": "كنتوا بتتعلموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Apprendevano"
+          "form": "Apprendevano",
+          "ar": "كانوا بيتعلموا"
         }
       ]
     },
@@ -5677,31 +6307,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Capisco"
+        "form": "Capisco",
+        "ar": "بفهم"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Capisci"
+        "form": "Capisci",
+        "ar": "بتفهم"
       },
       {
         "person": "Lui (هو)",
-        "form": "Capisce"
+        "form": "Capisce",
+        "ar": "بيفهم"
       },
       {
         "person": "Lei (هي)",
-        "form": "Capisce"
+        "form": "Capisce",
+        "ar": "بتفهم"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Capiamo"
+        "form": "Capiamo",
+        "ar": "بنفهم"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Capite"
+        "form": "Capite",
+        "ar": "بتفهموا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Capiscono"
+        "form": "Capiscono",
+        "ar": "بيفهموا"
       }
     ],
     "passato": {
@@ -5743,31 +6380,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Capivo"
+          "form": "Capivo",
+          "ar": "كنت بفهم"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Capivi"
+          "form": "Capivi",
+          "ar": "كنت بتفهم"
         },
         {
           "person": "Lui (هو)",
-          "form": "Capiva"
+          "form": "Capiva",
+          "ar": "كان بيفهم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Capiva"
+          "form": "Capiva",
+          "ar": "كانت بتفهم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Capivamo"
+          "form": "Capivamo",
+          "ar": "كنا بنفهم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Capivate"
+          "form": "Capivate",
+          "ar": "كنتوا بتفهموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Capivano"
+          "form": "Capivano",
+          "ar": "كانوا بيفهموا"
         }
       ]
     },
@@ -5803,31 +6447,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Dico"
+        "form": "Dico",
+        "ar": "بقول"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Dici"
+        "form": "Dici",
+        "ar": "بتقول"
       },
       {
         "person": "Lui (هو)",
-        "form": "Dice"
+        "form": "Dice",
+        "ar": "بيقول"
       },
       {
         "person": "Lei (هي)",
-        "form": "Dice"
+        "form": "Dice",
+        "ar": "بتقول"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Diciamo"
+        "form": "Diciamo",
+        "ar": "بنقول"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Dite"
+        "form": "Dite",
+        "ar": "بتقولوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Dicono"
+        "form": "Dicono",
+        "ar": "بيقولوا"
       }
     ],
     "passato": {
@@ -5869,31 +6520,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Dicevo"
+          "form": "Dicevo",
+          "ar": "كنت بقول"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Dicevi"
+          "form": "Dicevi",
+          "ar": "كنت بتقول"
         },
         {
           "person": "Lui (هو)",
-          "form": "Diceva"
+          "form": "Diceva",
+          "ar": "كان بيقول"
         },
         {
           "person": "Lei (هي)",
-          "form": "Diceva"
+          "form": "Diceva",
+          "ar": "كانت بتقول"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Dicevamo"
+          "form": "Dicevamo",
+          "ar": "كنا بنقول"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Dicevate"
+          "form": "Dicevate",
+          "ar": "كنتوا بتقولوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Dicevano"
+          "form": "Dicevano",
+          "ar": "كانوا بيقولوا"
         }
       ]
     },
@@ -5929,31 +6587,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Finisco"
+        "form": "Finisco",
+        "ar": "بخلّص"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Finisci"
+        "form": "Finisci",
+        "ar": "بتخلّص"
       },
       {
         "person": "Lui (هو)",
-        "form": "Finisce"
+        "form": "Finisce",
+        "ar": "بيخلّص"
       },
       {
         "person": "Lei (هي)",
-        "form": "Finisce"
+        "form": "Finisce",
+        "ar": "بتخلّص"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Finiamo"
+        "form": "Finiamo",
+        "ar": "بنخلّص"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Finite"
+        "form": "Finite",
+        "ar": "بتخلّصوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Finiscono"
+        "form": "Finiscono",
+        "ar": "بيخلّصوا"
       }
     ],
     "passato": {
@@ -5995,31 +6660,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Finivo"
+          "form": "Finivo",
+          "ar": "كنت بخلّص"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Finivi"
+          "form": "Finivi",
+          "ar": "كنت بتخلّص"
         },
         {
           "person": "Lui (هو)",
-          "form": "Finiva"
+          "form": "Finiva",
+          "ar": "كان بيخلّص"
         },
         {
           "person": "Lei (هي)",
-          "form": "Finiva"
+          "form": "Finiva",
+          "ar": "كانت بتخلّص"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Finivamo"
+          "form": "Finivamo",
+          "ar": "كنا بنخلّص"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Finivate"
+          "form": "Finivate",
+          "ar": "كنتوا بتخلّصوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Finivano"
+          "form": "Finivano",
+          "ar": "كانوا بيخلّصوا"
         }
       ]
     },
@@ -6055,31 +6727,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Parto"
+        "form": "Parto",
+        "ar": "بسافر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Parti"
+        "form": "Parti",
+        "ar": "بتسافر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Parte"
+        "form": "Parte",
+        "ar": "بيسافر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Parte"
+        "form": "Parte",
+        "ar": "بتسافر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Partiamo"
+        "form": "Partiamo",
+        "ar": "بنسافر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Partite"
+        "form": "Partite",
+        "ar": "بتسافروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Partono"
+        "form": "Partono",
+        "ar": "بيسافروا"
       }
     ],
     "passato": {
@@ -6121,31 +6800,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Partivo"
+          "form": "Partivo",
+          "ar": "كنت بسافر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Partivi"
+          "form": "Partivi",
+          "ar": "كنت بتسافر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Partiva"
+          "form": "Partiva",
+          "ar": "كان بيسافر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Partiva"
+          "form": "Partiva",
+          "ar": "كانت بتسافر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Partivamo"
+          "form": "Partivamo",
+          "ar": "كنا بنسافر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Partivate"
+          "form": "Partivate",
+          "ar": "كنتوا بتسافروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Partivano"
+          "form": "Partivano",
+          "ar": "كانوا بيسافروا"
         }
       ]
     },
@@ -6181,31 +6867,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Pulisco"
+        "form": "Pulisco",
+        "ar": "بنظف"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Pulisci"
+        "form": "Pulisci",
+        "ar": "بتنظف"
       },
       {
         "person": "Lui (هو)",
-        "form": "Pulisce"
+        "form": "Pulisce",
+        "ar": "بينظف"
       },
       {
         "person": "Lei (هي)",
-        "form": "Pulisce"
+        "form": "Pulisce",
+        "ar": "بتنظف"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Puliamo"
+        "form": "Puliamo",
+        "ar": "بننظف"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Pulite"
+        "form": "Pulite",
+        "ar": "بتنظفوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Puliscono"
+        "form": "Puliscono",
+        "ar": "بينظفوا"
       }
     ],
     "passato": {
@@ -6247,31 +6940,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Pulivo"
+          "form": "Pulivo",
+          "ar": "كنت بنظف"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Pulivi"
+          "form": "Pulivi",
+          "ar": "كنت بتنظف"
         },
         {
           "person": "Lui (هو)",
-          "form": "Puliva"
+          "form": "Puliva",
+          "ar": "كان بينظف"
         },
         {
           "person": "Lei (هي)",
-          "form": "Puliva"
+          "form": "Puliva",
+          "ar": "كانت بتنظف"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Pulivamo"
+          "form": "Pulivamo",
+          "ar": "كنا بننظف"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Pulivate"
+          "form": "Pulivate",
+          "ar": "كنتوا بتنظفوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Pulivano"
+          "form": "Pulivano",
+          "ar": "كانوا بينظفوا"
         }
       ]
     },
@@ -6307,31 +7007,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Esco"
+        "form": "Esco",
+        "ar": "بخرج"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Esci"
+        "form": "Esci",
+        "ar": "بتخرج"
       },
       {
         "person": "Lui (هو)",
-        "form": "Esce"
+        "form": "Esce",
+        "ar": "بيخرج"
       },
       {
         "person": "Lei (هي)",
-        "form": "Esce"
+        "form": "Esce",
+        "ar": "بتخرج"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Usciamo"
+        "form": "Usciamo",
+        "ar": "بنخرج"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Uscite"
+        "form": "Uscite",
+        "ar": "بتخرجوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Escono"
+        "form": "Escono",
+        "ar": "بيخرجوا"
       }
     ],
     "passato": {
@@ -6373,31 +7080,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Uscivo"
+          "form": "Uscivo",
+          "ar": "كنت بخرج"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Uscivi"
+          "form": "Uscivi",
+          "ar": "كنت بتخرج"
         },
         {
           "person": "Lui (هو)",
-          "form": "Usciva"
+          "form": "Usciva",
+          "ar": "كان بيخرج"
         },
         {
           "person": "Lei (هي)",
-          "form": "Usciva"
+          "form": "Usciva",
+          "ar": "كانت بتخرج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Uscivamo"
+          "form": "Uscivamo",
+          "ar": "كنا بنخرج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Uscivate"
+          "form": "Uscivate",
+          "ar": "كنتوا بتخرجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Uscivano"
+          "form": "Uscivano",
+          "ar": "كانوا بيخرجوا"
         }
       ]
     },
@@ -6433,31 +7147,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Cucino"
+        "form": "Cucino",
+        "ar": "بطبخ"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Cucini"
+        "form": "Cucini",
+        "ar": "بتطبخ"
       },
       {
         "person": "Lui (هو)",
-        "form": "Cucina"
+        "form": "Cucina",
+        "ar": "بيطبخ"
       },
       {
         "person": "Lei (هي)",
-        "form": "Cucina"
+        "form": "Cucina",
+        "ar": "بتطبخ"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Cuciniamo"
+        "form": "Cuciniamo",
+        "ar": "بنطبخ"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Cucinate"
+        "form": "Cucinate",
+        "ar": "بتطبخوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Cucinano"
+        "form": "Cucinano",
+        "ar": "بيطبخوا"
       }
     ],
     "passato": {
@@ -6499,31 +7220,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Cucinavo"
+          "form": "Cucinavo",
+          "ar": "كنت بطبخ"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Cucinavi"
+          "form": "Cucinavi",
+          "ar": "كنت بتطبخ"
         },
         {
           "person": "Lui (هو)",
-          "form": "Cucinava"
+          "form": "Cucinava",
+          "ar": "كان بيطبخ"
         },
         {
           "person": "Lei (هي)",
-          "form": "Cucinava"
+          "form": "Cucinava",
+          "ar": "كانت بتطبخ"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Cucinavamo"
+          "form": "Cucinavamo",
+          "ar": "كنا بنطبخ"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cucinavate"
+          "form": "Cucinavate",
+          "ar": "كنتوا بتطبخوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cucinavano"
+          "form": "Cucinavano",
+          "ar": "كانوا بيطبخوا"
         }
       ]
     },
@@ -6559,31 +7287,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Penso"
+        "form": "Penso",
+        "ar": "بفكر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Pensi"
+        "form": "Pensi",
+        "ar": "بتفكر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Pensa"
+        "form": "Pensa",
+        "ar": "بيفكر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Pensa"
+        "form": "Pensa",
+        "ar": "بتفكر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Pensiamo"
+        "form": "Pensiamo",
+        "ar": "بنفكر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Pensate"
+        "form": "Pensate",
+        "ar": "بتفكروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Pensano"
+        "form": "Pensano",
+        "ar": "بيفكروا"
       }
     ],
     "passato": {
@@ -6625,31 +7360,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Pensavo"
+          "form": "Pensavo",
+          "ar": "كنت بفكر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Pensavi"
+          "form": "Pensavi",
+          "ar": "كنت بتفكر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Pensava"
+          "form": "Pensava",
+          "ar": "كان بيفكر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Pensava"
+          "form": "Pensava",
+          "ar": "كانت بتفكر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Pensavamo"
+          "form": "Pensavamo",
+          "ar": "كنا بنفكر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Pensavate"
+          "form": "Pensavate",
+          "ar": "كنتوا بتفكروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Pensavano"
+          "form": "Pensavano",
+          "ar": "كانوا بيفكروا"
         }
       ]
     },
@@ -6685,31 +7427,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Piango"
+        "form": "Piango",
+        "ar": "بعيّط"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Piangi"
+        "form": "Piangi",
+        "ar": "بتعيّط"
       },
       {
         "person": "Lui (هو)",
-        "form": "Piange"
+        "form": "Piange",
+        "ar": "بيعيّط"
       },
       {
         "person": "Lei (هي)",
-        "form": "Piange"
+        "form": "Piange",
+        "ar": "بتعيّط"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Piangiamo"
+        "form": "Piangiamo",
+        "ar": "بنعيّط"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Piangete"
+        "form": "Piangete",
+        "ar": "بتعيّطوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Piangono"
+        "form": "Piangono",
+        "ar": "بيعيّطوا"
       }
     ],
     "passato": {
@@ -6751,31 +7500,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Piangevo"
+          "form": "Piangevo",
+          "ar": "كنت بعيّط"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Piangevi"
+          "form": "Piangevi",
+          "ar": "كنت بتعيّط"
         },
         {
           "person": "Lui (هو)",
-          "form": "Piangeva"
+          "form": "Piangeva",
+          "ar": "كان بيعيّط"
         },
         {
           "person": "Lei (هي)",
-          "form": "Piangeva"
+          "form": "Piangeva",
+          "ar": "كانت بتعيّط"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Piangevamo"
+          "form": "Piangevamo",
+          "ar": "كنا بنعيّط"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Piangevate"
+          "form": "Piangevate",
+          "ar": "كنتوا بتعيّطوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Piangevano"
+          "form": "Piangevano",
+          "ar": "كانوا بيعيّطوا"
         }
       ]
     },
@@ -6811,31 +7567,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Rido"
+        "form": "Rido",
+        "ar": "بضحك"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ridi"
+        "form": "Ridi",
+        "ar": "بتضحك"
       },
       {
         "person": "Lui (هو)",
-        "form": "Ride"
+        "form": "Ride",
+        "ar": "بيضحك"
       },
       {
         "person": "Lei (هي)",
-        "form": "Ride"
+        "form": "Ride",
+        "ar": "بتضحك"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ridiamo"
+        "form": "Ridiamo",
+        "ar": "بنضحك"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Ridete"
+        "form": "Ridete",
+        "ar": "بتضحكوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Ridono"
+        "form": "Ridono",
+        "ar": "بيضحكوا"
       }
     ],
     "passato": {
@@ -6877,31 +7640,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ridevo"
+          "form": "Ridevo",
+          "ar": "كنت بضحك"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ridevi"
+          "form": "Ridevi",
+          "ar": "كنت بتضحك"
         },
         {
           "person": "Lui (هو)",
-          "form": "Rideva"
+          "form": "Rideva",
+          "ar": "كان بيضحك"
         },
         {
           "person": "Lei (هي)",
-          "form": "Rideva"
+          "form": "Rideva",
+          "ar": "كانت بتضحك"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ridevamo"
+          "form": "Ridevamo",
+          "ar": "كنا بنضحك"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ridevate"
+          "form": "Ridevate",
+          "ar": "كنتوا بتضحكوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Ridevano"
+          "form": "Ridevano",
+          "ar": "كانوا بيضحكوا"
         }
       ]
     },
@@ -6937,31 +7707,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Dormo"
+        "form": "Dormo",
+        "ar": "بنام"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Dormi"
+        "form": "Dormi",
+        "ar": "بتنام"
       },
       {
         "person": "Lui (هو)",
-        "form": "Dorme"
+        "form": "Dorme",
+        "ar": "بينام"
       },
       {
         "person": "Lei (هي)",
-        "form": "Dorme"
+        "form": "Dorme",
+        "ar": "بتنام"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Dormiamo"
+        "form": "Dormiamo",
+        "ar": "بننام"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Dormite"
+        "form": "Dormite",
+        "ar": "بتناموا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Dormono"
+        "form": "Dormono",
+        "ar": "بيناموا"
       }
     ],
     "passato": {
@@ -7003,31 +7780,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Dormivo"
+          "form": "Dormivo",
+          "ar": "كنت بنام"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Dormivi"
+          "form": "Dormivi",
+          "ar": "كنت بتنام"
         },
         {
           "person": "Lui (هو)",
-          "form": "Dormiva"
+          "form": "Dormiva",
+          "ar": "كان بينام"
         },
         {
           "person": "Lei (هي)",
-          "form": "Dormiva"
+          "form": "Dormiva",
+          "ar": "كانت بتنام"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Dormivamo"
+          "form": "Dormivamo",
+          "ar": "كنا بننام"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Dormivate"
+          "form": "Dormivate",
+          "ar": "كنتوا بتناموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Dormivano"
+          "form": "Dormivano",
+          "ar": "كانوا بيناموا"
         }
       ]
     },
@@ -7063,31 +7847,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Sogno"
+        "form": "Sogno",
+        "ar": "بحلم"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Sogni"
+        "form": "Sogni",
+        "ar": "بتحلم"
       },
       {
         "person": "Lui (هو)",
-        "form": "Sogna"
+        "form": "Sogna",
+        "ar": "بيحلم"
       },
       {
         "person": "Lei (هي)",
-        "form": "Sogna"
+        "form": "Sogna",
+        "ar": "بتحلم"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Sogniamo"
+        "form": "Sogniamo",
+        "ar": "بنحلم"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Sognate"
+        "form": "Sognate",
+        "ar": "بتحلموا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Sognano"
+        "form": "Sognano",
+        "ar": "بيحلموا"
       }
     ],
     "passato": {
@@ -7129,31 +7920,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sognavo"
+          "form": "Sognavo",
+          "ar": "كنت بحلم"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sognavi"
+          "form": "Sognavi",
+          "ar": "كنت بتحلم"
         },
         {
           "person": "Lui (هو)",
-          "form": "Sognava"
+          "form": "Sognava",
+          "ar": "كان بيحلم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Sognava"
+          "form": "Sognava",
+          "ar": "كانت بتحلم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sognavamo"
+          "form": "Sognavamo",
+          "ar": "كنا بنحلم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sognavate"
+          "form": "Sognavate",
+          "ar": "كنتوا بتحلموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sognavano"
+          "form": "Sognavano",
+          "ar": "كانوا بيحلموا"
         }
       ]
     },
@@ -7189,31 +7987,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Spero"
+        "form": "Spero",
+        "ar": "بتمنى"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Speri"
+        "form": "Speri",
+        "ar": "بتتمنى"
       },
       {
         "person": "Lui (هو)",
-        "form": "Spera"
+        "form": "Spera",
+        "ar": "بيتمنى"
       },
       {
         "person": "Lei (هي)",
-        "form": "Spera"
+        "form": "Spera",
+        "ar": "بتتمنى"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Speriamo"
+        "form": "Speriamo",
+        "ar": "بنتمنى"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Sperate"
+        "form": "Sperate",
+        "ar": "بتتمنىوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Sperano"
+        "form": "Sperano",
+        "ar": "بيتمنىوا"
       }
     ],
     "passato": {
@@ -7255,31 +8060,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Speravo"
+          "form": "Speravo",
+          "ar": "كنت بتمنى"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Speravi"
+          "form": "Speravi",
+          "ar": "كنت بتتمنى"
         },
         {
           "person": "Lui (هو)",
-          "form": "Sperava"
+          "form": "Sperava",
+          "ar": "كان بيتمنى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Sperava"
+          "form": "Sperava",
+          "ar": "كانت بتتمنى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Speravamo"
+          "form": "Speravamo",
+          "ar": "كنا بنتمنى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Speravate"
+          "form": "Speravate",
+          "ar": "كنتوا بتتمنىوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Speravano"
+          "form": "Speravano",
+          "ar": "كانوا بيتمنىوا"
         }
       ]
     },
@@ -7315,31 +8127,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Spiego"
+        "form": "Spiego",
+        "ar": "بشرح"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Spieghi"
+        "form": "Spieghi",
+        "ar": "بتشرح"
       },
       {
         "person": "Lui (هو)",
-        "form": "Spiega"
+        "form": "Spiega",
+        "ar": "بيشرح"
       },
       {
         "person": "Lei (هي)",
-        "form": "Spiega"
+        "form": "Spiega",
+        "ar": "بتشرح"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Spieghiamo"
+        "form": "Spieghiamo",
+        "ar": "بنشرح"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Spiegate"
+        "form": "Spiegate",
+        "ar": "بتشرحوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Spiegano"
+        "form": "Spiegano",
+        "ar": "بيشرحوا"
       }
     ],
     "passato": {
@@ -7381,31 +8200,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Spiegavo"
+          "form": "Spiegavo",
+          "ar": "كنت بشرح"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Spiegavi"
+          "form": "Spiegavi",
+          "ar": "كنت بتشرح"
         },
         {
           "person": "Lui (هو)",
-          "form": "Spiegava"
+          "form": "Spiegava",
+          "ar": "كان بيشرح"
         },
         {
           "person": "Lei (هي)",
-          "form": "Spiegava"
+          "form": "Spiegava",
+          "ar": "كانت بتشرح"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Spiegavamo"
+          "form": "Spiegavamo",
+          "ar": "كنا بنشرح"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Spiegavate"
+          "form": "Spiegavate",
+          "ar": "كنتوا بتشرحوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Spiegavano"
+          "form": "Spiegavano",
+          "ar": "كانوا بيشرحوا"
         }
       ]
     },
@@ -7441,31 +8267,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Sto"
+        "form": "Sto",
+        "ar": "بقعد"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Stai"
+        "form": "Stai",
+        "ar": "بتقعد"
       },
       {
         "person": "Lui (هو)",
-        "form": "Sta"
+        "form": "Sta",
+        "ar": "بيقعد"
       },
       {
         "person": "Lei (هي)",
-        "form": "Sta"
+        "form": "Sta",
+        "ar": "بتقعد"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Stiamo"
+        "form": "Stiamo",
+        "ar": "بنقعد"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "State"
+        "form": "State",
+        "ar": "بتقعدوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Stanno"
+        "form": "Stanno",
+        "ar": "بيقعدوا"
       }
     ],
     "passato": {
@@ -7507,31 +8340,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Stavo"
+          "form": "Stavo",
+          "ar": "كنت بقعد"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Stavi"
+          "form": "Stavi",
+          "ar": "كنت بتقعد"
         },
         {
           "person": "Lui (هو)",
-          "form": "Stava"
+          "form": "Stava",
+          "ar": "كان بيقعد"
         },
         {
           "person": "Lei (هي)",
-          "form": "Stava"
+          "form": "Stava",
+          "ar": "كانت بتقعد"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Stavamo"
+          "form": "Stavamo",
+          "ar": "كنا بنقعد"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Stavate"
+          "form": "Stavate",
+          "ar": "كنتوا بتقعدوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Stavano"
+          "form": "Stavano",
+          "ar": "كانوا بيقعدوا"
         }
       ]
     },
@@ -7567,31 +8407,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Bevo"
+        "form": "Bevo",
+        "ar": "بشرب"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Bevi"
+        "form": "Bevi",
+        "ar": "بتشرب"
       },
       {
         "person": "Lui (هو)",
-        "form": "Beve"
+        "form": "Beve",
+        "ar": "بيشرب"
       },
       {
         "person": "Lei (هي)",
-        "form": "Beve"
+        "form": "Beve",
+        "ar": "بتشرب"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Beviamo"
+        "form": "Beviamo",
+        "ar": "بنشرب"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Bevete"
+        "form": "Bevete",
+        "ar": "بتشربوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Bevono"
+        "form": "Bevono",
+        "ar": "بيشربوا"
       }
     ],
     "passato": {
@@ -7633,31 +8480,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Bevevo"
+          "form": "Bevevo",
+          "ar": "كنت بشرب"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Bevevi"
+          "form": "Bevevi",
+          "ar": "كنت بتشرب"
         },
         {
           "person": "Lui (هو)",
-          "form": "Beveva"
+          "form": "Beveva",
+          "ar": "كان بيشرب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Beveva"
+          "form": "Beveva",
+          "ar": "كانت بتشرب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Bevevamo"
+          "form": "Bevevamo",
+          "ar": "كنا بنشرب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Bevevate"
+          "form": "Bevevate",
+          "ar": "كنتوا بتشربوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Bevevano"
+          "form": "Bevevano",
+          "ar": "كانوا بيشربوا"
         }
       ]
     },
@@ -7693,31 +8547,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Pongo"
+        "form": "Pongo",
+        "ar": "بضع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Poni"
+        "form": "Poni",
+        "ar": "بتضع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Pone"
+        "form": "Pone",
+        "ar": "بيضع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Pone"
+        "form": "Pone",
+        "ar": "بتضع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Poniamo"
+        "form": "Poniamo",
+        "ar": "بنضع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Ponete"
+        "form": "Ponete",
+        "ar": "بتضعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Pongono"
+        "form": "Pongono",
+        "ar": "بيضعوا"
       }
     ],
     "passato": {
@@ -7759,31 +8620,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Ponevo"
+          "form": "Ponevo",
+          "ar": "كنت بضع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ponevi"
+          "form": "Ponevi",
+          "ar": "كنت بتضع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Poneva"
+          "form": "Poneva",
+          "ar": "كان بيضع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Poneva"
+          "form": "Poneva",
+          "ar": "كانت بتضع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ponevamo"
+          "form": "Ponevamo",
+          "ar": "كنا بنضع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Ponevate"
+          "form": "Ponevate",
+          "ar": "كنتوا بتضعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Ponevano"
+          "form": "Ponevano",
+          "ar": "كانوا بيضعوا"
         }
       ]
     },
@@ -7819,31 +8687,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Traduco"
+        "form": "Traduco",
+        "ar": "بترجم"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Traduci"
+        "form": "Traduci",
+        "ar": "بتترجم"
       },
       {
         "person": "Lui (هو)",
-        "form": "Traduce"
+        "form": "Traduce",
+        "ar": "بيترجم"
       },
       {
         "person": "Lei (هي)",
-        "form": "Traduce"
+        "form": "Traduce",
+        "ar": "بتترجم"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Traduciamo"
+        "form": "Traduciamo",
+        "ar": "بنترجم"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Traducete"
+        "form": "Traducete",
+        "ar": "بتترجموا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Traducono"
+        "form": "Traducono",
+        "ar": "بيترجموا"
       }
     ],
     "passato": {
@@ -7885,31 +8760,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Traducevo"
+          "form": "Traducevo",
+          "ar": "كنت بترجم"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Traducevi"
+          "form": "Traducevi",
+          "ar": "كنت بتترجم"
         },
         {
           "person": "Lui (هو)",
-          "form": "Traduceva"
+          "form": "Traduceva",
+          "ar": "كان بيترجم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Traduceva"
+          "form": "Traduceva",
+          "ar": "كانت بتترجم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Traducevamo"
+          "form": "Traducevamo",
+          "ar": "كنا بنترجم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Traducevate"
+          "form": "Traducevate",
+          "ar": "كنتوا بتترجموا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Traducevano"
+          "form": "Traducevano",
+          "ar": "كانوا بيترجموا"
         }
       ]
     },
@@ -7945,31 +8827,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Produco"
+        "form": "Produco",
+        "ar": "بنتج"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Produci"
+        "form": "Produci",
+        "ar": "بتنتج"
       },
       {
         "person": "Lui (هو)",
-        "form": "Produce"
+        "form": "Produce",
+        "ar": "بينتج"
       },
       {
         "person": "Lei (هي)",
-        "form": "Produce"
+        "form": "Produce",
+        "ar": "بتنتج"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Produciamo"
+        "form": "Produciamo",
+        "ar": "بننتج"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Producete"
+        "form": "Producete",
+        "ar": "بتنتجوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Producono"
+        "form": "Producono",
+        "ar": "بينتجوا"
       }
     ],
     "passato": {
@@ -8011,31 +8900,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Producevo"
+          "form": "Producevo",
+          "ar": "كنت بنتج"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Producevi"
+          "form": "Producevi",
+          "ar": "كنت بتنتج"
         },
         {
           "person": "Lui (هو)",
-          "form": "Produceva"
+          "form": "Produceva",
+          "ar": "كان بينتج"
         },
         {
           "person": "Lei (هي)",
-          "form": "Produceva"
+          "form": "Produceva",
+          "ar": "كانت بتنتج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Producevamo"
+          "form": "Producevamo",
+          "ar": "كنا بننتج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Producevate"
+          "form": "Producevate",
+          "ar": "كنتوا بتنتجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Producevano"
+          "form": "Producevano",
+          "ar": "كانوا بينتجوا"
         }
       ]
     },
@@ -8073,31 +8969,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi alzo"
+        "form": "Mi alzo",
+        "ar": "بنهض"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti alzi"
+        "form": "Ti alzi",
+        "ar": "بتنهض"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si alza"
+        "form": "Si alza",
+        "ar": "بينهض"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si alza"
+        "form": "Si alza",
+        "ar": "بتنهض"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci alziamo"
+        "form": "Ci alziamo",
+        "ar": "بننهض"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi alzate"
+        "form": "Vi alzate",
+        "ar": "بتنهضوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si alzano"
+        "form": "Si alzano",
+        "ar": "بينهضوا"
       }
     ],
     "passato": {
@@ -8139,31 +9042,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi alzavo"
+          "form": "Mi alzavo",
+          "ar": "كنت بنهض"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti alzavi"
+          "form": "Ti alzavi",
+          "ar": "كنت بتنهض"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si alzava"
+          "form": "Si alzava",
+          "ar": "كان بينهض"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si alzava"
+          "form": "Si alzava",
+          "ar": "كانت بتنهض"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci alzavamo"
+          "form": "Ci alzavamo",
+          "ar": "كنا بننهض"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi alzavate"
+          "form": "Vi alzavate",
+          "ar": "كنتوا بتنهضوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si alzavano"
+          "form": "Si alzavano",
+          "ar": "كانوا بينهضوا"
         }
       ]
     },
@@ -8201,31 +9111,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi lavo"
+        "form": "Mi lavo",
+        "ar": "بغتسل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti lavi"
+        "form": "Ti lavi",
+        "ar": "بتغتسل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si lava"
+        "form": "Si lava",
+        "ar": "بيغتسل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si lava"
+        "form": "Si lava",
+        "ar": "بتغتسل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci laviamo"
+        "form": "Ci laviamo",
+        "ar": "بنغتسل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi lavate"
+        "form": "Vi lavate",
+        "ar": "بتغتسلوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si lavano"
+        "form": "Si lavano",
+        "ar": "بيغتسلوا"
       }
     ],
     "passato": {
@@ -8267,31 +9184,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi lavavo"
+          "form": "Mi lavavo",
+          "ar": "كنت بغتسل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti lavavi"
+          "form": "Ti lavavi",
+          "ar": "كنت بتغتسل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si lavava"
+          "form": "Si lavava",
+          "ar": "كان بيغتسل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si lavava"
+          "form": "Si lavava",
+          "ar": "كانت بتغتسل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci lavavamo"
+          "form": "Ci lavavamo",
+          "ar": "كنا بنغتسل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi lavavate"
+          "form": "Vi lavavate",
+          "ar": "كنتوا بتغتسلوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si lavavano"
+          "form": "Si lavavano",
+          "ar": "كانوا بيغتسلوا"
         }
       ]
     },
@@ -8329,31 +9253,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi chiamo"
+        "form": "Mi chiamo",
+        "ar": "بُدعى"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti chiami"
+        "form": "Ti chiami",
+        "ar": "بتُدعى"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si chiama"
+        "form": "Si chiama",
+        "ar": "بيُدعى"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si chiama"
+        "form": "Si chiama",
+        "ar": "بتُدعى"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci chiamiamo"
+        "form": "Ci chiamiamo",
+        "ar": "بنُدعى"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi chiamate"
+        "form": "Vi chiamate",
+        "ar": "بتُدعىوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si chiamano"
+        "form": "Si chiamano",
+        "ar": "بيُدعىوا"
       }
     ],
     "passato": {
@@ -8395,31 +9326,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi chiamavo"
+          "form": "Mi chiamavo",
+          "ar": "كنت بُدعى"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti chiamavi"
+          "form": "Ti chiamavi",
+          "ar": "كنت بتُدعى"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si chiamava"
+          "form": "Si chiamava",
+          "ar": "كان بيُدعى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si chiamava"
+          "form": "Si chiamava",
+          "ar": "كانت بتُدعى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci chiamavamo"
+          "form": "Ci chiamavamo",
+          "ar": "كنا بنُدعى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi chiamavate"
+          "form": "Vi chiamavate",
+          "ar": "كنتوا بتُدعىوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si chiamavano"
+          "form": "Si chiamavano",
+          "ar": "كانوا بيُدعىوا"
         }
       ]
     },
@@ -8457,31 +9395,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi riposo"
+        "form": "Mi riposo",
+        "ar": "بستريح"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti riposi"
+        "form": "Ti riposi",
+        "ar": "بتستريح"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si riposa"
+        "form": "Si riposa",
+        "ar": "بيستريح"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si riposa"
+        "form": "Si riposa",
+        "ar": "بتستريح"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci riposiamo"
+        "form": "Ci riposiamo",
+        "ar": "بنستريح"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi riposate"
+        "form": "Vi riposate",
+        "ar": "بتستريحوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si riposano"
+        "form": "Si riposano",
+        "ar": "بيستريحوا"
       }
     ],
     "passato": {
@@ -8523,31 +9468,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi riposavo"
+          "form": "Mi riposavo",
+          "ar": "كنت بستريح"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti riposavi"
+          "form": "Ti riposavi",
+          "ar": "كنت بتستريح"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si riposava"
+          "form": "Si riposava",
+          "ar": "كان بيستريح"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si riposava"
+          "form": "Si riposava",
+          "ar": "كانت بتستريح"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci riposavamo"
+          "form": "Ci riposavamo",
+          "ar": "كنا بنستريح"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi riposavate"
+          "form": "Vi riposavate",
+          "ar": "كنتوا بتستريحوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si riposavano"
+          "form": "Si riposavano",
+          "ar": "كانوا بيستريحوا"
         }
       ]
     },
@@ -8585,31 +9537,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi preparo"
+        "form": "Mi preparo",
+        "ar": "بستعدّ"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti prepari"
+        "form": "Ti prepari",
+        "ar": "بتستعدّ"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si prepara"
+        "form": "Si prepara",
+        "ar": "بيستعدّ"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si prepara"
+        "form": "Si prepara",
+        "ar": "بتستعدّ"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci prepariamo"
+        "form": "Ci prepariamo",
+        "ar": "بنستعدّ"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi preparate"
+        "form": "Vi preparate",
+        "ar": "بتستعدّوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si preparano"
+        "form": "Si preparano",
+        "ar": "بيستعدّوا"
       }
     ],
     "passato": {
@@ -8651,31 +9610,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi preparavo"
+          "form": "Mi preparavo",
+          "ar": "كنت بستعدّ"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti preparavi"
+          "form": "Ti preparavi",
+          "ar": "كنت بتستعدّ"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si preparava"
+          "form": "Si preparava",
+          "ar": "كان بيستعدّ"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si preparava"
+          "form": "Si preparava",
+          "ar": "كانت بتستعدّ"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci preparavamo"
+          "form": "Ci preparavamo",
+          "ar": "كنا بنستعدّ"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi preparavate"
+          "form": "Vi preparavate",
+          "ar": "كنتوا بتستعدّوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si preparavano"
+          "form": "Si preparavano",
+          "ar": "كانوا بيستعدّوا"
         }
       ]
     },
@@ -8713,31 +9679,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi arrabbio"
+        "form": "Mi arrabbio",
+        "ar": "بغضب"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti arrabbi"
+        "form": "Ti arrabbi",
+        "ar": "بتغضب"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si arrabbia"
+        "form": "Si arrabbia",
+        "ar": "بيغضب"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si arrabbia"
+        "form": "Si arrabbia",
+        "ar": "بتغضب"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci arrabbiamo"
+        "form": "Ci arrabbiamo",
+        "ar": "بنغضب"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi arrabbiate"
+        "form": "Vi arrabbiate",
+        "ar": "بتغضبوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si arrabbiano"
+        "form": "Si arrabbiano",
+        "ar": "بيغضبوا"
       }
     ],
     "passato": {
@@ -8779,31 +9752,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi arrabbiavo"
+          "form": "Mi arrabbiavo",
+          "ar": "كنت بغضب"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti arrabbiavi"
+          "form": "Ti arrabbiavi",
+          "ar": "كنت بتغضب"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si arrabbiava"
+          "form": "Si arrabbiava",
+          "ar": "كان بيغضب"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si arrabbiava"
+          "form": "Si arrabbiava",
+          "ar": "كانت بتغضب"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci arrabbiavamo"
+          "form": "Ci arrabbiavamo",
+          "ar": "كنا بنغضب"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi arrabbiavate"
+          "form": "Vi arrabbiavate",
+          "ar": "كنتوا بتغضبوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si arrabbiavano"
+          "form": "Si arrabbiavano",
+          "ar": "كانوا بيغضبوا"
         }
       ]
     },
@@ -8841,31 +9821,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi ricordo"
+        "form": "Mi ricordo",
+        "ar": "بتذكّر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti ricordi"
+        "form": "Ti ricordi",
+        "ar": "بتتذكّر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si ricorda"
+        "form": "Si ricorda",
+        "ar": "بيتذكّر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si ricorda"
+        "form": "Si ricorda",
+        "ar": "بتتذكّر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci ricordiamo"
+        "form": "Ci ricordiamo",
+        "ar": "بنتذكّر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi ricordate"
+        "form": "Vi ricordate",
+        "ar": "بتتذكّروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si ricordano"
+        "form": "Si ricordano",
+        "ar": "بيتذكّروا"
       }
     ],
     "passato": {
@@ -8907,31 +9894,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi ricordavo"
+          "form": "Mi ricordavo",
+          "ar": "كنت بتذكّر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti ricordavi"
+          "form": "Ti ricordavi",
+          "ar": "كنت بتتذكّر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si ricordava"
+          "form": "Si ricordava",
+          "ar": "كان بيتذكّر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si ricordava"
+          "form": "Si ricordava",
+          "ar": "كانت بتتذكّر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci ricordavamo"
+          "form": "Ci ricordavamo",
+          "ar": "كنا بنتذكّر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi ricordavate"
+          "form": "Vi ricordavate",
+          "ar": "كنتوا بتتذكّروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si ricordavano"
+          "form": "Si ricordavano",
+          "ar": "كانوا بيتذكّروا"
         }
       ]
     },
@@ -8969,31 +9963,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi addormento"
+        "form": "Mi addormento",
+        "ar": "بغفو"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti addormenti"
+        "form": "Ti addormenti",
+        "ar": "بتغفو"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si addormenta"
+        "form": "Si addormenta",
+        "ar": "بيغفو"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si addormenta"
+        "form": "Si addormenta",
+        "ar": "بتغفو"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci addormentiamo"
+        "form": "Ci addormentiamo",
+        "ar": "بنغفو"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi addormentate"
+        "form": "Vi addormentate",
+        "ar": "بتغفووا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si addormentano"
+        "form": "Si addormentano",
+        "ar": "بيغفووا"
       }
     ],
     "passato": {
@@ -9035,31 +10036,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi addormentavo"
+          "form": "Mi addormentavo",
+          "ar": "كنت بغفو"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti addormentavi"
+          "form": "Ti addormentavi",
+          "ar": "كنت بتغفو"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si addormentava"
+          "form": "Si addormentava",
+          "ar": "كان بيغفو"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si addormentava"
+          "form": "Si addormentava",
+          "ar": "كانت بتغفو"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci addormentavamo"
+          "form": "Ci addormentavamo",
+          "ar": "كنا بنغفو"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi addormentavate"
+          "form": "Vi addormentavate",
+          "ar": "كنتوا بتغفووا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si addormentavano"
+          "form": "Si addormentavano",
+          "ar": "كانوا بيغفووا"
         }
       ]
     },
@@ -9097,31 +10105,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi trovo"
+        "form": "Mi trovo",
+        "ar": "بقع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti trovi"
+        "form": "Ti trovi",
+        "ar": "بتقع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si trova"
+        "form": "Si trova",
+        "ar": "بيقع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si trova"
+        "form": "Si trova",
+        "ar": "بتقع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci troviamo"
+        "form": "Ci troviamo",
+        "ar": "بنقع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi trovate"
+        "form": "Vi trovate",
+        "ar": "بتقعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si trovano"
+        "form": "Si trovano",
+        "ar": "بيقعوا"
       }
     ],
     "passato": {
@@ -9163,31 +10178,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi trovavo"
+          "form": "Mi trovavo",
+          "ar": "كنت بقع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti trovavi"
+          "form": "Ti trovavi",
+          "ar": "كنت بتقع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si trovava"
+          "form": "Si trovava",
+          "ar": "كان بيقع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si trovava"
+          "form": "Si trovava",
+          "ar": "كانت بتقع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci trovavamo"
+          "form": "Ci trovavamo",
+          "ar": "كنا بنقع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi trovavate"
+          "form": "Vi trovavate",
+          "ar": "كنتوا بتقعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si trovavano"
+          "form": "Si trovavano",
+          "ar": "كانوا بيقعوا"
         }
       ]
     },
@@ -9225,31 +10247,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi sposo"
+        "form": "Mi sposo",
+        "ar": "بتزوّج"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti sposi"
+        "form": "Ti sposi",
+        "ar": "بتتزوّج"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si sposa"
+        "form": "Si sposa",
+        "ar": "بيتزوّج"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si sposa"
+        "form": "Si sposa",
+        "ar": "بتتزوّج"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci sposiamo"
+        "form": "Ci sposiamo",
+        "ar": "بنتزوّج"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi sposate"
+        "form": "Vi sposate",
+        "ar": "بتتزوّجوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si sposano"
+        "form": "Si sposano",
+        "ar": "بيتزوّجوا"
       }
     ],
     "passato": {
@@ -9291,31 +10320,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sposavo"
+          "form": "Mi sposavo",
+          "ar": "كنت بتزوّج"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sposavi"
+          "form": "Ti sposavi",
+          "ar": "كنت بتتزوّج"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si sposava"
+          "form": "Si sposava",
+          "ar": "كان بيتزوّج"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si sposava"
+          "form": "Si sposava",
+          "ar": "كانت بتتزوّج"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci sposavamo"
+          "form": "Ci sposavamo",
+          "ar": "كنا بنتزوّج"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi sposavate"
+          "form": "Vi sposavate",
+          "ar": "كنتوا بتتزوّجوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sposavano"
+          "form": "Si sposavano",
+          "ar": "كانوا بيتزوّجوا"
         }
       ]
     },
@@ -9353,31 +10389,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi laureo"
+        "form": "Mi laureo",
+        "ar": "بتخرّج من الجامعة"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti laurei"
+        "form": "Ti laurei",
+        "ar": "بتتخرّج من الجامعة"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si laurea"
+        "form": "Si laurea",
+        "ar": "بيتخرّج من الجامعة"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si laurea"
+        "form": "Si laurea",
+        "ar": "بتتخرّج من الجامعة"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci laureiamo"
+        "form": "Ci laureiamo",
+        "ar": "بنتخرّج من الجامعة"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi laureate"
+        "form": "Vi laureate",
+        "ar": "بتتخرّجوا من الجامعة"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si laureano"
+        "form": "Si laureano",
+        "ar": "بيتخرّجوا من الجامعة"
       }
     ],
     "passato": {
@@ -9419,31 +10462,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi laureavo"
+          "form": "Mi laureavo",
+          "ar": "كنت بتخرّج من الجامعة"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti laureavi"
+          "form": "Ti laureavi",
+          "ar": "كنت بتتخرّج من الجامعة"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si laureava"
+          "form": "Si laureava",
+          "ar": "كان بيتخرّج من الجامعة"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si laureava"
+          "form": "Si laureava",
+          "ar": "كانت بتتخرّج من الجامعة"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci laureavamo"
+          "form": "Ci laureavamo",
+          "ar": "كنا بنتخرّج من الجامعة"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi laureavate"
+          "form": "Vi laureavate",
+          "ar": "كنتوا بتتخرّجوا من الجامعة"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si laureavano"
+          "form": "Si laureavano",
+          "ar": "كانوا بيتخرّجوا من الجامعة"
         }
       ]
     },
@@ -9481,31 +10531,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi annoio"
+        "form": "Mi annoio",
+        "ar": "بشعر بالملل"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti annoi"
+        "form": "Ti annoi",
+        "ar": "بتشعر بالملل"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si annoia"
+        "form": "Si annoia",
+        "ar": "بيشعر بالملل"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si annoia"
+        "form": "Si annoia",
+        "ar": "بتشعر بالملل"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci annoiamo"
+        "form": "Ci annoiamo",
+        "ar": "بنشعر بالملل"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi annoiate"
+        "form": "Vi annoiate",
+        "ar": "بتشعروا بالملل"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si annoiano"
+        "form": "Si annoiano",
+        "ar": "بيشعروا بالملل"
       }
     ],
     "passato": {
@@ -9547,31 +10604,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi annoiavo"
+          "form": "Mi annoiavo",
+          "ar": "كنت بشعر بالملل"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti annoiavi"
+          "form": "Ti annoiavi",
+          "ar": "كنت بتشعر بالملل"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si annoiava"
+          "form": "Si annoiava",
+          "ar": "كان بيشعر بالملل"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si annoiava"
+          "form": "Si annoiava",
+          "ar": "كانت بتشعر بالملل"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci annoiavamo"
+          "form": "Ci annoiavamo",
+          "ar": "كنا بنشعر بالملل"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi annoiavate"
+          "form": "Vi annoiavate",
+          "ar": "كنتوا بتشعروا بالملل"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si annoiavano"
+          "form": "Si annoiavano",
+          "ar": "كانوا بيشعروا بالملل"
         }
       ]
     },
@@ -9609,31 +10673,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi pettino"
+        "form": "Mi pettino",
+        "ar": "بمشّط شعره"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti pettini"
+        "form": "Ti pettini",
+        "ar": "بتمشّط شعره"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si pettina"
+        "form": "Si pettina",
+        "ar": "بيمشّط شعره"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si pettina"
+        "form": "Si pettina",
+        "ar": "بتمشّط شعره"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci pettiniamo"
+        "form": "Ci pettiniamo",
+        "ar": "بنمشّط شعره"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi pettinate"
+        "form": "Vi pettinate",
+        "ar": "بتمشّطوا شعره"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si pettinano"
+        "form": "Si pettinano",
+        "ar": "بيمشّطوا شعره"
       }
     ],
     "passato": {
@@ -9675,31 +10746,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi pettinavo"
+          "form": "Mi pettinavo",
+          "ar": "كنت بمشّط شعره"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti pettinavi"
+          "form": "Ti pettinavi",
+          "ar": "كنت بتمشّط شعره"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si pettinava"
+          "form": "Si pettinava",
+          "ar": "كان بيمشّط شعره"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si pettinava"
+          "form": "Si pettinava",
+          "ar": "كانت بتمشّط شعره"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci pettinavamo"
+          "form": "Ci pettinavamo",
+          "ar": "كنا بنمشّط شعره"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi pettinavate"
+          "form": "Vi pettinavate",
+          "ar": "كنتوا بتمشّطوا شعره"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si pettinavano"
+          "form": "Si pettinavano",
+          "ar": "كانوا بيمشّطوا شعره"
         }
       ]
     },
@@ -9737,31 +10815,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi vesto"
+        "form": "Mi vesto",
+        "ar": "برتدي ملابسه"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti vesti"
+        "form": "Ti vesti",
+        "ar": "بترتدي ملابسه"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si veste"
+        "form": "Si veste",
+        "ar": "بيرتدي ملابسه"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si veste"
+        "form": "Si veste",
+        "ar": "بترتدي ملابسه"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci vestiamo"
+        "form": "Ci vestiamo",
+        "ar": "بنرتدي ملابسه"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi vestite"
+        "form": "Vi vestite",
+        "ar": "بترتديوا ملابسه"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si vestono"
+        "form": "Si vestono",
+        "ar": "بيرتديوا ملابسه"
       }
     ],
     "passato": {
@@ -9803,31 +10888,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi vestivo"
+          "form": "Mi vestivo",
+          "ar": "كنت برتدي ملابسه"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti vestivi"
+          "form": "Ti vestivi",
+          "ar": "كنت بترتدي ملابسه"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si vestiva"
+          "form": "Si vestiva",
+          "ar": "كان بيرتدي ملابسه"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si vestiva"
+          "form": "Si vestiva",
+          "ar": "كانت بترتدي ملابسه"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci vestivamo"
+          "form": "Ci vestivamo",
+          "ar": "كنا بنرتدي ملابسه"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi vestivate"
+          "form": "Vi vestivate",
+          "ar": "كنتوا بترتديوا ملابسه"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si vestivano"
+          "form": "Si vestivano",
+          "ar": "كانوا بيرتديوا ملابسه"
         }
       ]
     },
@@ -9865,31 +10957,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi diverto"
+        "form": "Mi diverto",
+        "ar": "بستمتع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti diverti"
+        "form": "Ti diverti",
+        "ar": "بتستمتع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si diverte"
+        "form": "Si diverte",
+        "ar": "بيستمتع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si diverte"
+        "form": "Si diverte",
+        "ar": "بتستمتع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci divertiamo"
+        "form": "Ci divertiamo",
+        "ar": "بنستمتع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi divertite"
+        "form": "Vi divertite",
+        "ar": "بتستمتعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si divertono"
+        "form": "Si divertono",
+        "ar": "بيستمتعوا"
       }
     ],
     "passato": {
@@ -9931,31 +11030,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi divertivo"
+          "form": "Mi divertivo",
+          "ar": "كنت بستمتع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti divertivi"
+          "form": "Ti divertivi",
+          "ar": "كنت بتستمتع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si divertiva"
+          "form": "Si divertiva",
+          "ar": "كان بيستمتع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si divertiva"
+          "form": "Si divertiva",
+          "ar": "كانت بتستمتع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci divertivamo"
+          "form": "Ci divertivamo",
+          "ar": "كنا بنستمتع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi divertivate"
+          "form": "Vi divertivate",
+          "ar": "كنتوا بتستمتعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si divertivano"
+          "form": "Si divertivano",
+          "ar": "كانوا بيستمتعوا"
         }
       ]
     },
@@ -9993,31 +11099,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi sento"
+        "form": "Mi sento",
+        "ar": "بشعر (بحالة)"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti senti"
+        "form": "Ti senti",
+        "ar": "بتشعر (بحالة)"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si sente"
+        "form": "Si sente",
+        "ar": "بيشعر (بحالة)"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si sente"
+        "form": "Si sente",
+        "ar": "بتشعر (بحالة)"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci sentiamo"
+        "form": "Ci sentiamo",
+        "ar": "بنشعر (بحالة)"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi sentite"
+        "form": "Vi sentite",
+        "ar": "بتشعروا (بحالة)"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si sentono"
+        "form": "Si sentono",
+        "ar": "بيشعروا (بحالة)"
       }
     ],
     "passato": {
@@ -10059,31 +11172,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sentivo"
+          "form": "Mi sentivo",
+          "ar": "كنت بشعر (بحالة)"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sentivi"
+          "form": "Ti sentivi",
+          "ar": "كنت بتشعر (بحالة)"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si sentiva"
+          "form": "Si sentiva",
+          "ar": "كان بيشعر (بحالة)"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si sentiva"
+          "form": "Si sentiva",
+          "ar": "كانت بتشعر (بحالة)"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci sentivamo"
+          "form": "Ci sentivamo",
+          "ar": "كنا بنشعر (بحالة)"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi sentivate"
+          "form": "Vi sentivate",
+          "ar": "كنتوا بتشعروا (بحالة)"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sentivano"
+          "form": "Si sentivano",
+          "ar": "كانوا بيشعروا (بحالة)"
         }
       ]
     },
@@ -10121,31 +11241,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi metto"
+        "form": "Mi metto",
+        "ar": "برتدي"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti metti"
+        "form": "Ti metti",
+        "ar": "بترتدي"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si mette"
+        "form": "Si mette",
+        "ar": "بيرتدي"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si mette"
+        "form": "Si mette",
+        "ar": "بترتدي"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci mettiamo"
+        "form": "Ci mettiamo",
+        "ar": "بنرتدي"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi mettete"
+        "form": "Vi mettete",
+        "ar": "بترتديوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si mettono"
+        "form": "Si mettono",
+        "ar": "بيرتديوا"
       }
     ],
     "passato": {
@@ -10187,31 +11314,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi mettevo"
+          "form": "Mi mettevo",
+          "ar": "كنت برتدي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti mettevi"
+          "form": "Ti mettevi",
+          "ar": "كنت بترتدي"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si metteva"
+          "form": "Si metteva",
+          "ar": "كان بيرتدي"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si metteva"
+          "form": "Si metteva",
+          "ar": "كانت بترتدي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci mettevamo"
+          "form": "Ci mettevamo",
+          "ar": "كنا بنرتدي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi mettevate"
+          "form": "Vi mettevate",
+          "ar": "كنتوا بترتديوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si mettevano"
+          "form": "Si mettevano",
+          "ar": "كانوا بيرتديوا"
         }
       ]
     },
@@ -10249,31 +11383,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi siedo"
+        "form": "Mi siedo",
+        "ar": "بجلس"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti siedi"
+        "form": "Ti siedi",
+        "ar": "بتجلس"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si siede"
+        "form": "Si siede",
+        "ar": "بيجلس"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si siede"
+        "form": "Si siede",
+        "ar": "بتجلس"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci sediamo"
+        "form": "Ci sediamo",
+        "ar": "بنجلس"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi sedete"
+        "form": "Vi sedete",
+        "ar": "بتجلسوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si siedono"
+        "form": "Si siedono",
+        "ar": "بيجلسوا"
       }
     ],
     "passato": {
@@ -10315,31 +11456,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi sedevo"
+          "form": "Mi sedevo",
+          "ar": "كنت بجلس"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti sedevi"
+          "form": "Ti sedevi",
+          "ar": "كنت بتجلس"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si sedeva"
+          "form": "Si sedeva",
+          "ar": "كان بيجلس"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si sedeva"
+          "form": "Si sedeva",
+          "ar": "كانت بتجلس"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci sedevamo"
+          "form": "Ci sedevamo",
+          "ar": "كنا بنجلس"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi sedevate"
+          "form": "Vi sedevate",
+          "ar": "كنتوا بتجلسوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si sedevano"
+          "form": "Si sedevano",
+          "ar": "كانوا بيجلسوا"
         }
       ]
     },
@@ -10377,31 +11525,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi accorgo"
+        "form": "Mi accorgo",
+        "ar": "بنتبه"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti accorgi"
+        "form": "Ti accorgi",
+        "ar": "بتنتبه"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si accorge"
+        "form": "Si accorge",
+        "ar": "بينتبه"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si accorge"
+        "form": "Si accorge",
+        "ar": "بتنتبه"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci accorgiamo"
+        "form": "Ci accorgiamo",
+        "ar": "بننتبه"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi accorgete"
+        "form": "Vi accorgete",
+        "ar": "بتنتبهوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si accorgono"
+        "form": "Si accorgono",
+        "ar": "بينتبهوا"
       }
     ],
     "passato": {
@@ -10443,31 +11598,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi accorgevo"
+          "form": "Mi accorgevo",
+          "ar": "كنت بنتبه"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti accorgevi"
+          "form": "Ti accorgevi",
+          "ar": "كنت بتنتبه"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si accorgeva"
+          "form": "Si accorgeva",
+          "ar": "كان بينتبه"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si accorgeva"
+          "form": "Si accorgeva",
+          "ar": "كانت بتنتبه"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci accorgevamo"
+          "form": "Ci accorgevamo",
+          "ar": "كنا بننتبه"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi accorgevate"
+          "form": "Vi accorgevate",
+          "ar": "كنتوا بتنتبهوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si accorgevano"
+          "form": "Si accorgevano",
+          "ar": "كانوا بينتبهوا"
         }
       ]
     },
@@ -10496,39 +11658,45 @@ const VERBS = [
         }
       ]
     }
-  }
-,
+  },
   {
     "it": "Passare",
     "ar": "يقضي (وقت) / يمر",
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Passo"
+        "form": "Passo",
+        "ar": "بقضي (وقت)"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Passi"
+        "form": "Passi",
+        "ar": "بتقضي (وقت)"
       },
       {
         "person": "Lui (هو)",
-        "form": "Passa"
+        "form": "Passa",
+        "ar": "بيقضي (وقت)"
       },
       {
         "person": "Lei (هي)",
-        "form": "Passa"
+        "form": "Passa",
+        "ar": "بتقضي (وقت)"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Passiamo"
+        "form": "Passiamo",
+        "ar": "بنقضي (وقت)"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Passate"
+        "form": "Passate",
+        "ar": "بتقضيوا (وقت)"
       },
       {
         "person": "Loro (هم)",
-        "form": "Passano"
+        "form": "Passano",
+        "ar": "بيقضيوا (وقت)"
       }
     ],
     "passato": {
@@ -10570,31 +11738,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Passavo"
+          "form": "Passavo",
+          "ar": "كنت بقضي (وقت)"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Passavi"
+          "form": "Passavi",
+          "ar": "كنت بتقضي (وقت)"
         },
         {
           "person": "Lui (هو)",
-          "form": "Passava"
+          "form": "Passava",
+          "ar": "كان بيقضي (وقت)"
         },
         {
           "person": "Lei (هي)",
-          "form": "Passava"
+          "form": "Passava",
+          "ar": "كانت بتقضي (وقت)"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Passavamo"
+          "form": "Passavamo",
+          "ar": "كنا بنقضي (وقت)"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Passavate"
+          "form": "Passavate",
+          "ar": "كنتوا بتقضيوا (وقت)"
         },
         {
           "person": "Loro (هم)",
-          "form": "Passavano"
+          "form": "Passavano",
+          "ar": "كانوا بيقضيوا (وقت)"
         }
       ]
     },
@@ -10630,31 +11805,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Significo"
+        "form": "Significo",
+        "ar": "بعني"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Significhi"
+        "form": "Significhi",
+        "ar": "بتعني"
       },
       {
         "person": "Lui (هو)",
-        "form": "Significa"
+        "form": "Significa",
+        "ar": "بيعني"
       },
       {
         "person": "Lei (هي)",
-        "form": "Significa"
+        "form": "Significa",
+        "ar": "بتعني"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Significhiamo"
+        "form": "Significhiamo",
+        "ar": "بنعني"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Significate"
+        "form": "Significate",
+        "ar": "بتعنيوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Significano"
+        "form": "Significano",
+        "ar": "بيعنيوا"
       }
     ],
     "passato": {
@@ -10696,31 +11878,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Significavo"
+          "form": "Significavo",
+          "ar": "كنت بعني"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Significavi"
+          "form": "Significavi",
+          "ar": "كنت بتعني"
         },
         {
           "person": "Lui (هو)",
-          "form": "Significava"
+          "form": "Significava",
+          "ar": "كان بيعني"
         },
         {
           "person": "Lei (هي)",
-          "form": "Significava"
+          "form": "Significava",
+          "ar": "كانت بتعني"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Significavamo"
+          "form": "Significavamo",
+          "ar": "كنا بنعني"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Significavate"
+          "form": "Significavate",
+          "ar": "كنتوا بتعنيوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Significavano"
+          "form": "Significavano",
+          "ar": "كانوا بيعنيوا"
         }
       ]
     },
@@ -10756,31 +11945,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Sento"
+        "form": "Sento",
+        "ar": "بسمع"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Senti"
+        "form": "Senti",
+        "ar": "بتسمع"
       },
       {
         "person": "Lui (هو)",
-        "form": "Sente"
+        "form": "Sente",
+        "ar": "بيسمع"
       },
       {
         "person": "Lei (هي)",
-        "form": "Sente"
+        "form": "Sente",
+        "ar": "بتسمع"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Sentiamo"
+        "form": "Sentiamo",
+        "ar": "بنسمع"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Sentite"
+        "form": "Sentite",
+        "ar": "بتسمعوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Sentono"
+        "form": "Sentono",
+        "ar": "بيسمعوا"
       }
     ],
     "passato": {
@@ -10822,31 +12018,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Sentivo"
+          "form": "Sentivo",
+          "ar": "كنت بسمع"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Sentivi"
+          "form": "Sentivi",
+          "ar": "كنت بتسمع"
         },
         {
           "person": "Lui (هو)",
-          "form": "Sentiva"
+          "form": "Sentiva",
+          "ar": "كان بيسمع"
         },
         {
           "person": "Lei (هي)",
-          "form": "Sentiva"
+          "form": "Sentiva",
+          "ar": "كانت بتسمع"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Sentivamo"
+          "form": "Sentivamo",
+          "ar": "كنا بنسمع"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Sentivate"
+          "form": "Sentivate",
+          "ar": "كنتوا بتسمعوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Sentivano"
+          "form": "Sentivano",
+          "ar": "كانوا بيسمعوا"
         }
       ]
     },
@@ -10882,31 +12085,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Conosco"
+        "form": "Conosco",
+        "ar": "بعرف (شخص أو مكان)"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Conosci"
+        "form": "Conosci",
+        "ar": "بتعرف (شخص أو مكان)"
       },
       {
         "person": "Lui (هو)",
-        "form": "Conosce"
+        "form": "Conosce",
+        "ar": "بيعرف (شخص أو مكان)"
       },
       {
         "person": "Lei (هي)",
-        "form": "Conosce"
+        "form": "Conosce",
+        "ar": "بتعرف (شخص أو مكان)"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Conosciamo"
+        "form": "Conosciamo",
+        "ar": "بنعرف (شخص أو مكان)"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Conoscete"
+        "form": "Conoscete",
+        "ar": "بتعرفوا (شخص أو مكان)"
       },
       {
         "person": "Loro (هم)",
-        "form": "Conoscono"
+        "form": "Conoscono",
+        "ar": "بيعرفوا (شخص أو مكان)"
       }
     ],
     "passato": {
@@ -10948,31 +12158,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Conoscevo"
+          "form": "Conoscevo",
+          "ar": "كنت بعرف (شخص أو مكان)"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Conoscevi"
+          "form": "Conoscevi",
+          "ar": "كنت بتعرف (شخص أو مكان)"
         },
         {
           "person": "Lui (هو)",
-          "form": "Conosceva"
+          "form": "Conosceva",
+          "ar": "كان بيعرف (شخص أو مكان)"
         },
         {
           "person": "Lei (هي)",
-          "form": "Conosceva"
+          "form": "Conosceva",
+          "ar": "كانت بتعرف (شخص أو مكان)"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Conoscevamo"
+          "form": "Conoscevamo",
+          "ar": "كنا بنعرف (شخص أو مكان)"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Conoscevate"
+          "form": "Conoscevate",
+          "ar": "كنتوا بتعرفوا (شخص أو مكان)"
         },
         {
           "person": "Loro (هم)",
-          "form": "Conoscevano"
+          "form": "Conoscevano",
+          "ar": "كانوا بيعرفوا (شخص أو مكان)"
         }
       ]
     },
@@ -11008,31 +12225,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Devo"
+        "form": "Devo",
+        "ar": "لازم"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Devi"
+        "form": "Devi",
+        "ar": "لازم"
       },
       {
         "person": "Lui (هو)",
-        "form": "Deve"
+        "form": "Deve",
+        "ar": "لازم"
       },
       {
         "person": "Lei (هي)",
-        "form": "Deve"
+        "form": "Deve",
+        "ar": "لازم"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Dobbiamo"
+        "form": "Dobbiamo",
+        "ar": "لازم"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Dovete"
+        "form": "Dovete",
+        "ar": "لازم"
       },
       {
         "person": "Loro (هم)",
-        "form": "Devono"
+        "form": "Devono",
+        "ar": "لازم"
       }
     ],
     "passato": {
@@ -11074,31 +12298,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Dovevo"
+          "form": "Dovevo",
+          "ar": "كنت لازم"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Dovevi"
+          "form": "Dovevi",
+          "ar": "كنت لازم"
         },
         {
           "person": "Lui (هو)",
-          "form": "Doveva"
+          "form": "Doveva",
+          "ar": "كان لازم"
         },
         {
           "person": "Lei (هي)",
-          "form": "Doveva"
+          "form": "Doveva",
+          "ar": "كانت لازم"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Dovevamo"
+          "form": "Dovevamo",
+          "ar": "كنا لازم"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Dovevate"
+          "form": "Dovevate",
+          "ar": "كنتوا لازم"
         },
         {
           "person": "Loro (هم)",
-          "form": "Dovevano"
+          "form": "Dovevano",
+          "ar": "كانوا لازم"
         }
       ]
     },
@@ -11134,31 +12365,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Piovo"
+        "form": "Piovo",
+        "ar": "بمطر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Piovi"
+        "form": "Piovi",
+        "ar": "بتمطر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Piove"
+        "form": "Piove",
+        "ar": "بيمطر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Piove"
+        "form": "Piove",
+        "ar": "بتمطر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Pioviamo"
+        "form": "Pioviamo",
+        "ar": "بنمطر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Piovete"
+        "form": "Piovete",
+        "ar": "بتمطروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Piovono"
+        "form": "Piovono",
+        "ar": "بيمطروا"
       }
     ],
     "passato": {
@@ -11200,31 +12438,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Piovevo"
+          "form": "Piovevo",
+          "ar": "كنت بمطر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Piovevi"
+          "form": "Piovevi",
+          "ar": "كنت بتمطر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Pioveva"
+          "form": "Pioveva",
+          "ar": "كان بيمطر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Pioveva"
+          "form": "Pioveva",
+          "ar": "كانت بتمطر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Piovevamo"
+          "form": "Piovevamo",
+          "ar": "كنا بنمطر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Piovevate"
+          "form": "Piovevate",
+          "ar": "كنتوا بتمطروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Piovevano"
+          "form": "Piovevano",
+          "ar": "كانوا بيمطروا"
         }
       ]
     },
@@ -11260,31 +12505,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Piaccio"
+        "form": "Piaccio",
+        "ar": "بعجب (شخص)"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Piaci"
+        "form": "Piaci",
+        "ar": "بتعجب (شخص)"
       },
       {
         "person": "Lui (هو)",
-        "form": "Piace"
+        "form": "Piace",
+        "ar": "بيعجب (شخص)"
       },
       {
         "person": "Lei (هي)",
-        "form": "Piace"
+        "form": "Piace",
+        "ar": "بتعجب (شخص)"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Piacciamo"
+        "form": "Piacciamo",
+        "ar": "بنعجب (شخص)"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Piacete"
+        "form": "Piacete",
+        "ar": "بتعجبوا (شخص)"
       },
       {
         "person": "Loro (هم)",
-        "form": "Piacciono"
+        "form": "Piacciono",
+        "ar": "بيعجبوا (شخص)"
       }
     ],
     "passato": {
@@ -11326,31 +12578,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Piacevo"
+          "form": "Piacevo",
+          "ar": "كنت بعجب (شخص)"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Piacevi"
+          "form": "Piacevi",
+          "ar": "كنت بتعجب (شخص)"
         },
         {
           "person": "Lui (هو)",
-          "form": "Piaceva"
+          "form": "Piaceva",
+          "ar": "كان بيعجب (شخص)"
         },
         {
           "person": "Lei (هي)",
-          "form": "Piaceva"
+          "form": "Piaceva",
+          "ar": "كانت بتعجب (شخص)"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Piacevamo"
+          "form": "Piacevamo",
+          "ar": "كنا بنعجب (شخص)"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Piacevate"
+          "form": "Piacevate",
+          "ar": "كنتوا بتعجبوا (شخص)"
         },
         {
           "person": "Loro (هم)",
-          "form": "Piacevano"
+          "form": "Piacevano",
+          "ar": "كانوا بيعجبوا (شخص)"
         }
       ]
     },
@@ -11386,31 +12645,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Cambio"
+        "form": "Cambio",
+        "ar": "بغيّر"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Cambi"
+        "form": "Cambi",
+        "ar": "بتغيّر"
       },
       {
         "person": "Lui (هو)",
-        "form": "Cambia"
+        "form": "Cambia",
+        "ar": "بيغيّر"
       },
       {
         "person": "Lei (هي)",
-        "form": "Cambia"
+        "form": "Cambia",
+        "ar": "بتغيّر"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Cambiamo"
+        "form": "Cambiamo",
+        "ar": "بنغيّر"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Cambiate"
+        "form": "Cambiate",
+        "ar": "بتغيّروا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Cambiano"
+        "form": "Cambiano",
+        "ar": "بيغيّروا"
       }
     ],
     "passato": {
@@ -11452,31 +12718,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Cambiavo"
+          "form": "Cambiavo",
+          "ar": "كنت بغيّر"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Cambiavi"
+          "form": "Cambiavi",
+          "ar": "كنت بتغيّر"
         },
         {
           "person": "Lui (هو)",
-          "form": "Cambiava"
+          "form": "Cambiava",
+          "ar": "كان بيغيّر"
         },
         {
           "person": "Lei (هي)",
-          "form": "Cambiava"
+          "form": "Cambiava",
+          "ar": "كانت بتغيّر"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Cambiavamo"
+          "form": "Cambiavamo",
+          "ar": "كنا بنغيّر"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cambiavate"
+          "form": "Cambiavate",
+          "ar": "كنتوا بتغيّروا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cambiavano"
+          "form": "Cambiavano",
+          "ar": "كانوا بيغيّروا"
         }
       ]
     },
@@ -11512,31 +12785,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Basto"
+        "form": "Basto",
+        "ar": "بكفي"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Basti"
+        "form": "Basti",
+        "ar": "بتكفي"
       },
       {
         "person": "Lui (هو)",
-        "form": "Basta"
+        "form": "Basta",
+        "ar": "بيكفي"
       },
       {
         "person": "Lei (هي)",
-        "form": "Basta"
+        "form": "Basta",
+        "ar": "بتكفي"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Bastiamo"
+        "form": "Bastiamo",
+        "ar": "بنكفي"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Bastate"
+        "form": "Bastate",
+        "ar": "بتكفيوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Bastano"
+        "form": "Bastano",
+        "ar": "بيكفيوا"
       }
     ],
     "passato": {
@@ -11578,31 +12858,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Bastavo"
+          "form": "Bastavo",
+          "ar": "كنت بكفي"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Bastavi"
+          "form": "Bastavi",
+          "ar": "كنت بتكفي"
         },
         {
           "person": "Lui (هو)",
-          "form": "Bastava"
+          "form": "Bastava",
+          "ar": "كان بيكفي"
         },
         {
           "person": "Lei (هي)",
-          "form": "Bastava"
+          "form": "Bastava",
+          "ar": "كانت بتكفي"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Bastavamo"
+          "form": "Bastavamo",
+          "ar": "كنا بنكفي"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Bastavate"
+          "form": "Bastavate",
+          "ar": "كنتوا بتكفيوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Bastavano"
+          "form": "Bastavano",
+          "ar": "كانوا بيكفيوا"
         }
       ]
     },
@@ -11640,31 +12927,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Mi organizzo"
+        "form": "Mi organizzo",
+        "ar": "بنظم وقته"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ti organizzi"
+        "form": "Ti organizzi",
+        "ar": "بتنظم وقته"
       },
       {
         "person": "Lui (هو)",
-        "form": "Si organizza"
+        "form": "Si organizza",
+        "ar": "بينظم وقته"
       },
       {
         "person": "Lei (هي)",
-        "form": "Si organizza"
+        "form": "Si organizza",
+        "ar": "بتنظم وقته"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ci organizziamo"
+        "form": "Ci organizziamo",
+        "ar": "بننظم وقته"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Vi organizzate"
+        "form": "Vi organizzate",
+        "ar": "بتنظموا وقته"
       },
       {
         "person": "Loro (هم)",
-        "form": "Si organizzano"
+        "form": "Si organizzano",
+        "ar": "بينظموا وقته"
       }
     ],
     "passato": {
@@ -11706,31 +13000,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Mi organizzavo"
+          "form": "Mi organizzavo",
+          "ar": "كنت بنظم وقته"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Ti organizzavi"
+          "form": "Ti organizzavi",
+          "ar": "كنت بتنظم وقته"
         },
         {
           "person": "Lui (هو)",
-          "form": "Si organizzava"
+          "form": "Si organizzava",
+          "ar": "كان بينظم وقته"
         },
         {
           "person": "Lei (هي)",
-          "form": "Si organizzava"
+          "form": "Si organizzava",
+          "ar": "كانت بتنظم وقته"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Ci organizzavamo"
+          "form": "Ci organizzavamo",
+          "ar": "كنا بننظم وقته"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Vi organizzavate"
+          "form": "Vi organizzavate",
+          "ar": "كنتوا بتنظموا وقته"
         },
         {
           "person": "Loro (هم)",
-          "form": "Si organizzavano"
+          "form": "Si organizzavano",
+          "ar": "كانوا بينظموا وقته"
         }
       ]
     },
@@ -11766,31 +13067,38 @@ const VERBS = [
     "presente": [
       {
         "person": "Io (أنا)",
-        "form": "Ceno"
+        "form": "Ceno",
+        "ar": "بتعشى"
       },
       {
         "person": "Tu (أنت)",
-        "form": "Ceni"
+        "form": "Ceni",
+        "ar": "بتتعشى"
       },
       {
         "person": "Lui (هو)",
-        "form": "Cena"
+        "form": "Cena",
+        "ar": "بيتعشى"
       },
       {
         "person": "Lei (هي)",
-        "form": "Cena"
+        "form": "Cena",
+        "ar": "بتتعشى"
       },
       {
         "person": "Noi (نحن)",
-        "form": "Ceniamo"
+        "form": "Ceniamo",
+        "ar": "بنتعشى"
       },
       {
         "person": "Voi (أنتم)",
-        "form": "Cenate"
+        "form": "Cenate",
+        "ar": "بتتعشىوا"
       },
       {
         "person": "Loro (هم)",
-        "form": "Cenano"
+        "form": "Cenano",
+        "ar": "بيتعشىوا"
       }
     ],
     "passato": {
@@ -11832,31 +13140,38 @@ const VERBS = [
       "rows": [
         {
           "person": "Io (أنا)",
-          "form": "Cenavo"
+          "form": "Cenavo",
+          "ar": "كنت بتعشى"
         },
         {
           "person": "Tu (أنت)",
-          "form": "Cenavi"
+          "form": "Cenavi",
+          "ar": "كنت بتتعشى"
         },
         {
           "person": "Lui (هو)",
-          "form": "Cenava"
+          "form": "Cenava",
+          "ar": "كان بيتعشى"
         },
         {
           "person": "Lei (هي)",
-          "form": "Cenava"
+          "form": "Cenava",
+          "ar": "كانت بتتعشى"
         },
         {
           "person": "Noi (نحن)",
-          "form": "Cenavamo"
+          "form": "Cenavamo",
+          "ar": "كنا بنتعشى"
         },
         {
           "person": "Voi (أنتم)",
-          "form": "Cenavate"
+          "form": "Cenavate",
+          "ar": "كنتوا بتتعشىوا"
         },
         {
           "person": "Loro (هم)",
-          "form": "Cenavano"
+          "form": "Cenavano",
+          "ar": "كانوا بيتعشىوا"
         }
       ]
     },
