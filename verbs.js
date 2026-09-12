@@ -10497,4 +10497,1393 @@ const VERBS = [
       ]
     }
   }
+,
+  {
+    "it": "Passare",
+    "ar": "يقضي (وقت) / يمر",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Passo"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Passi"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Passa"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Passa"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Passiamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Passate"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Passano"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho passato"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai passato"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha passato"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha passato"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo passato"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete passato"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno passato"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Passavo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Passavi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Passava"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Passava"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Passavamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Passavate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Passavano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "بيتاخد Avere عادة لما معناه \"يقضي وقت\"، وممكن ياخد Essere لو معناه \"يمر/يعدي\" (زي: il tempo è passato)",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Passa"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Passi"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Passiamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Passate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Passino"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Significare",
+    "ar": "يعني",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Significo"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Significhi"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Significa"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Significa"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Significhiamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Significate"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Significano"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho significato"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai significato"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha significato"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha significato"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo significato"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete significato"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno significato"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Significavo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Significavi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Significava"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Significava"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Significavamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Significavate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Significavano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "فعل بيوصف بيتقال بصيغة الغائب (هو/هي) غالبًا (زي: cosa significa؟)، صيغة الأمر نادرة الاستخدام في الحياة اليومية",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Significa"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Significhi"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Significhiamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Significate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Significhino"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Sentire",
+    "ar": "يسمع / يحس",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Sento"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Senti"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Sente"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Sente"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Sentiamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Sentite"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Sentono"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho sentito"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai sentito"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha sentito"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha sentito"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo sentito"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete sentito"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno sentito"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Sentivo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Sentivi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Sentiva"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Sentiva"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Sentivamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Sentivate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Sentivano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": null,
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Senti"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Senta"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Sentiamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Sentite"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Sentano"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Conoscere",
+    "ar": "يعرف (شخص أو مكان)",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Conosco"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Conosci"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Conosce"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Conosce"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Conosciamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Conoscete"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Conoscono"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho conosciuto"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai conosciuto"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha conosciuto"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha conosciuto"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo conosciuto"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete conosciuto"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno conosciuto"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Conoscevo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Conoscevi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Conosceva"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Conosceva"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Conoscevamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Conoscevate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Conoscevano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": null,
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Conosci"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Conosca"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Conosciamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Conoscete"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Conoscano"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Dovere",
+    "ar": "لازم / يجب أن",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Devo"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Devi"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Deve"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Deve"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Dobbiamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Dovete"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Devono"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho dovuto"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai dovuto"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha dovuto"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha dovuto"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo dovuto"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete dovuto"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno dovuto"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Dovevo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Dovevi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Doveva"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Doveva"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Dovevamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Dovevate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Dovevano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "فعل مساعد (modal) غير بيتعملوه في صيوغة الأمر في اللَغة الطبيعية لأن معناه \"لازم\" غير أمر",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "—"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "—"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "—"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "—"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "—"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Piovere",
+    "ar": "تمطر",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Piovo"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Piovi"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Piove"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Piove"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Pioviamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Piovete"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Piovono"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho piovuto"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai piovuto"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha piovuto"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha piovuto"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo piovuto"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete piovuto"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno piovuto"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Piovevo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Piovevi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Pioveva"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Pioveva"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Piovevamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Piovevate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Piovevano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "فعل جوّي غير شخصي (impersonale) — بيتستخدم عمليًا بصيغة الغائب (هو/هي) بس: Piove = بتمطر. باقي الصيغ نظرية/مش مستخدمة في الحياة اليومية",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "—"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "—"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "—"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "—"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "—"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Piacere",
+    "ar": "يعجب (شخص)",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Piaccio"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Piaci"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Piace"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Piace"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Piacciamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Piacete"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Piacciono"
+      }
+    ],
+    "passato": {
+      "aux": "essere",
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Sono piaciuto/a"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Sei piaciuto/a"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "È piaciuto"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "È piaciuta"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Siamo piaciuti/e"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Siete piaciuti/e"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Sono piaciuti/e"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Piacevo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Piacevi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Piaceva"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Piaceva"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Piacevamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Piacevate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Piacevano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "بيتصرّف بطريقة عكسية عن العربي: الشخص اللي بيعجبه بييجي كمفعول غير مباشر (mi piace = بيعجبني)، مش كفاعل. صيغة الأمر نادرة جدًا عمليًا",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Piaci"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Piaccia"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Piacciamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Piacete"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Piacciano"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Cambiare",
+    "ar": "يغيّر",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Cambio"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Cambi"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Cambia"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Cambia"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Cambiamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Cambiate"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Cambiano"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho cambiato"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai cambiato"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha cambiato"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha cambiato"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo cambiato"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete cambiato"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno cambiato"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Cambiavo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Cambiavi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Cambiava"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Cambiava"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Cambiavamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cambiavate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cambiavano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "بيتاخد Avere لما يكون متعدي (يغيّر حاجة)، وممكن ياخد Essere لو معناه \"اتغيّر\" هو نفسه (زي: il tempo è cambiato)",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Cambia"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Cambi"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Cambiamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cambiate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cambino"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Bastare",
+    "ar": "يكفي",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Basto"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Basti"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Basta"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Basta"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Bastiamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Bastate"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Bastano"
+      }
+    ],
+    "passato": {
+      "aux": "essere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Sono bastato/a"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Sei bastato/a"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "È bastato"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "È bastata"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Siamo bastati/e"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Siete bastati/e"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Sono bastati/e"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Bastavo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Bastavi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Bastava"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Bastava"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Bastavamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Bastavate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Bastavano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "غالبًا بيتستخدم بصيغة الغائب (هو/هي) بس زي: Basta! (يكفي! / بس كده!) — دي في الحقيقة صيغة أمر بس بمعنى \"خلاص/كفاية\"",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Basta!"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Basti"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Bastiamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Bastate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Bastino"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Organizzarsi",
+    "ar": "ينظم وقته / يرتب أموره",
+    "reflexive": true,
+    "group": "are",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Mi organizzo"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Ti organizzi"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Si organizza"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Si organizza"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Ci organizziamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Vi organizzate"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Si organizzano"
+      }
+    ],
+    "passato": {
+      "aux": "essere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi sono organizzato/a"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti sei organizzato/a"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si è organizzato"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si è organizzata"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci siamo organizzati/e"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi siete organizzati/e"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si sono organizzati/e"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi organizzavo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti organizzavi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si organizzava"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si organizzava"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci organizzavamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi organizzavate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si organizzavano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": "في الأمر المثبت يلتحق الضمير الانعكاسي بآخر الفعل (Organizzati)، أمّا في صيغة التأدّب Lei فيسبقه (Si organizzi)",
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Organizzati"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Si organizzi"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Organizziamoci"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Organizzatevi"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si organizzino"
+        }
+      ]
+    }
+  },
+  {
+    "it": "Cenare",
+    "ar": "يتعشى",
+    "presente": [
+      {
+        "person": "Io (أنا)",
+        "form": "Ceno"
+      },
+      {
+        "person": "Tu (أنت)",
+        "form": "Ceni"
+      },
+      {
+        "person": "Lui (هو)",
+        "form": "Cena"
+      },
+      {
+        "person": "Lei (هي)",
+        "form": "Cena"
+      },
+      {
+        "person": "Noi (نحن)",
+        "form": "Ceniamo"
+      },
+      {
+        "person": "Voi (أنتم)",
+        "form": "Cenate"
+      },
+      {
+        "person": "Loro (هم)",
+        "form": "Cenano"
+      }
+    ],
+    "passato": {
+      "aux": "avere",
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ho cenato"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Hai cenato"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ha cenato"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ha cenato"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Abbiamo cenato"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avete cenato"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Hanno cenato"
+        }
+      ]
+    },
+    "imperfetto": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Cenavo"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Cenavi"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Cenava"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Cenava"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Cenavamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cenavate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cenavano"
+        }
+      ]
+    },
+    "imperativo": {
+      "note": null,
+      "rows": [
+        {
+          "person": "Tu (أنت)",
+          "form": "Cena"
+        },
+        {
+          "person": "Lei (رسمي - هو/هي)",
+          "form": "Ceni"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ceniamo"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cenate"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cenino"
+        }
+      ]
+    }
+  }
 ];
