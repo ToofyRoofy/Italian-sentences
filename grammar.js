@@ -4491,7 +4491,7 @@ const GRAMMAR = [
             {"it": "Torno a casa", "ar": "بارجع البيت", "form": "a"},
             {"it": "Andare al lavoro", "ar": "يروح الشغل", "form": "al"},
             {"it": "I figli vanno a scuola", "ar": "الأولاد بيروحوا المدرسة", "form": "a"},
-            {"it": "Sono a scuola e al lavoro", "ar": "هما في المدرسة وفي الشغل", "form": "a"},
+            {"it": "Loro sono a scuola e al lavoro", "ar": "هما (الأولاد) في المدرسة، و(الآباء) في الشغل", "form": "a"},
           {"it":"Vado a Milano","ar":"أذهب إلى ميلانو","form":"a","words":[{"it":"Vado","ar":"أذهب","note":"Andare، Presente","type":"verbo"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"Milano","ar":"ميلانو","note":null,"type":"altro"}]},
           {"it":"Andiamo al mare domani","ar":"هنروح البحر بكرة","form":"al","words":[{"it":"Andiamo","ar":"هنروح","note":"Andare، Presente","type":"verbo"},{"it":"al","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"mare","ar":"بحر","note":null,"type":"altro"},{"it":"domani","ar":"بكرة","note":null,"type":"altro"}]},
           {"it":"Torno a casa presto","ar":"بارجع البيت بدري","form":"a","words":[{"it":"Torno","ar":"بارجع","note":"Tornare، Presente","type":"verbo"},{"it":"a","ar":"","type":"preposizione","grammarId":"prep_a","note":null},{"it":"casa","ar":"بيت","note":null,"type":"altro"},{"it":"presto","ar":"بدري","note":null,"type":"altro"}]},
