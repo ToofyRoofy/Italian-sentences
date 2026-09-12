@@ -3015,7 +3015,8 @@ function verbConjTableHtml(rows,infinitive,tab){
   return '<table class="conj-tbl">'+rows.map((r,i)=>{
     const views=getVerbFormViews(infinitive,tab,r.person);
     const badge=views>0?' <span class="conj-views">👁'+toArabicDigits(views)+'</span>':'';
-    return '<tr class="conj-row" onclick="bumpVerbFormView(\''+infinitive.replace(/'/g,"\\'")+'\',\''+tab+'\',window.__vmRows['+i+'].person);speakWord(window.__vmRows['+i+'].form);renderVerbModalBody();renderVerbModalTabs();"><td>'+r.person+'</td><td>'+r.form+badge+'</td></tr>';
+    const arCell=r.ar?escHtml(r.ar):'—';
+    return '<tr class="conj-row" onclick="bumpVerbFormView(\''+infinitive.replace(/'/g,"\\'")+'\',\''+tab+'\',window.__vmRows['+i+'].person);speakWord(window.__vmRows['+i+'].form);renderVerbModalBody();renderVerbModalTabs();"><td class="conj-person">'+r.person+'</td><td class="conj-form">'+r.form+badge+'</td><td class="conj-ar">'+arCell+'</td></tr>';
   }).join('')+'</table>';
 }
 function renderVerbModalBody(){
