@@ -19,6 +19,7 @@
     <button class="mode-tab" id="tabLesson" onclick="switchMode('lesson')">📖 الدرس الإنفينيتي</button>
     <button class="mode-tab" id="tabVerbs" onclick="switchMode('verbs')">📚 مكتبة السكربت</button>
     <button class="mode-tab" id="tabListening" onclick="switchMode('listening')">🎧 استماع</button>
+    <button class="mode-tab" id="tabLibro" onclick="switchMode('libro')">📖 الليبرو</button>
   </div>
 
   <div class="engine-status" id="engineStatus"></div>
@@ -254,6 +255,32 @@
       <div id="lpResult" style="display:none;text-align:center;margin-top:14px;font-size:16px"></div>
     </div>
   </div>
+
+  <!-- LIBRO MODE: نفس نظام تاب الاستماع بالظبط، بس لقطع قراءة (مش استماع) —
+       قطعة نص من كتاب، تتقرا وهي ظاهرة قدامك مع شرح كلمة بكلمة، وبعدها أسئلة فهم. -->
+  <div class="wrap" id="libroMode" style="display:none;padding:0">
+    <div id="libroLibrary">
+      <div class="verbs-intro">📖 الليبرو — قطع قراءة من الكتاب، اقرا واسمع، وبعدين جاوب على أسئلة الفهم.</div>
+      <div id="libroPassageList"></div>
+    </div>
+    <div id="libroDetail" style="display:none">
+      <button class="skip-link" style="display:inline-block" onclick="libroBackToLibrary()">→ رجوع لكل القطع</button>
+      <div class="card" style="margin-top:10px">
+        <div class="card-cat" id="lbTitleAr"></div>
+        <div class="card-ar" id="lbTitleIt" style="direction:ltr;text-align:left;font-size:20px;font-weight:700"></div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="tts-btn" id="lbListenAllBtn" style="flex:1" onclick="libroSpeakAll()">🔊 استمع للقطعة كاملة</button>
+          <button class="tts-btn" id="lbStopBtn" style="flex-shrink:0" onclick="lpStopSpeaking()">⏹️ إيقاف</button>
+        </div>
+        <div id="lbParagraphs" style="margin-top:16px"></div>
+      </div>
+      <div id="lbQuestionsWrap" style="margin-top:18px">
+        <div class="drill-label" style="text-align:center">🧩 أسئلة الفهم</div>
+        <div id="lbQuestions"></div>
+      </div>
+      <div id="lbResult" style="display:none;text-align:center;margin-top:14px;font-size:16px"></div>
+    </div>
+  </div>
 </div>
 
 <!-- Verb detail popup -->
@@ -333,6 +360,11 @@
 <script src="lesson_topics.js"></script>
     <script src="preposition_profiles.js"></script>
     <script src="lesson_manifest.js"></script>
+<script src="verb_meta.js"></script>
+<script src="verb_progress_engine.js"></script>
+<script src="verb_question_engine.js"></script>
+<script src="verb_session_builder.js"></script>
+<script src="verb_practice.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

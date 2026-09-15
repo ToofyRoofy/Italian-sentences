@@ -1,6 +1,7 @@
-// Parla Italiano — Service Worker v33 (🔤 زرار جديد جنب WFV: معلومات
-// الكلمة بالعربي + تذكير/تأنيث/مفرد/جمع، وفعل الأمر بس للأفعال)
-const SHELL_CACHE = 'parla-shell-v33';
+// Parla Italiano — Service Worker v34 (🎯 إضافة نظام جلسات/مراجعة الأفعال:
+// verb_meta.js + verb_progress_engine.js + verb_question_engine.js +
+// verb_session_builder.js + verb_practice.js)
+const SHELL_CACHE = 'parla-shell-v34';
 // نحافظ على كاش الموديلات بين إصدارات واجهة التطبيق لتجنب إعادة تنزيلها.
 const MODEL_CACHE = 'parla-models-v1';
 
@@ -25,7 +26,12 @@ const CORE_FILES = [
   './lesson_imperativo.js',
   './lesson_topics.js',
   './preposition_profiles.js',
-  './lesson_manifest.js'
+  './lesson_manifest.js',
+  './verb_meta.js',
+  './verb_progress_engine.js',
+  './verb_question_engine.js',
+  './verb_session_builder.js',
+  './verb_practice.js'
 ];
 
 const CDN_HOSTS = [

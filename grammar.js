@@ -3722,7 +3722,11 @@ const GRAMMAR = [
       "felici",
       "infrasettimanale",
       "solito",
-      "familiare"
+      "familiare",
+      "aderenti",
+      "elegante",
+      "sportivo",
+      "classico"
     ],
     "blocks": [
       {
@@ -3756,7 +3760,11 @@ const GRAMMAR = [
       {"type":"item","it":"Felice","ar":"سعيد / مبسوط","note":"مفرد (مذكر ومؤنث)، جمعها Felici","examples":null},
       {"type":"item","it":"Infrasettimanale","ar":"في نص الأسبوع","note":"صفة من settimana","examples":null},
       {"type":"item","it":"Solito","ar":"معتاد / عادي","note":"في تعبير ثابت: di solito = عادةً","examples":[{"it":"Di solito","ar":"عادةً"}]},
-      {"type":"item","it":"Familiare","ar":"عائلي / خاص بالعيلة","note":"صفة من famiglia","examples":null}
+      {"type":"item","it":"Familiare","ar":"عائلي / خاص بالعيلة","note":"صفة من famiglia","examples":null},
+      {"type":"item","it":"Aderente","ar":"ضيق / لاصق على الجسم","note":"جمعها Aderenti — عكسها Largo (واسع)","examples":[{"it":"Jeans aderenti","ar":"جينز ضيق"}]},
+      {"type":"item","it":"Elegante","ar":"أنيق","note":null,"examples":[{"it":"Fabrizio è sempre elegante","ar":"فابريتسيو دايمًا أنيق"}]},
+      {"type":"item","it":"Sportivo","ar":"رياضي","note":"مؤنثها Sportiva","examples":[{"it":"Si veste in modo sportivo","ar":"بتلبس بشكل رياضي"}]},
+      {"type":"item","it":"Classico","ar":"كلاسيك","note":null,"examples":[{"it":"L'abbigliamento classico","ar":"اللبس الكلاسيك"}]}
     ]
   },
   {
@@ -3831,7 +3839,9 @@ const GRAMMAR = [
       "mogli",
       "moglie",
       "scuola",
-      "vita"
+      "vita",
+      "paio",
+      "festa"
     ],
     "blocks": [
       {
@@ -3892,7 +3902,9 @@ const GRAMMAR = [
       {"type":"item","it":"Marito","ar":"زوج","note":"جمعها Mariti","examples":null},
       {"type":"item","it":"Moglie","ar":"زوجة","note":"جمعها Mogli","examples":null},
       {"type":"item","it":"Scuola","ar":"مدرسة","note":null,"examples":null},
-      {"type":"item","it":"Vita","ar":"حياة","note":null,"examples":null}
+      {"type":"item","it":"Vita","ar":"حياة","note":null,"examples":null},
+      {"type":"item","it":"Paio","ar":"زوج / جوز (من حاجة)","note":"تعبير كمية: un paio di... = زوج/بنطلون واحد من...","examples":[{"it":"Un paio di pantaloni di pelle","ar":"بنطلون جلد"}]},
+      {"type":"item","it":"Festa","ar":"حفلة","note":"جمعها Feste — في تعبير: per una festa = عشان حفلة","examples":[{"it":"Per una festa oggi ha scelto un vestito celeste","ar":"عشان حفلة النهارده اختارت فستان سماوي"}]}
     ]
   },
   {
@@ -3951,7 +3963,10 @@ const GRAMMAR = [
       "guarda",
       "guardare",
       "dormire",
-      "svegliarsi"
+      "svegliarsi",
+      "indossa",
+      "vestire",
+      "scelto"
     ],
     "blocks": [
       {
@@ -4002,7 +4017,10 @@ const GRAMMAR = [
       {"type":"item","it":"Cenare","ar":"يتعشى","note":"مصدر","examples":null},
       {"type":"item","it":"Guarda","ar":"بيتفرج / بتتفرج","note":"Guardare، Presente (لِيه/هي)","examples":null},
       {"type":"item","it":"Dormire","ar":"ينام","note":"مصدر","examples":null},
-      {"type":"item","it":"Svegliarsi","ar":"يصحى من النوم","note":"فعل انعكاسي، مصدر","examples":[{"it":"Chiara si sveglia alle 8","ar":"شيرا بتصحى الساعة ٨"}]}
+      {"type":"item","it":"Svegliarsi","ar":"يصحى من النوم","note":"فعل انعكاسي، مصدر","examples":[{"it":"Chiara si sveglia alle 8","ar":"شيرا بتصحى الساعة ٨"}]},
+      {"type":"item","it":"Indossa","ar":"بيلبس / بتلبس","note":"Indossare، Presente (لِيه/هي) — الفعل ده لسه مش موجود بجدول تصريف كامل في تاب الأفعال","examples":[{"it":"Oggi indossa una maglietta rossa","ar":"النهارده لابسة تيشيرت أحمر"}]},
+      {"type":"item","it":"Vestire","ar":"يلبس","note":"مصدر — عن نفس الفعل الانعكاسي Vestirsi لكن من غير si (يستخدم أحيانًا كمصدر عام بعد فعل تاني زي piace)","examples":[{"it":"A Eleonora piace vestire elegante","ar":"إليونورا بتحب تلبس أنيق"}]},
+      {"type":"item","it":"Scelto","ar":"اختار / اختارت (Participio Passato)","note":"Scegliere، Passato Prossimo — الفعل ده لسه مش موجود بجدول تصريف كامل في تاب الأفعال","examples":[{"it":"Ha scelto un vestito celeste","ar":"اختارت فستان سماوي"}]}
     ]
   },
   {
@@ -5463,7 +5481,9 @@ const GRAMMAR = [
       "marrone",
       "azzurro",
       "celeste",
-      "beige"
+      "beige",
+      "righe",
+      "quadri"
     ],
     "blocks": [
       {
@@ -6154,7 +6174,13 @@ const GRAMMAR = [
                 ]
             }
         ]
-    }
+    },
+    {
+        "type": "note",
+        "ar": "أنماط القماش (مش لون، بس بتتقال زي ما الألوان بتتقال — a + اسم النمط، وشكلها ثابت مبتتصرفش): a righe = مخطّط، a quadri = كاروهات."
+    },
+    {"type":"item","it":"A righe","ar":"مخطّط","note":"من Riga (خط)، جمعها Righe — التعبير ثابت مش بيتصرف","examples":[{"it":"Una cravatta a righe","ar":"كرافتة مخطّطة"},{"it":"Una maglietta a righe bianche","ar":"تيشيرت بخطوط بيضا"}]},
+    {"type":"item","it":"A quadri","ar":"كاروهات / مربعات","note":"من Quadro (مربع)، جمعها Quadri — التعبير ثابت مش بيتصرف","examples":[{"it":"Una camicia a quadri","ar":"قميص كاروهات"}]}
     ]
   },
   {
@@ -6978,6 +7004,58 @@ const GRAMMAR = [
             }
         ]
     }
+    ]
+  },
+  {
+    "id": "lex_abbigliamento",
+    "it": "Abbigliamento — قاموس اللبس",
+    "ar": "كلمات اللبس (من الليبرو)",
+    "icon": "👕",
+    "triggers": [
+      "vestito",
+      "camicia",
+      "camicetta",
+      "cravatta",
+      "impermeabile",
+      "jeans",
+      "stivali",
+      "maglietta",
+      "pantaloni",
+      "giacca",
+      "cappotto",
+      "gonna",
+      "borsetta",
+      "scarpe",
+      "tacco",
+      "basse",
+      "maglione",
+      "collo",
+      "alto",
+      "abbigliamento"
+    ],
+    "blocks": [
+      {
+        "type": "note",
+        "ar": "قاموس متجدد لأسماء قطع اللبس اللي بتظهر في قطع الليبرو (زي «إزاي بيلبسوا؟») ومالهاش قاعدة جرامرية خاصة بيها — كل ما تلاقي اسم لبس جديد بيتضاف هنا. الصفات اللي بتوصف اللبس (زي Aderente/Elegante) موجودة في lex_aggettivi بدل كده."
+      },
+      {"type":"item","it":"Vestito","ar":"بدلة / فستان","note":"المعنى بيتحدد حسب السياق: بدلة للراجل، فستان للستات","examples":[{"it":"Ha un vestito grigio","ar":"لابس بدلة رمادي"},{"it":"Ha scelto un vestito celeste","ar":"اختارت فستان سماوي"}]},
+      {"type":"item","it":"Camicia","ar":"قميص","note":null,"examples":[{"it":"Una camicia bianca","ar":"قميص أبيض"}]},
+      {"type":"item","it":"Camicetta","ar":"بلوزة","note":"نسخة مؤنثة/أخف من camicia، بتتلبس للستات غالبًا","examples":[{"it":"Una camicetta gialla","ar":"بلوزة صفرا"}]},
+      {"type":"item","it":"Cravatta","ar":"كرافتة","note":null,"examples":[{"it":"Una cravatta a righe","ar":"كرافتة مخطّطة"}]},
+      {"type":"item","it":"Impermeabile","ar":"معطف مطر","note":"من كلمة permeabile (نفاذ) + im (نفي) = ما بينفذش المية","examples":[{"it":"Un impermeabile beige","ar":"معطف مطر بيج"}]},
+      {"type":"item","it":"Jeans","ar":"جينز","note":"كلمة ثابتة الشكل مفرد وجمع","examples":[{"it":"Mette sempre i jeans","ar":"دايمًا بيلبس جينز"}]},
+      {"type":"item","it":"Stivale","ar":"بوت (جزمة طويلة)","note":"جمعها Stivali","examples":[{"it":"Porta stivali","ar":"لابسة بوت"}]},
+      {"type":"item","it":"Scarpa","ar":"جزمة","note":"جمعها Scarpe — scarpe con il tacco = جزمة كعب، scarpe basse = جزمة واطية","examples":[{"it":"Scarpe con il tacco","ar":"جزمة كعب"},{"it":"Scarpe basse","ar":"جزمة واطية"}]},
+      {"type":"item","it":"Tacco","ar":"كعب (الجزمة)","note":null,"examples":[{"it":"Scarpe con il tacco","ar":"جزمة كعب"}]},
+      {"type":"item","it":"Maglietta","ar":"تيشيرت","note":null,"examples":[{"it":"Una maglietta rossa","ar":"تيشيرت أحمر"}]},
+      {"type":"item","it":"Maglione","ar":"بلوفر","note":"a collo alto = ياقة عالية","examples":[{"it":"Un maglione verde a collo alto","ar":"بلوفر أخضر ياقة عالية"}]},
+      {"type":"item","it":"Collo","ar":"رقبة / ياقة","note":"في تعبير a collo alto = ياقة عالية","examples":null},
+      {"type":"item","it":"Pantaloni","ar":"بنطلون","note":"كلمة جمع دايمًا في الإيطالي زي كل حاجة ليها رجلين (زي occhiali)","examples":[{"it":"Un paio di pantaloni di pelle","ar":"بنطلون جلد"}]},
+      {"type":"item","it":"Giacca","ar":"جاكيت","note":null,"examples":[{"it":"Una giacca sportiva verde","ar":"جاكيت رياضي أخضر"}]},
+      {"type":"item","it":"Cappotto","ar":"معطف (تقيل، شتوي)","note":null,"examples":[{"it":"Un cappotto azzurro","ar":"معطف أزرق"}]},
+      {"type":"item","it":"Gonna","ar":"جيبة","note":null,"examples":[{"it":"Una gonna nera","ar":"جيبة سودا"}]},
+      {"type":"item","it":"Borsetta","ar":"شنطة إيد","note":null,"examples":[{"it":"Una borsetta nera","ar":"شنطة إيد سودا"}]},
+      {"type":"item","it":"Abbigliamento","ar":"لبس / ملابس","note":"اسم عام بيجمع كل حاجة تتلبس","examples":[{"it":"Ama l'abbigliamento classico","ar":"بتحب اللبس الكلاسيك"}]}
     ]
   }
 ];

@@ -1954,10 +1954,12 @@ function switchMode(mode){
   const isLesson=mode==='lesson';
   const isVerbs=mode==='verbs';
   const isListening=mode==='listening';
+  const isLibro=mode==='libro';
   document.getElementById('tabWord').classList.toggle('active',isWord);
   document.getElementById('tabLesson').classList.toggle('active',isLesson);
   document.getElementById('tabVerbs').classList.toggle('active',isVerbs);
   document.getElementById('tabListening').classList.toggle('active',isListening);
+  document.getElementById('tabLibro').classList.toggle('active',isLibro);
   if(isLesson&&csActive){
     // خارجين من دراسة المحادثة (نص محادثة) لتبويب الدرس الإنفينيتي الحقيقي —
     // نوقف السلسلة الأوتوماتيكية ونرجّع الـ deck الحقيقي، تقدّم المحادثة محفوظ وهيكمل من مكانه لما نرجعله.
@@ -1971,6 +1973,7 @@ function switchMode(mode){
     // المحادثة من غير ما #game يترندر خالص، فمجرد إظهاره تاني (display) بيطلع فاضي.
     document.getElementById('verbsMode').style.display='none';
     document.getElementById('listeningMode').style.display='none';
+    document.getElementById('libroMode').style.display='none';
     if(csActive){
       document.getElementById('game').style.display='none';
       document.getElementById('lessonMode').style.display='flex';
@@ -1987,9 +1990,11 @@ function switchMode(mode){
   document.getElementById('lessonMode').style.display=isLesson?'flex':'none';
   document.getElementById('verbsMode').style.display=isVerbs?'flex':'none';
   document.getElementById('listeningMode').style.display=isListening?'flex':'none';
+  document.getElementById('libroMode').style.display=isLibro?'flex':'none';
   if(isLesson && lDeck.length===0)lStart();
   if(isVerbs && document.getElementById('verbGroups').children.length===0)renderLibrary();
   if(isListening && document.getElementById('listeningPassageList').children.length===0)renderListeningLibrary();
+  if(isLibro && document.getElementById('libroPassageList').children.length===0)renderLibroLibrary();
 }
 
 // ===== VERBS LIBRARY: grid of all reference verbs grouped by ARE/ERE/IRE + tap-for-full-conjugation popup =====
@@ -2928,6 +2933,347 @@ function listeningAnswerQuestion(qi,oi){
   }
 }
 
+// ===== LIBRO PASSAGES: نفس نظام تاب الاستماع بالظبط (نص + شرح كلمة بكلمة +
+// أسئلة فهم)، بس هنا القطعة "بتتقرا" مش سؤال استماع أعمى — التركيز على القراءة
+// والمفردات. نفس شكل بيانات LISTENING_PASSAGES تمامًا (id/titleIt/titleAr/
+// paragraphs[{it,ar,words}]/questions[{q,options,correctIdx,explanation}]).
+const LIBRO_PASSAGES=[
+  {
+    id:'come_si_vestono',
+    titleIt:'Come si vestono?',
+    titleAr:'إزاي بيلبسوا؟',
+    paragraphs:[
+      {
+        "it": "Fabrizio è sempre elegante. Oggi ha un vestito grigio sopra una camicia bianca. Porta anche una cravatta a righe e un impermeabile beige.",
+        "ar": "فابريتسيو دايمًا أنيق. النهارده لابس بدلة رمادي فوق قميص أبيض. لابس كمان كرافتة مخطّطة ومعطف بيج.",
+        "words": [
+          {"it":"sempre","ar":"دايمًا","note":null,"type":"altro"},
+          {"it":"elegante","ar":"أنيق","note":null,"type":"altro"},
+          {"it":"vestito","ar":"بدلة","note":null,"type":"altro"},
+          {"it":"grigio","ar":"رمادي","note":null,"type":"altro"},
+          {"it":"sopra","ar":"فوق","note":null,"type":"altro"},
+          {"it":"camicia","ar":"قميص","note":null,"type":"altro"},
+          {"it":"bianca","ar":"بيضا","note":"صفة مؤنثة من bianco","type":"altro"},
+          {"it":"porta","ar":"بيلبس","note":"Portare، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"cravatta","ar":"كرافتة","note":null,"type":"altro"},
+          {"it":"a righe","ar":"مخطّط","note":"تعبير وصفي (بالخطوط)","type":"altro"},
+          {"it":"impermeabile","ar":"معطف مطر","note":null,"type":"altro"},
+          {"it":"beige","ar":"بيج","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "Vittoria di solito si veste in modo sportivo. Porta spesso jeans aderenti e stivali. Oggi indossa una maglietta rossa a righe bianche.",
+        "ar": "فيتوريا عادةً بتلبس بشكل رياضي. بتلبس كتير جينز ضيق وبوت. النهارده لابسة تيشيرت أحمر بخطوط بيضا.",
+        "words": [
+          {"it":"di solito","ar":"عادةً","note":null,"type":"altro"},
+          {"it":"si veste","ar":"بتلبس (نفسها)","note":"Vestirsi، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"sportivo","ar":"رياضي","note":null,"type":"altro"},
+          {"it":"spesso","ar":"كتير / غالبًا","note":null,"type":"altro"},
+          {"it":"jeans aderenti","ar":"جينز ضيق","note":null,"type":"altro"},
+          {"it":"stivali","ar":"بوت (جزمة طويلة)","note":"جمع stivale","type":"altro"},
+          {"it":"indossa","ar":"بتلبس","note":"Indossare، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"maglietta","ar":"تيشيرت","note":null,"type":"altro"},
+          {"it":"rossa","ar":"حمرا","note":"صفة مؤنثة من rosso","type":"altro"}
+        ]
+      },
+      {
+        "it": "Sandro porta sempre una maglietta bianca e occhiali da sole. Oggi indossa un paio di pantaloni di pelle e una giacca sportiva verde.",
+        "ar": "ساندرو دايمًا لابس تيشيرت أبيض ونضارة شمس. النهارده لابس بنطلون جلد وجاكيت رياضي أخضر.",
+        "words": [
+          {"it":"occhiali da sole","ar":"نضارة شمس","note":"تعبير ثابت","type":"altro"},
+          {"it":"un paio di","ar":"زوج من / بنطلون واحد","note":"تعبير كمية","type":"altro"},
+          {"it":"pantaloni","ar":"بنطلون","note":null,"type":"altro"},
+          {"it":"pelle","ar":"جلد","note":null,"type":"altro"},
+          {"it":"giacca","ar":"جاكيت","note":null,"type":"altro"},
+          {"it":"verde","ar":"أخضر","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "A Eleonora piace vestire elegante. Per una festa oggi ha scelto un vestito celeste e un cappotto azzurro, con una borsetta nera e scarpe con il tacco.",
+        "ar": "إليونورا بتحب تلبس أنيق. عشان حفلة النهارده، اختارت فستان سماوي ومعطف أزرق، مع شنطة إيد سودا وجزمة كعب.",
+        "words": [
+          {"it":"piace","ar":"بتحب (بتعجبها)","note":"Piacere، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"vestire","ar":"تلبس","note":"مصدر","type":"verbo"},
+          {"it":"festa","ar":"حفلة","note":null,"type":"altro"},
+          {"it":"ha scelto","ar":"اختارت","note":"Scegliere، Passato Prossimo (لُيه/هي)","type":"verbo"},
+          {"it":"celeste","ar":"سماوي","note":null,"type":"altro"},
+          {"it":"cappotto","ar":"معطف","note":null,"type":"altro"},
+          {"it":"azzurro","ar":"أزرق","note":null,"type":"altro"},
+          {"it":"con","ar":"مع","note":null,"type":"altro"},
+          {"it":"borsetta","ar":"شنطة إيد","note":null,"type":"altro"},
+          {"it":"nera","ar":"سودا","note":"صفة مؤنثة من nero","type":"altro"},
+          {"it":"scarpe con il tacco","ar":"جزمة كعب","note":"تعبير ثابت","type":"altro"}
+        ]
+      },
+      {
+        "it": "Eugenio mette sempre i jeans. Oggi ha un maglione verde a collo alto.",
+        "ar": "إيوجينيو دايمًا بيلبس جينز. النهارده لابس بلوفر أخضر ياقة عالية.",
+        "words": [
+          {"it":"mette","ar":"بيلبس","note":"Mettere، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"maglione","ar":"بلوفر","note":null,"type":"altro"},
+          {"it":"a collo alto","ar":"ياقة عالية","note":"تعبير وصفي","type":"altro"}
+        ]
+      },
+      {
+        "it": "Adriana ama l'abbigliamento classico. Oggi è andata in ufficio con una gonna nera e una camicetta gialla con un paio di scarpe basse.",
+        "ar": "أدريانا بتحب اللبس الكلاسيك. النهارده راحت المكتب بجيبة سودا وبلوزة صفرا مع جزمة واطية.",
+        "words": [
+          {"it":"ama","ar":"بتحب","note":"Amare، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"abbigliamento","ar":"لبس / ملابس","note":null,"type":"altro"},
+          {"it":"classico","ar":"كلاسيك","note":null,"type":"altro"},
+          {"it":"è andata","ar":"راحت","note":"Andare، Passato Prossimo (لُيه/هي)","type":"verbo"},
+          {"it":"ufficio","ar":"مكتب","note":null,"type":"altro"},
+          {"it":"gonna","ar":"جيبة","note":null,"type":"altro"},
+          {"it":"camicetta","ar":"بلوزة","note":null,"type":"altro"},
+          {"it":"gialla","ar":"صفرا","note":"صفة مؤنثة من giallo","type":"altro"},
+          {"it":"scarpe basse","ar":"جزمة واطية","note":"تعبير وصفي","type":"altro"}
+        ]
+      }
+    ],
+    questions:[
+      {q:'Chi porta una cravatta a righe e un impermeabile beige?',
+       options:['Fabrizio','Sandro','Eugenio','Adriana'], correctIdx:0,
+       explanation:"\"Porta anche una cravatta a righe e un impermeabile beige\" — الجملة دي عن فابريتسيو."},
+      {q:'Chi indossa jeans aderenti e stivali?',
+       options:['Vittoria','Eleonora','Adriana','Sandro'], correctIdx:0,
+       explanation:"\"Porta spesso jeans aderenti e stivali\" — ده كلام عن فيتوريا."},
+      {q:'Chi porta occhiali da sole e una giacca sportiva verde?',
+       options:['Sandro','Eugenio','Fabrizio','Eleonora'], correctIdx:0,
+       explanation:"\"Sandro porta sempre... occhiali da sole... e una giacca sportiva verde\"."},
+      {q:'Chi ha scelto un vestito celeste per una festa?',
+       options:['Eleonora','Vittoria','Adriana','Eugenio'], correctIdx:0,
+       explanation:"\"Per una festa oggi ha scelto un vestito celeste\" — ده كلام عن إليونورا."},
+      {q:'Chi mette sempre i jeans e oggi ha un maglione verde?',
+       options:['Eugenio','Sandro','Fabrizio','Adriana'], correctIdx:0,
+       explanation:"\"Eugenio mette sempre i jeans. Oggi ha un maglione verde a collo alto\"."},
+      {q:'Chi è andata in ufficio con una gonna nera?',
+       options:['Adriana','Eleonora','Vittoria','Fabrizio'], correctIdx:0,
+       explanation:"\"Oggi è andata in ufficio con una gonna nera\" — ده كلام عن أدريانا."},
+      {q:'Vero o falso: "Fabrizio porta un impermeabile beige."',
+       options:['Vero','Falso'], correctIdx:0,
+       explanation:"النص بيقول بالظبط كده: \"un impermeabile beige\"."},
+      {q:'Vero o falso: "Vittoria si veste sempre in modo elegante."',
+       options:['Vero','Falso'], correctIdx:1,
+       explanation:"النص بيقول \"si veste in modo sportivo\" (رياضي) مش أنيق."},
+      {q:'Vero o falso: "Eleonora ha scarpe con il tacco."',
+       options:['Vero','Falso'], correctIdx:0,
+       explanation:"النص بيقول \"scarpe con il tacco\" فعلاً — صح."},
+      {q:'Vero o falso: "Adriana porta scarpe con il tacco alto."',
+       options:['Vero','Falso'], correctIdx:1,
+       explanation:"النص بيقول \"scarpe basse\" (واطية) مش بكعب — غلط."}
+    ]
+  }
+];
+let currentLibroPassageId=null;
+let lbMarkerPos={}; // {paraIdx: charIndex} — نفس فكرة lpMarkerPos بس لقطع الليبرو
+let libroAnswers={}; // {questionIdx: chosenOptionIdx}
+// مفيش overrides/تلوين حروف جر مخصوصة لقطع الليبرو لحد دلوقتي — لو احتجنا
+// نفس فكرة تلوين حروف الجر أو ترتيب قاعدة معيّنة لكلمة بعينها هنستخدم نفس
+// شكل WORD_TOPIC_OVERRIDES/PREP_COLOR_SEQUENCE بس هنا، مفتاح بـ id القطعة.
+const LIBRO_WORD_TOPIC_OVERRIDES={};
+const LIBRO_PREP_COLOR_SEQUENCE={};
+let lbTopicOverrideCounters={};
+let lbPrepColorCounters={};
+function renderLibroLibrary(){
+  const wrap=document.getElementById('libroPassageList');
+  wrap.innerHTML=LIBRO_PASSAGES.map(p=>
+    '<div class="card" style="cursor:pointer;margin-bottom:10px" onclick="libroOpenPassage(\''+p.id+'\')">'
+    +'<div class="card-cat">'+escHtml(p.titleAr)+'</div>'
+    +'<div class="card-ar" style="direction:ltr;text-align:left">'+escHtml(p.titleIt)+'</div>'
+    +'<div style="opacity:.6;font-size:13px;margin-top:6px">'+p.paragraphs.length+' فقرات · '+p.questions.length+' أسئلة فهم</div>'
+    +'</div>'
+  ).join('');
+}
+function lbTopicOverride(paraIdx,rawWord){
+  const norm=normalizeGrammarWord(rawWord);
+  const seq=((LIBRO_WORD_TOPIC_OVERRIDES[currentLibroPassageId]||{})[paraIdx]||{})[norm];
+  if(!seq)return null;
+  const key=paraIdx+'_'+norm;
+  const n=lbTopicOverrideCounters[key]||0;
+  lbTopicOverrideCounters[key]=n+1;
+  const entry=seq[n];
+  if(entry===undefined)return null;
+  return typeof entry==='string'?{topicId:entry,focusWord:rawWord}:{topicId:entry.topic,focusWord:entry.focus||rawWord};
+}
+function lbFindWordMatch(paraIdx,rawWord){
+  const override=lbTopicOverride(paraIdx,rawWord);
+  if(override)return{type:'grammar',topicId:override.topicId,focusWord:override.focusWord};
+  const gTopicId=findGrammarTopicId(rawWord);
+  if(gTopicId)return{type:'grammar',topicId:gTopicId};
+  const p=LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId);
+  const para=p&&p.paragraphs[paraIdx];
+  const words=(para&&para.words)||[];
+  const norm=normalizeGrammarWord(rawWord);
+  let exactIdx=-1,phraseIdx=-1;
+  words.forEach((w,i)=>{
+    const parts=normalizeGrammarWord(w.it).split(/\s+/);
+    if(parts.length===1&&parts[0]===norm&&exactIdx===-1)exactIdx=i;
+    else if(parts.length>1&&parts.includes(norm)&&phraseIdx===-1)phraseIdx=i;
+  });
+  if(exactIdx!==-1)return{type:'curated',idx:exactIdx};
+  if(phraseIdx!==-1)return{type:'curated',idx:phraseIdx};
+  return null;
+}
+function lbNextPrepColor(paraIdx){
+  const seq=(LIBRO_PREP_COLOR_SEQUENCE[currentLibroPassageId]||[])[paraIdx];
+  if(!seq)return null;
+  const n=lbPrepColorCounters[paraIdx]||0;
+  lbPrepColorCounters[paraIdx]=n+1;
+  return seq[n]!==undefined?seq[n]:null;
+}
+function lbRenderInlineText(text,paraIdx){
+  lbPrepColorCounters[paraIdx]=0;
+  Object.keys(lbTopicOverrideCounters).forEach(k=>{if(k.startsWith(paraIdx+'_'))delete lbTopicOverrideCounters[k];});
+  const re=/[A-Za-zÀ-öø-ÿ]+/g;
+  let out='',last=0,m;
+  while((m=re.exec(text))){
+    out+=escHtml(text.slice(last,m.index));
+    const w=m[0];
+    const match=lbFindWordMatch(paraIdx,w);
+    const cls='lp-word'+(match?(match.type==='grammar'?' has-grammar':' has-info'):'');
+    const wEsc=escHtml(w).replace(/'/g,'&#39;');
+    let styleAttr='',color=null;
+    if(match&&match.type==='grammar'&&PREP_TOPIC_IDS.includes(match.topicId)){
+      color=lbNextPrepColor(paraIdx);
+      if(color)styleAttr=' style="color:'+color+';font-weight:800;border-bottom-color:'+color+'"';
+    }
+    const colorArg=color?',\''+color+'\'':',null';
+    const topicArg=(match&&match.type==='grammar')?',\''+match.topicId+'\'':',null';
+    const focusWordEsc=(match&&match.type==='grammar'&&match.focusWord)?escHtml(match.focusWord).replace(/'/g,'&#39;'):w;
+    const focusArg=',\''+focusWordEsc.replace(/'/g,"\\'")+'\'';
+    out+='<span class="'+cls+'"'+styleAttr+' id="lbTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();lbWordTap('+paraIdx+',\''+wEsc+'\','+m.index+colorArg+topicArg+focusArg+')">'+escHtml(w)+'</span>';
+    last=re.lastIndex;
+  }
+  out+=escHtml(text.slice(last));
+  return out;
+}
+function lbWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordForModal){
+  speakWord(rawWord);
+  if(charIndex!==undefined){
+    const prevPos=lbMarkerPos[paraIdx];
+    if(prevPos!==undefined){
+      const prevEl=document.getElementById('lbTok'+paraIdx+'_'+prevPos);
+      if(prevEl)prevEl.classList.remove('lp-marker');
+    }
+    lbMarkerPos[paraIdx]=charIndex;
+    const curEl=document.getElementById('lbTok'+paraIdx+'_'+charIndex);
+    if(curEl)curEl.classList.add('lp-marker');
+    const playBtn=document.getElementById('lbPlayFromBtn'+paraIdx);
+    if(playBtn)playBtn.style.display='inline-block';
+  }
+  if(forcedTopicId){
+    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor);
+  }
+}
+function lbPlayFromMarker(paraIdx){
+  const p=LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId);
+  const para=p&&p.paragraphs[paraIdx];
+  if(!para)return;
+  const pos=lbMarkerPos[paraIdx]||0;
+  speakWord(para.it.slice(pos));
+}
+function renderLibroWordBreakdown(words,paraIdx){
+  return '<div class="breakdown" style="display:flex;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)">'+words.map((w,wIdx)=>{
+    const gTopicId=w.grammarId||findGrammarTopicId(w.it);
+    const vInfo=findVerbFromNote(w.note);
+    const famData=findWordFamily(w.it);
+    const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
+    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    return '<div class="bd-row" id="lbBdRow'+paraIdx+'_'+wIdx+'">'
+      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
+      +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
+      +'<span class="bd-note">'+noteTxt+'</span>'
+    +'</div>';
+  }).join('')+'</div>';
+}
+function libroToggleParagraph(i){
+  const box=document.getElementById('lbBreakdown'+i);
+  const arrow=document.getElementById('lbArrow'+i);
+  if(!box)return;
+  const isOpen=box.style.display==='block';
+  box.style.display=isOpen?'none':'block';
+  if(arrow)arrow.textContent=isOpen?'شرح الكلمات ▾':'إخفاء الشرح ▴';
+}
+function libroOpenPassage(id){
+  const p=LIBRO_PASSAGES.find(x=>x.id===id);
+  if(!p)return;
+  currentLibroPassageId=id;
+  libroAnswers={};
+  lbMarkerPos={};
+  document.getElementById('libroLibrary').style.display='none';
+  document.getElementById('libroDetail').style.display='block';
+  document.getElementById('lbTitleAr').textContent=p.titleAr;
+  document.getElementById('lbTitleIt').textContent=p.titleIt;
+  document.getElementById('lbParagraphs').innerHTML=p.paragraphs.map((para,i)=>
+    '<div style="margin-bottom:14px;padding:10px;border:1px solid var(--border);border-radius:10px">'
+    +'<div style="display:flex;align-items:flex-start;gap:8px">'
+    +'<button class="tts-btn" style="padding:6px 10px;font-size:13px;flex-shrink:0" onclick="event.stopPropagation();libroSpeakParagraph('+i+')">🔊</button>'
+    +'<div style="direction:ltr;text-align:left;font-size:16px;line-height:1.85;flex:1">'+lbRenderInlineText(para.it,i)+'</div>'
+    +'</div>'
+    +'<div style="opacity:.75;font-size:13.5px;margin-top:8px">'+escHtml(para.ar)+'</div>'
+    +'<button class="tts-btn" id="lbPlayFromBtn'+i+'" style="margin-top:8px;font-size:12.5px;padding:5px 10px" onclick="event.stopPropagation();lbPlayFromMarker('+i+')">▶️ اسمع من هنا</button>'
+    +(para.words&&para.words.length?(
+      '<div class="skip-link" id="lbArrow'+i+'" style="margin-top:8px;cursor:pointer;display:inline-block" onclick="libroToggleParagraph('+i+')">شرح الكلمات ▾</div>'
+      +'<div id="lbBreakdown'+i+'" style="display:none">'+renderLibroWordBreakdown(para.words,i)+'</div>'
+    ):'')
+    +'</div>'
+  ).join('');
+  document.getElementById('lbQuestions').innerHTML=p.questions.map((q,qi)=>
+    '<div class="drill-box show" style="margin-bottom:12px">'
+    +'<div style="margin-bottom:8px;direction:ltr;text-align:left;line-height:1.7">'+(qi+1)+'. '+lbRenderInlineText(q.q,-1)+'</div>'
+    +'<div class="q-options" id="lbQOptions'+qi+'">'
+    +q.options.map((o,oi)=>'<button class="q-opt" onclick="libroAnswerQuestion('+qi+','+oi+')">'+escHtml(o)+'</button>').join('')
+    +'</div>'
+    +'<div class="q-feedback" id="lbQFeedback'+qi+'"></div>'
+    +'</div>'
+  ).join('');
+  document.getElementById('lbResult').style.display='none';
+  window.scrollTo(0,0);
+}
+function libroBackToLibrary(){
+  document.getElementById('libroDetail').style.display='none';
+  document.getElementById('libroLibrary').style.display='block';
+  currentLibroPassageId=null;
+}
+function libroSpeakAll(){
+  const p=LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId);
+  if(!p)return;
+  speakWord(p.paragraphs.map(x=>x.it).join(' '));
+}
+function libroSpeakParagraph(i){
+  const p=LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId);
+  if(!p||!p.paragraphs[i])return;
+  speakWord(p.paragraphs[i].it);
+}
+function libroAnswerQuestion(qi,oi){
+  if(libroAnswers[qi]!==undefined)return; // إجابة واحدة لكل سؤال، زي باقي التطبيق
+  const p=LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId);
+  const q=p.questions[qi];
+  libroAnswers[qi]=oi;
+  const btns=[...document.getElementById('lbQOptions'+qi).children];
+  btns.forEach(b=>b.disabled=true);
+  const ok=oi===q.correctIdx;
+  if(ok){
+    btns[oi].classList.add('ok');btns[oi].style.background='#00e8961a';btns[oi].style.borderColor='var(--green)';
+    floatEmoji('✅');
+  } else {
+    btns[oi].classList.add('bad');btns[oi].style.background='#ff4d6d1a';btns[oi].style.borderColor='var(--red)';
+    btns[q.correctIdx].classList.add('ok');
+    btns[q.correctIdx].style.background='#00e8961a';
+    btns[q.correctIdx].style.borderColor='var(--green)';
+  }
+  document.getElementById('lbQFeedback'+qi).innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
+  if(Object.keys(libroAnswers).length===p.questions.length){
+    let correct=0;
+    p.questions.forEach((qq,i2)=>{ if(libroAnswers[i2]===qq.correctIdx)correct++; });
+    const resEl=document.getElementById('lbResult');
+    resEl.style.display='block';
+    resEl.textContent='🏆 خلصت! '+correct+' من '+p.questions.length+' صح.';
+  }
+}
+
 function renderLibrary(){
   renderVerbsList();
   renderTopicSections(document.getElementById('verbGroups'));
@@ -3057,7 +3403,21 @@ function buildGrammarTriggerMap(){
 }
 function findGrammarTopicId(word){
   const map=buildGrammarTriggerMap();
-  return map[normalizeGrammarWord(word)]||null;
+  const norm=normalizeGrammarWord(word);
+  if(map[norm])return map[norm];
+  // كلمات كتير في scenes.js/LIBRO_PASSAGES مكتوبة كتعبير من أكتر من كلمة
+  // (زي "ha scelto"، "si veste"، "jeans aderenti"، "scarpe con il tacco")،
+  // وGRAMMAR_TRIGGER_MAP مبني على كلمة مفردة بس فمطابقة السلسلة كاملة بتفشل
+  // دايمًا. بندوّر من آخر كلمة للأول لأن الكلمة المحورية (الفعل/الصفة/الاسم
+  // اللي محتاج شرح) غالبًا هي آخر كلمة في التعبير، وأول كلمة غالبًا أداة/حرف
+  // جر (ha/un/si/è) وليها موضوع تاني خالص هيبعد الضغطة عن قصد المستخدم.
+  const parts=norm.split(/\s+/).filter(Boolean);
+  if(parts.length>1){
+    for(let i=parts.length-1;i>=0;i--){
+      if(map[parts[i]])return map[parts[i]];
+    }
+  }
+  return null;
 }
 
 // ===== WORD FAMILY (🌳 عيلة الكلمة) — بس لكلمات breakdown قطع الاستماع =====

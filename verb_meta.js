@@ -1,0 +1,949 @@
+// verb_meta.js — بيانات وصفية لكل فعل: ترتيب الشيوع (من corpus ItWaC، Baroni et al. 2009)
+// وتصنيف الانتظام لكل زمن على 4 فئات:
+//   fully_regular     — نمط -are/-ere/-ire نضيف تمامًا، يتعلّم كقاعدة عابرة للأفعال
+//   orthographic_only — قاعدة إملائية متوقعة (care/gare يضيفوا h، iare يحذفوا i مكررة)، مش شذوذ حقيقي
+//   isco_pattern      — النمط الفرعي التاني لأفعال -ire (زي capire/finire)، متوقع مش عشوائي
+//   true_irregular    — لازم تُحفظ صيغة صيغة، مفيش تعميم
+// tier: A) rank 1-30  B) rank 31-100  C) rank 101-300  D) rank 300+
+const VERB_META = {
+  "Aiutare": {
+    "freqRank": 160,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Andare": {
+    "freqRank": 7,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Arrivare": {
+    "freqRank": 277,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Ascoltare": {
+    "freqRank": 145,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Aspettare": {
+    "freqRank": 41,
+    "tier": "B",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Bussare": {
+    "freqRank": 1552,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Camminare": {
+    "freqRank": 718,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Cercare": {
+    "freqRank": 24,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+  },
+  "Chiamare": {
+    "freqRank": 48,
+    "tier": "B",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Comprare": {
+    "freqRank": 26,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Giocare": {
+    "freqRank": 82,
+    "tier": "B",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+  },
+  "Guardare": {
+    "freqRank": 19,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Incontrare": {
+    "freqRank": 240,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Lavorare": {
+    "freqRank": 215,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Mangiare": {
+    "freqRank": 49,
+    "tier": "B",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Pagare": {
+    "freqRank": 42,
+    "tier": "B",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+  },
+  "Portare": {
+    "freqRank": 10,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Restare": {
+    "freqRank": 195,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Ringraziare": {
+    "freqRank": 516,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Salutare": {
+    "freqRank": 143,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Studiare": {
+    "freqRank": 136,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Telefonare": {
+    "freqRank": 616,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Tornare": {
+    "freqRank": 155,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Trovare": {
+    "freqRank": 11,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Viaggiare": {
+    "freqRank": 1041,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Fare": {
+    "freqRank": 1,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "true_irregular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Dare": {
+    "freqRank": 5,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Funzionare": {
+    "freqRank": 1421,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Parlare": {
+    "freqRank": 116,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Passeggiare": {
+    "freqRank": 1299,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Svegliarsi": {
+    "freqRank": 432,
+    "tier": "D",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Credere": {
+    "freqRank": 151,
+    "tier": "C",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Leggere": {
+    "freqRank": 39,
+    "tier": "B",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Prendere": {
+    "freqRank": 18,
+    "tier": "A",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Promettere": {
+    "freqRank": 218,
+    "tier": "C",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Scrivere": {
+    "freqRank": 33,
+    "tier": "B",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Vedere": {
+    "freqRank": 8,
+    "tier": "A",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Vendere": {
+    "freqRank": 34,
+    "tier": "B",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Avere": {
+    "freqRank": 35,
+    "tier": "B",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Essere": {
+    "freqRank": 54,
+    "tier": "B",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "true_irregular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Potere": {
+    "freqRank": 3,
+    "tier": "A",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Sapere": {
+    "freqRank": 80,
+    "tier": "B",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Volere": {
+    "freqRank": 4,
+    "tier": "A",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Tacere": {
+    "freqRank": 748,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Apprendere": {
+    "freqRank": 857,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Capire": {
+    "freqRank": 527,
+    "tier": "D",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "isco_pattern", "patternFamily": "isco" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" }
+  },
+  "Dire": {
+    "freqRank": 17,
+    "tier": "A",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "true_irregular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Finire": {
+    "freqRank": 265,
+    "tier": "C",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "isco_pattern", "patternFamily": "isco" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" }
+  },
+  "Partire": {
+    "freqRank": 331,
+    "tier": "D",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Pulire": {
+    "freqRank": 428,
+    "tier": "D",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "isco_pattern", "patternFamily": "isco" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" }
+  },
+  "Uscire": {
+    "freqRank": 418,
+    "tier": "D",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Cucinare": {
+    "freqRank": 416,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Pensare": {
+    "freqRank": 117,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Piangere": {
+    "freqRank": 479,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Ridere": {
+    "freqRank": 806,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Dormire": {
+    "freqRank": 763,
+    "tier": "D",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Sognare": {
+    "freqRank": 206,
+    "tier": "C",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Sperare": {
+    "freqRank": 491,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Spiegare": {
+    "freqRank": 31,
+    "tier": "B",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+  },
+  "Stare": {
+    "freqRank": 27,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Bere": {
+    "freqRank": 319,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "true_irregular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Porre": {
+    "freqRank": 255,
+    "tier": "C",
+    "group": null,
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "true_irregular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Tradurre": {
+    "freqRank": 1039,
+    "tier": "D",
+    "group": null,
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "true_irregular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Produrre": {
+    "freqRank": 802,
+    "tier": "D",
+    "group": null,
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "true_irregular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Alzarsi": {
+    "freqRank": 176,
+    "tier": "C",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Lavarsi": {
+    "freqRank": 129,
+    "tier": "C",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Chiamarsi": {
+    "freqRank": 48,
+    "tier": "B",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Riposarsi": {
+    "freqRank": 811,
+    "tier": "D",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Prepararsi": {
+    "freqRank": 63,
+    "tier": "B",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Arrabbiarsi": {
+    "freqRank": 1547,
+    "tier": "D",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Ricordarsi": {
+    "freqRank": 20,
+    "tier": "A",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Addormentarsi": {
+    "freqRank": 562,
+    "tier": "D",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Trovarsi": {
+    "freqRank": 11,
+    "tier": "A",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Sposarsi": {
+    "freqRank": 233,
+    "tier": "C",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Laurearsi": {
+    "freqRank": 1184,
+    "tier": "D",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Annoiarsi": {
+    "freqRank": 828,
+    "tier": "D",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Pettinarsi": {
+    "freqRank": 1894,
+    "tier": "D",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Vestirsi": {
+    "freqRank": 463,
+    "tier": "D",
+    "group": "ire",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Divertirsi": {
+    "freqRank": 653,
+    "tier": "D",
+    "group": "ire",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Sentirsi": {
+    "freqRank": 52,
+    "tier": "B",
+    "group": "ire",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Mettersi": {
+    "freqRank": 9,
+    "tier": "A",
+    "group": "ere",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Sedersi": {
+    "freqRank": 335,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": true,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Accorgersi": {
+    "freqRank": 1101,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Passare": {
+    "freqRank": 13,
+    "tier": "A",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Significare": {
+    "freqRank": 986,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+  },
+  "Sentire": {
+    "freqRank": 52,
+    "tier": "B",
+    "group": "ire",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Conoscere": {
+    "freqRank": 262,
+    "tier": "C",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Dovere": {
+    "freqRank": 2,
+    "tier": "A",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Piovere": {
+    "freqRank": 2132,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Piacere": {
+    "freqRank": 425,
+    "tier": "D",
+    "group": "ere",
+    "reflexive": false,
+    "presente": { "category": "true_irregular", "patternFamily": null },
+    "passato": { "category": "true_irregular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Cambiare": {
+    "freqRank": 75,
+    "tier": "B",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+  },
+  "Bastare": {
+    "freqRank": 624,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "true_irregular", "patternFamily": null }
+  },
+  "Organizzarsi": {
+    "freqRank": 102,
+    "tier": "C",
+    "group": "are",
+    "reflexive": true,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "essere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  },
+  "Cenare": {
+    "freqRank": 2085,
+    "tier": "D",
+    "group": "are",
+    "reflexive": false,
+    "presente": { "category": "fully_regular", "patternFamily": null },
+    "passato": { "category": "fully_regular", "aux": "avere" },
+    "imperfetto": { "category": "fully_regular" },
+    "imperativo": { "category": "fully_regular", "patternFamily": null }
+  }
+};

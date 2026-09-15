@@ -545,3 +545,42 @@
   .wp-quiz-q{font-size:1rem;color:var(--text);text-align:center;font-weight:700;line-height:1.6;}
   .wp-quiz-options{display:flex;flex-direction:column;gap:8px;}
   .wp-quiz-feedback{text-align:center;font-size:.88rem;font-weight:700;min-height:20px;}
+
+  /* ══ VERB PRACTICE (نظام جلسات الأفعال — تعلّم/تعميق/مراجعة) ══
+     مبنية فوق نفس رموز التصميم الموجودة (--card/--border/--gold/...) وبتعيد
+     استخدام .verb-modal-overlay / .verb-modal / .q-card / .grammar-q-option
+     الموجودين بالفعل عشان تبقى متسقة بصريًا من غير تكرار. الإضافات الجديدة
+     هنا بس اللي معملهاش حاجة شبهها قبل كده. */
+  .vp-fab{position:fixed;bottom:18px;left:18px;width:52px;height:52px;border-radius:50%;
+    background:linear-gradient(135deg,var(--purple),#8b5cf6);color:#fff;border:none;
+    font-size:1.4rem;cursor:pointer;z-index:998;box-shadow:0 4px 14px #00000066;
+    display:flex;align-items:center;justify-content:center;}
+  .vp-fab:active{transform:scale(.94);}
+  .vp-menu{display:flex;flex-direction:column;gap:10px;padding:4px 0;}
+  .vp-menu-btn{background:#0e0e1a;border:1px solid var(--border);border-radius:14px;
+    padding:14px 16px;text-align:right;color:var(--text);cursor:pointer;font-family:inherit;}
+  .vp-menu-btn:hover{border-color:var(--purple);}
+  .vp-menu-btn b{display:block;font-size:.92rem;margin-bottom:3px;}
+  .vp-menu-btn span{font-size:.76rem;color:var(--muted);}
+  .vp-progress{text-align:center;font-size:.72rem;color:var(--muted);margin-bottom:8px;}
+  .vp-prompt{font-size:1.05rem;text-align:center;font-weight:800;margin-bottom:14px;line-height:1.7;}
+  .vp-prompt .it{font-family:Georgia,serif;color:var(--gold);direction:ltr;display:inline-block;}
+  .vp-input{width:100%;background:#0e0e1a;border:1px solid var(--border);border-radius:10px;
+    color:var(--text);font-family:Georgia,serif;font-size:1rem;padding:10px 12px;
+    text-align:center;direction:ltr;}
+  .vp-input:focus{outline:none;border-color:var(--purple);}
+  .vp-submit-btn{margin-top:12px;background:linear-gradient(135deg,var(--purple),#8b5cf6);
+    color:#fff;border:none;border-radius:10px;padding:11px;font-weight:800;font-size:.9rem;
+    cursor:pointer;font-family:inherit;width:100%;}
+  .vp-submit-btn:disabled{opacity:.5;}
+  .vp-feedback{text-align:center;font-size:.82rem;font-weight:700;min-height:20px;margin-top:10px;}
+  .vp-feedback.ok{color:var(--green);}
+  .vp-feedback.bad{color:var(--red);}
+  .vp-feedback.accent{color:var(--gold);}
+  .vp-tag{display:inline-block;background:#0e0e1a;border:1px solid var(--border);
+    border-radius:8px;padding:2px 9px;font-size:.68rem;color:var(--muted);margin-inline-start:6px;}
+  .vp-next-btn{margin-top:10px;background:var(--card);border:1px solid var(--border);
+    color:var(--text);border-radius:10px;padding:10px;font-weight:700;cursor:pointer;
+    font-family:inherit;width:100%;}
+  .vp-summary{text-align:center;padding:10px 0;}
+  .vp-summary .big{font-size:2.4rem;font-weight:900;color:var(--gold);}
