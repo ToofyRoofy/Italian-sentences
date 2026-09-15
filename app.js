@@ -3062,6 +3062,163 @@ const LIBRO_PASSAGES=[
        options:['Vero','Falso'], correctIdx:1,
        explanation:"النص بيقول \"scarpe basse\" (واطية) مش بكعب — غلط."}
     ]
+  },
+  {
+    id:'pullover_regalo',
+    titleIt:'Cerco un pullover',
+    titleAr:'بدوّر على بلوفر (هدية للجوز)',
+    paragraphs:[
+      {
+        "it": "Cliente: Buonasera.",
+        "ar": "الزبونة: مسا الخير.",
+        "words": []
+      },
+      {
+        "it": "Commessa: Buonasera. Desidera?",
+        "ar": "البياعة: مسا الخير. تحت أمرك؟",
+        "words": [
+          {"it":"Desidera","ar":"تحت أمرك؟ / محتاجة حاجة؟","note":"Desiderare، Presente (حضرتك/هو/هي) — صيغة أدب في المحل","type":"verbo"}
+        ]
+      },
+      {
+        "it": "Cliente: Cerco un pullover da uomo.",
+        "ar": "الزبونة: بدوّر على بلوفر رجالي.",
+        "words": [
+          {"it":"Cerco","ar":"بدوّر على","note":"Cercare، Presente (أنا)","type":"verbo"},
+          {"it":"pullover","ar":"بلوفر","note":"pullover = maglione (مرادف)","type":"altro"},
+          {"it":"da uomo","ar":"رجالي","note":"تعبير وصفي","type":"altro"}
+        ]
+      },
+      {
+        "it": "Commessa: Che taglia?",
+        "ar": "البياعة: مقاس كام؟",
+        "words": [
+          {"it":"taglia","ar":"مقاس","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "Cliente: La 50 o la 52.",
+        "ar": "الزبونة: مقاس 50 ولا 52.",
+        "words": []
+      },
+      {
+        "it": "Commessa: Un momento... Le piace questo modello?",
+        "ar": "البياعة: لحظة واحدة... عاجبك الموديل ده؟",
+        "words": [
+          {"it":"Un momento","ar":"لحظة واحدة","note":null,"type":"altro"},
+          {"it":"Le piace","ar":"عاجبك (بصيغة الاحترام Lei)","note":"Piacere بياخد ضمير جر غير مباشر قبله: mi/a me، ti/a te، gli/a lui، le/a lei، Le/a Lei (رسمي)، ci/a noi، vi/a voi، gli/a loro — piace/sembra للمفرد، piacciono/sembrano للجمع","type":"verbo"},
+          {"it":"modello","ar":"موديل","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "Cliente: Mah... è un regalo per mio marito... Sa, mi sembra un po' troppo giovanile.",
+        "ar": "الزبونة: يعني... ده هدية لجوزي... تعرفي، حاسة إنه شبابي أكتر من اللازم شوية.",
+        "words": [
+          {"it":"regalo","ar":"هدية","note":null,"type":"altro"},
+          {"it":"marito","ar":"جوز / زوج","note":null,"type":"altro"},
+          {"it":"Sa","ar":"تعرفي (حضرتك)","note":"Sapere، Presente (حضرتك/هو/هي)","type":"verbo"},
+          {"it":"mi sembra","ar":"حاسة إنه / شايفاه","note":"Sembrare — نفس نظام piacere بالظبط (ضمير جر غير مباشر + الفعل)","type":"verbo"},
+          {"it":"troppo","ar":"أكتر من اللازم","note":null,"type":"altro"},
+          {"it":"giovanile","ar":"شبابي","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "Commessa: Ma no, signora. Questi sono i colori di moda per la prossima stagione.",
+        "ar": "البياعة: لأ خالص يا مدام. الألوان دي هي موضة الموسم الجاي.",
+        "words": [
+          {"it":"signora","ar":"يا مدام / حضرتك","note":null,"type":"altro"},
+          {"it":"colori di moda","ar":"ألوان الموضة","note":null,"type":"altro"},
+          {"it":"prossima stagione","ar":"الموسم الجاي","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "Cliente: Eh... sì, ma non so se a lui piacciano.",
+        "ar": "الزبونة: معلش... آه، بس مش عارفة لو هيعجبوه.",
+        "words": [
+          {"it":"a lui piacciano","ar":"هيعجبوه (جمع الألوان)","note":"Piacere بصيغة الجمع piacciono/piacciano، وa lui = gli","type":"verbo"}
+        ]
+      },
+      {
+        "it": "Commessa: E quest'altro modello come Le sembra? È un capo classico che va bene con tutto.",
+        "ar": "البياعة: والموديل التاني ده شايفاه إزاي؟ ده قطعة كلاسيك بتتماشى مع كل حاجة.",
+        "words": [
+          {"it":"capo","ar":"قطعة (لبس)","note":null,"type":"altro"},
+          {"it":"classico","ar":"كلاسيك","note":null,"type":"altro"},
+          {"it":"va bene con tutto","ar":"بيتماشى مع كل حاجة","note":"تعبير ثابت","type":"altro"}
+        ]
+      },
+      {
+        "it": "Cliente: Sì, questo è proprio bello. E quanto costa?",
+        "ar": "الزبونة: آه، ده جميل فعلاً. طب بكام؟",
+        "words": [
+          {"it":"costa","ar":"بيتكلف","note":"Costare، Presente (هو/هي)","type":"verbo"}
+        ]
+      },
+      {
+        "it": "Commessa: Dunque... 104 euro.",
+        "ar": "البياعة: يعني... 104 يورو.",
+        "words": []
+      },
+      {
+        "it": "Cliente: Mm, veramente è un po' caro.",
+        "ar": "الزبونة: ممم، فعلاً غالي شوية.",
+        "words": [
+          {"it":"caro","ar":"غالي","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "Commessa: Beh, ma è di ottima qualità.",
+        "ar": "البياعة: بس هو خامة ممتازة.",
+        "words": [
+          {"it":"ottima qualità","ar":"جودة ممتازة","note":null,"type":"altro"}
+        ]
+      },
+      {
+        "it": "Cliente: Eh, si vede... Senta, eventualmente lo posso cambiare se a mio marito non piace o se non gli sta bene?",
+        "ar": "الزبونة: أيوه، ده بايّن... اسمعي، ممكن أستبدله لو جوزي معجبهوش أو مقاسوش مظبوط؟",
+        "words": [
+          {"it":"Senta","ar":"اسمعي","note":"Sentire، صيغة أمر مؤدبة (Lei)","type":"verbo"},
+          {"it":"eventualmente","ar":"احتمال / لو حصل","note":null,"type":"altro"},
+          {"it":"cambiare","ar":"يستبدل","note":null,"type":"verbo"},
+          {"it":"sta bene","ar":"يكون مظبوط عليه (مقاس)","note":"Stare، Presente","type":"verbo"}
+        ]
+      },
+      {
+        "it": "Commessa: Certo, ma deve conservare lo scontrino.",
+        "ar": "البياعة: أكيد، بس لازم تحتفظي بالإيصال.",
+        "words": [
+          {"it":"deve","ar":"لازم","note":"Dovere، Presente (حضرتك/هو/هي)","type":"verbo"},
+          {"it":"conservare","ar":"تحتفظ بـ","note":null,"type":"verbo"},
+          {"it":"scontrino","ar":"إيصال / فاتورة","note":null,"type":"altro"}
+        ]
+      }
+    ],
+    questions:[
+      {q:'Cosa cerca la cliente?',
+       options:['Un pullover da uomo','Un vestito da donna','Una cravatta','Un cappotto'], correctIdx:0,
+       explanation:"\"Cerco un pullover da uomo\" — الزبونة بتدوّر على بلوفر رجالي."},
+      {q:'Per chi è il regalo?',
+       options:['Suo marito','Suo figlio','Suo padre','Sua sorella'], correctIdx:0,
+       explanation:"\"È un regalo per mio marito\" — الهدية لجوزها."},
+      {q:'Che taglia cerca la cliente?',
+       options:['50 o 52','40 o 42','44 o 46','38 o 40'], correctIdx:0,
+       explanation:"\"La 50 o la 52\" — ده المقاس اللي طلبته."},
+      {q:'Quanto costa il modello che alla fine piace alla cliente?',
+       options:['104 euro','50 euro','152 euro','204 euro'], correctIdx:0,
+       explanation:"\"Dunque... 104 euro\" — سعر الموديل الكلاسيك."},
+      {q:'Che tipo di modello compra alla fine la signora — classico o giovanile?',
+       options:['Classico','Giovanile','Sportivo','Elegante da sera'], correctIdx:0,
+       explanation:"\"È un capo classico che va bene con tutto\" — ده الموديل اللي اختارته في الآخر."},
+      {q:'Vero o falso: "Il primo modello sembra alla cliente troppo giovanile."',
+       options:['Vero','Falso'], correctIdx:0,
+       explanation:"\"Mi sembra un po' troppo giovanile\" — قالت كده فعلاً على الموديل الأول."},
+      {q:'Vero o falso: "La cliente pensa che il pullover sia economico."',
+       options:['Vero','Falso'], correctIdx:1,
+       explanation:"قالت \"è un po' caro\" يعني غالي شوية، مش رخيص."},
+      {q:'Vero o falso: "Per cambiare il pullover, la cliente deve conservare lo scontrino."',
+       options:['Vero','Falso'], correctIdx:0,
+       explanation:"\"Deve conservare lo scontrino\" — لازم تحتفظ بالإيصال عشان تقدر تستبدله."}
+    ]
   }
 ];
 let currentLibroPassageId=null;

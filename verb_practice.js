@@ -647,9 +647,13 @@
       fb.textContent = '❌ الصح: ' + correctAnswer;
     }
 
-    // تصحيح إجباري بس لوضع type في المراجعة اليومية (بند 6) — باقي الأنواع
-    // (تعلّم مختلط/تعميق فردي) بيكتفوا بإعادة الإدراج القريبة اللي فوق
-    if (!result.correct && step.sessionType === 'daily_review' && step.reviewMode === 'type') {
+    // تصحيح إجباري لأي سؤال كتابي (write_meaning_ar/write_infinitive/produce/
+    // identify_ar) في أي نوع جلسة — تعلّم مختلط وتعميق فردي زي المراجعة
+    // بالظبط دلوقتي: لازم تكتب الإجابة الصح قبل ما تكمّل. ده منفصل عن
+    // requeueCurrentStep/insertReinforcementMCQ اللي فوق (اللي لسه بيحصل زي
+    // ما هو) — ده بيرجّع السؤال في الطابور بعدين للمراجعة المتباعدة، وده
+    // بيمنع التقدّم دلوقتي لحد ما تثبّت الإجابة الصح.
+    if (!result.correct) {
       session.pendingCorrect = correctAnswer;
       renderForceCorrection(correctAnswer);
       return;
