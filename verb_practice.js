@@ -44,7 +44,14 @@
   }
 
   function today() {
-    return new Date().toISOString().slice(0, 10);
+    // بتوقيت الجهاز المحلي، مش UTC — toISOString() كانت بترجع تاريخ UTC،
+    // ولأن مصر UTC+2/+3 كان اليوم المحلي بيبدأ قبل UTC بساعتين-تلاتة،
+    // فالمراجعة كانت بتفضل شايفة "امبارح" لحد الفجر بتوقيت القاهرة.
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
   }
   function toAr(n) {
     return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
