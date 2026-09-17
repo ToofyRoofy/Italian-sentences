@@ -93,6 +93,16 @@ function buildRegularLearningSession(state, curriculumOrder, verbMetaMap, verbsB
     });
     const pair = QE.pickRegularProductionPair(verbName, meta, 0);
     pair.forEach((c) => items.push(QE.buildProductionQuestion(verbName, c.tense, c.slot, verbsByName)));
+
+    // اتنين سؤال "تحليل عكسي" زي بالظبط اللي في جلسة التعميق الفردي الشاذ
+    // (buildIdentifyArabicQuestion): المعنى بالعربي بيتعرض لوحده من غير ما
+    // نوضح الشخص ولا الفعل، وهي تكتب الشكل الإيطالي بنفسها. مقصورة على
+    // imperfetto (الماضي المستمر) بالذات — ده الزمن اللي طلب تركيز عليه هنا.
+    // الشخصين بيتحددوا بـseed ثابت عشان يفضلوا نفس الاتنين لنفس الفعل دايمًا
+    const idArSeed = QE.seedFromString(verbName + ':idar:imperfetto');
+    const slot1 = idArSeed % 6;
+    const slot2 = (slot1 + 1 + (idArSeed % 4)) % 6; // إزاحة 1-4 تضمن اختلافه عن slot1
+    [slot1, slot2].forEach((slot) => items.push(QE.buildIdentifyArabicQuestion(verbName, 'imperfetto', slot, verbsByName)));
     return { verb: verbName, items };
   });
 

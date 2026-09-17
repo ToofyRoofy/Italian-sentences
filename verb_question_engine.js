@@ -80,6 +80,12 @@ function buildWriteInfinitivePrompt(verbName, verbsByName) {
 
 // ---------------------------------------------------------------------------
 // بند 4: جدول التصريف الكامل (4 اختيارات = 4 جداول) — للمنتظم بس
+//
+// المشتّتات بقت نسخ "شبه صح" من نفس جدول الفعل نفسه (مش جداول أفعال تانية
+// بالكامل زي الأول) — 1-2 خانة (شخص) بس بيتلخبطوا بنهاية قريبة الشبه
+// (مخلوطة من مجموعة are/ere/ire تانية، أو صيغة مساعد غلط في passato). كده
+// المتعلّم مضطر يعرف كل شخص لوحده صح، مش بس "يتعرّف على شكل الفعل عمومًا"
+// ويستبعد الجداول التانية بسهولة.
 // ---------------------------------------------------------------------------
 
 function tableFingerprint(verb, tense) {
@@ -88,40 +94,121 @@ function tableFingerprint(verb, tense) {
     .join(' · ');
 }
 
+// نهايات المجموعات القياسية — بتتستخدم بس لتوليد نهاية "غلط بس قريبة الشبه"
+// (خلط بين are/ere/ire)، مش لحساب الشكل الصح؛ ده دايمًا بييجي من بيانات
+// الفعل الحقيقية في verbsByName. الترتيب مطابق لـgetRows: Io,Tu,Lui,Lei,Noi,Voi,Loro
+const REGULAR_ENDINGS = {
+  presente: {
+    are: ['o', 'i', 'a', 'a', 'iamo', 'ate', 'ano'],
+    ere: ['o', 'i', 'e', 'e', 'iamo', 'ete', 'ono'],
+    ire: ['o', 'i', 'e', 'e', 'iamo', 'ite', 'ono'],
+  },
+  imperfetto: {
+    are: ['avo', 'avi', 'ava', 'ava', 'avamo', 'avate', 'avano'],
+    ere: ['evo', 'evi', 'eva', 'eva', 'evamo', 'evate', 'evano'],
+    ire: ['ivo', 'ivi', 'iva', 'iva', 'ivamo', 'ivate', 'ivano'],
+  },
+};
+
+// صيغ المساعد لـpassato prossimo — بتتلخبط بين الأشخاص (زي "Hai visto" بدل
+// "Ho visto") عشان تمثّل غلطة مطابقة الفاعل الشائعة، مع ترك الـparticipio زي ما هو
+const AUX_FORMS = {
+  avere: ['Ho', 'Hai', 'Ha', 'Ha', 'Abbiamo', 'Avete', 'Hanno'],
+  essere: ['Sono', 'Sei', 'È', 'È', 'Siamo', 'Siete', 'Sono'],
+};
+
+// بيولّد شكل غلط قريب الشبه لخانة واحدة بس، من غير ما يلمس باقي الجدول.
+// الـstem بيتحسب من طول النهاية القياسية المتوقعة لمجموعة الفعل في الخانة
+// دي تحديدًا (مش بمقارنة الـ7 أشكال ببعض) — ده بيشتغل صح حتى مع الأفعال
+// الانعكاسية (الشكل بيبدأ بضمير زي "Si"/"Mi" مختلف كل شخص) وحتى في
+// imperfetto (فين كل المجموعات بتبدأ نهاياتها بنفس الحرف فبتلخبط أي حساب
+// مبني على أطول بادئة مشتركة بين الأشكال).
+function corruptForm(originalForm, slotIndex, tense, group, aux, pickSeed) {
+  if (tense === 'passato') {
+    const spaceIdx = originalForm.indexOf(' ');
+    if (spaceIdx === -1) return null;
+    const participio = originalForm.slice(spaceIdx + 1);
+    const auxForms = AUX_FORMS[aux] || AUX_FORMS.avere;
+    const otherSlots = [0, 1, 2, 3, 4, 5, 6].filter((s) => s !== slotIndex && auxForms[s] !== auxForms[slotIndex]);
+    if (!otherSlots.length) return null;
+    const wrongAux = auxForms[otherSlots[pickSeed % otherSlots.length]];
+    return wrongAux + ' ' + participio;
+  }
+  const table = REGULAR_ENDINGS[tense];
+  if (!table) return null; // زمن مش مدعوم بالطريقة دي حاليًا
+  const correctEnding = table[group][slotIndex];
+  if (!correctEnding || originalForm.length <= correctEnding.length) return null;
+  const stem = originalForm.slice(0, originalForm.length - correctEnding.length);
+  const otherGroups = ['are', 'ere', 'ire'].filter((g) => g !== group);
+  for (let i = 0; i < otherGroups.length; i++) {
+    const g = otherGroups[(pickSeed + i) % otherGroups.length];
+    const wrongEnding = table[g][slotIndex];
+    if (wrongEnding && wrongEnding !== correctEnding) return stem + wrongEnding;
+  }
+  return null;
+}
+
+// بيولّد نسخة كاملة من الجدول فيها numErrors خانة (شخص) اتلخبطوا
+function corruptTable(rows, verbMeta, tense, verbData, seed, numErrors) {
+  const forms = rows.map((r) => r.form);
+  const group = verbMeta.group;
+  const aux = tense === 'passato' ? verbData[tense] && verbData[tense].aux : null;
+  const result = forms.slice();
+  let applied = 0;
+  let attempt = 0;
+  while (applied < numErrors && attempt < 14) {
+    const slot = (seed + attempt) % 7;
+    attempt++;
+    if (result[slot] !== forms[slot]) continue; // الخانة دي اتلخبطت خلاص، منكررش
+    const wrong = corruptForm(forms[slot], slot, tense, group, aux, seed + attempt);
+    if (wrong && wrong !== forms[slot]) {
+      result[slot] = wrong;
+      applied++;
+    }
+  }
+  return applied > 0 ? result.join(' · ') : null;
+}
+
 function buildFullTableQuestion(verbName, tense, verbMetaMap, verbsByName, allVerbNames, opts) {
-  opts = opts || {};
+  opts = opts || {}; // opts.forceCrossGroup بقى بلا أثر هنا (كان خاص بمشتّتات من أفعال تانية) — سايبينه عشان توافق الاستدعاءات القديمة
   const verbMeta = verbMetaMap[verbName];
-  const correctTable = tableFingerprint(verbsByName[verbName], tense);
-  const familyKey = (verbMeta[tense] && verbMeta[tense].patternFamily) || verbMeta.group;
-
-  const sameFamily = allVerbNames.filter(
-    (n) =>
-      n !== verbName &&
-      verbMetaMap[n][tense] &&
-      verbMetaMap[n][tense].category !== 'true_irregular' &&
-      ((verbMetaMap[n][tense].patternFamily || verbMetaMap[n].group) === familyKey)
-  );
-  const wider = allVerbNames.filter(
-    (n) => n !== verbName && verbMetaMap[n][tense] && verbMetaMap[n][tense].category !== 'true_irregular'
-  );
-
-  const pool = sameFamily.length >= 3 ? sameFamily : [...sameFamily, ...wider];
+  const verbData = verbsByName[verbName];
+  const rows = getRows(verbData, tense);
+  const correctTable = tableFingerprint(verbData, tense);
   const seed = seedFromString(verbName + ':table:' + tense);
 
-  // لو الجلسة مجموعة واحدة بالصدفة، نجبر مشتّت واحد من مجموعة تانية (بند 3 في
-  // الخطة) — لازم ياخد سلوت مضمون هنا صراحة، لأن pickSeeded بتاخد نافذة دائرية
-  // بادئة من seed ومفيش ضمان إنها توصل لأول عنصر في الـpool
-  let forcedName = null;
-  if (opts.forceCrossGroup) {
-    const crossGroup = wider.filter((n) => (verbMetaMap[n].group || verbMetaMap[n][tense].patternFamily) !== familyKey);
-    if (crossGroup.length) forcedName = crossGroup[seedFromString(verbName) % crossGroup.length];
+  const errorCounts = [1, 2, 2];
+  const distractors = [];
+  const seen = new Set([correctTable]);
+  let salt = 0;
+  errorCounts.forEach((n) => {
+    let table = null;
+    for (let tries = 0; tries < 6 && !table; tries++) {
+      const candidate = corruptTable(rows, verbMeta, tense, verbData, seed + salt, n);
+      salt += 5;
+      if (candidate && !seen.has(candidate)) table = candidate;
+    }
+    if (table) {
+      seen.add(table);
+      distractors.push(table);
+    }
+  });
+
+  // احتياط: لو مقدرناش نولّد 3 مشتّتات مختلفة بـ1-2 خطأ (فعل بنهايات نادرة
+  // جدًا)، نكمّل بعدد أخطاء أعلى بدل ما يرجع سؤال ناقص خيارات
+  let extraN = 3;
+  while (distractors.length < 3 && extraN < 8) {
+    const candidate = corruptTable(rows, verbMeta, tense, verbData, seed + salt, extraN);
+    salt += 5;
+    if (candidate && !seen.has(candidate)) {
+      seen.add(candidate);
+      distractors.push(candidate);
+    } else {
+      extraN++;
+    }
   }
 
-  const excludeSet = new Set([verbName, ...(forcedName ? [forcedName] : [])]);
-  const remaining = pickSeeded(pool, seed, forcedName ? 2 : 3, excludeSet);
-  const distractorNames = forcedName ? [forcedName, ...remaining] : remaining;
-  const distractorTables = distractorNames.map((n) => tableFingerprint(verbsByName[n], tense));
-  const { options, correct } = balanceCorrect([correctTable, ...distractorTables], 0, seed + 7);
+  const { options, correct } = balanceCorrect([correctTable, ...distractors], 0, seed + 7);
   return { type: 'full_table', verb: verbName, tense, options, correctIndex: correct };
 }
 
@@ -395,6 +482,10 @@ function checkArabicAnswer(input, correct) {
     .split('/')
     .map((s) => normalizeArabic(s))
     .filter(Boolean);
+  // بنقبل كمان النص الكامل زي ما هو معروض على الشاشة (بالـ"/") — لأن المتعلّم
+  // بيشوفه كإجابة واحدة بعد الغلط وبيكتبه زي ما هو، مش بس بديل واحد لوحده.
+  const full = normalizeArabic(String(correct));
+  if (full && alts.indexOf(full) === -1) alts.push(full);
   const a = normalizeArabic(input);
   if (!a) return false;
   return alts.indexOf(a) !== -1;

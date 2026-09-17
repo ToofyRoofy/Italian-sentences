@@ -2433,7 +2433,7 @@ const VERBS = [
   },
   {
     "it": "Portare",
-    "ar": "يجيب / يحمل",
+    "ar": "يلبس / يجيب / يحمل",
     "presente": [
       {
         "person": "Io (أنا)",
