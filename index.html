@@ -33,6 +33,18 @@
   </div>
   <div class="session-insight" id="sessionInsight"></div>
 
+  <!-- WORD LIBRARY: نفس نظام قائمة تابَي الاستماع/الليبرو بالظبط — قايمة سياقات
+       (مشاهد) نختار منها قبل ما ندخل دراسة/أسئلة أي محادثة، بدل ما التطبيق يوجّهنا
+       على طول لأول محادثة (ماركو). اختيار سياق بيحرّك المؤشر لأول سؤال بتاعه بس —
+       محتوى/منطق/أسئلة السياقات نفسها (scenes.js + questions.js) متتغيرش خالص. -->
+  <div class="wrap" id="wordLibrary" style="padding:0">
+    <div class="verbs-intro">❓ أسئلة السياق — اختَر محادثة تبدأ أو تكمل فيها.</div>
+    <div id="wordSceneList"></div>
+  </div>
+  <div id="wordBackBar" style="display:none">
+    <button class="skip-link" style="display:inline-block" onclick="wordBackToLibrary()">→ رجوع لكل السياقات</button>
+  </div>
+
   <div class="wrap" id="game" style="padding:0">
   <div class="scores">
     <div class="sc g"><div class="sc-num" id="sAvg">0%</div><div class="sc-lbl">📊 نسبة الصح</div></div>

@@ -1583,5 +1583,368 @@ const REPLY_QUESTIONS = [
         "why": "الكتب جوه مش برّه فلازم «dentro»"
       }
     ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 1,
+    "contextSpeaker": "Sara",
+    "contextIt": "Ciao, cerco un paio di pantaloni.",
+    "contextAr": "أهلاً، بدوّر على بنطلون.",
+    "sameSpeaker": false,
+    "speaker": "Elena",
+    "promptAr": "ردّ Elena إيه؟",
+    "correctIt": "Ciao! Che taglia porti?",
+    "correctAr": "أهلاً! إيه المقاس اللي بتلبسه؟",
+    "options": [
+      {
+        "it": "Ciao! Che taglia porti?",
+        "correct": true
+      },
+      {
+        "it": "Ciao! Che taglia portano?",
+        "correct": false,
+        "why": "الفعل مع «تو» (بتخاطب سارة) مش مع «هم»"
+      },
+      {
+        "it": "Ciao! Quanto costano?",
+        "correct": false,
+        "why": "بتسأل عن السعر مش المقاس دلوقتي"
+      },
+      {
+        "it": "Ciao! Che colore porti?",
+        "correct": false,
+        "why": "بتسأل عن المقاس مش عن اللون"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 2,
+    "contextSpeaker": "Elena",
+    "contextIt": "Ciao! Che taglia porti?",
+    "contextAr": "أهلاً! إيه المقاس اللي بتلبسه؟",
+    "sameSpeaker": false,
+    "speaker": "Sara",
+    "promptAr": "ردّ Sara إيه؟",
+    "correctIt": "Porto la taglia 42.",
+    "correctAr": "بلبس مقاس 42.",
+    "options": [
+      {
+        "it": "Porto la taglia 42.",
+        "correct": true
+      },
+      {
+        "it": "Porti la taglia 42.",
+        "correct": false,
+        "why": "سارة بتتكلم عن نفسها فلازم «Porto» مش «Porti»"
+      },
+      {
+        "it": "Porto la taglia 24.",
+        "correct": false,
+        "why": "الرقم مقلوب، المقاس 42 مش 24"
+      },
+      {
+        "it": "Porto il colore 42.",
+        "correct": false,
+        "why": "بترُدّ على سؤال المقاس مش اللون"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 3,
+    "contextSpeaker": "Sara",
+    "contextIt": "Porto la taglia 42.",
+    "contextAr": "بلبس مقاس 42.",
+    "sameSpeaker": false,
+    "speaker": "Elena",
+    "promptAr": "ردّ Elena إيه؟",
+    "correctIt": "Ecco un paio. Ti piacciono questi pantaloni?",
+    "correctAr": "اتفضلي بنطلون. عاجبك البنطلون ده؟",
+    "options": [
+      {
+        "it": "Ecco un paio. Ti piacciono questi pantaloni?",
+        "correct": true
+      },
+      {
+        "it": "Ecco un paio. Mi piacciono questi pantaloni?",
+        "correct": false,
+        "why": "بتسأل الزبونة رأيها فلازم «Ti» (لك) مش «Mi» (لي)"
+      },
+      {
+        "it": "Ecco un paio. Ti piace questi pantaloni?",
+        "correct": false,
+        "why": "البنطلون جمع في الإيطالي فلازم «piacciono» مش «piace»"
+      },
+      {
+        "it": "Ecco un paio. Ti piacciono questi pantaloni gialli?",
+        "correct": false,
+        "why": "مفيش ذِكر للون في الرد ده"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 4,
+    "contextSpeaker": "Elena",
+    "contextIt": "Ecco un paio. Ti piacciono questi pantaloni?",
+    "contextAr": "اتفضلي بنطلون. عاجبك البنطلون ده؟",
+    "sameSpeaker": false,
+    "speaker": "Sara",
+    "promptAr": "ردّ Sara إيه؟",
+    "correctIt": "Sì, mi piacciono, ma mi sembrano troppo giovanili.",
+    "correctAr": "أيوه، عاجبني، بس حاسّاه شبابي أكتر من اللازم عليّا.",
+    "options": [
+      {
+        "it": "Sì, mi piacciono, ma mi sembrano troppo giovanili.",
+        "correct": true
+      },
+      {
+        "it": "No, non mi piacciono, ma mi sembrano troppo giovanili.",
+        "correct": false,
+        "why": "بتقول «أيوه عاجبوني» مش «لأ»"
+      },
+      {
+        "it": "Sì, mi piacciono, ma mi sembrano troppo piccoli.",
+        "correct": false,
+        "why": "المشكلة إنهم شبابي أكتر من اللازم مش المقاس صغير"
+      },
+      {
+        "it": "Sì, ti piacciono, ma ti sembrano troppo giovanili.",
+        "correct": false,
+        "why": "سارة بتتكلم عن نفسها فلازم «mi» مش «ti»"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 5,
+    "contextSpeaker": "Sara",
+    "contextIt": "Sì, mi piacciono, ma mi sembrano troppo giovanili.",
+    "contextAr": "أيوه، عاجبني، بس حاسّاه شبابي أكتر من اللازم عليّا.",
+    "sameSpeaker": false,
+    "speaker": "Elena",
+    "promptAr": "ردّ Elena إيه؟",
+    "correctIt": "Vuoi un altro modello?",
+    "correctAr": "عايزة موديل تاني؟",
+    "options": [
+      {
+        "it": "Vuoi un altro modello?",
+        "correct": true
+      },
+      {
+        "it": "Vuole un altro modello?",
+        "correct": false,
+        "why": "الحوار بصيغة «تو» طول الوقت مش «Lei»"
+      },
+      {
+        "it": "Vuoi un altro colore?",
+        "correct": false,
+        "why": "بتقترح موديل تاني دلوقتي، اللون هييجي في الرد الجاي"
+      },
+      {
+        "it": "Vuoi altri pantaloni?",
+        "correct": false,
+        "why": "بتقترح موديل تاني بس مش بنطلون تاني خالص"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 6,
+    "contextSpeaker": "Elena",
+    "contextIt": "Vuoi un altro modello?",
+    "contextAr": "عايزة موديل تاني؟",
+    "sameSpeaker": false,
+    "speaker": "Sara",
+    "promptAr": "ردّ Sara إيه؟",
+    "correctIt": "Sì, ma lo voglio in un altro colore.",
+    "correctAr": "أيوه، بس عايزاه بلون تاني.",
+    "options": [
+      {
+        "it": "Sì, ma lo voglio in un altro colore.",
+        "correct": true
+      },
+      {
+        "it": "Sì, ma la voglio in un altro colore.",
+        "correct": false,
+        "why": "بيرجع على «il modello» (مذكر) فلازم «lo» مش «la»"
+      },
+      {
+        "it": "No, ma lo voglio in un altro colore.",
+        "correct": false,
+        "why": "بتوافق على موديل تاني فلازم «Sì»"
+      },
+      {
+        "it": "Sì, ma lo voglio in un'altra taglia.",
+        "correct": false,
+        "why": "طلبها لون تاني مش مقاس تاني"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 7,
+    "contextSpeaker": "Sara",
+    "contextIt": "Sì, ma lo voglio in un altro colore.",
+    "contextAr": "أيوه، بس عايزاه بلون تاني.",
+    "sameSpeaker": false,
+    "speaker": "Elena",
+    "promptAr": "ردّ Elena إيه؟",
+    "correctIt": "Guarda, questi sono blu scuro.",
+    "correctAr": "شوفي، ده أزرق غامق.",
+    "options": [
+      {
+        "it": "Guarda, questi sono blu scuro.",
+        "correct": true
+      },
+      {
+        "it": "Guardi, questi sono blu scuro.",
+        "correct": false,
+        "why": "الحوار كله بصيغة «تو» فلازم «Guarda» مش «Guardi»"
+      },
+      {
+        "it": "Guarda, questi sono verde scuro.",
+        "correct": false,
+        "why": "البنطلون الجديد أزرق غامق مش أخضر"
+      },
+      {
+        "it": "Guarda, questi costano di più.",
+        "correct": false,
+        "why": "بتوصف اللون هنا مش بتتكلم عن السعر"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 8,
+    "contextSpeaker": "Elena",
+    "contextIt": "Guarda, questi sono blu scuro.",
+    "contextAr": "شوفي، ده أزرق غامق.",
+    "sameSpeaker": false,
+    "speaker": "Sara",
+    "promptAr": "ردّ Sara إيه؟",
+    "correctIt": "Quanto costano?",
+    "correctAr": "بكام؟",
+    "options": [
+      {
+        "it": "Quanto costano?",
+        "correct": true
+      },
+      {
+        "it": "Quanto costa?",
+        "correct": false,
+        "why": "بتسأل عن البنطلون (جمع) فلازم «costano» مش «costa»"
+      },
+      {
+        "it": "Che taglia sono?",
+        "correct": false,
+        "why": "هي سألت عن السعر دلوقتي مش عن المقاس تاني"
+      },
+      {
+        "it": "Quanti sono?",
+        "correct": false,
+        "why": "مش بتسأل عن العدد، بتسأل عن السعر"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 9,
+    "contextSpeaker": "Sara",
+    "contextIt": "Quanto costano?",
+    "contextAr": "بكام؟",
+    "sameSpeaker": false,
+    "speaker": "Elena",
+    "promptAr": "ردّ Elena إيه؟",
+    "correctIt": "Costano settanta euro.",
+    "correctAr": "بسبعين يورو.",
+    "options": [
+      {
+        "it": "Costano settanta euro.",
+        "correct": true
+      },
+      {
+        "it": "Costa settanta euro.",
+        "correct": false,
+        "why": "البنطلون جمع فلازم «Costano» مش «Costa»"
+      },
+      {
+        "it": "Costano diciassette euro.",
+        "correct": false,
+        "why": "الرقم غلط، سبعين مش سبعتاشر"
+      },
+      {
+        "it": "Costano settanta euro al mese.",
+        "correct": false,
+        "why": "مفيش سياق شهري في الكلام، سعر عادي بس"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 10,
+    "contextSpeaker": "Elena",
+    "contextIt": "Costano settanta euro.",
+    "contextAr": "بسبعين يورو.",
+    "sameSpeaker": false,
+    "speaker": "Sara",
+    "promptAr": "ردّ Sara إيه؟",
+    "correctIt": "Mamma mia, mi sembrano un po' cari.",
+    "correctAr": "يا نهار أسود، حاسّاه غالي شوية.",
+    "options": [
+      {
+        "it": "Mamma mia, mi sembrano un po' cari.",
+        "correct": true
+      },
+      {
+        "it": "Mamma mia, mi sembrano molto economici.",
+        "correct": false,
+        "why": "المعنى معكوس، هي حاسّاهم غاليين مش رخاص"
+      },
+      {
+        "it": "Mamma mia, mi sembra un po' caro.",
+        "correct": false,
+        "why": "البنطلون جمع فلازم «sembrano» مش «sembra»"
+      },
+      {
+        "it": "Va bene, li prendo subito.",
+        "correct": false,
+        "why": "مش موافقة على طول، هي بتستغرب السعر الأول"
+      }
+    ]
+  },
+  {
+    "sceneId": "scene7",
+    "lineIndex": 11,
+    "contextSpeaker": "Sara",
+    "contextIt": "Mamma mia, mi sembrano un po' cari.",
+    "contextAr": "يا نهار أسود، حاسّاه غالي شوية.",
+    "sameSpeaker": false,
+    "speaker": "Elena",
+    "promptAr": "ردّ Elena إيه؟",
+    "correctIt": "Sì, ma sono di ottima qualità.",
+    "correctAr": "أيوه، بس جودتهم ممتازة.",
+    "options": [
+      {
+        "it": "Sì, ma sono di ottima qualità.",
+        "correct": true
+      },
+      {
+        "it": "No, hai ragione, sono cari.",
+        "correct": false,
+        "why": "الكمسرية بتدافع عن الجودة مش بتوافق إن السعر غالي"
+      },
+      {
+        "it": "Sì, ma sono di ottima taglia.",
+        "correct": false,
+        "why": "بتتكلم عن الجودة مش المقاس"
+      },
+      {
+        "it": "Sì, ma è di ottima qualità.",
+        "correct": false,
+        "why": "البنطلون جمع فلازم «sono» مش «è»"
+      }
+    ]
   }
 ];

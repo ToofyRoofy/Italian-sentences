@@ -1072,7 +1072,7 @@ const SCENES = [
             "type": "congiunzione",
             "quiz": [],
             "note": null,
-            "grammarId": "anche_pure"
+            "grammarId": "congiunzioni"
           },
           {
             "it": "Chiara",
@@ -1587,7 +1587,7 @@ const SCENES = [
             "type": "congiunzione",
             "quiz": [],
             "note": null,
-            "grammarId": "anche_pure"
+            "grammarId": "congiunzioni"
           },
           {
             "it": "il biglietto",
@@ -1837,7 +1837,7 @@ const SCENES = [
             "type": "congiunzione",
             "quiz": [],
             "note": null,
-            "grammarId": "anche_pure"
+            "grammarId": "congiunzioni"
           },
           {
             "it": "la mattina",
@@ -2376,6 +2376,434 @@ const SCENES = [
             "quiz": [],
             "note": null,
             "grammarId": "partitivi"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scene7",
+    "titleIt": "Che taglia porti?",
+    "titleAr": "إيه المقاس اللي بتلبسه؟",
+    "register": "غير رسمي",
+    "speakers": [
+      "Sara",
+      "Elena"
+    ],
+    "lines": [
+      {
+        "speaker": "Sara",
+        "it": "Ciao, cerco un paio di pantaloni.",
+        "ar": "أهلاً، بدوّر على بنطلون.",
+        "en": "Hi, I'm looking for a pair of pants.",
+        "words": [
+          {
+            "it": "Ciao",
+            "ar": "أهلاً",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "cerco",
+            "ar": "بدوّر (على)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Cercare، Presente — Io"
+          },
+          {
+            "it": "un paio di",
+            "ar": "زوج من",
+            "type": "preposizione",
+            "quiz": [],
+            "note": null,
+            "color": "#d81b60",
+            "prepUsageId": "di_quantita",
+            "grammarId": "prep_di"
+          },
+          {
+            "it": "pantaloni",
+            "ar": "بنطلون",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "lex_abbigliamento"
+          }
+        ]
+      },
+      {
+        "speaker": "Elena",
+        "it": "Ciao! Che taglia porti?",
+        "ar": "أهلاً! إيه المقاس اللي بتلبسه؟",
+        "en": "Hi! What size do you wear?",
+        "words": [
+          {
+            "it": "Ciao",
+            "ar": "أهلاً",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "Che taglia",
+            "ar": "إيه المقاس",
+            "type": "interrogativo",
+            "quiz": [],
+            "note": null,
+            "grammarId": "interrogativi"
+          },
+          {
+            "it": "porti",
+            "ar": "بتلبس (بتحمل)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Portare، Presente — Tu"
+          }
+        ]
+      },
+      {
+        "speaker": "Sara",
+        "it": "Porto la taglia 42.",
+        "ar": "بلبس مقاس 42.",
+        "en": "I wear size 42.",
+        "words": [
+          {
+            "it": "Porto",
+            "ar": "بلبس (بحمل)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Portare، Presente — Io"
+          },
+          {
+            "it": "la taglia",
+            "ar": "المقاس",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "articoli_determinativi"
+          },
+          {
+            "it": "42",
+            "ar": "٤٢",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "numeri"
+          }
+        ]
+      },
+      {
+        "speaker": "Elena",
+        "it": "Ecco un paio. Ti piacciono questi pantaloni?",
+        "ar": "اتفضلي بنطلون. عاجبك البنطلون ده؟",
+        "en": "Here's a pair. Do you like these pants?",
+        "words": [
+          {
+            "it": "Ecco",
+            "ar": "اتفضل / ها هو",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "un paio",
+            "ar": "زوج",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "Ti piacciono",
+            "ar": "عاجبك (بيعجبوك)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Piacere، Presente — a te + جمع",
+            "grammarId": "pronomi_complemento"
+          },
+          {
+            "it": "questi pantaloni",
+            "ar": "البنطلون ده",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "dimostrativi"
+          }
+        ]
+      },
+      {
+        "speaker": "Sara",
+        "it": "Sì, mi piacciono, ma mi sembrano troppo giovanili.",
+        "ar": "أيوه، عاجبني، بس حاسّاه شبابي أكتر من اللازم عليّا.",
+        "en": "Yes, I like them, but they seem too youthful for me.",
+        "words": [
+          {
+            "it": "Sì",
+            "ar": "أيوه",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "mi piacciono",
+            "ar": "عاجبني",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Piacere، Presente — a me + جمع",
+            "grammarId": "pronomi_complemento"
+          },
+          {
+            "it": "ma",
+            "ar": "بس",
+            "type": "congiunzione",
+            "quiz": [],
+            "note": null,
+            "grammarId": "congiunzioni"
+          },
+          {
+            "it": "mi sembrano",
+            "ar": "حاسّاه (باين لي)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Sembrare، Presente — a me + جمع"
+          },
+          {
+            "it": "troppo",
+            "ar": "أكتر من اللازم",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "giovanili",
+            "ar": "شبابي (لسن أصغر)",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "lex_aggettivi"
+          }
+        ]
+      },
+      {
+        "speaker": "Elena",
+        "it": "Vuoi un altro modello?",
+        "ar": "عايزة موديل تاني؟",
+        "en": "Do you want another style?",
+        "words": [
+          {
+            "it": "Vuoi",
+            "ar": "عايز/عايزة",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Volere، Presente — Tu"
+          },
+          {
+            "it": "un altro modello",
+            "ar": "موديل تاني",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "indefiniti"
+          }
+        ]
+      },
+      {
+        "speaker": "Sara",
+        "it": "Sì, ma lo voglio in un altro colore.",
+        "ar": "أيوه، بس عايزاه بلون تاني.",
+        "en": "Yes, but I want it in another color.",
+        "words": [
+          {
+            "it": "Sì",
+            "ar": "أيوه",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "ma",
+            "ar": "بس",
+            "type": "congiunzione",
+            "quiz": [],
+            "note": null,
+            "grammarId": "congiunzioni"
+          },
+          {
+            "it": "lo voglio",
+            "ar": "عايزاه",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Volere، Presente — Io + lo"
+          },
+          {
+            "it": "in un altro colore",
+            "ar": "بلون تاني",
+            "type": "preposizione",
+            "quiz": [],
+            "note": null,
+            "color": "#6d4c41",
+            "prepUsageId": "in_modo",
+            "grammarId": "prep_in"
+          }
+        ]
+      },
+      {
+        "speaker": "Elena",
+        "it": "Guarda, questi sono blu scuro.",
+        "ar": "شوفي، ده أزرق غامق.",
+        "en": "Look, these are dark blue.",
+        "words": [
+          {
+            "it": "Guarda",
+            "ar": "شوفي (بصّي)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Guardare، Imperativo — Tu"
+          },
+          {
+            "it": "questi",
+            "ar": "دول",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "dimostrativi"
+          },
+          {
+            "it": "sono",
+            "ar": "يبقوا (يكونوا)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Essere، Presente — Loro"
+          },
+          {
+            "it": "blu scuro",
+            "ar": "أزرق غامق",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "colori"
+          }
+        ]
+      },
+      {
+        "speaker": "Sara",
+        "it": "Quanto costano?",
+        "ar": "بكام؟",
+        "en": "How much do they cost?",
+        "words": [
+          {
+            "it": "Quanto",
+            "ar": "بكام (قد إيه)",
+            "type": "interrogativo",
+            "quiz": [],
+            "note": null,
+            "grammarId": "interrogativi"
+          },
+          {
+            "it": "costano",
+            "ar": "يتكلفوا",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Costare، Presente — Loro"
+          }
+        ]
+      },
+      {
+        "speaker": "Elena",
+        "it": "Costano settanta euro.",
+        "ar": "بسبعين يورو.",
+        "en": "They cost seventy euros.",
+        "words": [
+          {
+            "it": "Costano",
+            "ar": "يتكلفوا",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Costare، Presente — Loro"
+          },
+          {
+            "it": "settanta euro",
+            "ar": "سبعين يورو",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "numeri"
+          }
+        ]
+      },
+      {
+        "speaker": "Sara",
+        "it": "Mamma mia, mi sembrano un po' cari.",
+        "ar": "يا نهار أسود، حاسّاه غالي شوية.",
+        "en": "Wow, they seem a bit expensive to me.",
+        "words": [
+          {
+            "it": "Mamma mia",
+            "ar": "يا نهار أسود (تعجب)",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "mi sembrano",
+            "ar": "حاسّاه (باين لي)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Sembrare، Presente — a me + جمع"
+          },
+          {
+            "it": "un po'",
+            "ar": "شوية",
+            "type": "avverbio",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "cari",
+            "ar": "غاليين",
+            "type": "altro",
+            "quiz": [],
+            "note": null,
+            "grammarId": "lex_aggettivi"
+          }
+        ]
+      },
+      {
+        "speaker": "Elena",
+        "it": "Sì, ma sono di ottima qualità.",
+        "ar": "أيوه، بس جودتهم ممتازة.",
+        "en": "Yes, but they are of excellent quality.",
+        "words": [
+          {
+            "it": "Sì",
+            "ar": "أيوه",
+            "type": "altro",
+            "quiz": [],
+            "note": null
+          },
+          {
+            "it": "ma",
+            "ar": "بس",
+            "type": "congiunzione",
+            "quiz": [],
+            "note": null,
+            "grammarId": "congiunzioni"
+          },
+          {
+            "it": "sono",
+            "ar": "يبقوا (يكونوا)",
+            "type": "verbo",
+            "quiz": [],
+            "note": "Essere، Presente — Loro"
+          },
+          {
+            "it": "di ottima qualità",
+            "ar": "جودتهم ممتازة",
+            "type": "preposizione",
+            "quiz": [],
+            "note": null,
+            "color": "#00acc1",
+            "prepUsageId": "di_modo",
+            "grammarId": "prep_di"
           }
         ]
       }

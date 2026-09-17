@@ -296,6 +296,24 @@ function buildContrastiveQuestion(verbName, slot, verbsByName) {
 // النبرة بس (è/à/ù) بيتحسب "صح مع تنبيه" مش خطأ عادي، لأن النبرة مهمة نحويًا
 // ---------------------------------------------------------------------------
 
+// السبب الحقيقي وراء "بكتب/بنسخ الحل زي ما هو ومحسبتش صح خالص": الصفحة كلها
+// dir=rtl، وأي نص إيطالي (LTR) متعروض جوّاها — زي رسالة "❌ الصح: Ho aiutato"
+// أو التصحيح الإجباري — بيخلّي المتصفح (خصوصًا Chrome على الموبايل) يحقن
+// حروف تحكّم اتجاه (bidi control chars) غير مرئية حوالين النص ده وقت الـcopy،
+// عشان يحافظ على شكل العرض. الحروف دي بترجع مع الـpaste فتبقى جزء من القيمة
+// اللي في الـinput، فحتى لو الشكل مطابق 100% بالعين، المقارنة الحرفية (===)
+// بتفشل للأبد لأن فيه حروف إضافية مش شايفينها. نفس الفكرة ممكن تحصل مع
+// NBSP (مسافة غير قابلة للكسر) أو علامات تنصيص منحنية بيبدّلها الكيبورد
+// تلقائيًا. الحل: نشيل كل ده قبل أي مقارنة.
+function stripInvisibles(s) {
+  return String(s)
+    .replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF]/g, '') // zero-width + bidi isolate/embed/override + BOM
+    .replace(/\u00A0/g, ' ') // nbsp → مسافة عادية
+    .replace(/[\u2018\u2019\u02BC]/g, "'") // علامات تنصيص/فاصلة منحنية → أبوستروف عادي
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function stripItalianAccents(s) {
   return s
     .normalize('NFD')
@@ -344,7 +362,7 @@ function stripLeadingPronoun(s) {
 }
 
 function checkTypedAnswer(input, correct) {
-  const norm = (s) => String(s).trim().toLowerCase();
+  const norm = (s) => stripInvisibles(s).toLowerCase();
   const a = stripLeadingPronoun(norm(input));
   const c = norm(correct);
   if (a === c) return { correct: true, accentIssue: false };
@@ -363,8 +381,7 @@ function checkTypedAnswer(input, correct) {
 // ---------------------------------------------------------------------------
 
 function normalizeArabic(s) {
-  return String(s)
-    .trim()
+  return stripInvisibles(s)
     .replace(/[\u064B-\u065F\u0670]/g, '') // تشكيل: فتحة/ضمة/كسرة/شدة/سكون/تنوين
     .replace(/[أإآ]/g, 'ا')
     .replace(/ؤ/g, 'و')

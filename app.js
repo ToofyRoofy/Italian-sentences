@@ -618,6 +618,13 @@ let wpChainActive=false;
 let wpChainItOnly=false; // true أثناء دراسة المحادثة: نتخطى سب-تبويب "رتّب بالعربي" ونروح على الكتابة على طول
 let wpUnlockedIndices=[]; // فهرس بالجمل الذي أنهيت كلماتها في تبويب نطق الكلمات — هذه الذي بتفتح في تبويب الدرس الإنفينيتي
 
+// ===== WORD LIBRARY: هل تبويب "أسئلة السياق" حاليًا واقف على قايمة اختيار السياقات
+// (زي تابَي الاستماع/الليبرو) ولا جوه دراسة/أسئلة سياق مفتوح فعليًا. بيبدأ true
+// دايمًا (حتى لو فيه تقدّم محفوظ) عشان التطبيق يفضل يفتح على القايمة أول ما تدخل
+// التاب، بدل ما يوجّهك على طول لأي محادثة — تقدّمك المحفوظ (qIdx/csIdx) فاضل زي
+// ما هو ومش بيتلمس، هيكمل من مكانه لما تدوس على نفس السياق تاني.
+let wordLibraryOpen=true;
+
 // ===== CONVO STUDY: شرح+حل كل جملة في المحادثة قبل أسئلة السياق (يعيد استخدام محرك الدرس الإنفينيتي بالكامل) =====
 let csActive=false;
 let csSceneId=null;
@@ -869,7 +876,9 @@ function qInit(){
   clearInterval(convoExplainTimer);
   const ce=document.getElementById('convoExplain'); if(ce)ce.style.display='none';
   csCompletedScenes=new Set(loadCsProgress().completed);
-  qRender();
+  // مبقاش بيرندر سؤال/يدخل دراسة محادثة على طول هنا زي الأول — دلوقتي قايمة
+  // اختيار السياقات (wordLibrary) هي اللي بتتعرض، ودوسة على سياق معيّن (wordOpenScene)
+  // هي اللي بتنادي qRender فعليًا. شوف start() تحت وswitchMode('word').
 }
 
 function qUpdateScores(){
@@ -1834,6 +1843,63 @@ function qEnd(){
   document.getElementById('endScreen').classList.add('show');
 }
 
+// ===== WORD LIBRARY: قايمة اختيار السياقات — نفس شكل/فكرة renderListeningLibrary
+// وrenderLibroLibrary بالظبط (كارت لكل واحد، دوسة بتفتحه)، بس هنا كل عنصر سياق
+// (scene) مش قطعة قراءة/استماع. بنسرد بس السياقات اللي ليها أسئلة فعلية في qSceneList
+// (نفس ترتيب qBuildList)، مش كل SCENES.js عشان مفيش سياق من غير أسئلة يتفتح أصلاً.
+function wordSceneStatus(sceneId){
+  // ✅ = خلصنا دراسة جُمل المحادثة دي فعليًا (csCompletedScenes، بتتسجّل لكل سياق
+  // لوحده بصرف النظر عن أي سياق تاني اتفتح — آمنة حتى لو المستخدم قفز بين السياقات
+  // من غير ترتيب). ▶️ = هو ده السياق اللي هيكمل منه qIdx العادي لو دخلنا من غير
+  // اختيار (زي زرار "استكمل"). غير كده 🆕 لسه ما اتفتحش.
+  if(csCompletedScenes.has(sceneId))return 'done';
+  const curScene=qList[qIdx]?qList[qIdx].sceneId:null;
+  return sceneId===curScene?'current':'new';
+}
+function renderWordLibrary(){
+  const wrap=document.getElementById('wordSceneList');
+  if(!wrap)return;
+  const STATUS_LABEL={done:'✅ اتذاكرت',current:'▶️ استكمل من هنا',new:'🆕 جديدة'};
+  wrap.innerHTML=qSceneList.map(sceneId=>{
+    const sc=(typeof SCENES!=='undefined')?SCENES.find(s=>s.id===sceneId):null;
+    if(!sc)return '';
+    const status=wordSceneStatus(sceneId);
+    return '<div class="card" style="cursor:pointer;margin-bottom:10px" onclick="wordOpenScene(\''+sc.id+'\')">'
+      +'<div class="card-cat">'+escHtml(sc.titleAr)+' · '+STATUS_LABEL[status]+'</div>'
+      +'<div class="card-ar" style="direction:ltr;text-align:left">'+escHtml(sc.titleIt)+'</div>'
+      +'<div style="opacity:.6;font-size:13px;margin-top:6px">'+escHtml(sc.register||'')+((sc.speakers&&sc.speakers.length)?' · '+sc.speakers.join(' و '):'')+'</div>'
+      +'</div>';
+  }).join('');
+}
+// دوسة على كارت سياق: بننقل المؤشر العام (qIdx) لأول سؤال بتاع السياق ده بالظبط،
+// وبعدين نسيب qRender/csStartScene يتصرفوا زي ما هما بالظبط (لو السياق ده لسه
+// ما اتذاكرش هيفتح دراسة الجمل الأول، لو اتذاكر هيروح على طول لأسئلته) — من غير
+// أي تعديل في منطقهم. مفيش هنا أي تغيير في ترتيب/محتوى/أسئلة السياقات نفسها.
+function wordOpenScene(sceneId){
+  const target=qList.findIndex(q=>q.sceneId===sceneId);
+  if(target===-1)return;
+  qIdx=target;
+  saveQuestionProgress();
+  wordLibraryOpen=false;
+  document.getElementById('wordLibrary').style.display='none';
+  document.getElementById('wordBackBar').style.display='block';
+  qRender();
+}
+// رجوع لقايمة السياقات من أي نقطة (نص دراسة جملة، أسئلة، شاشة شرح المحادثة، شاشة
+// النهاية) — تقدّمك (qIdx/csIdx المحفوظين) فاضل زي ما هو تمامًا، بترجع تكمله تاني
+// لما تدوس على نفس الكارت.
+function wordBackToLibrary(){
+  wordLibraryOpen=true;
+  document.getElementById('game').style.display='none';
+  document.getElementById('lessonMode').style.display='none';
+  document.getElementById('endScreen').classList.remove('show');
+  clearInterval(convoExplainTimer);
+  const ce=document.getElementById('convoExplain'); if(ce)ce.style.display='none';
+  document.getElementById('wordBackBar').style.display='none';
+  document.getElementById('wordLibrary').style.display='block';
+  renderWordLibrary();
+}
+
 // ===== CONVO EXPLAIN: شاشة إجبارية بعد كل محادثة، بتجمع كلمات المحادثة كلها في
 // ليستة بسيطة (نفس شكل بريكداون الجملة بالظبط) قبل ما نكمل. =====
 let convoExplainTimer=null;
@@ -1907,8 +1973,12 @@ function start(){
   loadSkillScores();
   loadViewCounts();
   document.getElementById('endScreen').classList.remove('show');
-  document.getElementById('game').style.display='flex';
+  document.getElementById('game').style.display='none';
   qInit();
+  wordLibraryOpen=true;
+  document.getElementById('wordBackBar').style.display='none';
+  document.getElementById('wordLibrary').style.display='block';
+  renderWordLibrary();
   updateSkillScoreUI();
 }
 function restart(){resetAllProgress();start();}
@@ -1968,18 +2038,32 @@ function switchMode(mode){
     lDeck=[]; lStart();
   }
   if(isWord){
-    // مهم: نرندر المحتوى الصح دايمًا (سؤال حالي أو استكمال دراسة محادثة) من غير ما نفترض
-    // إن #game لسه فيه محتوى من قبل — أول مرة بيتفتح التطبيق أصلاً بيوجّه على طول لدراسة
-    // المحادثة من غير ما #game يترندر خالص، فمجرد إظهاره تاني (display) بيطلع فاضي.
+    // زي تابَي الاستماع/الليبرو بالظبط: تبويب "أسئلة السياق" له حالتين داخليتين —
+    // قايمة اختيار السياقات (wordLibrary) أو تفاصيل سياق مفتوح فعليًا (دراسة/أسئلة).
+    // التبديل بين التابات هنا بيحافظ على أيًّا منهم كان ظاهر قبل كده (زي ما
+    // listeningLibrary/listeningDetail بتحافظ على حالتها لما تدخل وتخرج من التاب)،
+    // مش بيرجّعك للقايمة كل مرة تدوس على التاب.
     document.getElementById('verbsMode').style.display='none';
     document.getElementById('listeningMode').style.display='none';
     document.getElementById('libroMode').style.display='none';
-    if(csActive){
+    if(wordLibraryOpen){
       document.getElementById('game').style.display='none';
-      document.getElementById('lessonMode').style.display='flex';
-    } else {
       document.getElementById('lessonMode').style.display='none';
-      qRender();
+      document.getElementById('endScreen').classList.remove('show');
+      const ceLib=document.getElementById('convoExplain'); if(ceLib)ceLib.style.display='none';
+      document.getElementById('wordBackBar').style.display='none';
+      document.getElementById('wordLibrary').style.display='block';
+      renderWordLibrary();
+    } else {
+      document.getElementById('wordLibrary').style.display='none';
+      document.getElementById('wordBackBar').style.display='block';
+      if(csActive){
+        document.getElementById('game').style.display='none';
+        document.getElementById('lessonMode').style.display='flex';
+      } else {
+        document.getElementById('lessonMode').style.display='none';
+        qRender();
+      }
     }
     return;
   }
@@ -1987,6 +2071,8 @@ function switchMode(mode){
   document.getElementById('endScreen').classList.remove('show');
   clearInterval(convoExplainTimer);
   const ce=document.getElementById('convoExplain'); if(ce)ce.style.display='none';
+  document.getElementById('wordLibrary').style.display='none';
+  document.getElementById('wordBackBar').style.display='none';
   document.getElementById('lessonMode').style.display=isLesson?'flex':'none';
   document.getElementById('verbsMode').style.display=isVerbs?'flex':'none';
   document.getElementById('listeningMode').style.display=isListening?'flex':'none';
@@ -2282,7 +2368,8 @@ const LISTENING_PASSAGES=[
                         "it": "l'italiano",
                         "ar": "الإيطالي",
                         "note": "أداة تعريف مختصرة (قبل حرف علة) + اسم اللغة",
-                        "type": "altro"
+                        "type": "altro",
+                        "grammarId": "articoli_determinativi"
                   },
                   {
                         "it": "per",
@@ -2324,7 +2411,8 @@ const LISTENING_PASSAGES=[
                         "it": "un'amica",
                         "ar": "صاحبة",
                         "note": "أداة تنكير مؤنثة مختصرة (قبل حرف علة) + اسم",
-                        "type": "altro"
+                        "type": "altro",
+                        "grammarId": "partitivi"
                   },
                   {
                         "it": "e",
@@ -2953,8 +3041,8 @@ const LIBRO_PASSAGES=[
           {"it":"grigio","ar":"رمادي","note":null,"type":"altro"},
           {"it":"sopra","ar":"فوق","note":null,"type":"altro"},
           {"it":"camicia","ar":"قميص","note":null,"type":"altro"},
-          {"it":"bianca","ar":"بيضا","note":"صفة مؤنثة من bianco","type":"altro"},
-          {"it":"porta","ar":"بيلبس","note":"Portare، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"bianca","ar":"بيضا","note":"صفة مؤنثة من bianco","type":"altro","grammarId":"colori"},
+          {"it":"porta","ar":"بيلبس","note":"Portare، Presente (لُيه/هي)","type":"verbo","grammarId":"lex_verbi"},
           {"it":"cravatta","ar":"كرافتة","note":null,"type":"altro"},
           {"it":"a righe","ar":"مخطّط","note":"تعبير وصفي (بالخطوط)","type":"altro"},
           {"it":"impermeabile","ar":"معطف مطر","note":null,"type":"altro"},
@@ -2968,7 +3056,7 @@ const LIBRO_PASSAGES=[
           {"it":"di solito","ar":"عادةً","note":null,"type":"altro"},
           {"it":"si veste","ar":"بتلبس (نفسها)","note":"Vestirsi، Presente (لُيه/هي)","type":"verbo"},
           {"it":"sportivo","ar":"رياضي","note":null,"type":"altro"},
-          {"it":"spesso","ar":"كتير / غالبًا","note":null,"type":"altro"},
+          {"it":"spesso","ar":"كتير / غالبًا","note":null,"type":"altro","grammarId":"lex_avverbi"},
           {"it":"jeans aderenti","ar":"جينز ضيق","note":null,"type":"altro"},
           {"it":"stivali","ar":"بوت (جزمة طويلة)","note":"جمع stivale","type":"altro"},
           {"it":"indossa","ar":"بتلبس","note":"Indossare، Presente (لُيه/هي)","type":"verbo"},
@@ -3001,7 +3089,7 @@ const LIBRO_PASSAGES=[
           {"it":"azzurro","ar":"أزرق","note":null,"type":"altro"},
           {"it":"con","ar":"مع","note":null,"type":"altro"},
           {"it":"borsetta","ar":"شنطة إيد","note":null,"type":"altro"},
-          {"it":"nera","ar":"سودا","note":"صفة مؤنثة من nero","type":"altro"},
+          {"it":"nera","ar":"سودا","note":"صفة مؤنثة من nero","type":"altro","grammarId":"colori"},
           {"it":"scarpe con il tacco","ar":"جزمة كعب","note":"تعبير ثابت","type":"altro"}
         ]
       },
@@ -3009,7 +3097,7 @@ const LIBRO_PASSAGES=[
         "it": "Eugenio mette sempre i jeans. Oggi ha un maglione verde a collo alto.",
         "ar": "إيوجينيو دايمًا بيلبس جينز. النهارده لابس بلوفر أخضر ياقة عالية.",
         "words": [
-          {"it":"mette","ar":"بيلبس","note":"Mettere، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"mette","ar":"بيلبس","note":"Mettere، Presente (لُيه/هي)","type":"verbo","grammarId":"lex_verbi"},
           {"it":"maglione","ar":"بلوفر","note":null,"type":"altro"},
           {"it":"a collo alto","ar":"ياقة عالية","note":"تعبير وصفي","type":"altro"}
         ]
@@ -3018,11 +3106,11 @@ const LIBRO_PASSAGES=[
         "it": "Adriana ama l'abbigliamento classico. Oggi è andata in ufficio con una gonna nera e una camicetta gialla con un paio di scarpe basse.",
         "ar": "أدريانا بتحب اللبس الكلاسيك. النهارده راحت المكتب بجيبة سودا وبلوزة صفرا مع جزمة واطية.",
         "words": [
-          {"it":"ama","ar":"بتحب","note":"Amare، Presente (لُيه/هي)","type":"verbo"},
+          {"it":"ama","ar":"بتحب","note":"Amare، Presente (لُيه/هي)","type":"verbo","grammarId":"lex_verbi"},
           {"it":"abbigliamento","ar":"لبس / ملابس","note":null,"type":"altro"},
           {"it":"classico","ar":"كلاسيك","note":null,"type":"altro"},
           {"it":"è andata","ar":"راحت","note":"Andare، Passato Prossimo (لُيه/هي)","type":"verbo"},
-          {"it":"ufficio","ar":"مكتب","note":null,"type":"altro"},
+          {"it":"ufficio","ar":"مكتب","note":null,"type":"altro","grammarId":"lex_nomi"},
           {"it":"gonna","ar":"جيبة","note":null,"type":"altro"},
           {"it":"camicetta","ar":"بلوزة","note":null,"type":"altro"},
           {"it":"gialla","ar":"صفرا","note":"صفة مؤنثة من giallo","type":"altro"},
@@ -3077,15 +3165,15 @@ const LIBRO_PASSAGES=[
         "it": "Commessa: Buonasera. Desidera?",
         "ar": "البياعة: مسا الخير. تحت أمرك؟",
         "words": [
-          {"it":"Desidera","ar":"تحت أمرك؟ / محتاجة حاجة؟","note":"Desiderare، Presente (حضرتك/هو/هي) — صيغة أدب في المحل","type":"verbo"}
+          {"it":"Desidera","ar":"تحت أمرك؟ / محتاجة حاجة؟","note":"Desiderare، Presente (حضرتك/هو/هي) — صيغة أدب في المحل","type":"verbo","grammarId":"lex_verbi"}
         ]
       },
       {
         "it": "Cliente: Cerco un pullover da uomo.",
         "ar": "الزبونة: بدوّر على بلوفر رجالي.",
         "words": [
-          {"it":"Cerco","ar":"بدوّر على","note":"Cercare، Presente (أنا)","type":"verbo"},
-          {"it":"pullover","ar":"بلوفر","note":"pullover = maglione (مرادف)","type":"altro"},
+          {"it":"Cerco","ar":"بدوّر على","note":"Cercare، Presente (أنا)","type":"verbo","grammarId":"lex_verbi"},
+          {"it":"pullover","ar":"بلوفر","note":"pullover = maglione (مرادف)","type":"altro","grammarId":"lex_abbigliamento"},
           {"it":"da uomo","ar":"رجالي","note":"تعبير وصفي","type":"altro"}
         ]
       },
@@ -3093,7 +3181,7 @@ const LIBRO_PASSAGES=[
         "it": "Commessa: Che taglia?",
         "ar": "البياعة: مقاس كام؟",
         "words": [
-          {"it":"taglia","ar":"مقاس","note":null,"type":"altro"}
+          {"it":"taglia","ar":"مقاس","note":null,"type":"altro","grammarId":"lex_nomi"}
         ]
       },
       {
@@ -3107,26 +3195,26 @@ const LIBRO_PASSAGES=[
         "words": [
           {"it":"Un momento","ar":"لحظة واحدة","note":null,"type":"altro"},
           {"it":"Le piace","ar":"عاجبك (بصيغة الاحترام Lei)","note":"Piacere بياخد ضمير جر غير مباشر قبله: mi/a me، ti/a te، gli/a lui، le/a lei، Le/a Lei (رسمي)، ci/a noi، vi/a voi، gli/a loro — piace/sembra للمفرد، piacciono/sembrano للجمع","type":"verbo"},
-          {"it":"modello","ar":"موديل","note":null,"type":"altro"}
+          {"it":"modello","ar":"موديل","note":null,"type":"altro","grammarId":"lex_nomi"}
         ]
       },
       {
         "it": "Cliente: Mah... è un regalo per mio marito... Sa, mi sembra un po' troppo giovanile.",
         "ar": "الزبونة: يعني... ده هدية لجوزي... تعرفي، حاسة إنه شبابي أكتر من اللازم شوية.",
         "words": [
-          {"it":"regalo","ar":"هدية","note":null,"type":"altro"},
+          {"it":"regalo","ar":"هدية","note":null,"type":"altro","grammarId":"lex_nomi"},
           {"it":"marito","ar":"جوز / زوج","note":null,"type":"altro"},
-          {"it":"Sa","ar":"تعرفي (حضرتك)","note":"Sapere، Presente (حضرتك/هو/هي)","type":"verbo"},
+          {"it":"Sa","ar":"تعرفي (حضرتك)","note":"Sapere، Presente (حضرتك/هو/هي)","type":"verbo","grammarId":"lex_verbi"},
           {"it":"mi sembra","ar":"حاسة إنه / شايفاه","note":"Sembrare — نفس نظام piacere بالظبط (ضمير جر غير مباشر + الفعل)","type":"verbo"},
           {"it":"troppo","ar":"أكتر من اللازم","note":null,"type":"altro"},
-          {"it":"giovanile","ar":"شبابي","note":null,"type":"altro"}
+          {"it":"giovanile","ar":"شبابي","note":null,"type":"altro","grammarId":"lex_aggettivi"}
         ]
       },
       {
         "it": "Commessa: Ma no, signora. Questi sono i colori di moda per la prossima stagione.",
         "ar": "البياعة: لأ خالص يا مدام. الألوان دي هي موضة الموسم الجاي.",
         "words": [
-          {"it":"signora","ar":"يا مدام / حضرتك","note":null,"type":"altro"},
+          {"it":"signora","ar":"يا مدام / حضرتك","note":null,"type":"altro","grammarId":"lex_nomi"},
           {"it":"colori di moda","ar":"ألوان الموضة","note":null,"type":"altro"},
           {"it":"prossima stagione","ar":"الموسم الجاي","note":null,"type":"altro"}
         ]
@@ -3142,7 +3230,7 @@ const LIBRO_PASSAGES=[
         "it": "Commessa: E quest'altro modello come Le sembra? È un capo classico che va bene con tutto.",
         "ar": "البياعة: والموديل التاني ده شايفاه إزاي؟ ده قطعة كلاسيك بتتماشى مع كل حاجة.",
         "words": [
-          {"it":"capo","ar":"قطعة (لبس)","note":null,"type":"altro"},
+          {"it":"capo","ar":"قطعة (لبس)","note":null,"type":"altro","grammarId":"lex_abbigliamento"},
           {"it":"classico","ar":"كلاسيك","note":null,"type":"altro"},
           {"it":"va bene con tutto","ar":"بيتماشى مع كل حاجة","note":"تعبير ثابت","type":"altro"}
         ]
@@ -3151,7 +3239,7 @@ const LIBRO_PASSAGES=[
         "it": "Cliente: Sì, questo è proprio bello. E quanto costa?",
         "ar": "الزبونة: آه، ده جميل فعلاً. طب بكام؟",
         "words": [
-          {"it":"costa","ar":"بيتكلف","note":"Costare، Presente (هو/هي)","type":"verbo"}
+          {"it":"costa","ar":"بيتكلف","note":"Costare، Presente (هو/هي)","type":"verbo","grammarId":"lex_verbi"}
         ]
       },
       {
@@ -3163,7 +3251,7 @@ const LIBRO_PASSAGES=[
         "it": "Cliente: Mm, veramente è un po' caro.",
         "ar": "الزبونة: ممم، فعلاً غالي شوية.",
         "words": [
-          {"it":"caro","ar":"غالي","note":null,"type":"altro"}
+          {"it":"caro","ar":"غالي","note":null,"type":"altro","grammarId":"lex_aggettivi"}
         ]
       },
       {
@@ -3177,8 +3265,8 @@ const LIBRO_PASSAGES=[
         "it": "Cliente: Eh, si vede... Senta, eventualmente lo posso cambiare se a mio marito non piace o se non gli sta bene?",
         "ar": "الزبونة: أيوه، ده بايّن... اسمعي، ممكن أستبدله لو جوزي معجبهوش أو مقاسوش مظبوط؟",
         "words": [
-          {"it":"Senta","ar":"اسمعي","note":"Sentire، صيغة أمر مؤدبة (Lei)","type":"verbo"},
-          {"it":"eventualmente","ar":"احتمال / لو حصل","note":null,"type":"altro"},
+          {"it":"Senta","ar":"اسمعي","note":"Sentire، صيغة أمر مؤدبة (Lei)","type":"verbo","grammarId":"lex_verbi"},
+          {"it":"eventualmente","ar":"احتمال / لو حصل","note":null,"type":"altro","grammarId":"lex_avverbi"},
           {"it":"cambiare","ar":"يستبدل","note":null,"type":"verbo"},
           {"it":"sta bene","ar":"يكون مظبوط عليه (مقاس)","note":"Stare، Presente","type":"verbo"}
         ]
@@ -3188,8 +3276,8 @@ const LIBRO_PASSAGES=[
         "ar": "البياعة: أكيد، بس لازم تحتفظي بالإيصال.",
         "words": [
           {"it":"deve","ar":"لازم","note":"Dovere، Presente (حضرتك/هو/هي)","type":"verbo"},
-          {"it":"conservare","ar":"تحتفظ بـ","note":null,"type":"verbo"},
-          {"it":"scontrino","ar":"إيصال / فاتورة","note":null,"type":"altro"}
+          {"it":"conservare","ar":"تحتفظ بـ","note":null,"type":"verbo","grammarId":"lex_verbi"},
+          {"it":"scontrino","ar":"إيصال / فاتورة","note":null,"type":"altro","grammarId":"lex_nomi"}
         ]
       }
     ],
