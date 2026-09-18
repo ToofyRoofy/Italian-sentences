@@ -247,6 +247,7 @@
   // ---------------------------------------------------------------------
 
   let session = null; // { steps, idx, state, correct, ttsCount }
+  let replayState = null; // { dateKey, queue, idx } — طابور إعادة جلسات يوم فات (شوف startReplay تحت)
 
   function flattenSession(result) {
     if (!result) return [];
@@ -674,7 +675,10 @@
         session.state.dailyIrregular.completed = true;
       }
     }
-    saveJSON(LS_STATE_KEY, session.state);
+    // 🔁 جلسة إعادة (replay): session.state نسخة مستقلة من الأصل (شوف
+    // runNextReplay تحت)، فمفيش داعي نحفظها — ده اللي بيضمن إن الإعادة
+    // مالهاش أي أثر على تقدّمك الحقيقي أو حالة "مدروسة" بتاعت الأفعال
+    if (!session.replay) saveJSON(LS_STATE_KEY, session.state);
     if (session.idx >= session.steps.length) {
       renderSummary();
       return;
@@ -690,7 +694,31 @@
       return s.type !== 'exposure' && s.type !== 'explanation_screen' && s.type !== 'contrastive';
     }).length;
 
+    // 🔁 جلسة إعادة: مفيش تسجيل في السجل ولا تأثير على SR — ملخّص مختصر
+    // بس، وبعدين ننتقل تلقائيًا لعنصر الإعادة الجاي (لو فيه) لما تدوس متابعة
+    if (session.replay) {
+      document.getElementById('vpBody').innerHTML =
+        '<div class="vp-summary"><div class="big">' + toAr(session.correct) + '/' + toAr(total) + '</div>إجابات صح — إعادة تدريب</div>' +
+        '<span style="font-size:.68rem;color:var(--muted);display:block;text-align:center;margin-top:6px;">ده تمرين بس، مأثّرش على تقدّمك الحقيقي</span>' +
+        '<button class="vp-next-btn" onclick="VerbPractice._continueReplay()" style="margin-top:10px;">متابعة</button>';
+      session = null;
+      return;
+    }
+
     const nextReview = nextUpcomingReview(session.state);
+
+    // بيانات الإعادة — بنخزّنها هنا عشان لو المتعلم رجع لليوم ده بعدين من
+    // "سجل جلساتي"، نقدر نبني بالظبط نفس محتوى الجلسة تاني (نفس الأفعال/
+    // الخلية الشاذة/مفاتيح المراجعة) من غير ما نعتمد على state.dailyRegular
+    // وقتها (ممكن يكون اتغيّر أو اتمسح لاحقًا)
+    let replayVerbs, replayCell, replayKeys;
+    if (session.kind === 'regular' && session.state.dailyRegular) {
+      replayVerbs = session.state.dailyRegular.verbs;
+    } else if (session.kind === 'irregular' && session.state.dailyIrregular) {
+      replayCell = { verb: session.state.dailyIrregular.verb, tense: session.state.dailyIrregular.tense };
+    } else if (session.kind === 'review') {
+      replayKeys = session.steps.filter(function (s) { return s.sessionType === 'daily_review'; }).map(function (s) { return s.key; });
+    }
 
     recordSessionCompleted({
       id: today() + '-' + Date.now(),
@@ -703,7 +731,10 @@
       verbs: summarizeSteps(session.steps),
       mistakes: session.mistakes,
       nextReviewDate: nextReview ? nextReview.date : null,   // ⏰ ميعاد أقرب مراجعة جاية — للإنشورانس، محسوب من نفس حالة SR الحقيقية وقت ما خلصت الجلسة
-      nextReviewCount: nextReview ? nextReview.count : 0
+      nextReviewCount: nextReview ? nextReview.count : 0,
+      replayVerbs: replayVerbs,
+      replayCell: replayCell,
+      replayKeys: replayKeys
     });
 
     const nextReviewBox = nextReview
@@ -805,30 +836,38 @@
     return batches;
   }
 
-  function patternKeysForVerb(verbName) {
+  function reviewKeysForVerb(verbName) {
     const meta = VERB_META[verbName];
     const keys = [];
     SB.THREE_TENSES.forEach(function (t) {
       if (PE.isIrregularCell(meta, t)) return;
-      const k = PE.patternKey(meta, t);
-      if (k) keys.push(k);
+      // بعد الفان-آوت، مراجعة كل فعل منتظم بقت على مفتاحه الخاص (cell:)
+      // مش على مفتاح الباترن المشترك — قد ميكونش موجود لسه لو الباترن ما
+      // اتخرّجش، وده طبيعي وبيتعامل معاه كـ"مفيش مراجعة لسه" (undefined)
+      keys.push(PE.cellKey(verbName, t));
     });
     return keys;
   }
 
   function regularSessionStatus(state, batch) {
     const studied = batch.length > 0 && batch.every(function (v) { return state.introduced && state.introduced[v]; });
-    const keySet = {};
-    batch.forEach(function (v) { patternKeysForVerb(v).forEach(function (k) { keySet[k] = true; }); });
-    let reviewCount = 0;
-    Object.keys(keySet).forEach(function (k) { reviewCount += (state[k] && state[k].reviewCount) || 0; });
-    return { studied: studied, reviewCount: reviewCount };
+    // بدل جمع reviewCount خام (اللي كان بيتضخّم لما مفتاح مشترك بين batches
+    // كتير)، بنجمع أيام المراجعة المميّزة بس — فلو راجعتي أكتر من فعل من
+    // نفس الـbatch في نفس اليوم، اليوم ده بيتحسب مرة واحدة بس
+    const reviewDays = {};
+    batch.forEach(function (v) {
+      reviewKeysForVerb(v).forEach(function (k) {
+        const entry = state[k];
+        if (entry && entry.reviewDays) entry.reviewDays.forEach(function (d) { reviewDays[d] = true; });
+      });
+    });
+    return { studied: studied, reviewCount: Object.keys(reviewDays).length };
   }
 
   function irregularSessionStatus(state, cell) {
     const key = PE.cellKey(cell.verb, cell.tense);
     const entry = state[key];
-    return { studied: !!entry, reviewCount: (entry && entry.reviewCount) || 0 };
+    return { studied: !!entry, reviewCount: (entry && entry.reviewDays && entry.reviewDays.length) || 0 };
   }
 
   function statusBadge(status) {
@@ -985,12 +1024,92 @@
     renderCalendar();
   }
 
+  // ---------------------------------------------------------------------
+  // إعادة جلسات يوم فات — من "سجل جلساتي" بس، وبس للماضي (مش النهاردة ولا
+  // المستقبل). بتشتغل على نسخة مستقلة من الـstate (JSON clone)، فأي تعديل
+  // بيحصل وقت الإعادة (streak/mode/SR/state.introduced) بيحصل على النسخة
+  // دي بس ومبيتحفظش خالص — مفيش أي تأثير على تقدّمك الحقيقي ولا على كون
+  // الأفعال دي "مدروسة" أو لأ.
+  // ---------------------------------------------------------------------
+
+  function dayReplayQueue(dateKey) {
+    const log = loadSessionLog();
+    const sessions = log[dateKey] || [];
+    const queue = [];
+    sessions.forEach(function (s) {
+      if (s.kind === 'regular' && s.replayVerbs && s.replayVerbs.length) {
+        queue.push({ kind: 'regular', verbs: s.replayVerbs });
+      } else if (s.kind === 'irregular' && s.replayCell) {
+        queue.push({ kind: 'irregular', cell: s.replayCell });
+      } else if (s.kind === 'review' && s.replayKeys && s.replayKeys.length) {
+        queue.push({ kind: 'review', keys: s.replayKeys });
+      }
+      // ملحوظة: جلسات اتسجّلت قبل إضافة الإعادة دي مفيهاش replayVerbs/
+      // replayCell/replayKeys، فبتتجاهل بهدوء هنا — الميزة شغالة بس على
+      // الجلسات اللي هتتسجّل بعد كده
+    });
+    return queue;
+  }
+
+  function startReplay(dateKey) {
+    const queue = dayReplayQueue(dateKey);
+    if (!queue.length) {
+      document.getElementById('vpBody').innerHTML =
+        '<div class="vp-summary">مفيش بيانات كفاية لإعادة جلسات اليوم ده 🙁<br>' +
+        '<span style="font-size:.68rem;color:var(--muted);display:block;margin-top:6px;">الإعادة شغالة بس على الجلسات اللي اتعملت بعد إضافة الميزة دي</span></div>' +
+        '<button class="vp-next-btn" onclick="VerbPractice._openDay(\'' + dateKey + '\')">→ رجوع لليوم ده</button>';
+      return;
+    }
+    replayState = { dateKey: dateKey, queue: queue, idx: 0 };
+    runNextReplay();
+  }
+
+  function runNextReplay() {
+    if (!replayState || replayState.idx >= replayState.queue.length) {
+      const dk = replayState ? replayState.dateKey : today();
+      replayState = null;
+      document.getElementById('vpBody').innerHTML =
+        '<div class="vp-summary">خلصنا إعادة جلسات يوم ' + fmtDateFull(dk) + ' ✅<br>' +
+        '<span style="font-size:.68rem;color:var(--muted);display:block;margin-top:6px;">ده كله كان تمرين، تقدّمك الحقيقي زي ما هو من غير أي تغيير</span></div>' +
+        '<button class="vp-next-btn" onclick="VerbPractice._openDay(\'' + dk + '\')">→ رجوع لليوم ده</button>';
+      return;
+    }
+    const item = replayState.queue[replayState.idx];
+    const dateKey = replayState.dateKey;
+    replayState.idx++;
+
+    const cloneState = JSON.parse(JSON.stringify(loadJSON(LS_STATE_KEY)));
+    let result = null;
+    if (item.kind === 'regular') {
+      result = SB.buildRegularLearningSession(cloneState, curriculum, VERB_META, verbsByName, allVerbNames, item.verbs.length, item.verbs);
+    } else if (item.kind === 'irregular') {
+      result = SB.buildIrregularDeepSession(cloneState, curriculum, VERB_META, verbsByName, allVerbNames, item.cell);
+    } else if (item.kind === 'review') {
+      result = SB.buildReplayReviewSession(cloneState, curriculum, VERB_META, verbsByName, item.keys, dateKey);
+    }
+
+    const steps = flattenSession(result);
+    if (!steps.length) { runNextReplay(); return; } // فاضي (مثلًا فعل اتشال من verbs.js) — نتخطّاه للي بعده
+    session = { steps: steps, idx: 0, state: cloneState, correct: 0, ttsCount: loadJSON(LS_TTS_KEY), kind: item.kind, startTime: Date.now(), mistakes: [], replay: true };
+    renderStep();
+  }
+
+  function continueReplay() {
+    runNextReplay();
+  }
+
   function openDay(key) {
     const log = loadSessionLog();
     const state = loadJSON(LS_STATE_KEY);
     const sessions = log[key] || [];
     const due = reviewsDueOnDate(state, key);
     let html = '<div style="font-weight:900;margin-bottom:10px;text-align:center;">📅 ' + fmtDateFull(key) + '</div>';
+
+    // زرار الإعادة — بس لو اليوم فات فعليًا (مش النهاردة ولا المستقبل) ومعانا
+    // جلسات مسجّلة نبني منها الإعادة
+    if (key < today() && sessions.length) {
+      html += '<button class="vp-next-btn" style="width:100%;margin-bottom:12px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);" onclick="VerbPractice._startReplay(\'' + key + '\')">↩️ ارجع لجلسات اليوم ده</button>';
+    }
 
     if (due.length) {
       html += '<div style="background:#0e0e1a;border:1px solid var(--gold);border-radius:12px;padding:12px;margin-bottom:10px;">' +
@@ -1038,6 +1157,8 @@
     _openCalendar: openCalendar,
     _calNav: calNav,
     _openDay: openDay,
+    _startReplay: startReplay,
+    _continueReplay: continueReplay,
     _openSessionsBrowser: openSessionsBrowser,
     _switchSessionsTab: switchSessionsTab,
     _openCurriculumSession: openCurriculumSession,

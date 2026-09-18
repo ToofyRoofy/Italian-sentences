@@ -173,10 +173,19 @@ function buildIrregularDeepSession(state, curriculumOrder, verbMetaMap, verbsByN
 
 function categoryAndRankForKey(key, curriculumOrder, verbMetaMap) {
   if (key.indexOf('cell:') === 0) {
+    // ⚠️ ملحوظة بعد إضافة الفان-آوت: cell: بقت تُستخدم لأفعال منتظمة
+    // (بعد ما الباترن بتاعها يتخرّج، كل فعل بياخد مراجعة مستقلة بمفتاح
+    // cell:) مش للشاذ بس زي الأول — فمينفعش نفترض true_irregular من
+    // البادئة، لازم نرجع لبيانات الفعل الحقيقية
     const verb = key.split(':')[1];
     const tense = key.split(':')[2];
-    return { category: 'true_irregular', freqRank: verbMetaMap[verb].freqRank, repVerb: verb, tense };
+    const meta = verbMetaMap[verb];
+    const category = (meta && meta[tense] && meta[tense].category) || 'fully_regular';
+    return { category, freqRank: meta ? meta.freqRank : 999, repVerb: verb, tense };
   }
+  // ملحوظة: بعد الفان-آوت، الباترن بعد ما يتخرّج بيبقى sr:null (مفيش مراجعة
+  // عليه هو نفسه)، فالفرع ده عمليًا مبقاش بيتنفّذ خالص (getReviewsDueOn
+  // بتستبعد أي حاجة sr:null) — سايبينه للأمان لو رجع يتفعّل يوم ما
   const parts = key.split(':'); // pattern:<family>:<tense>
   const family = parts[1];
   const tense = parts[2];
@@ -252,6 +261,25 @@ function buildDailyReviewSession(state, curriculumOrder, verbMetaMap, verbsByNam
   return { type: 'daily_review', count: questions.length, totalDue: due.length, questions };
 }
 
+// ---------------------------------------------------------------------------
+// إعادة جلسة مراجعة "يوم فات" بالظبط زي ما كانت — من غير أي فلترة استحقاق
+// (مش بنستخدم getReviewsDueOn هنا، لأن اللي محتاجينه هو "الأسئلة اللي
+// ظهرت فعليًا وقتها" مش "اللي مستحق دلوقتي"). بمرّرلها نفس تاريخ اليوم
+// المُعاد كـ"today" عشان seedFromString يرجّع بالظبط نفس متغيّر السؤال
+// (نفس الشخص/الـslot) اللي كانت ظاهرة وقتها، مش سؤال عشوائي جديد.
+// لو مفتاح مش موجود في الـstate دلوقتي (نادر جدًا)، بيتجاهل بهدوء.
+function buildReplayReviewSession(state, curriculumOrder, verbMetaMap, verbsByName, keys, originalDateKey) {
+  const questions = keys
+    .map((key) => {
+      const entry = state[key];
+      if (!entry) return null;
+      const info = categoryAndRankForKey(key, curriculumOrder, verbMetaMap);
+      return buildReviewQuestionForKey(key, entry, info, verbsByName, verbMetaMap, originalDateKey);
+    })
+    .filter(Boolean);
+  return { type: 'daily_review', count: questions.length, totalDue: questions.length, questions };
+}
+
 const VerbSessionBuilder = {
   THREE_TENSES: QE.THREE_TENSES,
   isRegularTrack,
@@ -261,6 +289,7 @@ const VerbSessionBuilder = {
   buildRegularLearningSession,
   buildIrregularDeepSession,
   buildDailyReviewSession,
+  buildReplayReviewSession,
 };
 if (typeof module !== 'undefined' && module.exports) module.exports = VerbSessionBuilder;
 if (typeof window !== 'undefined') window.VerbSessionBuilder = VerbSessionBuilder;
