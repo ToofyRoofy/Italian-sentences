@@ -363,6 +363,22 @@
       .join('');
   }
 
+  // زي mcOptionsHtml، بس كل خانة (شخص) في كل اختيار بتتلف في span مستقلة
+  // معلّم عليها بـdata-slot — عشان لو الاختيار غلط، نقدر نعلّم بالظبط على
+  // الخانة اللي فيها الغلط بدل ما نسيب المتعلّم يدوّر في الجدول كله
+  function fullTableOptionsHtml(step) {
+    return step.optionMeta
+      .map(function (meta, i) {
+        const cells = meta.forms
+          .map(function (form, slot) {
+            return '<span class="vp-cell" data-slot="' + slot + '">' + form + '</span>';
+          })
+          .join(' · ');
+        return '<button class="grammar-q-option" style="direction:ltr;text-align:left;font-family:Georgia,serif;" onclick="VerbPractice._answerMC(' + i + ')">' + cells + '</button>';
+      })
+      .join('');
+  }
+
   const renderers = {
     meaning_mcq: function (step) {
       return (
@@ -380,7 +396,7 @@
     full_table: function (step) {
       return (
         '<div class="vp-prompt">جدول ' + itSpan(step.verb) + ' — ' + tenseLabel(step.tense) + '</div>' +
-        '<div class="q-options">' + mcOptionsHtml(step.options, 'direction:ltr;text-align:left;font-family:Georgia,serif;') + '</div>' +
+        '<div class="q-options">' + fullTableOptionsHtml(step) + '</div>' +
         '<div class="vp-feedback" id="vpFeedback"></div>'
       );
     },
@@ -543,6 +559,15 @@
   // تصحيح إجباري بعد غلط في سؤال مراجعة وضعه type (بند 6: checkQuizRecallWrite-style)
   // — يكتب الإجابة الصح مرة واحدة قبل ما يكمل، بدل ما يتعدّى السؤال بمجرد ما
   // يشوف "❌ الصح: ..." لثانية وحدة.
+  // مفتاح تمييز "نفس السؤال" عشان زرار "تقبل الحل" يفتكره لبقية الجلسة —
+  // بيتحدد بنوع السؤال + الفعل + الزمن/الشخص (لو موجودين)
+  function overrideKeyFor(step) {
+    if (!step) return null;
+    const verb = step.verb || step.representativeVerb || '';
+    if (!verb) return null;
+    return [step.type, verb, step.tense || '', step.person || ''].join('|');
+  }
+
   function renderForceCorrection(correctAnswer) {
     const body = document.getElementById('vpBody');
     const wrap = document.createElement('div');
@@ -550,10 +575,27 @@
       '<div class="vp-prompt">اكتب الصح تاني قبل ما تكمل: <b class="it" style="direction:ltr;display:inline-block">' + correctAnswer + '</b></div>' +
       '<input class="vp-input" id="vpForceInput" autocomplete="off" autocorrect="off" spellcheck="false" onkeydown="if(event.key===\'Enter\')VerbPractice._confirmCorrection()">' +
       '<button class="vp-submit-btn" onclick="VerbPractice._confirmCorrection()">تأكيد</button>' +
-      '<div class="vp-feedback" id="vpForceFeedback"></div>';
+      '<div class="vp-feedback" id="vpForceFeedback"></div>' +
+      '<button class="vp-next-btn" style="margin-top:8px;opacity:.85;font-size:.75rem;" onclick="VerbPractice._acceptOverride()">✅ تقبل الحل (لو حاسّة إجابتك صح فعلًا)</button>';
     body.appendChild(wrap);
     const input = document.getElementById('vpForceInput');
     if (input) input.focus();
+  }
+
+  // زرار "تقبل الحل": بيقفل التصحيح الإجباري الحالي فورًا، وبيفتكر السؤال ده
+  // (نفس الفعل/النوع/الزمن) لبقية الجلسة — لو ظهر تاني، إجابتك هتتحسب صح
+  // تلقائيًا من غير ما تمر على الفحص الصارم تاني (شوف overrideKeyFor فوق
+  // واستخدامها في answerText تحت)
+  function acceptOverride() {
+    const step = session.steps[session.idx];
+    const key = overrideKeyFor(step);
+    if (key) {
+      session.acceptedOverrides = session.acceptedOverrides || {};
+      session.acceptedOverrides[key] = true;
+    }
+    session.pendingCorrect = null;
+    session.pendingCorrectType = null;
+    next();
   }
 
   function confirmCorrection() {
@@ -564,7 +606,14 @@
       return;
     }
     const target = session.pendingCorrect;
-    const ok = QE.checkTypedAnswer(input.value, target).correct;
+    // نفس منطق answerText بالظبط: المعنى بالعربي (write_meaning_ar) بيتفحص
+    // بـcheckArabicAnswer (بيتحمّل بدائل مفصولة بـ"/" وفروق الهمزة/التشكيل)،
+    // أي حاجة تانية (إيطالي) بـcheckTypedAnswer. قبل كده الدالة دي كانت
+    // بتستخدم checkTypedAnswer دايمًا حتى مع المعنى العربي — وده كان بيرفض
+    // إجابات عربي صح ١٠٠٪ زي "اسمه" لو الهدف مكتوب "يُدعى / اسمه"
+    const ok = session.pendingCorrectType === 'write_meaning_ar'
+      ? QE.checkArabicAnswer(input.value, target)
+      : QE.checkTypedAnswer(input.value, target).correct;
     if (!ok) {
       const fb = document.getElementById('vpForceFeedback');
       fb.className = 'vp-feedback bad';
@@ -574,6 +623,7 @@
       return;
     }
     session.pendingCorrect = null;
+    session.pendingCorrectType = null;
     next();
   }
 
@@ -586,6 +636,24 @@
       if (idx === step.correctIndex) btn.classList.add('ok');
       else if (idx === i) btn.classList.add('bad');
     });
+
+    // full_table: نعلّم بالظبط على الخانة (أو الخانتين) اللي كانت الغلط في
+    // الاختيار اللي هي دستها عليه هو نفسه — بدل ما تدوّر في الجدول كله
+    // عشان تلاقي الفرق
+    let tenseSwapInfo = null;
+    if (!correct && step.type === 'full_table' && step.optionMeta && step.optionMeta[i]) {
+      const meta = step.optionMeta[i];
+      const btn = buttons[i];
+      if (meta.tenseSwap) {
+        tenseSwapInfo = meta.tenseSwapTo;
+      } else if (btn && meta.wrongSlots && meta.wrongSlots.length) {
+        meta.wrongSlots.forEach(function (slot) {
+          const cell = btn.querySelector('.vp-cell[data-slot="' + slot + '"]');
+          if (cell) cell.classList.add('vp-cell-wrong');
+        });
+      }
+    }
+
     feedProgressEngine(step, correct);
     if (correct) {
       session.correct++;
@@ -597,9 +665,15 @@
     const fb = document.getElementById('vpFeedback');
     if (fb) {
       fb.className = 'vp-feedback ' + (correct ? 'ok' : 'bad');
-      fb.textContent = correct ? '✅ صح' : '❌ مش كده';
+      if (correct) {
+        fb.textContent = '✅ صح';
+      } else if (tenseSwapInfo) {
+        fb.textContent = '❌ الجدول ده صحيح لغويًا، بس ده تصريف ' + tenseLabel(tenseSwapInfo) + ' مش ' + tenseLabel(step.tense);
+      } else {
+        fb.textContent = '❌ الخانة المعلّم عليها فوق هي الغلط';
+      }
     }
-    setTimeout(next, 900);
+    setTimeout(next, correct ? 900 : 1600); // وقت أطول شوية لما يبقى غلط عشان تلاقي وقت تشوف العلامة
   }
 
   function answerText() {
@@ -625,6 +699,13 @@
     } else {
       correctAnswer = step.correctAnswer;
       result = QE.checkTypedAnswer(value, correctAnswer);
+    }
+
+    // لو ضغطتي "تقبل الحل" على نفس السؤال ده قبل كده في نفس الجلسة، بتتحسب
+    // صح تلقائيًا من غير ما نمر على الفحص الصارم تاني
+    const overrideKey = overrideKeyFor(step);
+    if (!result.correct && overrideKey && session.acceptedOverrides && session.acceptedOverrides[overrideKey]) {
+      result = { correct: true, accentIssue: false };
     }
 
     feedProgressEngine(step, result.correct);
@@ -656,6 +737,7 @@
     // بيمنع التقدّم دلوقتي لحد ما تثبّت الإجابة الصح.
     if (!result.correct) {
       session.pendingCorrect = correctAnswer;
+      session.pendingCorrectType = step.type;
       renderForceCorrection(correctAnswer);
       return;
     }
@@ -1151,6 +1233,7 @@
     _answerMC: answerMC,
     _answerText: answerText,
     _confirmCorrection: confirmCorrection,
+    _acceptOverride: acceptOverride,
     _next: next,
     _speakEl: speakEl,
     _close: closeOverlay,

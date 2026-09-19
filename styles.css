@@ -55,6 +55,7 @@
   .grammar-q-option:hover:not(:disabled){border-color:var(--purple);transform:translateY(-1px);}
   .grammar-q-option.ok{border-color:var(--green);background:rgba(0,232,150,.10);}
   .grammar-q-option.bad{border-color:var(--red);background:rgba(255,77,109,.10);}
+  .vp-cell-wrong{color:var(--red);font-weight:900;text-decoration:underline wavy var(--red);text-underline-offset:3px;}
   .grammar-q-option:disabled{cursor:default;opacity:.95;}
   .grammar-explain{display:none;margin-top:10px;border-radius:10px;padding:10px 12px;background:rgba(192,132,252,.10);border:1px solid rgba(192,132,252,.28);font-size:.82rem;line-height:1.7;color:var(--text);}
   .grammar-explain.show{display:block;}

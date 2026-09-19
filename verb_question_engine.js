@@ -117,22 +117,52 @@ const AUX_FORMS = {
   essere: ['Sono', 'Sei', 'È', 'È', 'Siamo', 'Siete', 'Sono'],
 };
 
+// ضمائر الانعكاس المنفصلة — بترتيب Io,Tu,Lui,Lei,Noi,Voi,Loro (زي getRows)
+const REFLEXIVE_PRONOUNS = ['mi', 'ti', 'si', 'si', 'ci', 'vi', 'si'];
+
+// بيولّد غلطة "ضمير غلط" للأفعال الانعكاسية بس (زي "Ti trovo" بدل "Mi
+// trovo") — غلطة شائعة برضه ومستقلة عن الزمن، لأن الضمير دايمًا أول كلمة
+// منفصلة قبل الفعل في الحالات كلها presente/passato/imperfetto
+function corruptPronoun(originalForm, slotIndex, pickSeed) {
+  const spaceIdx = originalForm.indexOf(' ');
+  if (spaceIdx === -1) return null; // مش انعكاسي، مفيش ضمير منفصل
+  const rest = originalForm.slice(spaceIdx + 1);
+  const correctPronoun = REFLEXIVE_PRONOUNS[slotIndex];
+  const options = REFLEXIVE_PRONOUNS.filter((p) => p !== correctPronoun);
+  if (!options.length) return null;
+  const wrong = options[pickSeed % options.length];
+  return wrong.charAt(0).toUpperCase() + wrong.slice(1) + ' ' + rest;
+}
+
 // بيولّد شكل غلط قريب الشبه لخانة واحدة بس، من غير ما يلمس باقي الجدول.
 // الـstem بيتحسب من طول النهاية القياسية المتوقعة لمجموعة الفعل في الخانة
 // دي تحديدًا (مش بمقارنة الـ7 أشكال ببعض) — ده بيشتغل صح حتى مع الأفعال
 // الانعكاسية (الشكل بيبدأ بضمير زي "Si"/"Mi" مختلف كل شخص) وحتى في
 // imperfetto (فين كل المجموعات بتبدأ نهاياتها بنفس الحرف فبتلخبط أي حساب
 // مبني على أطول بادئة مشتركة بين الأشكال).
-function corruptForm(originalForm, slotIndex, tense, group, aux, pickSeed) {
+function corruptForm(originalForm, slotIndex, tense, group, aux, pickSeed, isReflexive) {
+  // للانعكاسي: نصّ الوقت (حسب الـseed) نجرّب نلخبط الضمير المنفصل بدل نهاية
+  // الفعل — غلطة شائعة برضه، ومنفصلة تمامًا عن غلطة النهاية
+  if (isReflexive && pickSeed % 2 === 0) {
+    const wrongPronoun = corruptPronoun(originalForm, slotIndex, pickSeed);
+    if (wrongPronoun) return wrongPronoun;
+    // لو مقدرناش (نادر)، نكمل تحت على نهاية الفعل بدل ما نرجّع null
+  }
   if (tense === 'passato') {
-    const spaceIdx = originalForm.indexOf(' ');
-    if (spaceIdx === -1) return null;
-    const participio = originalForm.slice(spaceIdx + 1);
+    // انعكاسي: [ضمير, مساعد, ...participio] (زي "Ti sei trovato/a") — غير
+    // انعكاسي: [مساعد, ...participio] (زي "Ho visto"). لازم نميّز بينهم،
+    // وإلا بنلخبط الضمير مع المساعد سوا ونطلع بشكل مش موجود أصلًا زي
+    // "È sei trovato/a"
+    const parts = originalForm.split(' ');
+    const auxIdx = isReflexive ? 1 : 0;
+    if (parts.length <= auxIdx + 1) return null;
+    const pronounPart = isReflexive ? parts[0] + ' ' : '';
+    const participio = parts.slice(auxIdx + 1).join(' ');
     const auxForms = AUX_FORMS[aux] || AUX_FORMS.avere;
     const otherSlots = [0, 1, 2, 3, 4, 5, 6].filter((s) => s !== slotIndex && auxForms[s] !== auxForms[slotIndex]);
     if (!otherSlots.length) return null;
     const wrongAux = auxForms[otherSlots[pickSeed % otherSlots.length]];
-    return wrongAux + ' ' + participio;
+    return pronounPart + wrongAux + ' ' + participio;
   }
   const table = REGULAR_ENDINGS[tense];
   if (!table) return null; // زمن مش مدعوم بالطريقة دي حاليًا
@@ -153,20 +183,23 @@ function corruptTable(rows, verbMeta, tense, verbData, seed, numErrors) {
   const forms = rows.map((r) => r.form);
   const group = verbMeta.group;
   const aux = tense === 'passato' ? verbData[tense] && verbData[tense].aux : null;
+  const isReflexive = !!verbData.reflexive;
   const result = forms.slice();
+  const wrongSlots = [];
   let applied = 0;
   let attempt = 0;
   while (applied < numErrors && attempt < 14) {
     const slot = (seed + attempt) % 7;
     attempt++;
     if (result[slot] !== forms[slot]) continue; // الخانة دي اتلخبطت خلاص، منكررش
-    const wrong = corruptForm(forms[slot], slot, tense, group, aux, seed + attempt);
+    const wrong = corruptForm(forms[slot], slot, tense, group, aux, seed + attempt, isReflexive);
     if (wrong && wrong !== forms[slot]) {
       result[slot] = wrong;
+      wrongSlots.push(slot);
       applied++;
     }
   }
-  return applied > 0 ? result.join(' · ') : null;
+  return applied > 0 ? { text: result.join(' · '), forms: result, wrongSlots: wrongSlots } : null;
 }
 
 function buildFullTableQuestion(verbName, tense, verbMetaMap, verbsByName, allVerbNames, opts) {
@@ -174,42 +207,72 @@ function buildFullTableQuestion(verbName, tense, verbMetaMap, verbsByName, allVe
   const verbMeta = verbMetaMap[verbName];
   const verbData = verbsByName[verbName];
   const rows = getRows(verbData, tense);
-  const correctTable = tableFingerprint(verbData, tense);
+  const correctForms = rows.map((r) => r.form);
+  const correctTable = correctForms.join(' · ');
   const seed = seedFromString(verbName + ':table:' + tense);
 
-  const errorCounts = [1, 2, 2];
-  const distractors = [];
+  // كل عنصر هنا {text, forms, wrongSlots, tenseSwap} — wrongSlots فاضية
+  // للصح ولمشتّت "زمن تاني" (مفيش خانة غلط بعينها، الجدول كله زمنه غلط)،
+  // وفيها أرقام الخانات (0-6) اللي اتلخبطت للمشتّتات التانية. البيانات دي
+  // بتتنقل مع الترتيب النهائي عشان الواجهة تقدر تعلّم بالظبط على الغلط في
+  // الاختيار اللي هي دستها عليه (مش بس تقول "غلط" وخلاص)
+  const chosenObjs = [{ text: correctTable, forms: correctForms, wrongSlots: [], tenseSwap: false }];
   const seen = new Set([correctTable]);
+
+  // مشتّت 1: نفس الفعل، بس في زمن تاني — تصريف صحيح 100% (مفيش ولا خانة
+  // ملخبطة)، عشان يختبر إنها فاهمة "ده مين زمنه" مش بس شكل الفعل عمومًا
+  const otherTenses = THREE_TENSES.filter((t) => t !== tense);
+  const tenseSwapChoice = otherTenses[seed % otherTenses.length];
+  const tenseSwapRows = getRows(verbData, tenseSwapChoice);
+  const tenseSwapForms = tenseSwapRows.map((r) => r.form);
+  const tenseSwapTable = tenseSwapForms.join(' · ');
+  if (tenseSwapTable && !seen.has(tenseSwapTable)) {
+    seen.add(tenseSwapTable);
+    chosenObjs.push({ text: tenseSwapTable, forms: tenseSwapForms, wrongSlots: [], tenseSwap: true, tenseSwapTo: tenseSwapChoice });
+  }
+
+  // باقي المشتّتات: نسخ من نفس الفعل ونفس الزمن، بس 1-2 خانة (شخص) اتلخبطوا
+  const errorCounts = [1, 2, 2];
   let salt = 0;
   errorCounts.forEach((n) => {
-    let table = null;
-    for (let tries = 0; tries < 6 && !table; tries++) {
+    if (chosenObjs.length >= 4) return;
+    let picked = null;
+    for (let tries = 0; tries < 6 && !picked; tries++) {
       const candidate = corruptTable(rows, verbMeta, tense, verbData, seed + salt, n);
       salt += 5;
-      if (candidate && !seen.has(candidate)) table = candidate;
+      if (candidate && !seen.has(candidate.text)) picked = candidate;
     }
-    if (table) {
-      seen.add(table);
-      distractors.push(table);
+    if (picked) {
+      seen.add(picked.text);
+      chosenObjs.push({ text: picked.text, forms: picked.forms, wrongSlots: picked.wrongSlots, tenseSwap: false });
     }
   });
 
-  // احتياط: لو مقدرناش نولّد 3 مشتّتات مختلفة بـ1-2 خطأ (فعل بنهايات نادرة
-  // جدًا)، نكمّل بعدد أخطاء أعلى بدل ما يرجع سؤال ناقص خيارات
+  // احتياط: لو مقدرناش نولّد 3 مشتّتات مختلفة (فعل بنهايات نادرة جدًا)، نكمّل
+  // بعدد أخطاء أعلى بدل ما يرجع سؤال ناقص خيارات
   let extraN = 3;
-  while (distractors.length < 3 && extraN < 8) {
+  while (chosenObjs.length < 4 && extraN < 8) {
     const candidate = corruptTable(rows, verbMeta, tense, verbData, seed + salt, extraN);
     salt += 5;
-    if (candidate && !seen.has(candidate)) {
-      seen.add(candidate);
-      distractors.push(candidate);
+    if (candidate && !seen.has(candidate.text)) {
+      seen.add(candidate.text);
+      chosenObjs.push({ text: candidate.text, forms: candidate.forms, wrongSlots: candidate.wrongSlots, tenseSwap: false });
     } else {
       extraN++;
     }
   }
 
-  const { options, correct } = balanceCorrect([correctTable, ...distractors], 0, seed + 7);
-  return { type: 'full_table', verb: verbName, tense, options, correctIndex: correct };
+  const { options: shuffled, correct } = balanceCorrect(chosenObjs, 0, seed + 7);
+  const persons = rows.map((r) => r.person);
+  return {
+    type: 'full_table',
+    verb: verbName,
+    tense,
+    options: shuffled.map((o) => o.text),
+    optionMeta: shuffled.map((o) => ({ forms: o.forms, wrongSlots: o.wrongSlots, tenseSwap: o.tenseSwap, tenseSwapTo: o.tenseSwapTo })),
+    persons,
+    correctIndex: correct,
+  };
 }
 
 // ---------------------------------------------------------------------------
