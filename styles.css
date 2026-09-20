@@ -71,8 +71,9 @@
   .listen-q-option.bad{border-color:var(--red);background:rgba(255,77,109,.10);}
 
   /* mode tabs */
-  .mode-tabs{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;}
+  .mode-tabs{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;cursor:grab;}
   .mode-tabs::-webkit-scrollbar{display:none;}
+  .mode-tabs.dragging{cursor:grabbing;user-select:none;}
   .mode-tab{
     flex:0 0 auto;min-width:84px;padding:11px 10px;border-radius:12px;border:1px solid var(--border);
     background:var(--card);color:var(--muted);font-family:inherit;font-size:.82rem;

@@ -5593,3 +5593,32 @@ function wpMaybeChainAfterWrite(){
   if(!wpChainActive)return;
   setTimeout(()=>wpChainAdvanceToNextSentence(),1400);
 }
+
+// ===== سحب صف التابات (mode-tabs) بالماوس على الكمبيوتر =====
+// عالموبايل overflow-x:auto كفاية (سحب باللمس شغال أوتوماتيك من المتصفح)،
+// بس الماوس مش بيعمل سحب افتراضيًا، فبنضيفه يدويًا هنا. لو المستخدم فعلاً
+// سحب (مش بس دوس)، بنمنع onclick بتاع التاب يتنفذ عشان مايبدلش الوضع بالغلط
+// وهو بس بيحاول يسحب.
+(function initModeTabsDrag(){
+  const el=document.querySelector('.mode-tabs');
+  if(!el)return;
+  let isDown=false, startX=0, scrollStart=0, moved=false;
+  el.addEventListener('mousedown',function(e){
+    isDown=true; moved=false; el.classList.add('dragging');
+    startX=e.pageX; scrollStart=el.scrollLeft;
+  });
+  function endDrag(){ isDown=false; el.classList.remove('dragging'); }
+  el.addEventListener('mouseleave',endDrag);
+  window.addEventListener('mouseup',endDrag);
+  el.addEventListener('mousemove',function(e){
+    if(!isDown)return;
+    e.preventDefault();
+    const dx=e.pageX-startX;
+    if(Math.abs(dx)>4)moved=true;
+    el.scrollLeft=scrollStart-dx;
+  });
+  // كابتشر عشان يتنفذ قبل onclick بتاع الزرار نفسه
+  el.addEventListener('click',function(e){
+    if(moved){ e.stopPropagation(); e.preventDefault(); moved=false; }
+  },true);
+})();

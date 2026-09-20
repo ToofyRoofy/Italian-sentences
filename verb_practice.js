@@ -236,10 +236,54 @@
       (dueCount ? toAr(dueCount) + ' عنصر مستحق' : 'مفيش حاجة مستحقة دلوقتي') +
       '</span></div>';
     html +=
+      '<div class="vp-menu-btn" onclick="VerbPractice._openDueSessions()"><b>🗓️ الجلسات المستحقة</b><span>' +
+      (dueCount ? 'قايمة الـ' + toAr(dueCount) + ' عنصر المستحقين دلوقتي' : 'مفيش حاجة مستحقة دلوقتي') +
+      '</span></div>';
+    html +=
       '<div class="vp-menu-btn" onclick="VerbPractice._openCalendar()"><b>🗂️ سجل جلساتي</b><span>أرشيف كل الجلسات اللي عملتها</span></div>';
     html += '</div>';
     document.getElementById('vpBody').innerHTML = html;
     openOverlay();
+  }
+
+  // ---------------------------------------------------------------------
+  // 🗓️ الجلسات المستحقة — قايمة واضحة بكل عنصر مستحق دلوقتي قبل ما تدخلي
+  // المراجعة، مع علامة مميّزة للعناصر اللي اتصفّر معادها يدويًا (زرار 🔄)
+  // عشان تفرقي بينها وبين اللي مستحق طبيعي من جدول SR — ومتتلخبطيش لو
+  // فيه مراجعة تانية مستحقة في نفس اليوم أصلًا.
+  // ---------------------------------------------------------------------
+
+  function openDueSessions() {
+    ensureData();
+    injectShell();
+    document.getElementById('vpTitle').textContent = '🗓️ الجلسات المستحقة';
+    renderDueSessions();
+    openOverlay();
+  }
+
+  function renderDueSessions() {
+    const state = loadJSON(LS_STATE_KEY);
+    const due = PE.getReviewsDueOn(state, today());
+    let html = '';
+    if (!due.length) {
+      html = '<div style="text-align:center;color:var(--muted);padding:20px 0;">مفيش عنصر مستحق دلوقتي 🎉</div>';
+    } else {
+      html += '<div style="display:flex;flex-direction:column;gap:8px;max-height:58vh;overflow-y:auto;">';
+      due.forEach(function (d) {
+        const parts = d.key.split(':'); // cell:<verb>:<tense>
+        const verb = parts[1], tense = parts[2];
+        const info = verbsByName[verb];
+        html += '<div style="border:1px solid var(--border);border-radius:10px;padding:10px;background:#0e0e1a;display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
+          '<div><div class="it" style="font-weight:800;">' + (verb || '') + '</div>' +
+          '<div style="font-size:.68rem;color:var(--muted);margin-top:2px;">' + tenseLabel(tense) + (info ? ' — ' + info.ar : '') + '</div></div>' +
+          (d.manualReset ? '<span style="font-size:.6rem;color:var(--gold);font-weight:800;white-space:nowrap;">🔄 اتصفّرت يدويًا</span>' : '') +
+          '</div>';
+      });
+      html += '</div>';
+    }
+    html += '<button class="vp-next-btn" style="width:100%;margin-top:14px;" onclick="VerbPractice._start(\'review\')">▶️ ابدأ المراجعة اليومية</button>';
+    html += '<button class="vp-next-btn" style="width:100%;margin-top:8px;" onclick="VerbPractice._backToMenu()">→ رجوع</button>';
+    document.getElementById('vpBody').innerHTML = html;
   }
 
   // ---------------------------------------------------------------------
@@ -1017,13 +1061,72 @@
     document.getElementById('vpBody').innerHTML = html;
   }
 
+  // ---------------------------------------------------------------------
+  // تصفير جدول مراجعة جلسة "مدروسة" وبدؤه من النهاردة — لحل مشكلة "فوّت
+  // يوم فالمواعيد بقت مش مظبوطة". بيغيّر بس تاريخ المراجعة الجاية، مش
+  // بيمسح إنها مدروسة (introduced فاضل زي ما هو، ومفيش أثر على المنتظم:
+  // بيلمس مفاتيح cell: الخاصة بالفعل ده بس أبدًا، مش مفتاح الباترن
+  // المشترك — عشان معتغيّرش مواعيد batches تانية بتشارك نفس الباترن).
+  // ---------------------------------------------------------------------
+
+  function freshGraduatedEntry(day) {
+    return {
+      mode: 'type', streak: 0, seenPersons: [], studiedVerbs: [],
+      graduated: true,
+      sr: { stage: 0, lastReview: day, nextReview: PE.addDays(day, PE.SR_OFFSET_DAYS[0]) },
+      reviewCount: 0, reviewDays: [],
+      manualReset: day // علامة "اتصفّرت يدويًا" — بتتعرض في تاب 🗓️ الجلسات المستحقة
+    };
+  }
+
+  function resetRegularBatchReview(batch) {
+    const state = loadJSON(LS_STATE_KEY);
+    const day = today();
+    batch.forEach(function (v) {
+      reviewKeysForVerb(v).forEach(function (k) {
+        if (state[k] && state[k].graduated) state[k] = freshGraduatedEntry(day);
+      });
+    });
+    saveJSON(LS_STATE_KEY, state);
+  }
+
+  function resetIrregularCellReview(cell) {
+    const state = loadJSON(LS_STATE_KEY);
+    const key = PE.cellKey(cell.verb, cell.tense);
+    if (state[key] && state[key].graduated) {
+      saveJSON(LS_STATE_KEY, Object.assign(state, { [key]: freshGraduatedEntry(today()) }));
+    }
+  }
+
+  function confirmResetSchedule(kind, idx) {
+    const label = kind === 'regular' ? 'جلسة ' + toAr(idx + 1) : (((curriculum.irregular || [])[idx] || {}).verb || '');
+    document.getElementById('vpBody').innerHTML =
+      '<div class="vp-summary">هيتصفّر جدول مراجعة ' + label + ' ويبدأ من النهاردة (يوم، بعده ٣ أيام، بعده ٧...).<br>' +
+      '<span style="font-size:.68rem;color:var(--muted);display:block;margin-top:8px;">مش هيمسح إنها مدروسة — بس هيبدأ تايمر المراجعة من الأول.</span></div>' +
+      '<button class="vp-next-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="VerbPractice._resetSessionSchedule(\'' + kind + '\',' + idx + ')">✅ ايوه، صفّريه</button>' +
+      '<button class="vp-next-btn" style="margin-top:8px;opacity:.7;" onclick="VerbPractice._openCurriculumSession(\'' + kind + '\',' + idx + ')">إلغاء</button>';
+  }
+
+  function resetSessionSchedule(kind, idx) {
+    if (kind === 'regular') {
+      const batch = regularBatches()[idx];
+      if (batch) resetRegularBatchReview(batch);
+    } else {
+      const cell = (curriculum.irregular || [])[idx];
+      if (cell) resetIrregularCellReview(cell);
+    }
+    openCurriculumSession(kind, idx);
+  }
+
   function openCurriculumSession(kind, idx) {
     const state = loadJSON(LS_STATE_KEY);
     let html;
+    let studied = false;
     if (kind === 'regular') {
       const batch = regularBatches()[idx];
       if (!batch) { renderSessionsBrowser(); return; }
       const status = regularSessionStatus(state, batch);
+      studied = status.studied;
       html = '<div style="font-weight:900;margin-bottom:2px;text-align:center;">📗 جلسة ' + toAr(idx + 1) + ' — تعلّم مختلط</div>' +
         '<div style="text-align:center;margin:6px 0 14px;">' + statusBadge(status) + '</div>' +
         '<div style="display:flex;flex-direction:column;gap:8px;">';
@@ -1039,6 +1142,7 @@
       const cell = (curriculum.irregular || [])[idx];
       if (!cell) { renderSessionsBrowser(); return; }
       const status = irregularSessionStatus(state, cell);
+      studied = status.studied;
       const info = verbsByName[cell.verb];
       html = '<div style="font-weight:900;margin-bottom:2px;text-align:center;">📕 ' + cell.verb + ' — ' + tenseLabel(cell.tense) + '</div>' +
         '<div style="text-align:center;margin:6px 0 14px;">' + statusBadge(status) + '</div>' +
@@ -1047,7 +1151,10 @@
         (info ? '<div style="font-size:.7rem;color:var(--muted);margin-top:2px;">' + info.ar + '</div>' : '') +
         '</div>';
     }
-    html += '<button class="vp-next-btn" style="width:100%;margin-top:14px;" onclick="VerbPractice._openSessionsBrowser()">→ رجوع لكل الجلسات</button>';
+    if (studied) {
+      html += '<button class="vp-next-btn" style="width:100%;margin-top:14px;background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="VerbPractice._confirmResetSchedule(\'' + kind + '\',' + idx + ')">🔄 صفّري مواعيد المراجعة (تبدأ من النهاردة)</button>';
+    }
+    html += '<button class="vp-next-btn" style="width:100%;margin-top:8px;" onclick="VerbPractice._openSessionsBrowser()">→ رجوع لكل الجلسات</button>';
     document.getElementById('vpBody').innerHTML = html;
   }
 
@@ -1238,6 +1345,7 @@
     _speakEl: speakEl,
     _close: closeOverlay,
     _openCalendar: openCalendar,
+    _openDueSessions: openDueSessions,
     _calNav: calNav,
     _openDay: openDay,
     _startReplay: startReplay,
@@ -1245,6 +1353,8 @@
     _openSessionsBrowser: openSessionsBrowser,
     _switchSessionsTab: switchSessionsTab,
     _openCurriculumSession: openCurriculumSession,
+    _confirmResetSchedule: confirmResetSchedule,
+    _resetSessionSchedule: resetSessionSchedule,
     _openLogEntry: openLogEntry,
     _backToMenu: backToMenu,
   };
