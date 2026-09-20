@@ -12,6 +12,7 @@
     font-family:'Tajawal',system-ui,sans-serif;
     min-height:100vh;display:flex;align-items:center;
     justify-content:center;padding:24px 16px;
+    overflow-x:hidden; /* حماية عامة: أي عنصر يعدّي عرض الشاشة يتقص بدل ما يزحلق الصفحة كلها */
   }
   body::before{
     content:'';position:fixed;inset:0;
@@ -70,11 +71,12 @@
   .listen-q-option.bad{border-color:var(--red);background:rgba(255,77,109,.10);}
 
   /* mode tabs */
-  .mode-tabs{display:flex;gap:8px;}
+  .mode-tabs{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;}
+  .mode-tabs::-webkit-scrollbar{display:none;}
   .mode-tab{
-    flex:1;padding:11px 6px;border-radius:12px;border:1px solid var(--border);
+    flex:0 0 auto;min-width:84px;padding:11px 10px;border-radius:12px;border:1px solid var(--border);
     background:var(--card);color:var(--muted);font-family:inherit;font-size:.82rem;
-    font-weight:700;cursor:pointer;transition:.2s;
+    font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap;
   }
   .mode-tab.active{background:linear-gradient(135deg,var(--gold),#d4a90a);color:#000;border-color:transparent;}
   .mode-tab:hover:not(.active){color:var(--text);border-color:var(--muted);}
