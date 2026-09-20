@@ -149,6 +149,9 @@ function buildIrregularDeepSession(state, curriculumOrder, verbMetaMap, verbsByN
   items.push(...QE.buildAllSixProductionQuestions(verbName, tense, verbsByName));
   const idq = QE.buildSixIdentifyQuestions(verbName, tense, verbsByName);
   items.push(...idq.italian, ...idq.arabic);
+  // بند إضافي: "اكتب من الترجمة" — سؤال واحد لكل شخص من الستة (زي "إحنا
+  // عملنا" → "noi facciamo")، للشاذ بس
+  items.push(...QE.buildSixWriteFromMeaningQuestions(verbName, tense, verbsByName));
 
   if (tense === 'presente') {
     // المقارنة التباينية شغالة لـpresente بس حاليًا (نفس قيد verb_question_engine.js)

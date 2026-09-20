@@ -235,9 +235,10 @@
       '<div class="vp-menu-btn" onclick="VerbPractice._start(\'review\')"><b>📅 مراجعة يومية</b><span>' +
       (dueCount ? toAr(dueCount) + ' عنصر مستحق' : 'مفيش حاجة مستحقة دلوقتي') +
       '</span></div>';
+    const pendingRedoCount = Object.keys(state.pendingRedo || {}).filter(function (k) { return state.pendingRedo[k]; }).length;
     html +=
       '<div class="vp-menu-btn" onclick="VerbPractice._openDueSessions()"><b>🗓️ الجلسات المستحقة</b><span>' +
-      (dueCount ? 'قايمة الـ' + toAr(dueCount) + ' عنصر المستحقين دلوقتي' : 'مفيش حاجة مستحقة دلوقتي') +
+      (pendingRedoCount ? toAr(pendingRedoCount) + ' جلسة في قايمة الإعادة' : 'فاضية دلوقتي') +
       '</span></div>';
     html +=
       '<div class="vp-menu-btn" onclick="VerbPractice._openCalendar()"><b>🗂️ سجل جلساتي</b><span>أرشيف كل الجلسات اللي عملتها</span></div>';
@@ -261,29 +262,91 @@
     openOverlay();
   }
 
+  // بيبني نسخة clone من الـstate بس عشان يعدّ عدد الأسئلة، من غير أي أثر
+  // جانبي على الـstate الحقيقي (state.introduced وغيره)
+  function computeSessionQuestionCount(kind, idx) {
+    const clone = JSON.parse(JSON.stringify(loadJSON(LS_STATE_KEY)));
+    if (kind === 'regular') {
+      const batch = regularBatches()[idx];
+      if (!batch) return 0;
+      const result = SB.buildRegularLearningSession(clone, curriculum, VERB_META, verbsByName, allVerbNames, batch.length, batch);
+      return (result && result.totalQuestions) || 0;
+    }
+    const cell = (curriculum.irregular || [])[idx];
+    if (!cell) return 0;
+    const result = SB.buildIrregularDeepSession(clone, curriculum, VERB_META, verbsByName, allVerbNames, cell);
+    return (result && result.totalQuestions) || 0;
+  }
+
+  // القايمة دي بتعرض بس الجلسات اللي دُست فيها على 🔄 من كتالوج "كل
+  // الجلسات" (state.pendingRedo) — مفيش حاجة تظهر هنا لوحدها من غير ما
+  // تختاريها إنتِ بنفسك. كل كارت = الجلسة الكاملة بكل أسئلتها الأصلية،
+  // مش سؤال مراجعة واحد بس.
   function renderDueSessions() {
     const state = loadJSON(LS_STATE_KEY);
-    const due = PE.getReviewsDueOn(state, today());
+    const pending = Object.keys(state.pendingRedo || {}).filter(function (k) { return state.pendingRedo[k]; });
     let html = '';
-    if (!due.length) {
-      html = '<div style="text-align:center;color:var(--muted);padding:20px 0;">مفيش عنصر مستحق دلوقتي 🎉</div>';
+    if (!pending.length) {
+      html = '<div style="text-align:center;color:var(--muted);padding:20px 0;font-size:.78rem;">مفيش جلسات مستحقة دلوقتي 🎉<br>' +
+        '<span style="font-size:.66rem;display:block;margin-top:8px;">بتظهر هنا بس الجلسة اللي دُست فيها على 🔄 من "كل الجلسات"</span></div>';
     } else {
-      html += '<div style="display:flex;flex-direction:column;gap:8px;max-height:58vh;overflow-y:auto;">';
-      due.forEach(function (d) {
-        const parts = d.key.split(':'); // cell:<verb>:<tense>
-        const verb = parts[1], tense = parts[2];
-        const info = verbsByName[verb];
-        html += '<div style="border:1px solid var(--border);border-radius:10px;padding:10px;background:#0e0e1a;display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
-          '<div><div class="it" style="font-weight:800;">' + (verb || '') + '</div>' +
-          '<div style="font-size:.68rem;color:var(--muted);margin-top:2px;">' + tenseLabel(tense) + (info ? ' — ' + info.ar : '') + '</div></div>' +
-          (d.manualReset ? '<span style="font-size:.6rem;color:var(--gold);font-weight:800;white-space:nowrap;">🔄 اتصفّرت يدويًا</span>' : '') +
-          '</div>';
+      html += '<div style="display:flex;flex-direction:column;gap:10px;max-height:60vh;overflow-y:auto;">';
+      pending.forEach(function (pk, i) {
+        const sep = pk.indexOf(':');
+        const kind = pk.slice(0, sep);
+        const idx = parseInt(pk.slice(sep + 1), 10);
+        const count = computeSessionQuestionCount(kind, idx);
+        if (kind === 'regular') {
+          const batch = regularBatches()[idx];
+          if (!batch) return;
+          html += '<div onclick="VerbPractice._startRedoSession(\'regular\',' + idx + ')" ' +
+            'style="cursor:pointer;border:1px solid var(--border);border-radius:10px;padding:10px 12px;background:#0e0e1a;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">' +
+            '<div style="text-align:right;"><div style="font-weight:900;font-size:.8rem;">جلسة ' + toAr(i + 1) + '</div>' +
+            '<div style="font-size:.66rem;color:var(--muted);margin-top:3px;">' + batch.join('. ') + '</div></div>' +
+            '<div style="text-align:left;white-space:nowrap;flex-shrink:0;">' +
+            '<div style="font-size:.7rem;color:var(--green);font-weight:800;">منتظمة</div>' +
+            '<div style="font-size:.66rem;color:var(--muted);margin-top:3px;">' + toAr(count) + ' سؤال</div>' +
+            '</div></div>';
+        } else {
+          const cell = (curriculum.irregular || [])[idx];
+          if (!cell) return;
+          html += '<div onclick="VerbPractice._startRedoSession(\'irregular\',' + idx + ')" ' +
+            'style="cursor:pointer;border:1px solid var(--border);border-radius:10px;padding:10px 12px;background:#0e0e1a;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">' +
+            '<div style="text-align:right;"><div style="font-weight:900;font-size:.8rem;">جلسة ' + toAr(i + 1) + '</div>' +
+            '<div style="font-size:.66rem;color:var(--muted);margin-top:3px;" class="it">' + cell.verb + '</div>' +
+            '<div style="font-size:.64rem;color:var(--muted);">' + tenseLabel(cell.tense) + '</div></div>' +
+            '<div style="text-align:left;white-space:nowrap;flex-shrink:0;">' +
+            '<div style="font-size:.7rem;color:var(--red);font-weight:800;">شاذة</div>' +
+            '<div style="font-size:.66rem;color:var(--muted);margin-top:3px;">' + toAr(count) + ' سؤال تعميق فردي</div>' +
+            '</div></div>';
+        }
       });
       html += '</div>';
     }
-    html += '<button class="vp-next-btn" style="width:100%;margin-top:14px;" onclick="VerbPractice._start(\'review\')">▶️ ابدأ المراجعة اليومية</button>';
-    html += '<button class="vp-next-btn" style="width:100%;margin-top:8px;" onclick="VerbPractice._backToMenu()">→ رجوع</button>';
+    html += '<button class="vp-next-btn" style="width:100%;margin-top:14px;" onclick="VerbPractice._backToMenu()">→ رجوع</button>';
     document.getElementById('vpBody').innerHTML = html;
+  }
+
+  // بتبدأ الجلسة الحقيقية بالكامل (نفس أسئلة الجلسة الأصلية) من قايمة
+  // الانتظار — لو خلّصتيها، finishRedoTarget (شوف فوق) بيصفّر مواعيد
+  // المراجعة فعليًا ويشيلها من القايمة. لو خرجتي من غيرها، تفضل زي ما هي.
+  function startRedoSession(kind, idx) {
+    const liveState = loadJSON(LS_STATE_KEY);
+    let result;
+    if (kind === 'regular') {
+      const batch = regularBatches()[idx];
+      if (!batch) { openDueSessions(); return; }
+      result = SB.buildRegularLearningSession(liveState, curriculum, VERB_META, verbsByName, allVerbNames, batch.length, batch);
+    } else {
+      const cell = (curriculum.irregular || [])[idx];
+      if (!cell) { openDueSessions(); return; }
+      result = SB.buildIrregularDeepSession(liveState, curriculum, VERB_META, verbsByName, allVerbNames, cell);
+    }
+    const steps = flattenSession(result);
+    if (!steps.length) { openDueSessions(); return; }
+    saveJSON(LS_STATE_KEY, liveState);
+    session = { steps: steps, idx: 0, state: liveState, correct: 0, ttsCount: loadJSON(LS_TTS_KEY), kind: kind, startTime: Date.now(), mistakes: [], redoTarget: { kind: kind, idx: idx } };
+    renderStep();
   }
 
   // ---------------------------------------------------------------------
@@ -460,6 +523,9 @@
     },
     identify_ar: function (step) {
       return '<div class="vp-prompt">«' + step.shownAr + '»<br>اكتب الصيغة بالإيطالي</div>' + inputBlock();
+    },
+    write_from_meaning: function (step) {
+      return '<div class="vp-prompt">«' + step.prompt + '»<br>اكتب الضمير + الفعل بالإيطالي مع بعض</div>' + inputBlock();
     },
     exposure: function (step) {
       return (
@@ -657,6 +723,8 @@
     // إجابات عربي صح ١٠٠٪ زي "اسمه" لو الهدف مكتوب "يُدعى / اسمه"
     const ok = session.pendingCorrectType === 'write_meaning_ar'
       ? QE.checkArabicAnswer(input.value, target)
+      : session.pendingCorrectType === 'write_from_meaning'
+      ? QE.checkTypedAnswerWithPronoun(input.value, target).correct
       : QE.checkTypedAnswer(input.value, target).correct;
     if (!ok) {
       const fb = document.getElementById('vpForceFeedback');
@@ -740,6 +808,11 @@
     } else if (step.type === 'identify_ar') {
       correctAnswer = step.correctForm;
       result = QE.checkTypedAnswer(value, correctAnswer);
+    } else if (step.type === 'write_from_meaning') {
+      correctAnswer = step.correctAnswer;
+      // هنا الضمير جزء مطلوب من الإجابة نفسها (زي "noi facciamo")، فمينفعش
+      // نستخدم checkTypedAnswer العادية (بتجرّد أي ضمير في الأول تلقائيًا)
+      result = QE.checkTypedAnswerWithPronoun(value, correctAnswer);
     } else {
       correctAnswer = step.correctAnswer;
       result = QE.checkTypedAnswer(value, correctAnswer);
@@ -862,6 +935,11 @@
       replayCell: replayCell,
       replayKeys: replayKeys
     });
+
+    // لو الجلسة دي كانت "إعادة" من قايمة الانتظار (🗓️ الجلسات المستحقة)،
+    // دلوقتي بس — بعد ما خلّصتيها فعليًا بكل أسئلتها — بيحصل التصفير
+    // الحقيقي لمواعيد المراجعة والشيل من القايمة (شوف finishRedoTarget فوق)
+    if (session.redoTarget) finishRedoTarget(session.redoTarget);
 
     const nextReviewBox = nextReview
       ? '<div style="background:#0e0e1a;border:1px solid var(--gold);border-radius:12px;padding:10px 12px;margin-top:14px;text-align:center;">' +
@@ -1075,7 +1153,6 @@
       graduated: true,
       sr: { stage: 0, lastReview: day, nextReview: PE.addDays(day, PE.SR_OFFSET_DAYS[0]) },
       reviewCount: 0, reviewDays: [],
-      manualReset: day // علامة "اتصفّرت يدويًا" — بتتعرض في تاب 🗓️ الجلسات المستحقة
     };
   }
 
@@ -1098,24 +1175,57 @@
     }
   }
 
+  // ---------------------------------------------------------------------
+  // قايمة انتظار "عايزة أعيد الجلسة دي" — دوسة 🔄 بس بتضيف الجلسة هنا،
+  // مفيش أي تصفير فوري. التصفير الفعلي لمواعيد المراجعة بيحصل بس لما
+  // تخلّصي الجلسة الحقيقية بكل أسئلتها من تاب "🗓️ الجلسات المستحقة" (شوف
+  // finishRedoTarget تحت). لو مخلصتيهاش، تفضل في القايمة للأبد.
+  // ---------------------------------------------------------------------
+
+  function pendingRedoKey(kind, idx) { return kind + ':' + idx; }
+
+  function isPendingRedo(state, kind, idx) {
+    return !!(state.pendingRedo && state.pendingRedo[pendingRedoKey(kind, idx)]);
+  }
+
+  function addPendingRedo(kind, idx) {
+    const state = loadJSON(LS_STATE_KEY);
+    state.pendingRedo = state.pendingRedo || {};
+    state.pendingRedo[pendingRedoKey(kind, idx)] = true;
+    saveJSON(LS_STATE_KEY, state);
+  }
+
+  function removePendingRedo(kind, idx) {
+    const state = loadJSON(LS_STATE_KEY);
+    if (state.pendingRedo) delete state.pendingRedo[pendingRedoKey(kind, idx)];
+    saveJSON(LS_STATE_KEY, state);
+  }
+
   function confirmResetSchedule(kind, idx) {
     const label = kind === 'regular' ? 'جلسة ' + toAr(idx + 1) : (((curriculum.irregular || [])[idx] || {}).verb || '');
     document.getElementById('vpBody').innerHTML =
-      '<div class="vp-summary">هيتصفّر جدول مراجعة ' + label + ' ويبدأ من النهاردة (يوم، بعده ٣ أيام، بعده ٧...).<br>' +
-      '<span style="font-size:.68rem;color:var(--muted);display:block;margin-top:8px;">مش هيمسح إنها مدروسة — بس هيبدأ تايمر المراجعة من الأول.</span></div>' +
-      '<button class="vp-next-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="VerbPractice._resetSessionSchedule(\'' + kind + '\',' + idx + ')">✅ ايوه، صفّريه</button>' +
+      '<div class="vp-summary">' + label + ' هتتضاف لقايمة "🗓️ الجلسات المستحقة".<br>' +
+      '<span style="font-size:.68rem;color:var(--muted);display:block;margin-top:8px;">مواعيد مراجعتها هتتصفّر وتبدأ من جديد بس لما تخلّصي الجلسة دي كاملة من هناك — لو ما خلّصتيهاش، هتفضل في القايمة.</span></div>' +
+      '<button class="vp-next-btn" style="background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="VerbPractice._resetSessionSchedule(\'' + kind + '\',' + idx + ')">✅ ايوه، ضيفيها</button>' +
       '<button class="vp-next-btn" style="margin-top:8px;opacity:.7;" onclick="VerbPractice._openCurriculumSession(\'' + kind + '\',' + idx + ')">إلغاء</button>';
   }
 
   function resetSessionSchedule(kind, idx) {
-    if (kind === 'regular') {
-      const batch = regularBatches()[idx];
+    addPendingRedo(kind, idx);
+    openCurriculumSession(kind, idx);
+  }
+
+  // بعد ما تخلّص جلسة إعادة (redoTarget) فعليًا بكل أسئلتها — هنا بيحصل
+  // التصفير الحقيقي لمواعيد المراجعة، والشيل من قايمة الانتظار
+  function finishRedoTarget(target) {
+    if (target.kind === 'regular') {
+      const batch = regularBatches()[target.idx];
       if (batch) resetRegularBatchReview(batch);
     } else {
-      const cell = (curriculum.irregular || [])[idx];
+      const cell = (curriculum.irregular || [])[target.idx];
       if (cell) resetIrregularCellReview(cell);
     }
-    openCurriculumSession(kind, idx);
+    removePendingRedo(target.kind, target.idx);
   }
 
   function openCurriculumSession(kind, idx) {
@@ -1152,7 +1262,12 @@
         '</div>';
     }
     if (studied) {
-      html += '<button class="vp-next-btn" style="width:100%;margin-top:14px;background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="VerbPractice._confirmResetSchedule(\'' + kind + '\',' + idx + ')">🔄 صفّري مواعيد المراجعة (تبدأ من النهاردة)</button>';
+      if (isPendingRedo(state, kind, idx)) {
+        html += '<div style="width:100%;margin-top:14px;text-align:center;font-size:.72rem;color:var(--gold);font-weight:800;border:1px dashed var(--gold);border-radius:10px;padding:10px;">' +
+          '⏳ مُضافة لقايمة "🗓️ الجلسات المستحقة" — هتتصفّر مواعيدها لما تخلّصيها من هناك</div>';
+      } else {
+        html += '<button class="vp-next-btn" style="width:100%;margin-top:14px;background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="VerbPractice._confirmResetSchedule(\'' + kind + '\',' + idx + ')">🔄 صفّري مواعيد المراجعة (تبدأ من النهاردة)</button>';
+      }
     }
     html += '<button class="vp-next-btn" style="width:100%;margin-top:8px;" onclick="VerbPractice._openSessionsBrowser()">→ رجوع لكل الجلسات</button>';
     document.getElementById('vpBody').innerHTML = html;
@@ -1346,6 +1461,7 @@
     _close: closeOverlay,
     _openCalendar: openCalendar,
     _openDueSessions: openDueSessions,
+    _startRedoSession: startRedoSession,
     _calNav: calNav,
     _openDay: openDay,
     _startReplay: startReplay,

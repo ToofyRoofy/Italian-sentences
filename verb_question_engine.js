@@ -36,13 +36,38 @@ function balanceCorrect(options, correctIndex, seedIndex) {
   return { options: opts, correct: target };
 }
 
+// PRNG بسيط قائم على seed (mulberry32) — عشوائي شكلاً بس متكرر (deterministic)
+// لنفس الـseed، عشان نفس السؤال ميتلخبطش شكله كل مرة يتعاد بناؤه
+function seededRandom(seed) {
+  let s = seed >>> 0;
+  return function () {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function seededShuffle(arr, seed) {
+  const a = arr.slice();
+  const rand = seededRandom(seed);
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    const tmp = a[i];
+    a[i] = a[j];
+    a[j] = tmp;
+  }
+  return a;
+}
+
+// كانت قبل كده بترجّع "نافذة متتالية" من القايمة الأصلية (unique[(seed+i)%len])
+// — إزاحة بس، مش خلط حقيقي. فلو القايمة مبنية بترتيب ثابت (زي ضمائر
+// Io→Tu→Lui→Lei→Noi→Voi→Loro في buildIdentifyItalianQuestion)، المشتّتات
+// كانت دايمًا بتطلع بنفس الترتيب ده تقريبًا. دلوقتي بتعمل خلط فعلي.
 function pickSeeded(pool, seed, count, excludeSet) {
   const unique = [...new Set(pool)].filter((x) => x != null && !excludeSet.has(x));
-  const out = [];
-  for (let i = 0; i < unique.length && out.length < count; i++) {
-    out.push(unique[(seed + i) % unique.length]);
-  }
-  return out;
+  return seededShuffle(unique, seed).slice(0, count);
 }
 
 function getRows(verb, tense) {
@@ -523,6 +548,56 @@ function checkTypedAnswer(input, correct) {
   return { correct: false, closeMatch: false, accentIssue: false };
 }
 
+// زي checkTypedAnswer بالظبط، بس من غير تجريد الضمير من الإجابة — لأن
+// النوع ده (write_from_meaning) الضمير فيه جزء شرعي ومطلوب من الإجابة
+// نفسها (زي "noi facciamo")، مش حاجة نتسامح في وجودها زيادة
+function checkTypedAnswerWithPronoun(input, correct) {
+  const norm = (s) => stripInvisibles(s).toLowerCase();
+  const a = norm(input);
+  const c = norm(correct);
+  if (a === c) return { correct: true, accentIssue: false };
+  const aNoAccent = stripItalianAccents(a);
+  const cNoAccent = stripItalianAccents(c);
+  if (aNoAccent === cNoAccent) return { correct: true, accentIssue: true };
+  if (levenshtein1OrLess(aNoAccent, cNoAccent)) return { correct: false, closeMatch: true, accentIssue: false };
+  return { correct: false, closeMatch: false, accentIssue: false };
+}
+
+// ---------------------------------------------------------------------------
+// بند إضافي: "اكتب من الترجمة" — المعنى بالعربي معروض كامل (الضمير + التصريف،
+// زي "إحنا عملنا")، وهي تكتب الضمير + الفعل الإيطالي مع بعض (زي "noi
+// facciamo"). مختلف عن identify_ar اللي بيخبي الشخص خالص — هنا الشخص
+// معروض صراحةً في الضمير العربي، والمطلوب بس النقل للإيطالي. سؤال واحد
+// لكل شخص من الستة (SIX_SLOT_ROW_INDEX)، للأفعال الشاذة بس — بتتضاف في
+// buildIrregularDeepSession (verb_session_builder.js)
+// ---------------------------------------------------------------------------
+
+function personArabicPronoun(personLabel) {
+  const m = personLabel.match(/\(([^)]+)\)/);
+  return m ? m[1] : personLabel;
+}
+
+function buildWriteFromMeaningQuestion(verbName, tense, slot, verbsByName) {
+  const rows = getRows(verbsByName[verbName], tense);
+  const rowIdx = SIX_SLOT_ROW_INDEX[slot];
+  const row = rows[rowIdx];
+  const pronounAr = personArabicPronoun(row.person);
+  const pronounIt = SUBJECT_PRONOUNS[rowIdx];
+  const form = row.form.charAt(0).toLowerCase() + row.form.slice(1);
+  return {
+    type: 'write_from_meaning',
+    verb: verbName,
+    tense,
+    person: row.person,
+    prompt: pronounAr + ' ' + row.ar,
+    correctAnswer: pronounIt + ' ' + form,
+  };
+}
+
+function buildSixWriteFromMeaningQuestions(verbName, tense, verbsByName) {
+  return [0, 1, 2, 3, 4, 5].map((s) => buildWriteFromMeaningQuestion(verbName, tense, s, verbsByName));
+}
+
 // ---------------------------------------------------------------------------
 // فحص إجابة "المعنى بالعربي" (write_meaning_ar) — بيتحمّل بديلين مفصولين
 // بـ"/" (زي "عايز / يريد") فأي وحدة منهم لوحدها تتحسب صح، وبيوحّد صور الهمزة
@@ -572,7 +647,10 @@ const VerbQuestionEngine = {
   buildSixIdentifyQuestions,
   buildExplanationScreen,
   buildContrastiveQuestion,
+  buildWriteFromMeaningQuestion,
+  buildSixWriteFromMeaningQuestions,
   checkTypedAnswer,
+  checkTypedAnswerWithPronoun,
   checkArabicAnswer,
 };
 if (typeof module !== 'undefined' && module.exports) module.exports = VerbQuestionEngine;

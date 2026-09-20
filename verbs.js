@@ -3801,42 +3801,42 @@ const VERBS = [
   },
   {
     "it": "Fare",
-    "ar": "يعمل / يصنع",
+    "ar": "يفعل / يعمل / يصنع",
     "presente": [
       {
         "person": "Io (أنا)",
         "form": "Faccio",
-        "ar": "بعمل"
+        "ar": "بفعل"
       },
       {
         "person": "Tu (أنت)",
         "form": "Fai",
-        "ar": "بتعمل"
+        "ar": "بتفعل"
       },
       {
         "person": "Lui (هو)",
         "form": "Fa",
-        "ar": "بيعمل"
+        "ar": "بيفعل"
       },
       {
         "person": "Lei (هي)",
         "form": "Fa",
-        "ar": "بتعمل"
+        "ar": "بتفعل"
       },
       {
         "person": "Noi (نحن)",
         "form": "Facciamo",
-        "ar": "بنعمل"
+        "ar": "بنفعل"
       },
       {
         "person": "Voi (أنتم)",
         "form": "Fate",
-        "ar": "بتعملوا"
+        "ar": "بتفعلوا"
       },
       {
         "person": "Loro (هم)",
         "form": "Fanno",
-        "ar": "بيعملوا"
+        "ar": "بيفعلوا"
       }
     ],
     "passato": {
@@ -3846,37 +3846,37 @@ const VERBS = [
         {
           "person": "Io (أنا)",
           "form": "Ho fatto",
-          "ar": "عملت"
+          "ar": "فعلت"
         },
         {
           "person": "Tu (أنت)",
           "form": "Hai fatto",
-          "ar": "عملت"
+          "ar": "فعلت"
         },
         {
           "person": "Lui (هو)",
           "form": "Ha fatto",
-          "ar": "عمل"
+          "ar": "فعل"
         },
         {
           "person": "Lei (هي)",
           "form": "Ha fatto",
-          "ar": "عملت"
+          "ar": "فعلت"
         },
         {
           "person": "Noi (نحن)",
           "form": "Abbiamo fatto",
-          "ar": "عملنا"
+          "ar": "فعلنا"
         },
         {
           "person": "Voi (أنتم)",
           "form": "Avete fatto",
-          "ar": "عملتوا"
+          "ar": "فعلتوا"
         },
         {
           "person": "Loro (هم)",
           "form": "Hanno fatto",
-          "ar": "عملوا"
+          "ar": "فعلوا"
         }
       ]
     },
@@ -3886,37 +3886,37 @@ const VERBS = [
         {
           "person": "Io (أنا)",
           "form": "Facevo",
-          "ar": "كنت بعمل"
+          "ar": "كنت بفعل"
         },
         {
           "person": "Tu (أنت)",
           "form": "Facevi",
-          "ar": "كنت بتعمل"
+          "ar": "كنت بتفعل"
         },
         {
           "person": "Lui (هو)",
           "form": "Faceva",
-          "ar": "كان بيعمل"
+          "ar": "كان بيفعل"
         },
         {
           "person": "Lei (هي)",
           "form": "Faceva",
-          "ar": "كانت بتعمل"
+          "ar": "كانت بتفعل"
         },
         {
           "person": "Noi (نحن)",
           "form": "Facevamo",
-          "ar": "كنا بنعمل"
+          "ar": "كنا بنفعل"
         },
         {
           "person": "Voi (أنتم)",
           "form": "Facevate",
-          "ar": "كنتوا بتعملوا"
+          "ar": "كنتوا بتفعلوا"
         },
         {
           "person": "Loro (هم)",
           "form": "Facevano",
-          "ar": "كانوا بيعملوا"
+          "ar": "كانوا بيفعلوا"
         }
       ]
     },
@@ -3926,27 +3926,27 @@ const VERBS = [
         {
           "person": "Tu (أنت)",
           "form": "Fa' / Fai",
-          "ar": "اعمل"
+          "ar": "افعل"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
           "form": "Faccia",
-          "ar": "اعمل"
+          "ar": "افعل"
         },
         {
           "person": "Noi (نحن)",
           "form": "Facciamo",
-          "ar": "يلا نعمل"
+          "ar": "يلا نفعل"
         },
         {
           "person": "Voi (أنتم)",
           "form": "Fate",
-          "ar": "اعملوا"
+          "ar": "افعلوا"
         },
         {
           "person": "Loro (هم)",
           "form": "Facciano",
-          "ar": "اعملوا"
+          "ar": "افعلوا"
         }
       ]
     }
@@ -10963,44 +10963,44 @@ const VERBS = [
   },
   {
     "it": "Trovarsi",
-    "ar": "يقع / يوجد",
+    "ar": "يتواجد / يجد نفسه / يكون موجودًا",
     "reflexive": true,
     "group": "are",
     "presente": [
       {
         "person": "Io (أنا)",
         "form": "Mi trovo",
-        "ar": "بقع"
+        "ar": "باتواجد"
       },
       {
         "person": "Tu (أنت)",
         "form": "Ti trovi",
-        "ar": "بتقع"
+        "ar": "بتتواجد"
       },
       {
         "person": "Lui (هو)",
         "form": "Si trova",
-        "ar": "بيقع"
+        "ar": "بيتواجد"
       },
       {
         "person": "Lei (هي)",
         "form": "Si trova",
-        "ar": "بتقع"
+        "ar": "بتتواجد"
       },
       {
         "person": "Noi (نحن)",
         "form": "Ci troviamo",
-        "ar": "بنقع"
+        "ar": "بنتواجد"
       },
       {
         "person": "Voi (أنتم)",
         "form": "Vi trovate",
-        "ar": "بتقعوا"
+        "ar": "بتتواجدوا"
       },
       {
         "person": "Loro (هم)",
         "form": "Si trovano",
-        "ar": "بيقعوا"
+        "ar": "بيتواجدوا"
       }
     ],
     "passato": {
@@ -11010,37 +11010,37 @@ const VERBS = [
         {
           "person": "Io (أنا)",
           "form": "Mi sono trovato/a",
-          "ar": "كنت"
+          "ar": "اتواجدت"
         },
         {
           "person": "Tu (أنت)",
           "form": "Ti sei trovato/a",
-          "ar": "كنت"
+          "ar": "اتواجدت"
         },
         {
           "person": "Lui (هو)",
           "form": "Si è trovato",
-          "ar": "كان"
+          "ar": "اتواجد"
         },
         {
           "person": "Lei (هي)",
           "form": "Si è trovata",
-          "ar": "كانت"
+          "ar": "اتواجدت"
         },
         {
           "person": "Noi (نحن)",
           "form": "Ci siamo trovati/e",
-          "ar": "كنا"
+          "ar": "اتواجدنا"
         },
         {
           "person": "Voi (أنتم)",
           "form": "Vi siete trovati/e",
-          "ar": "كنتوا"
+          "ar": "اتواجدتوا"
         },
         {
           "person": "Loro (هم)",
           "form": "Si sono trovati/e",
-          "ar": "كانوا"
+          "ar": "اتواجدوا"
         }
       ]
     },
@@ -11050,37 +11050,37 @@ const VERBS = [
         {
           "person": "Io (أنا)",
           "form": "Mi trovavo",
-          "ar": "كنت بقع"
+          "ar": "كنت باتواجد"
         },
         {
           "person": "Tu (أنت)",
           "form": "Ti trovavi",
-          "ar": "كنت بتقع"
+          "ar": "كنت بتتواجد"
         },
         {
           "person": "Lui (هو)",
           "form": "Si trovava",
-          "ar": "كان بيقع"
+          "ar": "كان بيتواجد"
         },
         {
           "person": "Lei (هي)",
           "form": "Si trovava",
-          "ar": "كانت بتقع"
+          "ar": "كانت بتتواجد"
         },
         {
           "person": "Noi (نحن)",
           "form": "Ci trovavamo",
-          "ar": "كنا بنقع"
+          "ar": "كنا بنتواجد"
         },
         {
           "person": "Voi (أنتم)",
           "form": "Vi trovavate",
-          "ar": "كنتوا بتقعوا"
+          "ar": "كنتوا بتتواجدوا"
         },
         {
           "person": "Loro (هم)",
           "form": "Si trovavano",
-          "ar": "كانوا بيقعوا"
+          "ar": "كانوا بيتواجدوا"
         }
       ]
     },
@@ -11090,27 +11090,27 @@ const VERBS = [
         {
           "person": "Tu (أنت)",
           "form": "Trovati",
-          "ar": "كن هناك"
+          "ar": "كن متواجد"
         },
         {
           "person": "Lei (رسمي - هو/هي)",
           "form": "Si trovi",
-          "ar": "كن هناك"
+          "ar": "كن متواجد"
         },
         {
           "person": "Noi (نحن)",
           "form": "Troviamoci",
-          "ar": "يلا نكون هناك"
+          "ar": "يلا نتواجد"
         },
         {
           "person": "Voi (أنتم)",
           "form": "Trovatevi",
-          "ar": "كونوا هناك"
+          "ar": "كونوا متواجدين"
         },
         {
           "person": "Loro (هم)",
           "form": "Si trovino",
-          "ar": "كونوا هناك"
+          "ar": "كونوا متواجدين"
         }
       ]
     }
