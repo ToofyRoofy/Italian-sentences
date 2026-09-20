@@ -1,7 +1,7 @@
-// Parla Italiano — Service Worker v34 (🎯 إضافة نظام جلسات/مراجعة الأفعال:
+// Parla Italiano — Service Worker v35 (🎯 إضافة نظام جلسات/مراجعة الأفعال:
 // verb_meta.js + verb_progress_engine.js + verb_question_engine.js +
 // verb_session_builder.js + verb_practice.js)
-const SHELL_CACHE = 'parla-shell-v34';
+const SHELL_CACHE = 'parla-shell-v35';
 // نحافظ على كاش الموديلات بين إصدارات واجهة التطبيق لتجنب إعادة تنزيلها.
 const MODEL_CACHE = 'parla-models-v1';
 
@@ -31,7 +31,8 @@ const CORE_FILES = [
   './verb_progress_engine.js',
   './verb_question_engine.js',
   './verb_session_builder.js',
-  './verb_practice.js'
+  './verb_practice.js',
+  './nuovo_choices.js'
 ];
 
 const CDN_HOSTS = [

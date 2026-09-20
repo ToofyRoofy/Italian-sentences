@@ -2025,11 +2025,13 @@ function switchMode(mode){
   const isVerbs=mode==='verbs';
   const isListening=mode==='listening';
   const isLibro=mode==='libro';
+  const isNuovo=mode==='nuovo';
   document.getElementById('tabWord').classList.toggle('active',isWord);
   document.getElementById('tabLesson').classList.toggle('active',isLesson);
   document.getElementById('tabVerbs').classList.toggle('active',isVerbs);
   document.getElementById('tabListening').classList.toggle('active',isListening);
   document.getElementById('tabLibro').classList.toggle('active',isLibro);
+  document.getElementById('tabNuovo').classList.toggle('active',isNuovo);
   if(isLesson&&csActive){
     // خارجين من دراسة المحادثة (نص محادثة) لتبويب الدرس الإنفينيتي الحقيقي —
     // نوقف السلسلة الأوتوماتيكية ونرجّع الـ deck الحقيقي، تقدّم المحادثة محفوظ وهيكمل من مكانه لما نرجعله.
@@ -2046,6 +2048,7 @@ function switchMode(mode){
     document.getElementById('verbsMode').style.display='none';
     document.getElementById('listeningMode').style.display='none';
     document.getElementById('libroMode').style.display='none';
+    document.getElementById('nuovoMode').style.display='none';
     if(wordLibraryOpen){
       document.getElementById('game').style.display='none';
       document.getElementById('lessonMode').style.display='none';
@@ -2077,10 +2080,12 @@ function switchMode(mode){
   document.getElementById('verbsMode').style.display=isVerbs?'flex':'none';
   document.getElementById('listeningMode').style.display=isListening?'flex':'none';
   document.getElementById('libroMode').style.display=isLibro?'flex':'none';
+  document.getElementById('nuovoMode').style.display=isNuovo?'flex':'none';
   if(isLesson && lDeck.length===0)lStart();
   if(isVerbs && document.getElementById('verbGroups').children.length===0)renderLibrary();
   if(isListening && document.getElementById('listeningPassageList').children.length===0)renderListeningLibrary();
   if(isLibro && document.getElementById('libroPassageList').children.length===0)renderLibroLibrary();
+  if(isNuovo && document.getElementById('nuovoPassageList').children.length===0)renderNuovoLibrary();
 }
 
 // ===== VERBS LIBRARY: grid of all reference verbs grouped by ARE/ERE/IRE + tap-for-full-conjugation popup =====
@@ -3011,7 +3016,9 @@ function listeningAnswerQuestion(qi,oi){
     btns[q.correctIdx].style.background='#00e8961a';
     btns[q.correctIdx].style.borderColor='var(--green)';
   }
-  document.getElementById('lpQFeedback'+qi).innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
+  const lpFb=document.getElementById('lpQFeedback'+qi);
+  lpFb.className='q-feedback show '+(ok?'ok':'bad');
+  lpFb.innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
   if(Object.keys(listeningAnswers).length===p.questions.length){
     let correct=0;
     p.questions.forEach((qq,i2)=>{ if(listeningAnswers[i2]===qq.correctIdx)correct++; });
@@ -3509,13 +3516,320 @@ function libroAnswerQuestion(qi,oi){
     btns[q.correctIdx].style.background='#00e8961a';
     btns[q.correctIdx].style.borderColor='var(--green)';
   }
-  document.getElementById('lbQFeedback'+qi).innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
+  const lbFb=document.getElementById('lbQFeedback'+qi);
+  lbFb.className='q-feedback show '+(ok?'ok':'bad');
+  lbFb.innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
   if(Object.keys(libroAnswers).length===p.questions.length){
     let correct=0;
     p.questions.forEach((qq,i2)=>{ if(libroAnswers[i2]===qq.correctIdx)correct++; });
     const resEl=document.getElementById('lbResult');
     resEl.style.display='block';
     resEl.textContent='🏆 خلصت! '+correct+' من '+p.questions.length+' صح.';
+  }
+}
+
+// ===== IL NUOVO: تاب نسخة من الليبرو (نفس الشكل والوظائف بالظبط) بس لقطع "Il Nuovo".
+// نفس شكل LIBRO_PASSAGES: id/titleIt/titleAr/paragraphs[{it,ar,words}]/questions[{q,options,correctIdx,explanation}]
+// ضيف قطعك هنا — القطعة دي مثال بس، امسحها أو عدّلها.
+const NUOVO_PASSAGES=[
+  {
+    id:'nuovo_esempio',
+    titleIt:'Il Nuovo — esempio',
+    titleAr:'إل نوفو — مثال',
+    paragraphs:[
+      {
+        "it": "Questo è un esempio.",
+        "ar": "ده مثال.",
+        "words": [
+          {"it":"esempio","ar":"مثال","note":null,"type":"altro"}
+        ]
+      }
+    ],
+    questions:[
+      {q:"Che cos'è questo?",options:["Un esempio","Un libro"],correctIdx:0,explanation:"\"Questo è un esempio\" — ده مثال."}
+    ]
+  }
+];
+let currentNuovoPassageId=null;
+let nvMarkerPos={}; // {paraIdx: charIndex} — نفس فكرة lpMarkerPos بس لقطع الليبرو
+let nuovoAnswers={}; // {questionIdx: chosenOptionIdx}
+// مفيش overrides/تلوين حروف جر مخصوصة لقطع الليبرو لحد دلوقتي — لو احتجنا
+// نفس فكرة تلوين حروف الجر أو ترتيب قاعدة معيّنة لكلمة بعينها هنستخدم نفس
+// شكل WORD_TOPIC_OVERRIDES/PREP_COLOR_SEQUENCE بس هنا، مفتاح بـ id القطعة.
+const NUOVO_WORD_TOPIC_OVERRIDES={};
+const NUOVO_PREP_COLOR_SEQUENCE={};
+let nvTopicOverrideCounters={};
+let nvPrepColorCounters={};
+function renderNuovoLibrary(){
+  const wrap=document.getElementById('nuovoPassageList');
+  wrap.innerHTML=NUOVO_PASSAGES.map(p=>
+    '<div class="card" style="cursor:pointer;margin-bottom:10px" onclick="nuovoOpenPassage(\''+p.id+'\')">'
+    +'<div class="card-cat">'+escHtml(p.titleAr)+'</div>'
+    +'<div class="card-ar" style="direction:ltr;text-align:left">'+escHtml(p.titleIt)+'</div>'
+    +'<div style="opacity:.6;font-size:13px;margin-top:6px">'+p.paragraphs.length+' فقرات · '+p.questions.length+' أسئلة فهم</div>'
+    +'</div>'
+  ).join('');
+}
+function nvTopicOverride(paraIdx,rawWord){
+  const norm=normalizeGrammarWord(rawWord);
+  const seq=((NUOVO_WORD_TOPIC_OVERRIDES[currentNuovoPassageId]||{})[paraIdx]||{})[norm];
+  if(!seq)return null;
+  const key=paraIdx+'_'+norm;
+  const n=nvTopicOverrideCounters[key]||0;
+  nvTopicOverrideCounters[key]=n+1;
+  const entry=seq[n];
+  if(entry===undefined)return null;
+  return typeof entry==='string'?{topicId:entry,focusWord:rawWord}:{topicId:entry.topic,focusWord:entry.focus||rawWord};
+}
+function nvFindWordMatch(paraIdx,rawWord){
+  const override=nvTopicOverride(paraIdx,rawWord);
+  if(override)return{type:'grammar',topicId:override.topicId,focusWord:override.focusWord};
+  const gTopicId=findGrammarTopicId(rawWord);
+  if(gTopicId)return{type:'grammar',topicId:gTopicId};
+  const p=NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId);
+  const para=p&&p.paragraphs[paraIdx];
+  const words=(para&&para.words)||[];
+  const norm=normalizeGrammarWord(rawWord);
+  let exactIdx=-1,phraseIdx=-1;
+  words.forEach((w,i)=>{
+    const parts=normalizeGrammarWord(w.it).split(/\s+/);
+    if(parts.length===1&&parts[0]===norm&&exactIdx===-1)exactIdx=i;
+    else if(parts.length>1&&parts.includes(norm)&&phraseIdx===-1)phraseIdx=i;
+  });
+  if(exactIdx!==-1)return{type:'curated',idx:exactIdx};
+  if(phraseIdx!==-1)return{type:'curated',idx:phraseIdx};
+  return null;
+}
+function nvNextPrepColor(paraIdx){
+  const seq=(NUOVO_PREP_COLOR_SEQUENCE[currentNuovoPassageId]||[])[paraIdx];
+  if(!seq)return null;
+  const n=nvPrepColorCounters[paraIdx]||0;
+  nvPrepColorCounters[paraIdx]=n+1;
+  return seq[n]!==undefined?seq[n]:null;
+}
+function nvRenderInlineText(text,paraIdx){
+  nvPrepColorCounters[paraIdx]=0;
+  Object.keys(nvTopicOverrideCounters).forEach(k=>{if(k.startsWith(paraIdx+'_'))delete nvTopicOverrideCounters[k];});
+  const re=/[A-Za-zÀ-öø-ÿ]+/g;
+  let out='',last=0,m;
+  while((m=re.exec(text))){
+    out+=escHtml(text.slice(last,m.index));
+    const w=m[0];
+    const match=nvFindWordMatch(paraIdx,w);
+    const cls='lp-word'+(match?(match.type==='grammar'?' has-grammar':' has-info'):'');
+    const wEsc=escHtml(w).replace(/'/g,'&#39;');
+    let styleAttr='',color=null;
+    if(match&&match.type==='grammar'&&PREP_TOPIC_IDS.includes(match.topicId)){
+      color=nvNextPrepColor(paraIdx);
+      if(color)styleAttr=' style="color:'+color+';font-weight:800;border-bottom-color:'+color+'"';
+    }
+    const colorArg=color?',\''+color+'\'':',null';
+    const topicArg=(match&&match.type==='grammar')?',\''+match.topicId+'\'':',null';
+    const focusWordEsc=(match&&match.type==='grammar'&&match.focusWord)?escHtml(match.focusWord).replace(/'/g,'&#39;'):w;
+    const focusArg=',\''+focusWordEsc.replace(/'/g,"\\'")+'\'';
+    out+='<span class="'+cls+'"'+styleAttr+' id="nvTok'+paraIdx+'_'+m.index+'" onclick="event.stopPropagation();nvWordTap('+paraIdx+',\''+wEsc+'\','+m.index+colorArg+topicArg+focusArg+')">'+escHtml(w)+'</span>';
+    last=re.lastIndex;
+  }
+  out+=escHtml(text.slice(last));
+  return out;
+}
+function nvWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordForModal){
+  speakWord(rawWord);
+  if(charIndex!==undefined){
+    const prevPos=nvMarkerPos[paraIdx];
+    if(prevPos!==undefined){
+      const prevEl=document.getElementById('nvTok'+paraIdx+'_'+prevPos);
+      if(prevEl)prevEl.classList.remove('lp-marker');
+    }
+    nvMarkerPos[paraIdx]=charIndex;
+    const curEl=document.getElementById('nvTok'+paraIdx+'_'+charIndex);
+    if(curEl)curEl.classList.add('lp-marker');
+    const playBtn=document.getElementById('nvPlayFromBtn'+paraIdx);
+    if(playBtn)playBtn.style.display='inline-block';
+  }
+  if(forcedTopicId){
+    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor);
+  }
+}
+function nvPlayFromMarker(paraIdx){
+  const p=NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId);
+  const para=p&&p.paragraphs[paraIdx];
+  if(!para)return;
+  const pos=nvMarkerPos[paraIdx]||0;
+  speakWord(para.it.slice(pos));
+}
+function renderNuovoWordBreakdown(words,paraIdx){
+  return '<div class="breakdown" style="display:flex;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)">'+words.map((w,wIdx)=>{
+    const gTopicId=w.grammarId||findGrammarTopicId(w.it);
+    const vInfo=findVerbFromNote(w.note);
+    const famData=findWordFamily(w.it);
+    const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
+    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    return '<div class="bd-row" id="nvBdRow'+paraIdx+'_'+wIdx+'">'
+      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
+      +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
+      +'<span class="bd-note">'+noteTxt+'</span>'
+    +'</div>';
+  }).join('')+'</div>';
+}
+function nuovoToggleParagraph(i){
+  const box=document.getElementById('nvBreakdown'+i);
+  const arrow=document.getElementById('nvArrow'+i);
+  if(!box)return;
+  const isOpen=box.style.display==='block';
+  box.style.display=isOpen?'none':'block';
+  if(arrow)arrow.textContent=isOpen?'شرح الكلمات ▾':'إخفاء الشرح ▴';
+}
+function nuovoOpenPassage(id){
+  const p=NUOVO_PASSAGES.find(x=>x.id===id);
+  if(!p)return;
+  currentNuovoPassageId=id;
+  nuovoAnswers={};
+  nvMarkerPos={};
+  document.getElementById('nuovoLibrary').style.display='none';
+  document.getElementById('nuovoDetail').style.display='block';
+  document.getElementById('nvTitleAr').textContent=p.titleAr;
+  document.getElementById('nvTitleIt').textContent=p.titleIt;
+  document.getElementById('nvParagraphs').innerHTML=p.paragraphs.map((para,i)=>
+    '<div style="margin-bottom:14px;padding:10px;border:1px solid var(--border);border-radius:10px">'
+    +'<div style="display:flex;align-items:flex-start;gap:8px">'
+    +'<button class="tts-btn" style="padding:6px 10px;font-size:13px;flex-shrink:0" onclick="event.stopPropagation();nuovoSpeakParagraph('+i+')">🔊</button>'
+    +'<div style="direction:ltr;text-align:left;font-size:16px;line-height:1.85;flex:1">'+nvRenderInlineText(para.it,i)+'</div>'
+    +'</div>'
+    +'<div style="opacity:.75;font-size:13.5px;margin-top:8px">'+escHtml(para.ar)+'</div>'
+    +'<button class="tts-btn" id="nvPlayFromBtn'+i+'" style="margin-top:8px;font-size:12.5px;padding:5px 10px" onclick="event.stopPropagation();nvPlayFromMarker('+i+')">▶️ اسمع من هنا</button>'
+    +(para.words&&para.words.length?(
+      '<div class="skip-link" id="nvArrow'+i+'" style="margin-top:8px;cursor:pointer;display:inline-block" onclick="nuovoToggleParagraph('+i+')">شرح الكلمات ▾</div>'
+      +'<div id="nvBreakdown'+i+'" style="display:none">'+renderNuovoWordBreakdown(para.words,i)+'</div>'
+    ):'')
+    +'</div>'
+  ).join('');
+  document.getElementById('nvQuestions').innerHTML=p.questions.map((q,qi)=>
+    '<div class="drill-box show" style="margin-bottom:12px">'
+    +'<div style="margin-bottom:8px;direction:ltr;text-align:left;line-height:1.7">'+(qi+1)+'. '+nvRenderInlineText(q.q,-1)+'</div>'
+    +'<div class="q-options" id="nvQOptions'+qi+'">'
+    +q.options.map((o,oi)=>'<button class="q-opt" onclick="nuovoAnswerQuestion('+qi+','+oi+')">'+escHtml(o)+'</button>').join('')
+    +'</div>'
+    +'<div class="q-feedback" id="nvQFeedback'+qi+'"></div>'
+    +'</div>'
+  ).join('');
+  document.getElementById('nvResult').style.display='none';
+  window.scrollTo(0,0);
+}
+function nuovoBackToLibrary(){
+  document.getElementById('nuovoDetail').style.display='none';
+  document.getElementById('nuovoLibrary').style.display='block';
+  currentNuovoPassageId=null;
+}
+function nuovoSpeakAll(){
+  const p=NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId);
+  if(!p)return;
+  speakWord(p.paragraphs.map(x=>x.it).join(' '));
+}
+function nuovoSpeakParagraph(i){
+  const p=NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId);
+  if(!p||!p.paragraphs[i])return;
+  speakWord(p.paragraphs[i].it);
+}
+function nuovoAnswerQuestion(qi,oi){
+  if(nuovoAnswers[qi]!==undefined)return; // إجابة واحدة لكل سؤال، زي باقي التطبيق
+  const p=NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId);
+  const q=p.questions[qi];
+  nuovoAnswers[qi]=oi;
+  const btns=[...document.getElementById('nvQOptions'+qi).children];
+  btns.forEach(b=>b.disabled=true);
+  const ok=oi===q.correctIdx;
+  if(ok){
+    btns[oi].classList.add('ok');btns[oi].style.background='#00e8961a';btns[oi].style.borderColor='var(--green)';
+    floatEmoji('✅');
+  } else {
+    btns[oi].classList.add('bad');btns[oi].style.background='#ff4d6d1a';btns[oi].style.borderColor='var(--red)';
+    btns[q.correctIdx].classList.add('ok');
+    btns[q.correctIdx].style.background='#00e8961a';
+    btns[q.correctIdx].style.borderColor='var(--green)';
+  }
+  const nvFb=document.getElementById('nvQFeedback'+qi);
+  nvFb.className='q-feedback show '+(ok?'ok':'bad');
+  nvFb.innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
+  if(Object.keys(nuovoAnswers).length===p.questions.length){
+    let correct=0;
+    p.questions.forEach((qq,i2)=>{ if(nuovoAnswers[i2]===qq.correctIdx)correct++; });
+    const resEl=document.getElementById('nvResult');
+    resEl.style.display='block';
+    resEl.textContent='🏆 خلصت! '+correct+' من '+p.questions.length+' صح.';
+  }
+}
+
+
+// ===== NUOVO ▸ تاب فرعي "الاختيارات": مجموعات أسئلة اختيار من متعدد (NUOVO_CHOICE_SETS في nuovo_choices.js) —
+// نفس نظام القطع: كارت لكل مجموعة في القايمة، دوسة عليه بتفتح صفحة الأسئلة، وزرار رجوع.
+let nuovoChAnswers={};
+let currentNuovoChSetId=null;
+function nuovoSwitchSub(which){
+  document.getElementById('nuovoPassagesPane').style.display=which==='passages'?'block':'none';
+  document.getElementById('nuovoChoicesPane').style.display=which==='choices'?'block':'none';
+  document.getElementById('nuovoSubPassages').classList.toggle('active',which==='passages');
+  document.getElementById('nuovoSubChoices').classList.toggle('active',which==='choices');
+  if(which==='choices'&&document.getElementById('nuovoChList').children.length===0)nuovoChRenderLibrary();
+}
+function nuovoChRenderLibrary(){
+  document.getElementById('nuovoChList').innerHTML=NUOVO_CHOICE_SETS.map(s=>
+    '<div class="card" style="cursor:pointer;margin-bottom:10px" onclick="nuovoChOpen(\''+s.id+'\')">'
+    +'<div class="card-ar" style="direction:ltr;text-align:left">'+escHtml(s.titleIt)+'</div>'
+    +'<div style="opacity:.6;font-size:13px;margin-top:6px">'+s.questions.length+' سؤال</div>'
+    +'</div>'
+  ).join('');
+}
+function nuovoChOpen(id){
+  const s=NUOVO_CHOICE_SETS.find(x=>x.id===id);
+  if(!s)return;
+  currentNuovoChSetId=id;
+  nuovoChAnswers={};
+  document.getElementById('nuovoChLibrary').style.display='none';
+  document.getElementById('nuovoChDetail').style.display='block';
+  document.getElementById('nuovoChTitle').textContent=s.titleIt;
+  document.getElementById('nuovoChProgress').textContent='0 / '+s.questions.length;
+  document.getElementById('nuovoChQuestions').innerHTML=s.questions.map((q,qi)=>
+    '<div class="drill-box show" style="margin-bottom:12px">'
+    +'<div style="margin-bottom:8px;direction:ltr;text-align:left;line-height:1.7">'+(qi+1)+'. '+nvRenderInlineText(q.q,-1).replace('____','<span style="letter-spacing:2px;opacity:.7">______</span>')+'</div>'
+    +'<div class="q-options" id="nuovoChOpts'+qi+'">'
+    +q.options.map((o,oi)=>'<button class="q-opt" onclick="nuovoChAnswer('+qi+','+oi+')">'+escHtml(o)+'</button>').join('')
+    +'</div>'
+    +'<div class="q-feedback" id="nuovoChFb'+qi+'"></div>'
+    +'</div>'
+  ).join('');
+  document.getElementById('nuovoChResult').style.display='none';
+  window.scrollTo(0,0);
+}
+function nuovoChBack(){
+  document.getElementById('nuovoChDetail').style.display='none';
+  document.getElementById('nuovoChLibrary').style.display='block';
+  currentNuovoChSetId=null;
+}
+function nuovoChAnswer(qi,oi){
+  if(nuovoChAnswers[qi]!==undefined)return;
+  const s=NUOVO_CHOICE_SETS.find(x=>x.id===currentNuovoChSetId);
+  if(!s)return;
+  const q=s.questions[qi];
+  nuovoChAnswers[qi]=oi;
+  const btns=[...document.getElementById('nuovoChOpts'+qi).children];
+  btns.forEach(b=>b.disabled=true);
+  const ok=oi===q.correctIdx;
+  if(ok){btns[oi].classList.add('ok');floatEmoji('✅');}
+  else{btns[oi].classList.add('bad');btns[q.correctIdx].classList.add('ok');}
+  const fb=document.getElementById('nuovoChFb'+qi);
+  fb.className='q-feedback show '+(ok?'ok':'bad');
+  fb.innerHTML=(ok?'✅ صح! ':'❌ ')+escHtml(q.explanation||'');
+  const done=Object.keys(nuovoChAnswers).length, total=s.questions.length;
+  document.getElementById('nuovoChProgress').textContent=done+' / '+total;
+  if(done===total){
+    let correct=0;
+    s.questions.forEach((qq,i)=>{if(nuovoChAnswers[i]===qq.correctIdx)correct++;});
+    const r=document.getElementById('nuovoChResult');
+    r.style.display='block';
+    r.innerHTML='🏆 خلصت! '+correct+' من '+total+' صح.<br><button class="tts-btn" style="margin-top:10px" onclick="nuovoChOpen(\''+s.id+'\')">🔄 ابدأ من الأول</button>';
   }
 }
 
