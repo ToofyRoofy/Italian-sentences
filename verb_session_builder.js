@@ -4,13 +4,19 @@
 // مستخدمة verb_meta.js (بيانات) + verb_progress_engine.js (حالة) +
 // verb_question_engine.js (أسئلة) مع بعض.
 //
-// 3 أنواع جلسات: تعلّم مختلط (منتظم) / تعميق فردي (شاذ) / مراجعة يومية.
-// النطاق: الأزمنة التلاتة بس (مضارع/ماضي/ناقص) — الأمر (imperativo) مش
-// جزء من النظام ده لسه، زي ما اتحدد في الخطة.
+// 4 أنواع جلسات: تعلّم مختلط (منتظم) / تعميق فردي (شاذ) / مراجعة يومية /
+// تكملة زمن (🔮 futuro، جديدة في المرحلة 2). النطاق: presente/passato/
+// imperfetto/futuro — الأمر (imperativo) مش جزء من النظام ده لسه، زي ما
+// اتحدد في الخطة.
 // ============================================================================
 
 const PE = (typeof module !== 'undefined' && module.exports) ? require('./verb_progress_engine.js') : window.VerbProgressEngine;
 const QE = (typeof module !== 'undefined' && module.exports) ? require('./verb_question_engine.js') : window.VerbQuestionEngine;
+
+// قرار 4 في الخطة (خيار A، الافتراضي): تعرّف عربي (identify_ar) في جلسة
+// التعلّم المختلط بقى على futuro بدل imperfetto. لو حبينا نرجعها imperfetto
+// تاني، سطر واحد يتغيّر هنا وخلاص.
+const IDENTIFY_AR_FOCUS_TENSE = 'futuro';
 
 
 // ---------------------------------------------------------------------------
@@ -82,35 +88,43 @@ function buildRegularLearningSession(state, curriculumOrder, verbMetaMap, verbsB
 
   const perVerb = verbs.map((verbName) => {
     const meta = verbMetaMap[verbName];
+    const impFut = QE.isImpersonalFuturo(verbsByName[verbName]); // Piovere: futuro على Lui بس
     const items = [];
     for (let i = 0; i < 3; i++) items.push(QE.buildMeaningMCQ(verbName, verbsByName, allVerbNames, i));
     items.push(QE.buildWriteMeaningPrompt(verbName, verbsByName));
     items.push(QE.buildWriteInfinitivePrompt(verbName, verbsByName));
     items.push(QE.buildWriteInfinitivePrompt(verbName, verbsByName));
     QE.THREE_TENSES.forEach((t) => {
+      if (t === 'futuro' && impFut) return; // مفيش جدول 7 أشخاص لفعل غير شخصي
       if (PE.isIrregularCell(meta, t)) return; // الزمن ده شاذ لنفس الفعل ده تحديدًا (زي passato بتاع Prendere) — هياخد جلسة تعميق فردي مخصوصة بدل سؤال جدول تعرّفي عمره ما هيتخرّج
       items.push(QE.buildFullTableQuestion(verbName, t, verbMetaMap, verbsByName, allVerbNames, { forceCrossGroup: singleGroup }));
     });
     const pair = QE.pickRegularProductionPair(verbName, meta, 0);
-    pair.forEach((c) => items.push(QE.buildProductionQuestion(verbName, c.tense, c.slot, verbsByName)));
+    pair.forEach((c) => items.push(QE.buildProductionQuestion(verbName, c.tense, (c.tense === 'futuro' && impFut) ? QE.IMPERSONAL_FUTURO_SLOT : c.slot, verbsByName)));
 
     // اتنين سؤال "تحليل عكسي" زي بالظبط اللي في جلسة التعميق الفردي الشاذ
     // (buildIdentifyArabicQuestion): المعنى بالعربي بيتعرض لوحده من غير ما
     // نوضح الشخص ولا الفعل، وهي تكتب الشكل الإيطالي بنفسها. مقصورة على
-    // imperfetto (الماضي المستمر) بالذات — ده الزمن اللي طلب تركيز عليه هنا.
-    // الشخصين بيتحددوا بـseed ثابت عشان يفضلوا نفس الاتنين لنفس الفعل دايمًا
-    const idArSeed = QE.seedFromString(verbName + ':idar:imperfetto');
+    // IDENTIFY_AR_FOCUS_TENSE (futuro، قرار 4) — ده الزمن اللي طلب تركيز
+    // عليه هنا. الشخصين بيتحددوا بـseed ثابت عشان يفضلوا نفس الاتنين لنفس الفعل دايمًا
+    const idArSeed = QE.seedFromString(verbName + ':idar:' + IDENTIFY_AR_FOCUS_TENSE);
     const slot1 = idArSeed % 6;
     const slot2 = (slot1 + 1 + (idArSeed % 4)) % 6; // إزاحة 1-4 تضمن اختلافه عن slot1
-    [slot1, slot2].forEach((slot) => items.push(QE.buildIdentifyArabicQuestion(verbName, 'imperfetto', slot, verbsByName)));
+    const idArSlots = (IDENTIFY_AR_FOCUS_TENSE === 'futuro' && impFut) ? [QE.IMPERSONAL_FUTURO_SLOT] : [slot1, slot2];
+    idArSlots.forEach((slot) => items.push(QE.buildIdentifyArabicQuestion(verbName, IDENTIFY_AR_FOCUS_TENSE, slot, verbsByName)));
     return { verb: verbName, items };
   });
 
   // أثر جانبي: تسجيل إنهم اتقدّموا (مش هنا مكان تسجيل صح/غلط الفعلي، ده بيحصل
-  // وقت ما المتعلّم يجاوب فعليًا عن طريق recordLearningAnswer من برّه)
+  // وقت ما المتعلّم يجاوب فعليًا عن طريق recordLearningAnswer من برّه). وبما
+  // إن الأفعال دي بقت بتاخد futuro أوتوماتيك جوه الحلقة فوق (ضمن PRACTICE_TENSES)،
+  // نعلّم إنها "اتغطّت" بالنسبة لـfuturo كمان عشان جلسة التكملة (🔮 4.6) متعرضهاش تاني
   perVerb.forEach(({ verb }) => {
     state.introduced = state.introduced || {};
     state.introduced[verb] = true;
+    state.introducedTenses = state.introducedTenses || {};
+    state.introducedTenses.futuro = state.introducedTenses.futuro || {};
+    state.introducedTenses.futuro[verb] = true;
   });
 
   const totalQuestions = perVerb.reduce((sum, v) => sum + v.items.length, 0);
@@ -154,15 +168,29 @@ function buildIrregularDeepSession(state, curriculumOrder, verbMetaMap, verbsByN
   items.push(...QE.buildSixWriteFromMeaningQuestions(verbName, tense, verbsByName));
 
   if (tense === 'presente') {
-    // المقارنة التباينية شغالة لـpresente بس حاليًا (نفس قيد verb_question_engine.js)
+    // المقارنة التباينية — presente
     [0, 3].forEach((slot) => {
       const c = QE.buildContrastiveQuestion(verbName, slot, verbsByName);
+      if (c) items.push(c);
+    });
+  } else if (tense === 'futuro') {
+    // 🔮 نفس المقارنة التباينية بس على futuro (4.4، دالة موازية) — بتشتغل
+    // تلقائي لأي فعل شاذ مصدره عادي، ومستبعدة تلقائي لـPorre/Tradurre/Produrre
+    [0, 3].forEach((slot) => {
+      const c = QE.buildFuturoContrastiveQuestion(verbName, slot, verbsByName);
       if (c) items.push(c);
     });
   }
 
   state.introduced = state.introduced || {};
   state.introduced[verbName] = true;
+  // الزمن اللي اتعمّقنا فيه هنا بس هو اللي فعليًا اتغطّى بأسئلة — لو futuro
+  // تحديدًا، نعلّمه عشان جلسة التكملة (buildTenseCatchupSession) متعرضهوش تاني
+  if (tense === 'futuro') {
+    state.introducedTenses = state.introducedTenses || {};
+    state.introducedTenses.futuro = state.introducedTenses.futuro || {};
+    state.introducedTenses.futuro[verbName] = true;
+  }
   // نضمن وجود مدخل تقدّم للخلية دي حتى لو لسه محدّش جاوب — عشان nextIrregularCell
   // ميرجّعش نفس الخلية تاني في نفس اليوم لو اتنادت الدالة أكتر من مرة
   PE.ensureEntry(state, PE.cellKey(verbName, tense));
@@ -229,7 +257,8 @@ function buildReviewQuestionForKey(key, entry, info, verbsByName, verbMetaMap, t
   const tense = info.tense;
   if (!rep) return null;
   const seed = QE.seedFromString(key + today);
-  const slot = seed % 6;
+  // فعل غير شخصي في futuro (Piovere): دايمًا Lui
+  const slot = (tense === 'futuro' && QE.isImpersonalFuturo(verbsByName[rep])) ? QE.IMPERSONAL_FUTURO_SLOT : seed % 6;
 
   if (entry.mode === 'type') {
     const q = QE.buildProductionQuestion(rep, tense, slot, verbsByName);
@@ -283,8 +312,57 @@ function buildReplayReviewSession(state, curriculumOrder, verbMetaMap, verbsByNa
   return { type: 'daily_review', count: questions.length, totalDue: questions.length, questions };
 }
 
+// ---------------------------------------------------------------------------
+// 🔮 جلسة "تكملة زمن" (4.6 في الخطة) — للأفعال اللي اتعلّمت قبل ما futuro
+// يتضاف (state.introduced[verb]=true من غير state.introducedTenses.futuro).
+// الأفعال الشاذة في futuro مش محتاجة الجلسة دي: خلاياها الجديدة (16) بتظهر
+// تلقائي في طابور nextIrregularCell زي أي خلية شاذة تانية، فبنستبعدها هنا
+// عشان ما تتكررش في المسارين. لكل فعل 4 أسئلة (جدول + 2 إنتاج + تعرّف).
+// ---------------------------------------------------------------------------
+
+function tenseCatchupEligibleVerbs(state, curriculumOrder, verbMetaMap, tense) {
+  const introduced = state.introduced || {};
+  const caughtUp = (state.introducedTenses && state.introducedTenses[tense]) || {};
+  return curriculumOrder.regular.filter((v) => introduced[v] && !caughtUp[v] && !PE.isIrregularCell(verbMetaMap[v], tense));
+}
+
+function buildTenseCatchupSession(state, curriculumOrder, verbMetaMap, verbsByName, allVerbNames, tense, count, explicitVerbs) {
+  count = count || 5;
+  const verbs = (explicitVerbs && explicitVerbs.length)
+    ? explicitVerbs.slice()
+    : tenseCatchupEligibleVerbs(state, curriculumOrder, verbMetaMap, tense).slice(0, count);
+
+  const perVerb = verbs.map((verbName) => {
+    const items = [];
+    if (tense === 'futuro' && QE.isImpersonalFuturo(verbsByName[verbName])) {
+      // Piovere: صف Lui بس — إنتاج + تعرّف عربي، من غير جدول 7 أشخاص
+      items.push(QE.buildProductionQuestion(verbName, tense, QE.IMPERSONAL_FUTURO_SLOT, verbsByName));
+      items.push(QE.buildIdentifyArabicQuestion(verbName, tense, QE.IMPERSONAL_FUTURO_SLOT, verbsByName));
+      return { verb: verbName, items };
+    }
+    items.push(QE.buildFullTableQuestion(verbName, tense, verbMetaMap, verbsByName, allVerbNames));
+    const seed = QE.seedFromString(verbName + ':catchup:' + tense);
+    const slot1 = seed % 6;
+    const slot2 = (slot1 + 1 + (seed % 4)) % 6;
+    [slot1, slot2].forEach((slot) => items.push(QE.buildProductionQuestion(verbName, tense, slot, verbsByName)));
+    items.push(QE.buildIdentifyArabicQuestion(verbName, tense, (slot1 + 2) % 6, verbsByName));
+    return { verb: verbName, items };
+  });
+
+  perVerb.forEach(({ verb }) => {
+    state.introducedTenses = state.introducedTenses || {};
+    state.introducedTenses[tense] = state.introducedTenses[tense] || {};
+    state.introducedTenses[tense][verb] = true;
+  });
+
+  const totalQuestions = perVerb.reduce((sum, v) => sum + v.items.length, 0);
+  return { type: 'tense_catchup', tense, verbs: perVerb, totalQuestions };
+}
+
 const VerbSessionBuilder = {
   THREE_TENSES: QE.THREE_TENSES,
+  PRACTICE_TENSES: QE.PRACTICE_TENSES,
+  IDENTIFY_AR_FOCUS_TENSE,
   isRegularTrack,
   getCurriculumOrder,
   nextRegularVerbs,
@@ -293,6 +371,8 @@ const VerbSessionBuilder = {
   buildIrregularDeepSession,
   buildDailyReviewSession,
   buildReplayReviewSession,
+  tenseCatchupEligibleVerbs,
+  buildTenseCatchupSession,
 };
 if (typeof module !== 'undefined' && module.exports) module.exports = VerbSessionBuilder;
 if (typeof window !== 'undefined') window.VerbSessionBuilder = VerbSessionBuilder;

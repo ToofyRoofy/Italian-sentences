@@ -14,7 +14,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Andare": {
     "freqRank": 7,
@@ -24,7 +25,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Arrivare": {
     "freqRank": 277,
@@ -34,7 +36,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Ascoltare": {
     "freqRank": 145,
@@ -44,7 +47,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Aspettare": {
     "freqRank": 41,
@@ -54,7 +58,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Bussare": {
     "freqRank": 1552,
@@ -64,7 +69,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Camminare": {
     "freqRank": 718,
@@ -74,7 +80,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Cercare": {
     "freqRank": 24,
@@ -84,7 +91,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
   },
   "Chiamare": {
     "freqRank": 48,
@@ -94,7 +102,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Comprare": {
     "freqRank": 26,
@@ -104,7 +113,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Giocare": {
     "freqRank": 82,
@@ -114,7 +124,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
   },
   "Guardare": {
     "freqRank": 19,
@@ -124,7 +135,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Incontrare": {
     "freqRank": 240,
@@ -134,7 +146,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Lavorare": {
     "freqRank": 215,
@@ -144,7 +157,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Mangiare": {
     "freqRank": 49,
@@ -154,7 +168,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "ciare_giare_drop_i" }
   },
   "Pagare": {
     "freqRank": 42,
@@ -164,7 +179,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
   },
   "Portare": {
     "freqRank": 10,
@@ -174,7 +190,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Restare": {
     "freqRank": 195,
@@ -184,7 +201,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Ringraziare": {
     "freqRank": 516,
@@ -194,7 +212,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Salutare": {
     "freqRank": 143,
@@ -204,7 +223,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Studiare": {
     "freqRank": 136,
@@ -214,7 +234,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Telefonare": {
     "freqRank": 616,
@@ -224,7 +245,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Tornare": {
     "freqRank": 155,
@@ -234,7 +256,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Trovare": {
     "freqRank": 11,
@@ -244,7 +267,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Viaggiare": {
     "freqRank": 1041,
@@ -254,7 +278,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "ciare_giare_drop_i" }
   },
   "Fare": {
     "freqRank": 1,
@@ -264,7 +289,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "true_irregular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Dare": {
     "freqRank": 5,
@@ -274,7 +300,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Funzionare": {
     "freqRank": 1421,
@@ -284,7 +311,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Parlare": {
     "freqRank": 116,
@@ -294,7 +322,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Passeggiare": {
     "freqRank": 1299,
@@ -304,7 +333,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "ciare_giare_drop_i" }
   },
   "Svegliarsi": {
     "freqRank": 432,
@@ -314,7 +344,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Credere": {
     "freqRank": 151,
@@ -324,7 +355,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Leggere": {
     "freqRank": 39,
@@ -334,7 +366,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Prendere": {
     "freqRank": 18,
@@ -344,7 +377,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Promettere": {
     "freqRank": 218,
@@ -354,7 +388,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Scrivere": {
     "freqRank": 33,
@@ -364,7 +399,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Vedere": {
     "freqRank": 8,
@@ -374,7 +410,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Vendere": {
     "freqRank": 34,
@@ -384,7 +421,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Avere": {
     "freqRank": 35,
@@ -394,7 +432,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Essere": {
     "freqRank": 54,
@@ -404,7 +443,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "true_irregular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Potere": {
     "freqRank": 3,
@@ -414,7 +454,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Sapere": {
     "freqRank": 80,
@@ -424,7 +465,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Volere": {
     "freqRank": 4,
@@ -434,7 +476,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Tacere": {
     "freqRank": 748,
@@ -444,7 +487,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Apprendere": {
     "freqRank": 857,
@@ -454,7 +498,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Capire": {
     "freqRank": 527,
@@ -464,7 +509,8 @@ const VERB_META = {
     "presente": { "category": "isco_pattern", "patternFamily": "isco" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" }
+    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Dire": {
     "freqRank": 17,
@@ -474,7 +520,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "true_irregular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Finire": {
     "freqRank": 265,
@@ -484,7 +531,8 @@ const VERB_META = {
     "presente": { "category": "isco_pattern", "patternFamily": "isco" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" }
+    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Partire": {
     "freqRank": 331,
@@ -494,7 +542,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Pulire": {
     "freqRank": 428,
@@ -504,7 +553,8 @@ const VERB_META = {
     "presente": { "category": "isco_pattern", "patternFamily": "isco" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" }
+    "imperativo": { "category": "isco_pattern", "patternFamily": "isco" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Uscire": {
     "freqRank": 418,
@@ -514,7 +564,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Cucinare": {
     "freqRank": 416,
@@ -524,7 +575,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Pensare": {
     "freqRank": 117,
@@ -534,7 +586,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Piangere": {
     "freqRank": 479,
@@ -544,7 +597,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Ridere": {
     "freqRank": 806,
@@ -554,7 +608,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Dormire": {
     "freqRank": 763,
@@ -564,7 +619,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Sognare": {
     "freqRank": 206,
@@ -574,7 +630,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Sperare": {
     "freqRank": 491,
@@ -584,7 +641,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Spiegare": {
     "freqRank": 31,
@@ -594,7 +652,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
   },
   "Stare": {
     "freqRank": 27,
@@ -604,7 +663,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Bere": {
     "freqRank": 319,
@@ -614,7 +674,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "true_irregular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Porre": {
     "freqRank": 255,
@@ -624,7 +685,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "true_irregular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Tradurre": {
     "freqRank": 1039,
@@ -634,7 +696,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "true_irregular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Produrre": {
     "freqRank": 802,
@@ -644,7 +707,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "true_irregular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Alzarsi": {
     "freqRank": 176,
@@ -654,7 +718,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Lavarsi": {
     "freqRank": 129,
@@ -664,7 +729,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Chiamarsi": {
     "freqRank": 48,
@@ -674,7 +740,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Riposarsi": {
     "freqRank": 811,
@@ -684,7 +751,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Prepararsi": {
     "freqRank": 63,
@@ -694,7 +762,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Arrabbiarsi": {
     "freqRank": 1547,
@@ -704,7 +773,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Ricordarsi": {
     "freqRank": 20,
@@ -714,7 +784,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Addormentarsi": {
     "freqRank": 562,
@@ -724,7 +795,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Trovarsi": {
     "freqRank": 11,
@@ -734,7 +806,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Sposarsi": {
     "freqRank": 233,
@@ -744,7 +817,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Laurearsi": {
     "freqRank": 1184,
@@ -754,7 +828,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Annoiarsi": {
     "freqRank": 828,
@@ -764,7 +839,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Pettinarsi": {
     "freqRank": 1894,
@@ -774,7 +850,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Vestirsi": {
     "freqRank": 463,
@@ -784,7 +861,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Divertirsi": {
     "freqRank": 653,
@@ -794,7 +872,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Sentirsi": {
     "freqRank": 52,
@@ -804,7 +883,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Mettersi": {
     "freqRank": 9,
@@ -814,7 +894,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Sedersi": {
     "freqRank": 335,
@@ -824,7 +905,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Accorgersi": {
     "freqRank": 1101,
@@ -834,7 +916,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Passare": {
     "freqRank": 13,
@@ -844,7 +927,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Significare": {
     "freqRank": 986,
@@ -854,7 +938,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "care_gare_h" },
+    "futuro": { "category": "orthographic_only", "patternFamily": "care_gare_h" }
   },
   "Sentire": {
     "freqRank": 52,
@@ -864,7 +949,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Conoscere": {
     "freqRank": 262,
@@ -874,7 +960,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Dovere": {
     "freqRank": 2,
@@ -884,7 +971,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "true_irregular", "patternFamily": null }
   },
   "Piovere": {
     "freqRank": 2132,
@@ -894,7 +982,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Piacere": {
     "freqRank": 425,
@@ -904,7 +993,8 @@ const VERB_META = {
     "presente": { "category": "true_irregular", "patternFamily": null },
     "passato": { "category": "true_irregular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Cambiare": {
     "freqRank": 75,
@@ -914,7 +1004,8 @@ const VERB_META = {
     "presente": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" }
+    "imperativo": { "category": "orthographic_only", "patternFamily": "iare_drop_i" },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Bastare": {
     "freqRank": 624,
@@ -924,7 +1015,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "true_irregular", "patternFamily": null }
+    "imperativo": { "category": "true_irregular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Organizzarsi": {
     "freqRank": 102,
@@ -934,7 +1026,8 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "essere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   },
   "Cenare": {
     "freqRank": 2085,
@@ -944,6 +1037,7 @@ const VERB_META = {
     "presente": { "category": "fully_regular", "patternFamily": null },
     "passato": { "category": "fully_regular", "aux": "avere" },
     "imperfetto": { "category": "fully_regular" },
-    "imperativo": { "category": "fully_regular", "patternFamily": null }
+    "imperativo": { "category": "fully_regular", "patternFamily": null },
+    "futuro": { "category": "fully_regular", "patternFamily": null }
   }
 };

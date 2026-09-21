@@ -688,6 +688,7 @@ function verbTabRows(v,tab){
   if(tab==='passato')return (v.passato&&v.passato.rows)||[];
   if(tab==='imperfetto')return (v.imperfetto&&v.imperfetto.rows)||[];
   if(tab==='imperativo')return (v.imperativo&&v.imperativo.rows)||[];
+  if(tab==='futuro')return (v.futuro&&v.futuro.rows)||[];
   return [];
 }
 function getVerbTenseViews(infinitive,tab){ // مجموع تصريفات التاب ده كله — مش عدّاد مستقل
@@ -3868,7 +3869,7 @@ function renderVerbsList(){
       arEl.className='verb-card-ar';
       arEl.textContent=v.ar;
       card.appendChild(itEl);card.appendChild(arEl);
-      const views=['presente','passato','imperfetto','imperativo'].reduce((s,t)=>s+getVerbTenseViews(v.it,t),0);
+      const views=['presente','passato','imperfetto','imperativo','futuro'].reduce((s,t)=>s+getVerbTenseViews(v.it,t),0);
       if(views>0){
         const vc=document.createElement('div');
         vc.className='verb-card-views';
@@ -3905,10 +3906,10 @@ function switchVerbTab(tab){
   renderVerbModalTabs();
   renderVerbModalBody();
 }
-const VM_TAB_LABELS={meaning:'📖 المعنى',presente:'🔵 المضارع',passato:'🟢 الماضي',imperfetto:'🟡 الماضي المستمر',imperativo:'❗ الأمر'};
+const VM_TAB_LABELS={meaning:'📖 المعنى',presente:'🔵 المضارع',passato:'🟢 الماضي',imperfetto:'🟡 الماضي المستمر',imperativo:'❗ الأمر',futuro:'🔮 المستقبل'};
 function renderVerbModalTabs(){
   const infinitive=VERBS[vmCurrentIdx]?VERBS[vmCurrentIdx].it:null;
-  ['meaning','presente','passato','imperfetto','imperativo'].forEach(t=>{
+  ['meaning','presente','passato','imperfetto','imperativo','futuro'].forEach(t=>{
     const el=document.getElementById('vmTab'+t.charAt(0).toUpperCase()+t.slice(1));
     el.classList.toggle('active',t===vmCurrentTab);
     const views=(t!=='meaning'&&infinitive)?getVerbTenseViews(infinitive,t):0;
@@ -3938,6 +3939,14 @@ function renderVerbModalBody(){
     body.innerHTML='<div class="verb-aux-note">'+(v.imperfetto.regular?'فعل منتظم':'فعل شاذ')+'</div>'+verbConjTableHtml(v.imperfetto.rows,v.it,'imperfetto');
   } else if(vmCurrentTab==='imperativo'){
     body.innerHTML=verbConjTableHtml(v.imperativo.rows,v.it,'imperativo')+(v.imperativo.note?'<div class="verb-imp-note">💡 '+v.imperativo.note+'</div>':'');
+  } else if(vmCurrentTab==='futuro'){
+    // فعل غير شخصي (Piovere): نعرض صف Lui بس (Pioverà) مع الـnote، مش جدول 7 أشخاص
+    // كأنه طقس شخصي عادي. الصفوف الـ7 بتفضل في البيانات عشان باقي الكود.
+    const fut=v.futuro, impFut=!!fut.impersonal;
+    const futRows=impFut?fut.rows.filter((r,i)=>i===2):fut.rows;
+    body.innerHTML='<div class="verb-aux-note">'+(fut.regular?'فعل منتظم':'فعل شاذ')+'</div>'
+      +(impFut&&fut.note?'<div class="verb-aux-note">'+escHtml(fut.note)+'</div>':'')
+      +verbConjTableHtml(futRows,v.it,'futuro');
   }
 }
 
@@ -4199,10 +4208,10 @@ function buildVerbNameMap(){
   VERBS.forEach((v,i)=>{VERB_NAME_MAP[v.it.toLowerCase()]=i;});
   return VERB_NAME_MAP;
 }
-const VERB_TENSE_TAB={'Presente':'presente','Passato Prossimo':'passato','Imperfetto':'imperfetto','Imperativo':'imperativo'};
+const VERB_TENSE_TAB={'Presente':'presente','Passato Prossimo':'passato','Imperfetto':'imperfetto','Imperativo':'imperativo','Futuro Semplice':'futuro'};
 function findVerbFromNote(note){
   if(!note)return null;
-  const m=note.match(/^([A-Za-zàèìòùé']+)،\s*(Presente|Passato Prossimo|Imperfetto|Imperativo)\b/);
+  const m=note.match(/^([A-Za-zàèìòùé']+)،\s*(Presente|Passato Prossimo|Imperfetto|Imperativo|Futuro Semplice)\b/);
   if(!m)return null;
   const map=buildVerbNameMap();
   const idx=map[m[1].toLowerCase()];
@@ -4889,7 +4898,7 @@ function toArabicDigits(n){
   return String(n).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 }
 function buildWordInfoHtml(w){
-  const TENSE_AR={presente:'المضارع (Presente)',passato:'الماضي القريب (Passato Prossimo)',imperfetto:'الماضي الناقص (Imperfetto)',imperativo:'الأمر (Imperativo)'};
+  const TENSE_AR={presente:'المضارع (Presente)',passato:'الماضي القريب (Passato Prossimo)',imperfetto:'الماضي الناقص (Imperfetto)',imperativo:'الأمر (Imperativo)',futuro:'المستقبل البسيط (Futuro Semplice)'};
   if(w.type==='verbo'){
     let html='';
     html+='<div>🔤 الفعل الأصلي (المصدر): <b>'+escHtml(w.verbInfinitive||'')+'</b></div>';

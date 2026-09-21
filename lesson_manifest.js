@@ -27,6 +27,11 @@ function balanceCorrect(options,correct,seedIndex){
   return {options:opts,correct:target};
 }
 const LESSON_NORMAL_SENTENCES = [].concat(LESSON_IO, LESSON_TU, LESSON_LUI, LESSON_LEI, LESSON_NOI, LESSON_VOI, LESSON_LORO);
+// 🔮 مرحلة 3: درس futuro (21 جملة، lesson_futuro.js) — بيتضاف في الآخر بس،
+// عشان idx المحفوظ لتقدّم المستخدم (parlaLessonProgress) ما يتزحزحش
+// للي قبل كده. lesson_futuro.js اختياري (لو مش متحمّل، LESSON_FUTURO_SENTENCES
+// بتبقى مصفوفة فاضية ومفيش تأثير).
+const LESSON_FUTURO_SENTENCES = (typeof LESSON_FUTURO !== 'undefined') ? LESSON_FUTURO : [];
 const LESSON_SENTENCES = (() => {
   const merged=[]; let normalIndex=0, imperativeIndex=0;
   while (normalIndex < LESSON_NORMAL_SENTENCES.length) {
@@ -34,6 +39,7 @@ const LESSON_SENTENCES = (() => {
     if (imperativeIndex < LESSON_IMPERATIVO.length) merged.push(LESSON_IMPERATIVO[imperativeIndex++]);
   }
   while (imperativeIndex < LESSON_IMPERATIVO.length) merged.push(LESSON_IMPERATIVO[imperativeIndex++]);
+  merged.push(...LESSON_FUTURO_SENTENCES); // جديد: في الآخر بالظبط، مش موزّع في النص
   merged.forEach((sentence,index)=>{
     const topic=INTEGRATED_TOPIC_BANK[index % INTEGRATED_TOPIC_BANK.length];
     const prep=INTEGRATED_PREPOSITION_BANK[index % INTEGRATED_PREPOSITION_BANK.length];

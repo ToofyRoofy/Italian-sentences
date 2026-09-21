@@ -27,6 +27,7 @@
   const LS_STATE_KEY = 'parlaVerbProgress';
   const LS_TTS_KEY = 'parlaVerbTtsCount';
   const LS_SESSION_LOG_KEY = 'parlaVerbSessionLog'; // أرشيف الجلسات — دائم، منفصل عن حالة التقدّم
+  const LS_RESUME_KEY = 'parlaVerbSessionResume'; // موضع الجلسة الشغّالة (عشان القفل بالغلط ما يضيّعش التقدّم)
 
   function loadJSON(key) {
     try {
@@ -57,10 +58,10 @@
     return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
   }
   function tenseLabel(t) {
-    return { presente: 'المضارع', passato: 'الماضي', imperfetto: 'الماضي المستمر' }[t] || t;
+    return { presente: 'المضارع', passato: 'الماضي', imperfetto: 'الماضي المستمر', futuro: 'المستقبل' }[t] || t;
   }
   function kindLabel(k) {
-    return { regular: '📗 تعلّم مختلط (منتظم)', irregular: '📕 تعميق فردي (شاذ)', review: '📅 مراجعة يومية' }[k] || k;
+    return { regular: '📗 تعلّم مختلط (منتظم)', irregular: '📕 تعميق فردي (شاذ)', review: '📅 مراجعة يومية', catchup: '🔮 تكملة المستقبل' }[k] || k;
   }
 
   // ---------------------------------------------------------------------
@@ -179,6 +180,8 @@
     overlay.className = 'verb-modal-overlay';
     overlay.id = 'vpOverlay';
     overlay.onclick = function (e) {
+      // دوسة بالغلط على الخلفية ما تقفلش جلسة شغّالة (القفل بيتم بزرار ✕ بس)
+      if (session && session.idx < session.steps.length) return;
       if (e.target && e.target.id === 'vpOverlay') closeOverlay();
     };
     overlay.innerHTML =
@@ -196,10 +199,87 @@
     document.getElementById('vpOverlay').classList.add('show');
   }
   function closeOverlay() {
+    // نحفظ الموضع والتقدّم قبل ما نمسح الجلسة من الذاكرة (شوف "استكمال الجلسة" فوق)
+    if (session && !session.replay) {
+      // السؤال الحالي اتجاوب فعلاً بس مؤقّت next (٠.٩–١.٦ ثانية) لسه ما نقلش؟
+      // التقدّم بتاعه اتسجّل خلاص، فنعتبره اتخطّى بدل ما يتعاد ويتعدّ مرتين
+      if (session.resumeKind && session.answeredIdx === session.idx) {
+        session.idx++;
+        if (session.idx >= session.steps.length) markDailyCompleted();
+      }
+      saveJSON(LS_STATE_KEY, session.state);
+      if (session.resumeKind && session.idx >= session.steps.length) clearResume(session.kind);
+      else saveResume();
+    }
     const el = document.getElementById('vpOverlay');
     if (el) el.classList.remove('show');
     if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
     session = null;
+  }
+
+  // ---------------------------------------------------------------------
+  // ▶️ استكمال الجلسة — قبل كده أي قفل للمودال (✕ أو دوسة على الخلفية بالغلط)
+  // كان بيمسح الجلسة من الذاكرة، فلما تفتحها تاني تبدأ من السؤال الأول حتى لو
+  // كنتي في ٥٧ من ٧٠. دلوقتي موضع الجلسة (الأسئلة + رقم السؤال + الصح والغلطات)
+  // بيتحفظ في localStorage بعد كل سؤال وعند القفل، ولما تدوسي على نفس نوع الجلسة
+  // تاني بيسألك تكمّلي من نفس السؤال. بتتمسح لما الجلسة تخلص. بتخص الأنواع
+  // الأربعة (تعلّم مختلط / تعميق فردي / مراجعة يومية / تكملة المستقبل)؛ جلسات
+  // الإعادة (🔄 / سجل الجلسات) بتفضل زي ما هي.
+  // ---------------------------------------------------------------------
+
+  const RESUMABLE_KINDS = ['regular', 'irregular', 'review', 'catchup'];
+
+  function readResume(kind) {
+    if (RESUMABLE_KINDS.indexOf(kind) === -1) return null;
+    const all = loadJSON(LS_RESUME_KEY);
+    const r = all[kind];
+    if (!r) return null;
+    const valid = Array.isArray(r.steps) && r.idx > 0 && r.idx < r.steps.length &&
+      // المراجعة اليومية مربوطة بمستحق النهاردة بس — مبتتكمّلش يوم تاني
+      !(kind === 'review' && r.date !== today());
+    if (!valid) { clearResume(kind); return null; }
+    return r;
+  }
+  function clearResume(kind) {
+    const all = loadJSON(LS_RESUME_KEY);
+    if (all[kind]) { delete all[kind]; saveJSON(LS_RESUME_KEY, all); }
+  }
+  function saveResume() {
+    if (!session || !session.resumeKind || session.replay || session.redoTarget) return;
+    if (!(session.idx > 0 && session.idx < session.steps.length)) return;
+    const all = loadJSON(LS_RESUME_KEY);
+    all[session.kind] = {
+      kind: session.kind, date: session.resumeDate, idx: session.idx, correct: session.correct,
+      mistakes: session.mistakes, steps: session.steps, startTime: session.startTime, savedAt: Date.now(),
+    };
+    saveJSON(LS_RESUME_KEY, all);
+  }
+  function resumeNote(kind) {
+    const r = readResume(kind);
+    return r ? ' — ▶️ كمّل من سؤال ' + toAr(r.idx + 1) : '';
+  }
+  function showResumePrompt(kind, r) {
+    document.getElementById('vpTitle').textContent = kindLabel(kind);
+    document.getElementById('vpBody').innerHTML =
+      '<div class="vp-summary">فيه جلسة لسه ما خلصتش<div class="big">' + toAr(r.idx + 1) + ' / ' + toAr(r.steps.length) + '</div>' +
+      '<span style="font-size:.68rem;color:var(--muted);display:block;margin-top:6px;">وقفتي عند السؤال ' + toAr(r.idx + 1) + ' — تقدّمك اتحفظ</span></div>' +
+      '<button class="vp-next-btn" style="width:100%;" onclick="VerbPractice._resume(\'' + kind + '\')">▶️ كمّل من سؤال ' + toAr(r.idx + 1) + '</button>' +
+      '<button class="vp-next-btn" style="width:100%;margin-top:8px;opacity:.7;" onclick="VerbPractice._startFresh(\'' + kind + '\')">🔄 ابدأ من الأول</button>';
+    openOverlay();
+  }
+  function resumeSession(kind) {
+    const r = readResume(kind);
+    if (!r) { start(kind, true); return; }
+    session = {
+      steps: r.steps, idx: r.idx, state: loadJSON(LS_STATE_KEY), correct: r.correct || 0,
+      ttsCount: loadJSON(LS_TTS_KEY), kind: kind, startTime: r.startTime || Date.now(),
+      mistakes: r.mistakes || [], resumeKind: true, resumeDate: r.date,
+    };
+    renderStep();
+  }
+  function startFresh(kind) {
+    clearResume(kind);
+    start(kind, true);
   }
 
   function openMenu() {
@@ -221,20 +301,30 @@
     let html = '<div class="vp-menu">';
     html +=
       '<div class="vp-menu-btn" onclick="VerbPractice._start(\'regular\')"><b>📗 تعلّم مختلط (منتظم)</b><span>' +
-      (regState && regState.completed ? '✅ خلصت جلسة النهاردة — تعالى بكرة' : '5 أفعال جديدة بالترتيب') +
+      (regState && regState.completed ? '✅ خلصت جلسة النهاردة — تعالى بكرة' : '5 أفعال جديدة بالترتيب' + resumeNote('regular')) +
       '</span></div>';
     if (irregularPreview) {
       html +=
         '<div class="vp-menu-btn" onclick="VerbPractice._start(\'irregular\')"><b>📕 تعميق فردي (شاذ)</b><span>' +
         (irrState && irrState.completed
           ? '✅ خلصت جلسة النهاردة — تعالى بكرة'
-          : irregularPreview.verb + ' — ' + tenseLabel(irregularPreview.tense)) +
+          : irregularPreview.verb + ' — ' + tenseLabel(irregularPreview.tense) + resumeNote('irregular')) +
         '</span></div>';
     }
     html +=
       '<div class="vp-menu-btn" onclick="VerbPractice._start(\'review\')"><b>📅 مراجعة يومية</b><span>' +
-      (dueCount ? toAr(dueCount) + ' عنصر مستحق' : 'مفيش حاجة مستحقة دلوقتي') +
+      (dueCount ? toAr(dueCount) + ' عنصر مستحق' : 'مفيش حاجة مستحقة دلوقتي') + resumeNote('review') +
       '</span></div>';
+    // 🔮 تكملة المستقبل — بتظهر بس لو فيه أفعال متعلَّمة قبل إضافة futuro ولسه
+    // ما اتغطّتش (قرار 5: زرار مستقل، مش دمج تلقائي في جلسة اليوم العادية)
+    const catchupEligible = SB.tenseCatchupEligibleVerbs(state, curriculum, VERB_META, 'futuro');
+    if (catchupEligible.length) {
+      const dcState = state.dailyCatchup && state.dailyCatchup.date === day ? state.dailyCatchup : null;
+      html +=
+        '<div class="vp-menu-btn" onclick="VerbPractice._start(\'catchup\')"><b>🔮 تكملة المستقبل</b><span>' +
+        (dcState && dcState.completed ? '✅ خلصت جلسة النهاردة — تعالى بكرة' : toAr(catchupEligible.length) + ' فعل لسه محتاج futuro' + resumeNote('catchup')) +
+        '</span></div>';
+    }
     const pendingRedoCount = Object.keys(state.pendingRedo || {}).filter(function (k) { return state.pendingRedo[k]; }).length;
     html +=
       '<div class="vp-menu-btn" onclick="VerbPractice._openDueSessions()"><b>🗓️ الجلسات المستحقة</b><span>' +
@@ -380,6 +470,24 @@
       }
       return steps;
     }
+    if (result.type === 'tense_catchup') {
+      // نفس منطق تنويع regular_learning بالظبط — تدوير بين الأفعال بدل ما
+      // كل فعل ياخد الـ4 أسئلة بتاعته ورا بعض
+      const perVerbQueues = result.verbs.map(function (v) {
+        return v.items.map(function (it) {
+          return Object.assign({ sessionType: 'tense_catchup', verb: v.verb }, it);
+        });
+      });
+      const steps = [];
+      let hasMore = true;
+      while (hasMore) {
+        hasMore = false;
+        perVerbQueues.forEach(function (q) {
+          if (q.length) { steps.push(q.shift()); hasMore = true; }
+        });
+      }
+      return steps;
+    }
     if (result.type === 'irregular_deep') {
       return result.items.map(function (it) {
         return Object.assign({ sessionType: 'irregular_deep', verb: result.verb, tense: result.tense }, it);
@@ -402,7 +510,12 @@
   // وأي ضغطة تانية النهاردة بتفتح *نفس* الدفعة (لو لسه ما خلصتش) أو بتتقفل
   // برسالة واضحة (لو خلصت). "مراجعة يومية" مش متأثرة — دايمًا بتجيب اللي
   // مستحق فعليًا من جدول SR، مفيش حاجة تتاكل بالغلط.
-  function start(kind) {
+  function start(kind, skipResume) {
+    // ▶️ فيه جلسة من نفس النوع لسه ما خلصتش؟ اسأل تكمّلي منها ولا تبدأي من الأول
+    if (!skipResume) {
+      const pending = readResume(kind);
+      if (pending) { showResumePrompt(kind, pending); return; }
+    }
     const state = loadJSON(LS_STATE_KEY);
     const day = today();
     let result = null;
@@ -434,6 +547,19 @@
       if (!di && result) {
         state.dailyIrregular = { date: day, verb: result.verb, tense: result.tense, completed: false };
       }
+    } else if (kind === 'catchup') {
+      const dc = state.dailyCatchup && state.dailyCatchup.date === day ? state.dailyCatchup : null;
+      if (dc && dc.completed) {
+        document.getElementById('vpBody').innerHTML =
+          '<div class="vp-summary">خلصت جلسة "تكملة المستقبل" بتاعة النهاردة ✅<br>' +
+          '<span style="font-size:.68rem;color:var(--muted);display:block;margin-top:6px;">تعالى تاني بكرة لدفعة تانية</span></div>' +
+          '<button class="vp-next-btn" onclick="VerbPractice._close()">تمام</button>';
+        return;
+      }
+      result = SB.buildTenseCatchupSession(state, curriculum, VERB_META, verbsByName, allVerbNames, 'futuro', 5, dc ? dc.verbs : null);
+      if (!dc && result && result.verbs && result.verbs.length) {
+        state.dailyCatchup = { date: day, tense: 'futuro', verbs: result.verbs.map(function (v) { return v.verb; }), completed: false };
+      }
     } else if (kind === 'review') {
       result = SB.buildDailyReviewSession(state, curriculum, VERB_META, verbsByName, day, 15);
     }
@@ -446,7 +572,7 @@
         '<div class="vp-summary">مفيش حاجة جديدة دلوقتي 🌿</div><button class="vp-next-btn" onclick="VerbPractice._close()">تمام</button>';
       return;
     }
-    session = { steps: steps, idx: 0, state: state, correct: 0, ttsCount: loadJSON(LS_TTS_KEY), kind: kind, startTime: Date.now(), mistakes: [] };
+    session = { steps: steps, idx: 0, state: state, correct: 0, ttsCount: loadJSON(LS_TTS_KEY), kind: kind, startTime: Date.now(), mistakes: [], resumeKind: true, resumeDate: day };
     renderStep();
   }
 
@@ -648,7 +774,8 @@
     const tense = step.tense;
     if (!rep || !tense || !key) return null;
     const seed = QE.seedFromString(key + Date.now() + Math.random());
-    const slot = seed % 6;
+    // فعل غير شخصي في futuro (Piovere): دايمًا Lui
+    const slot = (tense === 'futuro' && QE.isImpersonalFuturo(verbsByName[rep])) ? QE.IMPERSONAL_FUTURO_SLOT : seed % 6;
     let q;
     if (key.indexOf('cell:') === 0) {
       q = QE.buildIdentifyItalianQuestion(rep, tense, slot, verbsByName);
@@ -767,6 +894,7 @@
     }
 
     feedProgressEngine(step, correct);
+    session.answeredIdx = session.idx; // اتجاوب فعلاً (التقدّم اتسجّل) — للاستكمال لو المودال اتقفل قبل مؤقّت next
     if (correct) {
       session.correct++;
       speakIfWarranted(step.verb, step.verb);
@@ -826,6 +954,7 @@
     }
 
     feedProgressEngine(step, result.correct);
+    session.answeredIdx = session.idx;
     if (result.correct) {
       session.correct++;
       speakIfWarranted(step.verb, correctAnswer);
@@ -861,27 +990,39 @@
     setTimeout(next, 1200);
   }
 
+  // قفل "جلسة النهاردة" (بيتنادى وقت الوصول لآخر سؤال، سواء من next() أو من قفل المودال)
+  function markDailyCompleted() {
+    if (session.kind === 'regular' && session.state.dailyRegular && session.state.dailyRegular.date === today()) {
+      session.state.dailyRegular.completed = true;
+    }
+    if (session.kind === 'irregular' && session.state.dailyIrregular && session.state.dailyIrregular.date === today()) {
+      session.state.dailyIrregular.completed = true;
+    }
+    if (session.kind === 'catchup' && session.state.dailyCatchup && session.state.dailyCatchup.date === today()) {
+      session.state.dailyCatchup.completed = true;
+    }
+  }
+
   function next() {
+    // المؤقّتات (setTimeout(next)) ممكن تشتغل بعد قفل المودال — ما نفجّرش
+    if (!session) return;
     session.idx++;
     if (session.idx >= session.steps.length) {
       // نقفل قفل النهاردة هنا بالظبط (لحظة الوصول لآخر سؤال فعليًا)، مش وقت
       // الفتح — عشان لو المتعلم قفل المودال قبل ما يخلّص، الجلسة تفضل مفتوحة
       // ولما يرجعله يكمّل نفس الـ٥ أفعال (أو نفس الخلية الشاذة) مش دفعة جديدة.
-      if (session.kind === 'regular' && session.state.dailyRegular && session.state.dailyRegular.date === today()) {
-        session.state.dailyRegular.completed = true;
-      }
-      if (session.kind === 'irregular' && session.state.dailyIrregular && session.state.dailyIrregular.date === today()) {
-        session.state.dailyIrregular.completed = true;
-      }
+      markDailyCompleted();
     }
     // 🔁 جلسة إعادة (replay): session.state نسخة مستقلة من الأصل (شوف
     // runNextReplay تحت)، فمفيش داعي نحفظها — ده اللي بيضمن إن الإعادة
     // مالهاش أي أثر على تقدّمك الحقيقي أو حالة "مدروسة" بتاعت الأفعال
     if (!session.replay) saveJSON(LS_STATE_KEY, session.state);
     if (session.idx >= session.steps.length) {
+      if (session.resumeKind) clearResume(session.kind); // الجلسة خلصت — مفيش حاجة تتكمّل
       renderSummary();
       return;
     }
+    saveResume(); // موضع الجلسة بعد كل سؤال (الأسئلة المعاد إدراجها بعد الغلط داخلة فيه)
     renderStep();
   }
 
@@ -913,6 +1054,8 @@
     let replayVerbs, replayCell, replayKeys;
     if (session.kind === 'regular' && session.state.dailyRegular) {
       replayVerbs = session.state.dailyRegular.verbs;
+    } else if (session.kind === 'catchup' && session.state.dailyCatchup) {
+      replayVerbs = session.state.dailyCatchup.verbs;
     } else if (session.kind === 'irregular' && session.state.dailyIrregular) {
       replayCell = { verb: session.state.dailyIrregular.verb, tense: session.state.dailyIrregular.tense };
     } else if (session.kind === 'review') {
@@ -1343,6 +1486,8 @@
     sessions.forEach(function (s) {
       if (s.kind === 'regular' && s.replayVerbs && s.replayVerbs.length) {
         queue.push({ kind: 'regular', verbs: s.replayVerbs });
+      } else if (s.kind === 'catchup' && s.replayVerbs && s.replayVerbs.length) {
+        queue.push({ kind: 'catchup', verbs: s.replayVerbs });
       } else if (s.kind === 'irregular' && s.replayCell) {
         queue.push({ kind: 'irregular', cell: s.replayCell });
       } else if (s.kind === 'review' && s.replayKeys && s.replayKeys.length) {
@@ -1386,6 +1531,8 @@
     let result = null;
     if (item.kind === 'regular') {
       result = SB.buildRegularLearningSession(cloneState, curriculum, VERB_META, verbsByName, allVerbNames, item.verbs.length, item.verbs);
+    } else if (item.kind === 'catchup') {
+      result = SB.buildTenseCatchupSession(cloneState, curriculum, VERB_META, verbsByName, allVerbNames, 'futuro', item.verbs.length, item.verbs);
     } else if (item.kind === 'irregular') {
       result = SB.buildIrregularDeepSession(cloneState, curriculum, VERB_META, verbsByName, allVerbNames, item.cell);
     } else if (item.kind === 'review') {
@@ -1452,6 +1599,8 @@
   window.VerbPractice = {
     open: openMenu,
     _start: start,
+    _resume: resumeSession,
+    _startFresh: startFresh,
     _answerMC: answerMC,
     _answerText: answerText,
     _confirmCorrection: confirmCorrection,

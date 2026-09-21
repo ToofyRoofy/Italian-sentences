@@ -149,6 +149,46 @@ const VERBS = [
           "ar": "ساعدوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Aiuterò",
+          "ar": "هساعد"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Aiuterai",
+          "ar": "هتساعد"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Aiuterà",
+          "ar": "هيساعد"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Aiuterà",
+          "ar": "هتساعد"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Aiuteremo",
+          "ar": "هنساعد"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Aiuterete",
+          "ar": "هتساعدوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Aiuteranno",
+          "ar": "هيساعدوا"
+        }
+      ]
     }
   },
   {
@@ -299,6 +339,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Vadano",
           "ar": "روحوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Andrò",
+          "ar": "هروح"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Andrai",
+          "ar": "هتروح"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Andrà",
+          "ar": "هيروح"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Andrà",
+          "ar": "هتروح"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Andremo",
+          "ar": "هنروح"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Andrete",
+          "ar": "هتروحوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Andranno",
+          "ar": "هيروحوا"
         }
       ]
     }
@@ -453,6 +533,46 @@ const VERBS = [
           "ar": "وصلوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Arriverò",
+          "ar": "هوصل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Arriverai",
+          "ar": "هتوصل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Arriverà",
+          "ar": "هيوصل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Arriverà",
+          "ar": "هتوصل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Arriveremo",
+          "ar": "هنوصل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Arriverete",
+          "ar": "هتوصلوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Arriveranno",
+          "ar": "هيوصلوا"
+        }
+      ]
     }
   },
   {
@@ -603,6 +723,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Ascoltino",
           "ar": "اسمعوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ascolterò",
+          "ar": "هسمع"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ascolterai",
+          "ar": "هتسمع"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ascolterà",
+          "ar": "هيسمع"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ascolterà",
+          "ar": "هتسمع"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ascolteremo",
+          "ar": "هنسمع"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Ascolterete",
+          "ar": "هتسمعوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Ascolteranno",
+          "ar": "هيسمعوا"
         }
       ]
     }
@@ -757,6 +917,46 @@ const VERBS = [
           "ar": "انتظروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Aspetterò",
+          "ar": "هنتظر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Aspetterai",
+          "ar": "هتنتظر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Aspetterà",
+          "ar": "هينتظر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Aspetterà",
+          "ar": "هتنتظر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Aspetteremo",
+          "ar": "هننتظر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Aspetterete",
+          "ar": "هتنتظروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Aspetteranno",
+          "ar": "هينتظروا"
+        }
+      ]
     }
   },
   {
@@ -907,6 +1107,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Bussino",
           "ar": "اخبطوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Busserò",
+          "ar": "هخبط (على الباب)"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Busserai",
+          "ar": "هتخبط (على الباب)"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Busserà",
+          "ar": "هيخبط (على الباب)"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Busserà",
+          "ar": "هتخبط (على الباب)"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Busseremo",
+          "ar": "هنخبط (على الباب)"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Busserete",
+          "ar": "هتخبطوا (على الباب)"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Busseranno",
+          "ar": "هيخبطوا (على الباب)"
         }
       ]
     }
@@ -1061,6 +1301,46 @@ const VERBS = [
           "ar": "امشوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Camminerò",
+          "ar": "همشي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Camminerai",
+          "ar": "هتمشي"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Camminerà",
+          "ar": "هيمشي"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Camminerà",
+          "ar": "هتمشي"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Cammineremo",
+          "ar": "هنمشي"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Camminerete",
+          "ar": "هتمشوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cammineranno",
+          "ar": "هيمشوا"
+        }
+      ]
     }
   },
   {
@@ -1211,6 +1491,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Cerchino",
           "ar": "ابحثوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Cercherò",
+          "ar": "هبحث عن"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Cercherai",
+          "ar": "هتبحث عن"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Cercherà",
+          "ar": "هيبحث عن"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Cercherà",
+          "ar": "هتبحث عن"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Cercheremo",
+          "ar": "هنبحث عن"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cercherete",
+          "ar": "هتبحثوا عن"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cercheranno",
+          "ar": "هيبحثوا عن"
         }
       ]
     }
@@ -1365,6 +1685,46 @@ const VERBS = [
           "ar": "نادوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Chiamerò",
+          "ar": "هنادي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Chiamerai",
+          "ar": "هتنادي"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Chiamerà",
+          "ar": "هينادي"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Chiamerà",
+          "ar": "هتنادي"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Chiameremo",
+          "ar": "هننادي"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Chiamerete",
+          "ar": "هتنادوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Chiameranno",
+          "ar": "هينادوا"
+        }
+      ]
     }
   },
   {
@@ -1515,6 +1875,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Comprino",
           "ar": "اشتروا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Comprerò",
+          "ar": "هشتري"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Comprerai",
+          "ar": "هتشتري"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Comprerà",
+          "ar": "هيشتري"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Comprerà",
+          "ar": "هتشتري"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Compreremo",
+          "ar": "هنشتري"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Comprerete",
+          "ar": "هتشتروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Compreranno",
+          "ar": "هيشتروا"
         }
       ]
     }
@@ -1669,6 +2069,46 @@ const VERBS = [
           "ar": "العبوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Giocherò",
+          "ar": "هلعب"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Giocherai",
+          "ar": "هتلعب"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Giocherà",
+          "ar": "هيلعب"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Giocherà",
+          "ar": "هتلعب"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Giocheremo",
+          "ar": "هنلعب"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Giocherete",
+          "ar": "هتلعبوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Giocheranno",
+          "ar": "هيلعبوا"
+        }
+      ]
     }
   },
   {
@@ -1819,6 +2259,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Guardino",
           "ar": "اتفرجوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Guarderò",
+          "ar": "هتفرج"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Guarderai",
+          "ar": "هتتفرج"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Guarderà",
+          "ar": "هيتفرج"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Guarderà",
+          "ar": "هتتفرج"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Guarderemo",
+          "ar": "هنتفرج"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Guarderete",
+          "ar": "هتتفرجوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Guarderanno",
+          "ar": "هيتفرجوا"
         }
       ]
     }
@@ -1973,6 +2453,46 @@ const VERBS = [
           "ar": "قابلوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Incontrerò",
+          "ar": "هقابل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Incontrerai",
+          "ar": "هتقابل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Incontrerà",
+          "ar": "هيقابل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Incontrerà",
+          "ar": "هتقابل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Incontreremo",
+          "ar": "هنقابل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Incontrerete",
+          "ar": "هتقابلوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Incontreranno",
+          "ar": "هيقابلوا"
+        }
+      ]
     }
   },
   {
@@ -2123,6 +2643,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Lavorino",
           "ar": "اشتغلوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Lavorerò",
+          "ar": "هشتغل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Lavorerai",
+          "ar": "هتشتغل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Lavorerà",
+          "ar": "هيشتغل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Lavorerà",
+          "ar": "هتشتغل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Lavoreremo",
+          "ar": "هنشتغل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Lavorerete",
+          "ar": "هتشتغلوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Lavoreranno",
+          "ar": "هيشتغلوا"
         }
       ]
     }
@@ -2277,6 +2837,46 @@ const VERBS = [
           "ar": "كلوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mangerò",
+          "ar": "هأكل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Mangerai",
+          "ar": "هتأكل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Mangerà",
+          "ar": "هيأكل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Mangerà",
+          "ar": "هتأكل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Mangeremo",
+          "ar": "هنأكل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Mangerete",
+          "ar": "هتأكلوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Mangeranno",
+          "ar": "هيأكلوا"
+        }
+      ]
     }
   },
   {
@@ -2427,6 +3027,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Paghino",
           "ar": "ادفعوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Pagherò",
+          "ar": "هدفع"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Pagherai",
+          "ar": "هتدفع"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Pagherà",
+          "ar": "هيدفع"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Pagherà",
+          "ar": "هتدفع"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Pagheremo",
+          "ar": "هندفع"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Pagherete",
+          "ar": "هتدفعوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Pagheranno",
+          "ar": "هيدفعوا"
         }
       ]
     }
@@ -2581,6 +3221,46 @@ const VERBS = [
           "ar": "هاتوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Porterò",
+          "ar": "هجيب"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Porterai",
+          "ar": "هتجيب"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Porterà",
+          "ar": "هيجيب"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Porterà",
+          "ar": "هتجيب"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Porteremo",
+          "ar": "هنجيب"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Porterete",
+          "ar": "هتجيبوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Porteranno",
+          "ar": "هيجيبوا"
+        }
+      ]
     }
   },
   {
@@ -2731,6 +3411,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Restino",
           "ar": "افضلوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Resterò",
+          "ar": "هفضل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Resterai",
+          "ar": "هتفضل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Resterà",
+          "ar": "هيفضل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Resterà",
+          "ar": "هتفضل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Resteremo",
+          "ar": "هنفضل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Resterete",
+          "ar": "هتفضلوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Resteranno",
+          "ar": "هيفضلوا"
         }
       ]
     }
@@ -2885,6 +3605,46 @@ const VERBS = [
           "ar": "اشكروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Ringrazierò",
+          "ar": "هشكر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ringrazierai",
+          "ar": "هتشكر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Ringrazierà",
+          "ar": "هيشكر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Ringrazierà",
+          "ar": "هتشكر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ringrazieremo",
+          "ar": "هنشكر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Ringrazierete",
+          "ar": "هتشكروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Ringrazieranno",
+          "ar": "هيشكروا"
+        }
+      ]
     }
   },
   {
@@ -3035,6 +3795,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Salutino",
           "ar": "سلموا على"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Saluterò",
+          "ar": "هسلم على"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Saluterai",
+          "ar": "هتسلم على"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Saluterà",
+          "ar": "هيسلم على"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Saluterà",
+          "ar": "هتسلم على"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Saluteremo",
+          "ar": "هنسلم على"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Saluterete",
+          "ar": "هتسلموا على"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Saluteranno",
+          "ar": "هيسلموا على"
         }
       ]
     }
@@ -3189,6 +3989,46 @@ const VERBS = [
           "ar": "ادرسوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Studierò",
+          "ar": "هدرس"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Studierai",
+          "ar": "هتدرس"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Studierà",
+          "ar": "هيدرس"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Studierà",
+          "ar": "هتدرس"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Studieremo",
+          "ar": "هندرس"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Studierete",
+          "ar": "هتدرسوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Studieranno",
+          "ar": "هيدرسوا"
+        }
+      ]
     }
   },
   {
@@ -3339,6 +4179,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Telefonino",
           "ar": "اتصلوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Telefonerò",
+          "ar": "هتصل تليفونيا"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Telefonerai",
+          "ar": "هتتصل تليفونيا"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Telefonerà",
+          "ar": "هيتصل تليفونيا"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Telefonerà",
+          "ar": "هتتصل تليفونيا"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Telefoneremo",
+          "ar": "هنتصل تليفونيا"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Telefonerete",
+          "ar": "هتتصلوا تليفونيا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Telefoneranno",
+          "ar": "هيتصلوا تليفونيا"
         }
       ]
     }
@@ -3493,6 +4373,46 @@ const VERBS = [
           "ar": "ارجعوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Tornerò",
+          "ar": "هرجع"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Tornerai",
+          "ar": "هترجع"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Tornerà",
+          "ar": "هيرجع"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Tornerà",
+          "ar": "هترجع"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Torneremo",
+          "ar": "هنرجع"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Tornerete",
+          "ar": "هترجعوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Torneranno",
+          "ar": "هيرجعوا"
+        }
+      ]
     }
   },
   {
@@ -3643,6 +4563,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Trovino",
           "ar": "لاقوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Troverò",
+          "ar": "هلاقي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Troverai",
+          "ar": "هتلاقي"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Troverà",
+          "ar": "هيلاقي"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Troverà",
+          "ar": "هتلاقي"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Troveremo",
+          "ar": "هنلاقي"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Troverete",
+          "ar": "هتلاقوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Troveranno",
+          "ar": "هيلاقوا"
         }
       ]
     }
@@ -3797,6 +4757,46 @@ const VERBS = [
           "ar": "سافروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Viaggerò",
+          "ar": "هسافر (يرحل)"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Viaggerai",
+          "ar": "هتسافر (يرحل)"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Viaggerà",
+          "ar": "هيسافر (يرحل)"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Viaggerà",
+          "ar": "هتسافر (يرحل)"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Viaggeremo",
+          "ar": "هنسافر (يرحل)"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Viaggerete",
+          "ar": "هتسافروا (يرحل)"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Viaggeranno",
+          "ar": "هيسافروا (يرحل)"
+        }
+      ]
     }
   },
   {
@@ -3947,6 +4947,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Facciano",
           "ar": "افعلوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Farò",
+          "ar": "هفعل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Farai",
+          "ar": "هتفعل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Farà",
+          "ar": "هيفعل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Farà",
+          "ar": "هتفعل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Faremo",
+          "ar": "هنفعل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Farete",
+          "ar": "هتفعلوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Faranno",
+          "ar": "هيفعلوا"
         }
       ]
     }
@@ -4101,6 +5141,46 @@ const VERBS = [
           "ar": "ادّوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Darò",
+          "ar": "هعطي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Darai",
+          "ar": "هتعطي"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Darà",
+          "ar": "هيعطي"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Darà",
+          "ar": "هتعطي"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Daremo",
+          "ar": "هنعطي"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Darete",
+          "ar": "هتعطوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Daranno",
+          "ar": "هيعطوا"
+        }
+      ]
     }
   },
   {
@@ -4251,6 +5331,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Funzionino",
           "ar": "اشتغلوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Funzionerò",
+          "ar": "هشتغل (عن جهاز أو آلة)"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Funzionerai",
+          "ar": "هتشتغل (عن جهاز أو آلة)"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Funzionerà",
+          "ar": "هيشتغل (عن جهاز أو آلة)"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Funzionerà",
+          "ar": "هتشتغل (عن جهاز أو آلة)"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Funzioneremo",
+          "ar": "هنشتغل (عن جهاز أو آلة)"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Funzionerete",
+          "ar": "هتشتغلوا (عن جهاز أو آلة)"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Funzioneranno",
+          "ar": "هيشتغلوا (عن جهاز أو آلة)"
         }
       ]
     }
@@ -4405,6 +5525,46 @@ const VERBS = [
           "ar": "اتكلموا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Parlerò",
+          "ar": "هتكلم"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Parlerai",
+          "ar": "هتتكلم"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Parlerà",
+          "ar": "هيتكلم"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Parlerà",
+          "ar": "هتتكلم"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Parleremo",
+          "ar": "هنتكلم"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Parlerete",
+          "ar": "هتتكلموا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Parleranno",
+          "ar": "هيتكلموا"
+        }
+      ]
     }
   },
   {
@@ -4555,6 +5715,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Passeggino",
           "ar": "اتمشوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Passeggerò",
+          "ar": "هتمشى"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Passeggerai",
+          "ar": "هتتمشى"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Passeggerà",
+          "ar": "هيتمشى"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Passeggerà",
+          "ar": "هتتمشى"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Passeggeremo",
+          "ar": "هنتمشى"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Passeggerete",
+          "ar": "هتتمشىوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Passeggeranno",
+          "ar": "هيتمشىوا"
         }
       ]
     }
@@ -4711,7 +5911,47 @@ const VERBS = [
       ]
     },
     "reflexive": true,
-    "group": "are"
+    "group": "are",
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi sveglierò",
+          "ar": "هصحى"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti sveglierai",
+          "ar": "هتصحى"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si sveglierà",
+          "ar": "هيصحى"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si sveglierà",
+          "ar": "هتصحى"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci sveglieremo",
+          "ar": "هنصحى"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi sveglierete",
+          "ar": "هتصحىوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si sveglieranno",
+          "ar": "هيصحىوا"
+        }
+      ]
+    }
   },
   {
     "it": "Credere",
@@ -4861,6 +6101,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Credano",
           "ar": "صدقوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Crederò",
+          "ar": "هصدق"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Crederai",
+          "ar": "هتصدق"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Crederà",
+          "ar": "هيصدق"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Crederà",
+          "ar": "هتصدق"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Crederemo",
+          "ar": "هنصدق"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Crederete",
+          "ar": "هتصدقوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Crederanno",
+          "ar": "هيصدقوا"
         }
       ]
     }
@@ -5015,6 +6295,46 @@ const VERBS = [
           "ar": "اقروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Leggerò",
+          "ar": "هقرأ"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Leggerai",
+          "ar": "هتقرأ"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Leggerà",
+          "ar": "هيقرأ"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Leggerà",
+          "ar": "هتقرأ"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Leggeremo",
+          "ar": "هنقرأ"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Leggerete",
+          "ar": "هتقرأوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Leggeranno",
+          "ar": "هيقرأوا"
+        }
+      ]
     }
   },
   {
@@ -5165,6 +6485,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Prendano",
           "ar": "خدوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Prenderò",
+          "ar": "هأخذ"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Prenderai",
+          "ar": "هتأخذ"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Prenderà",
+          "ar": "هيأخذ"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Prenderà",
+          "ar": "هتأخذ"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Prenderemo",
+          "ar": "هنأخذ"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Prenderete",
+          "ar": "هتأخذوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Prenderanno",
+          "ar": "هيأخذوا"
         }
       ]
     }
@@ -5319,6 +6679,46 @@ const VERBS = [
           "ar": "اوعدوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Prometterò",
+          "ar": "هوعد"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Prometterai",
+          "ar": "هتوعد"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Prometterà",
+          "ar": "هيوعد"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Prometterà",
+          "ar": "هتوعد"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Prometteremo",
+          "ar": "هنوعد"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Prometterete",
+          "ar": "هتوعدوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Prometteranno",
+          "ar": "هيوعدوا"
+        }
+      ]
     }
   },
   {
@@ -5469,6 +6869,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Scrivano",
           "ar": "اكتبوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Scriverò",
+          "ar": "هكتب"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Scriverai",
+          "ar": "هتكتب"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Scriverà",
+          "ar": "هيكتب"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Scriverà",
+          "ar": "هتكتب"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Scriveremo",
+          "ar": "هنكتب"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Scriverete",
+          "ar": "هتكتبوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Scriveranno",
+          "ar": "هيكتبوا"
         }
       ]
     }
@@ -5623,6 +7063,46 @@ const VERBS = [
           "ar": "شوفوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Vedrò",
+          "ar": "هشوف"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Vedrai",
+          "ar": "هتشوف"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Vedrà",
+          "ar": "هيشوف"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Vedrà",
+          "ar": "هتشوف"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Vedremo",
+          "ar": "هنشوف"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vedrete",
+          "ar": "هتشوفوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Vedranno",
+          "ar": "هيشوفوا"
+        }
+      ]
     }
   },
   {
@@ -5773,6 +7253,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Vendano",
           "ar": "بيعوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Venderò",
+          "ar": "هبيع"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Venderai",
+          "ar": "هتبيع"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Venderà",
+          "ar": "هيبيع"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Venderà",
+          "ar": "هتبيع"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Venderemo",
+          "ar": "هنبيع"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Venderete",
+          "ar": "هتبيعوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Venderanno",
+          "ar": "هيبيعوا"
         }
       ]
     }
@@ -5927,6 +7447,46 @@ const VERBS = [
           "ar": "امتلكوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Avrò",
+          "ar": "هيبقى عندي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Avrai",
+          "ar": "هيبقى عندك"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Avrà",
+          "ar": "هيبقى عنده"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Avrà",
+          "ar": "هيبقى عندها"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Avremo",
+          "ar": "هيبقى عندنا"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Avrete",
+          "ar": "هيبقى عندكم"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Avranno",
+          "ar": "هيبقى عندهم"
+        }
+      ]
     }
   },
   {
@@ -6077,6 +7637,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Siano",
           "ar": "كونوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Sarò",
+          "ar": "هكون"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Sarai",
+          "ar": "هتكون"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Sarà",
+          "ar": "هيكون"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Sarà",
+          "ar": "هتكون"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Saremo",
+          "ar": "هنكون"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Sarete",
+          "ar": "هتكونوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Saranno",
+          "ar": "هيكونوا"
         }
       ]
     }
@@ -6231,6 +7831,46 @@ const VERBS = [
           "ar": "—"
         }
       ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Potrò",
+          "ar": "هقدر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Potrai",
+          "ar": "هتقدر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Potrà",
+          "ar": "هيقدر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Potrà",
+          "ar": "هتقدر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Potremo",
+          "ar": "هنقدر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Potrete",
+          "ar": "هتقدروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Potranno",
+          "ar": "هيقدروا"
+        }
+      ]
     }
   },
   {
@@ -6381,6 +8021,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Sappiano",
           "ar": "اعرفوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Saprò",
+          "ar": "هعرف"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Saprai",
+          "ar": "هتعرف"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Saprà",
+          "ar": "هيعرف"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Saprà",
+          "ar": "هتعرف"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Sapremo",
+          "ar": "هنعرف"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Saprete",
+          "ar": "هتعرفوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Sapranno",
+          "ar": "هيعرفوا"
         }
       ]
     }
@@ -6535,6 +8215,46 @@ const VERBS = [
           "ar": "—"
         }
       ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Vorrò",
+          "ar": "هبقى عايز / عايزة"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Vorrai",
+          "ar": "هتبقى عايز / عايزة"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Vorrà",
+          "ar": "هيبقى عايز"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Vorrà",
+          "ar": "هتبقى عايزة"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Vorremo",
+          "ar": "هنبقى عايزين"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vorrete",
+          "ar": "هتبقوا عايزين"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Vorranno",
+          "ar": "هيبقوا عايزين"
+        }
+      ]
     }
   },
   {
@@ -6685,6 +8405,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Tacciano",
           "ar": "اسكتوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Tacerò",
+          "ar": "هسكت"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Tacerai",
+          "ar": "هتسكت"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Tacerà",
+          "ar": "هيسكت"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Tacerà",
+          "ar": "هتسكت"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Taceremo",
+          "ar": "هنسكت"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Tacerete",
+          "ar": "هتسكتوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Taceranno",
+          "ar": "هيسكتوا"
         }
       ]
     }
@@ -6839,6 +8599,46 @@ const VERBS = [
           "ar": "اتعلموا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Apprenderò",
+          "ar": "هتعلم"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Apprenderai",
+          "ar": "هتتعلم"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Apprenderà",
+          "ar": "هيتعلم"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Apprenderà",
+          "ar": "هتتعلم"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Apprenderemo",
+          "ar": "هنتعلم"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Apprenderete",
+          "ar": "هتتعلموا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Apprenderanno",
+          "ar": "هيتعلموا"
+        }
+      ]
     }
   },
   {
@@ -6989,6 +8789,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Capiscano",
           "ar": "افهموا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Capirò",
+          "ar": "هفهم"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Capirai",
+          "ar": "هتفهم"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Capirà",
+          "ar": "هيفهم"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Capirà",
+          "ar": "هتفهم"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Capiremo",
+          "ar": "هنفهم"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Capirete",
+          "ar": "هتفهموا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Capiranno",
+          "ar": "هيفهموا"
         }
       ]
     }
@@ -7143,6 +8983,46 @@ const VERBS = [
           "ar": "قولوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Dirò",
+          "ar": "هقول"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Dirai",
+          "ar": "هتقول"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Dirà",
+          "ar": "هيقول"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Dirà",
+          "ar": "هتقول"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Diremo",
+          "ar": "هنقول"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Direte",
+          "ar": "هتقولوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Diranno",
+          "ar": "هيقولوا"
+        }
+      ]
     }
   },
   {
@@ -7293,6 +9173,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Finiscano",
           "ar": "خلصوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Finirò",
+          "ar": "هخلّص"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Finirai",
+          "ar": "هتخلّص"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Finirà",
+          "ar": "هيخلّص"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Finirà",
+          "ar": "هتخلّص"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Finiremo",
+          "ar": "هنخلّص"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Finirete",
+          "ar": "هتخلّصوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Finiranno",
+          "ar": "هيخلّصوا"
         }
       ]
     }
@@ -7447,6 +9367,46 @@ const VERBS = [
           "ar": "سافروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Partirò",
+          "ar": "هسافر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Partirai",
+          "ar": "هتسافر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Partirà",
+          "ar": "هيسافر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Partirà",
+          "ar": "هتسافر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Partiremo",
+          "ar": "هنسافر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Partirete",
+          "ar": "هتسافروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Partiranno",
+          "ar": "هيسافروا"
+        }
+      ]
     }
   },
   {
@@ -7597,6 +9557,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Puliscano",
           "ar": "نضفوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Pulirò",
+          "ar": "هنظف"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Pulirai",
+          "ar": "هتنظف"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Pulirà",
+          "ar": "هينظف"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Pulirà",
+          "ar": "هتنظف"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Puliremo",
+          "ar": "هننظف"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Pulirete",
+          "ar": "هتنظفوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Puliranno",
+          "ar": "هينظفوا"
         }
       ]
     }
@@ -7751,6 +9751,46 @@ const VERBS = [
           "ar": "اخرجوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Uscirò",
+          "ar": "هخرج"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Uscirai",
+          "ar": "هتخرج"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Uscirà",
+          "ar": "هيخرج"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Uscirà",
+          "ar": "هتخرج"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Usciremo",
+          "ar": "هنخرج"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Uscirete",
+          "ar": "هتخرجوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Usciranno",
+          "ar": "هيخرجوا"
+        }
+      ]
     }
   },
   {
@@ -7901,6 +9941,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Cucinino",
           "ar": "اطبخوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Cucinerò",
+          "ar": "هطبخ"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Cucinerai",
+          "ar": "هتطبخ"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Cucinerà",
+          "ar": "هيطبخ"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Cucinerà",
+          "ar": "هتطبخ"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Cucineremo",
+          "ar": "هنطبخ"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cucinerete",
+          "ar": "هتطبخوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cucineranno",
+          "ar": "هيطبخوا"
         }
       ]
     }
@@ -8055,6 +10135,46 @@ const VERBS = [
           "ar": "فكروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Penserò",
+          "ar": "هفكر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Penserai",
+          "ar": "هتفكر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Penserà",
+          "ar": "هيفكر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Penserà",
+          "ar": "هتفكر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Penseremo",
+          "ar": "هنفكر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Penserete",
+          "ar": "هتفكروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Penseranno",
+          "ar": "هيفكروا"
+        }
+      ]
     }
   },
   {
@@ -8205,6 +10325,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Piangano",
           "ar": "عيطوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Piangerò",
+          "ar": "هعيّط"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Piangerai",
+          "ar": "هتعيّط"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Piangerà",
+          "ar": "هيعيّط"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Piangerà",
+          "ar": "هتعيّط"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Piangeremo",
+          "ar": "هنعيّط"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Piangerete",
+          "ar": "هتعيّطوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Piangeranno",
+          "ar": "هيعيّطوا"
         }
       ]
     }
@@ -8359,6 +10519,46 @@ const VERBS = [
           "ar": "اضحكوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Riderò",
+          "ar": "هضحك"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Riderai",
+          "ar": "هتضحك"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Riderà",
+          "ar": "هيضحك"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Riderà",
+          "ar": "هتضحك"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Rideremo",
+          "ar": "هنضحك"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Riderete",
+          "ar": "هتضحكوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Rideranno",
+          "ar": "هيضحكوا"
+        }
+      ]
     }
   },
   {
@@ -8509,6 +10709,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Dormano",
           "ar": "ناموا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Dormirò",
+          "ar": "هنام"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Dormirai",
+          "ar": "هتنام"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Dormirà",
+          "ar": "هينام"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Dormirà",
+          "ar": "هتنام"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Dormiremo",
+          "ar": "هننام"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Dormirete",
+          "ar": "هتناموا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Dormiranno",
+          "ar": "هيناموا"
         }
       ]
     }
@@ -8663,6 +10903,46 @@ const VERBS = [
           "ar": "احلموا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Sognerò",
+          "ar": "هحلم"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Sognerai",
+          "ar": "هتحلم"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Sognerà",
+          "ar": "هيحلم"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Sognerà",
+          "ar": "هتحلم"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Sogneremo",
+          "ar": "هنحلم"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Sognerete",
+          "ar": "هتحلموا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Sogneranno",
+          "ar": "هيحلموا"
+        }
+      ]
     }
   },
   {
@@ -8813,6 +11093,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Sperino",
           "ar": "اتمنوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Spererò",
+          "ar": "هتمنى"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Spererai",
+          "ar": "هتتمنى"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Spererà",
+          "ar": "هيتمنى"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Spererà",
+          "ar": "هتتمنى"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Spereremo",
+          "ar": "هنتمنى"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Spererete",
+          "ar": "هتتمنىوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Spereranno",
+          "ar": "هيتمنىوا"
         }
       ]
     }
@@ -8967,6 +11287,46 @@ const VERBS = [
           "ar": "اشرحوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Spiegherò",
+          "ar": "هشرح"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Spiegherai",
+          "ar": "هتشرح"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Spiegherà",
+          "ar": "هيشرح"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Spiegherà",
+          "ar": "هتشرح"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Spiegheremo",
+          "ar": "هنشرح"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Spiegherete",
+          "ar": "هتشرحوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Spiegheranno",
+          "ar": "هيشرحوا"
+        }
+      ]
     }
   },
   {
@@ -9117,6 +11477,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Stiano",
           "ar": "اقعدوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Starò",
+          "ar": "هقعد"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Starai",
+          "ar": "هتقعد"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Starà",
+          "ar": "هيقعد"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Starà",
+          "ar": "هتقعد"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Staremo",
+          "ar": "هنقعد"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Starete",
+          "ar": "هتقعدوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Staranno",
+          "ar": "هيقعدوا"
         }
       ]
     }
@@ -9271,6 +11671,46 @@ const VERBS = [
           "ar": "اشربوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Berrò",
+          "ar": "هشرب"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Berrai",
+          "ar": "هتشرب"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Berrà",
+          "ar": "هيشرب"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Berrà",
+          "ar": "هتشرب"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Berremo",
+          "ar": "هنشرب"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Berrete",
+          "ar": "هتشربوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Berranno",
+          "ar": "هيشربوا"
+        }
+      ]
     }
   },
   {
@@ -9421,6 +11861,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Pongano",
           "ar": "حطوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Porrò",
+          "ar": "هضع"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Porrai",
+          "ar": "هتضع"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Porrà",
+          "ar": "هيضع"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Porrà",
+          "ar": "هتضع"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Porremo",
+          "ar": "هنضع"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Porrete",
+          "ar": "هتضعوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Porranno",
+          "ar": "هيضعوا"
         }
       ]
     }
@@ -9575,6 +12055,46 @@ const VERBS = [
           "ar": "ترجموا"
         }
       ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Tradurrò",
+          "ar": "هترجم"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Tradurrai",
+          "ar": "هتترجم"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Tradurrà",
+          "ar": "هيترجم"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Tradurrà",
+          "ar": "هتترجم"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Tradurremo",
+          "ar": "هنترجم"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Tradurrete",
+          "ar": "هتترجموا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Tradurranno",
+          "ar": "هيترجموا"
+        }
+      ]
     }
   },
   {
@@ -9725,6 +12245,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Producano",
           "ar": "انتجوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Produrrò",
+          "ar": "هنتج"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Produrrai",
+          "ar": "هتنتج"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Produrrà",
+          "ar": "هينتج"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Produrrà",
+          "ar": "هتنتج"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Produrremo",
+          "ar": "هننتج"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Produrrete",
+          "ar": "هتنتجوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Produrranno",
+          "ar": "هينتجوا"
         }
       ]
     }
@@ -9881,6 +12441,46 @@ const VERBS = [
           "ar": "قوموا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi alzerò",
+          "ar": "هنهض"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti alzerai",
+          "ar": "هتنهض"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si alzerà",
+          "ar": "هينهض"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si alzerà",
+          "ar": "هتنهض"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci alzeremo",
+          "ar": "هننهض"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi alzerete",
+          "ar": "هتنهضوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si alzeranno",
+          "ar": "هينهضوا"
+        }
+      ]
     }
   },
   {
@@ -10033,6 +12633,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si lavino",
           "ar": "اتغسلوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi laverò",
+          "ar": "هغتسل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti laverai",
+          "ar": "هتغتسل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si laverà",
+          "ar": "هيغتسل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si laverà",
+          "ar": "هتغتسل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci laveremo",
+          "ar": "هنغتسل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi laverete",
+          "ar": "هتغتسلوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si laveranno",
+          "ar": "هيغتسلوا"
         }
       ]
     }
@@ -10189,6 +12829,46 @@ const VERBS = [
           "ar": "سموا نفسهم"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi chiamerò",
+          "ar": "هُدعى"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti chiamerai",
+          "ar": "هتُدعى"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si chiamerà",
+          "ar": "هيُدعى"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si chiamerà",
+          "ar": "هتُدعى"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci chiameremo",
+          "ar": "هنُدعى"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi chiamerete",
+          "ar": "هتُدعىوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si chiameranno",
+          "ar": "هيُدعىوا"
+        }
+      ]
     }
   },
   {
@@ -10341,6 +13021,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si riposino",
           "ar": "استريحوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi riposerò",
+          "ar": "هستريح"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti riposerai",
+          "ar": "هتستريح"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si riposerà",
+          "ar": "هيستريح"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si riposerà",
+          "ar": "هتستريح"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci riposeremo",
+          "ar": "هنستريح"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi riposerete",
+          "ar": "هتستريحوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si riposeranno",
+          "ar": "هيستريحوا"
         }
       ]
     }
@@ -10497,6 +13217,46 @@ const VERBS = [
           "ar": "استعدوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi preparerò",
+          "ar": "هستعدّ"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti preparerai",
+          "ar": "هتستعدّ"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si preparerà",
+          "ar": "هيستعدّ"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si preparerà",
+          "ar": "هتستعدّ"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci prepareremo",
+          "ar": "هنستعدّ"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi preparerete",
+          "ar": "هتستعدّوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si prepareranno",
+          "ar": "هيستعدّوا"
+        }
+      ]
     }
   },
   {
@@ -10649,6 +13409,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si arrabbino",
           "ar": "اغضبوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi arrabbierò",
+          "ar": "هغضب"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti arrabbierai",
+          "ar": "هتغضب"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si arrabbierà",
+          "ar": "هيغضب"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si arrabbierà",
+          "ar": "هتغضب"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci arrabbieremo",
+          "ar": "هنغضب"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi arrabbierete",
+          "ar": "هتغضبوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si arrabbieranno",
+          "ar": "هيغضبوا"
         }
       ]
     }
@@ -10805,6 +13605,46 @@ const VERBS = [
           "ar": "اتذكروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi ricorderò",
+          "ar": "هتذكّر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti ricorderai",
+          "ar": "هتتذكّر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si ricorderà",
+          "ar": "هيتذكّر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si ricorderà",
+          "ar": "هتتذكّر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci ricorderemo",
+          "ar": "هنتذكّر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi ricorderete",
+          "ar": "هتتذكّروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si ricorderanno",
+          "ar": "هيتذكّروا"
+        }
+      ]
     }
   },
   {
@@ -10957,6 +13797,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si addormentino",
           "ar": "ناموا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi addormenterò",
+          "ar": "هغفو"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti addormenterai",
+          "ar": "هتغفو"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si addormenterà",
+          "ar": "هيغفو"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si addormenterà",
+          "ar": "هتغفو"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci addormenteremo",
+          "ar": "هنغفو"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi addormenterete",
+          "ar": "هتغفووا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si addormenteranno",
+          "ar": "هيغفووا"
         }
       ]
     }
@@ -11113,6 +13993,46 @@ const VERBS = [
           "ar": "كونوا متواجدين"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi troverò",
+          "ar": "هاتواجد"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti troverai",
+          "ar": "هتتواجد"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si troverà",
+          "ar": "هيتواجد"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si troverà",
+          "ar": "هتتواجد"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci troveremo",
+          "ar": "هنتواجد"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi troverete",
+          "ar": "هتتواجدوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si troveranno",
+          "ar": "هيتواجدوا"
+        }
+      ]
     }
   },
   {
@@ -11265,6 +14185,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si sposino",
           "ar": "اتجوزوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi sposerò",
+          "ar": "هتزوّج"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti sposerai",
+          "ar": "هتتزوّج"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si sposerà",
+          "ar": "هيتزوّج"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si sposerà",
+          "ar": "هتتزوّج"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci sposeremo",
+          "ar": "هنتزوّج"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi sposerete",
+          "ar": "هتتزوّجوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si sposeranno",
+          "ar": "هيتزوّجوا"
         }
       ]
     }
@@ -11421,6 +14381,46 @@ const VERBS = [
           "ar": "اتخرجوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi laureerò",
+          "ar": "هتخرّج من الجامعة"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti laureerai",
+          "ar": "هتتخرّج من الجامعة"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si laureerà",
+          "ar": "هيتخرّج من الجامعة"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si laureerà",
+          "ar": "هتتخرّج من الجامعة"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci laureeremo",
+          "ar": "هنتخرّج من الجامعة"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi laureerete",
+          "ar": "هتتخرّجوا من الجامعة"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si laureeranno",
+          "ar": "هيتخرّجوا من الجامعة"
+        }
+      ]
     }
   },
   {
@@ -11573,6 +14573,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si annoino",
           "ar": "ازهقوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi annoierò",
+          "ar": "هشعر بالملل"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti annoierai",
+          "ar": "هتشعر بالملل"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si annoierà",
+          "ar": "هيشعر بالملل"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si annoierà",
+          "ar": "هتشعر بالملل"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci annoieremo",
+          "ar": "هنشعر بالملل"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi annoierete",
+          "ar": "هتشعروا بالملل"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si annoieranno",
+          "ar": "هيشعروا بالملل"
         }
       ]
     }
@@ -11729,6 +14769,46 @@ const VERBS = [
           "ar": "مشطوا شعرهم"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi pettinerò",
+          "ar": "همشّط شعري"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti pettinerai",
+          "ar": "هتمشّط شعرك"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si pettinerà",
+          "ar": "هيمشّط شعره"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si pettinerà",
+          "ar": "هتمشّط شعرها"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci pettineremo",
+          "ar": "هنمشّط شعرنا"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi pettinerete",
+          "ar": "هتمشّطوا شعركم"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si pettineranno",
+          "ar": "هيمشّطوا شعرهم"
+        }
+      ]
     }
   },
   {
@@ -11881,6 +14961,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si vestano",
           "ar": "البسوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi vestirò",
+          "ar": "هرتدي ملابسي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti vestirai",
+          "ar": "هترتدي ملابسك"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si vestirà",
+          "ar": "هيرتدي ملابسه"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si vestirà",
+          "ar": "هترتدي ملابسها"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci vestiremo",
+          "ar": "هنرتدي ملابسنا"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi vestirete",
+          "ar": "هترتدوا ملابسكم"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si vestiranno",
+          "ar": "هيرتدوا ملابسهم"
         }
       ]
     }
@@ -12037,6 +15157,46 @@ const VERBS = [
           "ar": "استمتعوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi divertirò",
+          "ar": "هستمتع"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti divertirai",
+          "ar": "هتستمتع"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si divertirà",
+          "ar": "هيستمتع"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si divertirà",
+          "ar": "هتستمتع"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci divertiremo",
+          "ar": "هنستمتع"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi divertirete",
+          "ar": "هتستمتعوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si divertiranno",
+          "ar": "هيستمتعوا"
+        }
+      ]
     }
   },
   {
@@ -12189,6 +15349,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si sentano",
           "ar": "حسوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi sentirò",
+          "ar": "هشعر (بحالة)"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti sentirai",
+          "ar": "هتشعر (بحالة)"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si sentirà",
+          "ar": "هيشعر (بحالة)"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si sentirà",
+          "ar": "هتشعر (بحالة)"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci sentiremo",
+          "ar": "هنشعر (بحالة)"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi sentirete",
+          "ar": "هتشعروا (بحالة)"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si sentiranno",
+          "ar": "هيشعروا (بحالة)"
         }
       ]
     }
@@ -12345,6 +15545,46 @@ const VERBS = [
           "ar": "البسوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi metterò",
+          "ar": "هرتدي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti metterai",
+          "ar": "هترتدي"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si metterà",
+          "ar": "هيرتدي"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si metterà",
+          "ar": "هترتدي"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci metteremo",
+          "ar": "هنرتدي"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi metterete",
+          "ar": "هترتدوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si metteranno",
+          "ar": "هيرتدوا"
+        }
+      ]
     }
   },
   {
@@ -12497,6 +15737,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Si siedano",
           "ar": "اقعدوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi siederò",
+          "ar": "هجلس"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti siederai",
+          "ar": "هتجلس"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si siederà",
+          "ar": "هيجلس"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si siederà",
+          "ar": "هتجلس"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci siederemo",
+          "ar": "هنجلس"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi siederete",
+          "ar": "هتجلسوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si siederanno",
+          "ar": "هيجلسوا"
         }
       ]
     }
@@ -12653,6 +15933,46 @@ const VERBS = [
           "ar": "لاحظوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi accorgerò",
+          "ar": "هنتبه"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti accorgerai",
+          "ar": "هتنتبه"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si accorgerà",
+          "ar": "هينتبه"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si accorgerà",
+          "ar": "هتنتبه"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci accorgeremo",
+          "ar": "هننتبه"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi accorgerete",
+          "ar": "هتنتبهوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si accorgeranno",
+          "ar": "هينتبهوا"
+        }
+      ]
     }
   },
   {
@@ -12803,6 +16123,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Passino",
           "ar": "اقضوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Passerò",
+          "ar": "هقضي (وقت)"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Passerai",
+          "ar": "هتقضي (وقت)"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Passerà",
+          "ar": "هيقضي (وقت)"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Passerà",
+          "ar": "هتقضي (وقت)"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Passeremo",
+          "ar": "هنقضي (وقت)"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Passerete",
+          "ar": "هتقضوا (وقت)"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Passeranno",
+          "ar": "هيقضوا (وقت)"
         }
       ]
     }
@@ -12957,6 +16317,46 @@ const VERBS = [
           "ar": "اعنوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Significherò",
+          "ar": "هعني"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Significherai",
+          "ar": "هتعني"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Significherà",
+          "ar": "هيعني"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Significherà",
+          "ar": "هتعني"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Significheremo",
+          "ar": "هنعني"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Significherete",
+          "ar": "هتعنوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Significheranno",
+          "ar": "هيعنوا"
+        }
+      ]
     }
   },
   {
@@ -13107,6 +16507,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Sentano",
           "ar": "اسمعوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Sentirò",
+          "ar": "هسمع"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Sentirai",
+          "ar": "هتسمع"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Sentirà",
+          "ar": "هيسمع"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Sentirà",
+          "ar": "هتسمع"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Sentiremo",
+          "ar": "هنسمع"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Sentirete",
+          "ar": "هتسمعوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Sentiranno",
+          "ar": "هيسمعوا"
         }
       ]
     }
@@ -13261,6 +16701,46 @@ const VERBS = [
           "ar": "اعرفوا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Conoscerò",
+          "ar": "هعرف (شخص أو مكان)"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Conoscerai",
+          "ar": "هتعرف (شخص أو مكان)"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Conoscerà",
+          "ar": "هيعرف (شخص أو مكان)"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Conoscerà",
+          "ar": "هتعرف (شخص أو مكان)"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Conosceremo",
+          "ar": "هنعرف (شخص أو مكان)"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Conoscerete",
+          "ar": "هتعرفوا (شخص أو مكان)"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Conosceranno",
+          "ar": "هيعرفوا (شخص أو مكان)"
+        }
+      ]
     }
   },
   {
@@ -13411,6 +16891,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "—",
           "ar": "—"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": false,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Dovrò",
+          "ar": "هضطر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Dovrai",
+          "ar": "هتضطر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Dovrà",
+          "ar": "هيضطر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Dovrà",
+          "ar": "هتضطر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Dovremo",
+          "ar": "هنضطر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Dovrete",
+          "ar": "هتضطروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Dovranno",
+          "ar": "هيضطروا"
         }
       ]
     }
@@ -13565,6 +17085,48 @@ const VERBS = [
           "ar": "—"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "impersonal": true,
+      "note": "فعل غير شخصي: بيتستخدم غالبًا في الغائب المفرد بس (Pioverà = هيمطر)",
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Pioverò",
+          "ar": "همطر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Pioverai",
+          "ar": "هتمطر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Pioverà",
+          "ar": "هيمطر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Pioverà",
+          "ar": "هتمطر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Pioveremo",
+          "ar": "هنمطر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Pioverete",
+          "ar": "هتمطروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Pioveranno",
+          "ar": "هيمطروا"
+        }
+      ]
     }
   },
   {
@@ -13715,6 +17277,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Piacciano",
           "ar": "اعجبوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Piacerò",
+          "ar": "هعجب (شخص)"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Piacerai",
+          "ar": "هتعجب (شخص)"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Piacerà",
+          "ar": "هيعجب (شخص)"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Piacerà",
+          "ar": "هتعجب (شخص)"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Piaceremo",
+          "ar": "هنعجب (شخص)"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Piacerete",
+          "ar": "هتعجبوا (شخص)"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Piaceranno",
+          "ar": "هيعجبوا (شخص)"
         }
       ]
     }
@@ -13869,6 +17471,46 @@ const VERBS = [
           "ar": "غيروا"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Cambierò",
+          "ar": "هغيّر"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Cambierai",
+          "ar": "هتغيّر"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Cambierà",
+          "ar": "هيغيّر"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Cambierà",
+          "ar": "هتغيّر"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Cambieremo",
+          "ar": "هنغيّر"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cambierete",
+          "ar": "هتغيّروا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Cambieranno",
+          "ar": "هيغيّروا"
+        }
+      ]
     }
   },
   {
@@ -14019,6 +17661,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Bastino",
           "ar": "بس كده"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Basterò",
+          "ar": "هكفي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Basterai",
+          "ar": "هتكفي"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Basterà",
+          "ar": "هيكفي"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Basterà",
+          "ar": "هتكفي"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Basteremo",
+          "ar": "هنكفي"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Basterete",
+          "ar": "هتكفوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Basteranno",
+          "ar": "هيكفوا"
         }
       ]
     }
@@ -14175,6 +17857,46 @@ const VERBS = [
           "ar": "نظموا وقتهم"
         }
       ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Mi organizzerò",
+          "ar": "هنظم وقتي"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Ti organizzerai",
+          "ar": "هتنظم وقتك"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Si organizzerà",
+          "ar": "هينظم وقته"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Si organizzerà",
+          "ar": "هتنظم وقتها"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ci organizzeremo",
+          "ar": "هننظم وقتنا"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Vi organizzerete",
+          "ar": "هتنظموا وقتكم"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Si organizzeranno",
+          "ar": "هينظموا وقتهم"
+        }
+      ]
     }
   },
   {
@@ -14325,6 +18047,46 @@ const VERBS = [
           "person": "Loro (هم)",
           "form": "Cenino",
           "ar": "اتعشوا"
+        }
+      ]
+    },
+    "futuro": {
+      "regular": true,
+      "rows": [
+        {
+          "person": "Io (أنا)",
+          "form": "Cenerò",
+          "ar": "هتعشى"
+        },
+        {
+          "person": "Tu (أنت)",
+          "form": "Cenerai",
+          "ar": "هتتعشى"
+        },
+        {
+          "person": "Lui (هو)",
+          "form": "Cenerà",
+          "ar": "هيتعشى"
+        },
+        {
+          "person": "Lei (هي)",
+          "form": "Cenerà",
+          "ar": "هتتعشى"
+        },
+        {
+          "person": "Noi (نحن)",
+          "form": "Ceneremo",
+          "ar": "هنتعشى"
+        },
+        {
+          "person": "Voi (أنتم)",
+          "form": "Cenerete",
+          "ar": "هتتعشىوا"
+        },
+        {
+          "person": "Loro (هم)",
+          "form": "Ceneranno",
+          "ar": "هيتعشىوا"
         }
       ]
     }
