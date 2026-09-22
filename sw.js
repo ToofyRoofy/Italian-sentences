@@ -1,7 +1,6 @@
-// Parla Italiano — Service Worker v35 (🎯 إضافة نظام جلسات/مراجعة الأفعال:
-// verb_meta.js + verb_progress_engine.js + verb_question_engine.js +
-// verb_session_builder.js + verb_practice.js)
-const SHELL_CACHE = 'parla-shell-v35';
+// Parla Italiano — Service Worker v39 (🔧 تصحيحات futuro: عربي 14 فعل، Piovere غير شخصي،
+// أسئلة الدرس على مستوى الكلمة (words[].quiz)، تعديل محرك التقدّم، استبعاد Sedersi من المقارنة)
+const SHELL_CACHE = 'parla-shell-v39';
 // نحافظ على كاش الموديلات بين إصدارات واجهة التطبيق لتجنب إعادة تنزيلها.
 const MODEL_CACHE = 'parla-models-v1';
 
@@ -24,6 +23,7 @@ const CORE_FILES = [
   './lesson_voi.js',
   './lesson_loro.js',
   './lesson_imperativo.js',
+  './lesson_futuro.js',
   './lesson_topics.js',
   './preposition_profiles.js',
   './lesson_manifest.js',

@@ -1,7 +1,3 @@
-// 📌 قبل ما تضيف كلمة جديدة هنا: لازم تتربط بقاعدة نحوية فعليًا (grammarId +
-// formAliases/أمثلة تغطي شكل الكلمة + type + مثال) — مش بس تصنيف شكلي. الشرح
-// الكامل والخطوات فوق GRAMMAR في grammar.js. من غيره الكلمة هتفتح بس بوب أب
-// "مفيش شرح مخصوص" (fallback أمان، مش بديل عن الربط الصح).
 const LESSON_FUTURO = [
   {
     "it": "Domani andrò al mercato con mia madre",
@@ -25,11 +21,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Andare",
         "group": "are",
         "regular": false,
-        "aux": "essere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": false,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani andrò al mercato con mia madre»\nانقل «andrò» إلى الضمير «Loro (هم)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Andrai",
+              "Andranno",
+              "Vanno",
+              "Andrò"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "andrò"
+          },
+          {
+            "q": "في «Domani andrò al mercato con mia madre» حوّل «andrò» إلى المضارع (Presente) مع بقاء الضمير «Io (أنا)».",
+            "options": [
+              "Andavo",
+              "Andrò",
+              "Vado",
+              "Va"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "andrò"
+          },
+          {
+            "q": "في «Domani andrò al mercato con mia madre» الصيغة «andrò» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المضارع (Presente) — Io (أنا)",
+              "الماضي القريب (Passato Prossimo) — Lui (هو)",
+              "المستقبل البسيط (Futuro Semplice) — Tu (أنت)",
+              "المستقبل البسيط (Futuro Semplice) — Io (أنا)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "andrò"
+          },
+          {
+            "q": "في «Domani andrò al mercato con mia madre» — ما جذر الفعل «Andare» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "andr-",
+              "ander-",
+              "and-",
+              "berr-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "andrò"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani andrò al mercato con mia madre»؟",
+            "options": [
+              "غدًا سأعمل في البيت حتى السادسة",
+              "غدًا سأذهب إلى السوق مع أمي",
+              "الليلة لن نستطيع الخروج معكم",
+              "سيشرح الأستاذ الدرس بعد الاستراحة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "andrò"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «غدًا سأذهب إلى السوق مع أمي»؟",
+            "options": [
+              "Stasera non potremo uscire con voi",
+              "Il professore spiegherà la lezione dopo la pausa",
+              "Domani andrò al mercato con mia madre",
+              "Domani lavorerò a casa fino alle sei"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "andrò"
+          }
+        ],
+        "transitivity": "intransitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -256,11 +343,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Lavorare",
         "group": "are",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": false,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani lavorerò a casa fino alle sei»\nانقل «lavorerò» إلى الضمير «Tu (أنت)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Lavorerò",
+              "Lavorerai",
+              "Lavori",
+              "Lavorerà"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "lavorerò"
+          },
+          {
+            "q": "في «Domani lavorerò a casa fino alle sei» حوّل «lavorerò» إلى المضارع (Presente) مع بقاء الضمير «Io (أنا)».",
+            "options": [
+              "Lavoravo",
+              "Lavorerò",
+              "Lavoro",
+              "Lavoriamo"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "lavorerò"
+          },
+          {
+            "q": "في «Domani lavorerò a casa fino alle sei» الصيغة «lavorerò» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Noi (نحن)",
+              "المضارع (Presente) — Io (أنا)",
+              "المستقبل البسيط (Futuro Semplice) — Lui (هو)",
+              "المستقبل البسيط (Futuro Semplice) — Io (أنا)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "lavorerò"
+          },
+          {
+            "q": "في «Domani lavorerò a casa fino alle sei» — اختار صيغة «Lavorare» الصحيحة مع «Io (أنا)» في Futuro:",
+            "options": [
+              "Lavorerò",
+              "Lavorarò",
+              "Lavorirò",
+              "Lavorerai"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "lavorerò"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani lavorerò a casa fino alle sei»؟",
+            "options": [
+              "في العام القادم سندرس في إيطاليا",
+              "غدًا سأعمل في البيت حتى السادسة",
+              "سيسافر أصدقائي بالقطار الصيف القادم",
+              "سيشرح الأستاذ الدرس بعد الاستراحة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "lavorerò"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «غدًا سأعمل في البيت حتى السادسة»؟",
+            "options": [
+              "I miei amici viaggeranno in treno l’estate prossima",
+              "L’anno prossimo studieremo in Italia",
+              "Domani lavorerò a casa fino alle sei",
+              "Il professore spiegherà la lezione dopo la pausa"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "lavorerò"
+          }
+        ],
+        "transitivity": "intransitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -487,11 +665,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Cercare",
         "group": "are",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Stasera cercherò un buon ristorante»\nانقل «cercherò» إلى الضمير «Noi (نحن)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Cercherete",
+              "Cercheremo",
+              "Cerchiamo",
+              "Cercherò"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "cercherò"
+          },
+          {
+            "q": "في «Stasera cercherò un buon ristorante» حوّل «cercherò» إلى المضارع (Presente) مع بقاء الضمير «Io (أنا)».",
+            "options": [
+              "Cercavo",
+              "Cercherò",
+              "Cerco",
+              "Cercano"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "cercherò"
+          },
+          {
+            "q": "في «Stasera cercherò un buon ristorante» الصيغة «cercherò» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المضارع (Presente) — Io (أنا)",
+              "الماضي القريب (Passato Prossimo) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Voi (أنتم)",
+              "المستقبل البسيط (Futuro Semplice) — Io (أنا)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "cercherò"
+          },
+          {
+            "q": "في «Stasera cercherò un buon ristorante» — ليه «cercherò» اتكتبت بـ h؟",
+            "options": [
+              "علشان الـ c/g تفضل صلبة (k / g) قبل e — فبنضيف h",
+              "علشان الفعل شاذ ولازم يتحفظ صيغة صيغة",
+              "علشان النهاية بتبدأ بحرف علة فبنضيف h دايماً",
+              "علشان بنحذف الـ e بتاعة النهاية"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "القاعدة الإملائية في Futuro",
+            "tense": "futuro",
+            "wordIt": "cercherò"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Stasera cercherò un buon ristorante»؟",
+            "options": [
+              "ستستقل آنّا قطار الساعة الثامنة",
+              "الليلة سأبحث عن مطعم جيد",
+              "غدًا سأعمل في البيت حتى السادسة",
+              "سيتعين عليكم إنهاء العمل قبل يوم الجمعة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "cercherò"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «الليلة سأبحث عن مطعم جيد»؟",
+            "options": [
+              "Domani lavorerò a casa fino alle sei",
+              "Voi dovrete finire il lavoro prima di venerdì",
+              "Stasera cercherò un buon ristorante",
+              "Anna prenderà il treno delle otto"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "cercherò"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -710,11 +979,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Essere",
         "group": "ere",
         "regular": false,
-        "aux": "essere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": false,
+        "quiz": [
+          {
+            "q": "في الجملة: «Sabato sarai a casa o al lavoro?»\nانقل «sarai» إلى الضمير «Io (أنا)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Sarai",
+              "Sarò",
+              "Sono",
+              "Sarà"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "sarai"
+          },
+          {
+            "q": "في «Sabato sarai a casa o al lavoro?» حوّل «sarai» إلى المضارع (Presente) مع بقاء الضمير «Tu (أنت)».",
+            "options": [
+              "Eri",
+              "Sarai",
+              "Sei",
+              "Siamo"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "sarai"
+          },
+          {
+            "q": "في «Sabato sarai a casa o al lavoro?» الصيغة «sarai» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Noi (نحن)",
+              "المضارع (Presente) — Tu (أنت)",
+              "المستقبل البسيط (Futuro Semplice) — Lui (هو)",
+              "المستقبل البسيط (Futuro Semplice) — Tu (أنت)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "sarai"
+          },
+          {
+            "q": "في «Sabato sarai a casa o al lavoro?» — ما جذر الفعل «Essere» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "sar-",
+              "esser-",
+              "ess-",
+              "dovr-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "sarai"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Sabato sarai a casa o al lavoro?»؟",
+            "options": [
+              "في العام القادم سندرس في إيطاليا",
+              "هل ستكون في البيت أم في العمل يوم السبت؟",
+              "سيسافر أصدقائي بالقطار الصيف القادم",
+              "سيشرح الأستاذ الدرس بعد الاستراحة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "sarai"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «هل ستكون في البيت أم في العمل يوم السبت؟»؟",
+            "options": [
+              "I miei amici viaggeranno in treno l’estate prossima",
+              "L’anno prossimo studieremo in Italia",
+              "Sabato sarai a casa o al lavoro?",
+              "Il professore spiegherà la lezione dopo la pausa"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "sarai"
+          }
+        ],
+        "transitivity": "intransitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -949,11 +1309,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Mangiare",
         "group": "are",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani mangerai con noi?»\nانقل «mangerai» إلى الضمير «Lui (هو)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Mangerai",
+              "Mangerà",
+              "Mangia",
+              "Mangeremo"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "mangerai"
+          },
+          {
+            "q": "في «Domani mangerai con noi?» حوّل «mangerai» إلى المضارع (Presente) مع بقاء الضمير «Tu (أنت)».",
+            "options": [
+              "Mangiavi",
+              "Mangerai",
+              "Mangi",
+              "Mangiate"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "mangerai"
+          },
+          {
+            "q": "في «Domani mangerai con noi?» الصيغة «mangerai» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Voi (أنتم)",
+              "المضارع (Presente) — Tu (أنت)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Tu (أنت)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "mangerai"
+          },
+          {
+            "q": "في «Domani mangerai con noi?» — ليه «mangerai» اتكتبت من غير i؟",
+            "options": [
+              "علشان الـ g/c قبل e أصلاً ناعمة، فالـ i مش لازمة وبتتحذف",
+              "علشان الفعل شاذ ولازم يتحفظ صيغة صيغة",
+              "علشان بنضيف h قبل النهاية",
+              "علشان الـ i بتتحول لـ e"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "القاعدة الإملائية في Futuro",
+            "tense": "futuro",
+            "wordIt": "mangerai"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani mangerai con noi?»؟",
+            "options": [
+              "ستستقل آنّا قطار الساعة الثامنة",
+              "هل ستأكل معنا غدًا؟",
+              "هل ستكتبون رسالة إلى الجدة؟",
+              "الليلة سأبحث عن مطعم جيد"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "mangerai"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «هل ستأكل معنا غدًا؟»؟",
+            "options": [
+              "Voi scriverete una lettera alla nonna?",
+              "Anna prenderà il treno delle otto",
+              "Domani mangerai con noi?",
+              "Stasera cercherò un buon ristorante"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "mangerai"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -1172,11 +1623,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Volere",
         "group": "ere",
         "regular": false,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Dopo la lezione vorrai un caffè?»\nانقل «vorrai» إلى الضمير «Lui (هو)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Vuole",
+              "Vorrà",
+              "Vorrai",
+              "Vorremo"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "vorrai"
+          },
+          {
+            "q": "في «Dopo la lezione vorrai un caffè?» حوّل «vorrai» إلى المضارع (Presente) مع بقاء الضمير «Tu (أنت)».",
+            "options": [
+              "Volete",
+              "Vorrai",
+              "Vuoi",
+              "Volevi"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "vorrai"
+          },
+          {
+            "q": "في «Dopo la lezione vorrai un caffè?» الصيغة «vorrai» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Voi (أنتم)",
+              "المضارع (Presente) — Tu (أنت)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Tu (أنت)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "vorrai"
+          },
+          {
+            "q": "في «Dopo la lezione vorrai un caffè?» — ما جذر الفعل «Volere» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "vorr-",
+              "voler-",
+              "vol-",
+              "vedr-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "vorrai"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Dopo la lezione vorrai un caffè?»؟",
+            "options": [
+              "غدًا سأذهب إلى السوق مع أمي",
+              "هل ستريد قهوة بعد الدرس؟",
+              "الليلة لن نستطيع الخروج معكم",
+              "سيكون لدى أبي وقت كثير الأسبوع القادم"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "vorrai"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «هل ستريد قهوة بعد الدرس؟»؟",
+            "options": [
+              "Mio padre avrà molto tempo la prossima settimana",
+              "Stasera non potremo uscire con voi",
+              "Dopo la lezione vorrai un caffè?",
+              "Domani andrò al mercato con mia madre"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "vorrai"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -1403,11 +1945,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Partire",
         "group": "ire",
         "regular": true,
-        "aux": "essere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": false,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani Marco partirà per Milano»\nانقل «partirà» إلى الضمير «Voi (أنتم)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Partiranno",
+              "Partirete",
+              "Partite",
+              "Partirà"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "partirà"
+          },
+          {
+            "q": "في «Domani Marco partirà per Milano» حوّل «partirà» إلى المضارع (Presente) مع بقاء الضمير «Lui (هو)».",
+            "options": [
+              "Partiva",
+              "Partirà",
+              "Parte",
+              "Parto"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "partirà"
+          },
+          {
+            "q": "في «Domani Marco partirà per Milano» الصيغة «partirà» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المضارع (Presente) — Lui (هو)",
+              "الماضي القريب (Passato Prossimo) — Io (أنا)",
+              "المستقبل البسيط (Futuro Semplice) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Lui (هو)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "partirà"
+          },
+          {
+            "q": "في «Domani Marco partirà per Milano» — اختار صيغة «Partire» الصحيحة مع «Lui (هو)» في Futuro:",
+            "options": [
+              "Partirà",
+              "Parterà",
+              "Partarà",
+              "Partirò"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "partirà"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani Marco partirà per Milano»؟",
+            "options": [
+              "هل ستأكل معنا غدًا؟",
+              "غدًا سيسافر ماركو إلى ميلانو",
+              "غدًا سيعطي الأولاد هدية لسارة",
+              "ستستيقظ جوليا مبكرًا صباح الغد"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "partirà"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «غدًا سيسافر ماركو إلى ميلانو»؟",
+            "options": [
+              "Domani i ragazzi daranno un regalo a Sara",
+              "Domani mattina Giulia si sveglierà presto",
+              "Domani Marco partirà per Milano",
+              "Domani mangerai con noi?"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "partirà"
+          }
+        ],
+        "transitivity": "intransitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -1626,11 +2259,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Spiegare",
         "group": "are",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Il professore spiegherà la lezione dopo la pausa»\nانقل «spiegherà» إلى الضمير «Io (أنا)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Spiegherà",
+              "Spiegherò",
+              "Spiego",
+              "Spiegherai"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "spiegherà"
+          },
+          {
+            "q": "في «Il professore spiegherà la lezione dopo la pausa» حوّل «spiegherà» إلى المضارع (Presente) مع بقاء الضمير «Lui (هو)».",
+            "options": [
+              "Spiegherà",
+              "Spiegava",
+              "Spiega",
+              "Spieghiamo"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "spiegherà"
+          },
+          {
+            "q": "في «Il professore spiegherà la lezione dopo la pausa» الصيغة «spiegherà» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المستقبل البسيط (Futuro Semplice) — Tu (أنت)",
+              "المضارع (Presente) — Lui (هو)",
+              "الماضي القريب (Passato Prossimo) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Lui (هو)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "spiegherà"
+          },
+          {
+            "q": "في «Il professore spiegherà la lezione dopo la pausa» — ليه «spiegherà» اتكتبت بـ h؟",
+            "options": [
+              "علشان الـ c/g تفضل صلبة (k / g) قبل e — فبنضيف h",
+              "علشان الفعل شاذ ولازم يتحفظ صيغة صيغة",
+              "علشان النهاية بتبدأ بحرف علة فبنضيف h دايماً",
+              "علشان بنحذف الـ e بتاعة النهاية"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "القاعدة الإملائية في Futuro",
+            "tense": "futuro",
+            "wordIt": "spiegherà"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Il professore spiegherà la lezione dopo la pausa»؟",
+            "options": [
+              "سيكون لدى أبي وقت كثير الأسبوع القادم",
+              "سيشرح الأستاذ الدرس بعد الاستراحة",
+              "سيتعين عليكم إنهاء العمل قبل يوم الجمعة",
+              "غدًا سأعمل في البيت حتى السادسة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "spiegherà"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «سيشرح الأستاذ الدرس بعد الاستراحة»؟",
+            "options": [
+              "Mio padre avrà molto tempo la prossima settimana",
+              "Voi dovrete finire il lavoro prima di venerdì",
+              "Il professore spiegherà la lezione dopo la pausa",
+              "Domani lavorerò a casa fino alle sei"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "spiegherà"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -1857,11 +2581,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Avere",
         "group": "ere",
         "regular": false,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Mio padre avrà molto tempo la prossima settimana»\nانقل «avrà» إلى الضمير «Noi (نحن)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Avrete",
+              "Avremo",
+              "Abbiamo",
+              "Avrà"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "avrà"
+          },
+          {
+            "q": "في «Mio padre avrà molto tempo la prossima settimana» حوّل «avrà» إلى المضارع (Presente) مع بقاء الضمير «Lui (هو)».",
+            "options": [
+              "Aveva",
+              "Avrà",
+              "Ha",
+              "Hanno"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "avrà"
+          },
+          {
+            "q": "في «Mio padre avrà molto tempo la prossima settimana» الصيغة «avrà» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المضارع (Presente) — Lui (هو)",
+              "الماضي القريب (Passato Prossimo) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Voi (أنتم)",
+              "المستقبل البسيط (Futuro Semplice) — Lui (هو)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "avrà"
+          },
+          {
+            "q": "في «Mio padre avrà molto tempo la prossima settimana» — ما جذر الفعل «Avere» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "avr-",
+              "aver-",
+              "av-",
+              "dar-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "avrà"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Mio padre avrà molto tempo la prossima settimana»؟",
+            "options": [
+              "ستستقل آنّا قطار الساعة الثامنة",
+              "سيكون لدى أبي وقت كثير الأسبوع القادم",
+              "غدًا سأعمل في البيت حتى السادسة",
+              "سيتعين عليكم إنهاء العمل قبل يوم الجمعة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "avrà"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «سيكون لدى أبي وقت كثير الأسبوع القادم»؟",
+            "options": [
+              "Domani lavorerò a casa fino alle sei",
+              "Voi dovrete finire il lavoro prima di venerdì",
+              "Mio padre avrà molto tempo la prossima settimana",
+              "Anna prenderà il treno delle otto"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "avrà"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -2088,11 +2903,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Prendere",
         "group": "ere",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Anna prenderà il treno delle otto»\nانقل «prenderà» إلى الضمير «Io (أنا)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Prenderai",
+              "Prenderò",
+              "Prendo",
+              "Prenderà"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "prenderà"
+          },
+          {
+            "q": "في «Anna prenderà il treno delle otto» حوّل «prenderà» إلى المضارع (Presente) مع بقاء الضمير «Lei (هي)».",
+            "options": [
+              "Prendeva",
+              "Prenderà",
+              "Prende",
+              "Prendiamo"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "prenderà"
+          },
+          {
+            "q": "في «Anna prenderà il treno delle otto» الصيغة «prenderà» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المضارع (Presente) — Lei (هي)",
+              "الماضي القريب (Passato Prossimo) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Tu (أنت)",
+              "المستقبل البسيط (Futuro Semplice) — Lei (هي)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "prenderà"
+          },
+          {
+            "q": "في «Anna prenderà il treno delle otto» — اختار صيغة «Prendere» الصحيحة مع «Lei (هي)» في Futuro:",
+            "options": [
+              "Prenderà",
+              "Prendrà",
+              "Prendirà",
+              "Prenderò"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "prenderà"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Anna prenderà il treno delle otto»؟",
+            "options": [
+              "غدًا ستنامون حتى وقت متأخر",
+              "ستستقل آنّا قطار الساعة الثامنة",
+              "سترى سارة أصدقاءها يوم الأحد",
+              "الليلة سأبحث عن مطعم جيد"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "prenderà"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «ستستقل آنّا قطار الساعة الثامنة»؟",
+            "options": [
+              "Sara vedrà i suoi amici domenica",
+              "Stasera cercherò un buon ristorante",
+              "Anna prenderà il treno delle otto",
+              "Domani voi dormirete fino a tardi"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "prenderà"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -2311,11 +3217,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Vedere",
         "group": "ere",
         "regular": false,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Sara vedrà i suoi amici domenica»\nانقل «vedrà» إلى الضمير «Voi (أنتم)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Vedrà",
+              "Vedrete",
+              "Vedete",
+              "Vedranno"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "vedrà"
+          },
+          {
+            "q": "في «Sara vedrà i suoi amici domenica» حوّل «vedrà» إلى المضارع (Presente) مع بقاء الضمير «Lei (هي)».",
+            "options": [
+              "Vedrà",
+              "Vedeva",
+              "Vede",
+              "Vedo"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "vedrà"
+          },
+          {
+            "q": "في «Sara vedrà i suoi amici domenica» الصيغة «vedrà» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المستقبل البسيط (Futuro Semplice) — Loro (هم)",
+              "المضارع (Presente) — Lei (هي)",
+              "الماضي القريب (Passato Prossimo) — Io (أنا)",
+              "المستقبل البسيط (Futuro Semplice) — Lei (هي)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "vedrà"
+          },
+          {
+            "q": "في «Sara vedrà i suoi amici domenica» — ما جذر الفعل «Vedere» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "vedr-",
+              "veder-",
+              "ved-",
+              "star-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "vedrà"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Sara vedrà i suoi amici domenica»؟",
+            "options": [
+              "هل ستكتبون رسالة إلى الجدة؟",
+              "سترى سارة أصدقاءها يوم الأحد",
+              "الليلة سأبحث عن مطعم جيد",
+              "ستستقل آنّا قطار الساعة الثامنة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "vedrà"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «سترى سارة أصدقاءها يوم الأحد»؟",
+            "options": [
+              "Voi scriverete una lettera alla nonna?",
+              "Stasera cercherò un buon ristorante",
+              "Sara vedrà i suoi amici domenica",
+              "Anna prenderà il treno delle otto"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "vedrà"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -2550,11 +3547,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Svegliarsi",
         "group": "are",
         "regular": true,
-        "aux": "essere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": false,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani mattina Giulia si sveglierà presto»\nانقل «si sveglierà» إلى الضمير «Tu (أنت)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Ci sveglieremo",
+              "Ti sveglierai",
+              "Ti svegli",
+              "Si sveglierà"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "si sveglierà"
+          },
+          {
+            "q": "في «Domani mattina Giulia si sveglierà presto» حوّل «si sveglierà» إلى المضارع (Presente) مع بقاء الضمير «Lei (هي)».",
+            "options": [
+              "Si svegliava",
+              "Si sveglierà",
+              "Si sveglia",
+              "Vi svegliate"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "si sveglierà"
+          },
+          {
+            "q": "في «Domani mattina Giulia si sveglierà presto» الصيغة «si sveglierà» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المضارع (Presente) — Lei (هي)",
+              "الماضي القريب (Passato Prossimo) — Voi (أنتم)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Lei (هي)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "si sveglierà"
+          },
+          {
+            "q": "في «Domani mattina Giulia si sveglierà presto» — اختار صيغة «Svegliarsi» الصحيحة مع «Lei (هي)» في Futuro:",
+            "options": [
+              "Si sveglierà",
+              "Si sveglerà",
+              "Si svegliarà",
+              "Mi sveglierò"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "si sveglierà"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani mattina Giulia si sveglierà presto»؟",
+            "options": [
+              "في العام القادم سندرس في إيطاليا",
+              "ستستيقظ جوليا مبكرًا صباح الغد",
+              "هل ستريد قهوة بعد الدرس؟",
+              "سيفهم الطلاب القاعدة بعد التمرين"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "si sveglierà"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «ستستيقظ جوليا مبكرًا صباح الغد»؟",
+            "options": [
+              "Dopo la lezione vorrai un caffè?",
+              "Gli studenti capiranno la regola dopo l’esercizio",
+              "Domani mattina Giulia si sveglierà presto",
+              "L’anno prossimo studieremo in Italia"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "si sveglierà"
+          }
+        ],
+        "transitivity": "intransitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -2781,11 +3869,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Pagare",
         "group": "are",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani noi pagheremo il conto insieme»\nانقل «pagheremo» إلى الضمير «Loro (هم)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Pagheremo",
+              "Pagheranno",
+              "Pagano",
+              "Pagherò"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "pagheremo"
+          },
+          {
+            "q": "في «Domani noi pagheremo il conto insieme» حوّل «pagheremo» إلى المضارع (Presente) مع بقاء الضمير «Noi (نحن)».",
+            "options": [
+              "Pagheremo",
+              "Pagavamo",
+              "Paghiamo",
+              "Paghi"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "pagheremo"
+          },
+          {
+            "q": "في «Domani noi pagheremo il conto insieme» الصيغة «pagheremo» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "المستقبل البسيط (Futuro Semplice) — Io (أنا)",
+              "المضارع (Presente) — Noi (نحن)",
+              "الماضي القريب (Passato Prossimo) — Tu (أنت)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "pagheremo"
+          },
+          {
+            "q": "في «Domani noi pagheremo il conto insieme» — ليه «pagheremo» اتكتبت بـ h؟",
+            "options": [
+              "علشان الـ c/g تفضل صلبة (k / g) قبل e — فبنضيف h",
+              "علشان الفعل شاذ ولازم يتحفظ صيغة صيغة",
+              "علشان النهاية بتبدأ بحرف علة فبنضيف h دايماً",
+              "علشان بنحذف الـ e بتاعة النهاية"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "القاعدة الإملائية في Futuro",
+            "tense": "futuro",
+            "wordIt": "pagheremo"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani noi pagheremo il conto insieme»؟",
+            "options": [
+              "ستستيقظ جوليا مبكرًا صباح الغد",
+              "غدًا سندفع الحساب معًا",
+              "سيفهم الطلاب القاعدة بعد التمرين",
+              "هل ستريد قهوة بعد الدرس؟"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "pagheremo"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «غدًا سندفع الحساب معًا»؟",
+            "options": [
+              "Domani mattina Giulia si sveglierà presto",
+              "Gli studenti capiranno la regola dopo l’esercizio",
+              "Domani noi pagheremo il conto insieme",
+              "Dopo la lezione vorrai un caffè?"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "pagheremo"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -3012,11 +4191,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Studiare",
         "group": "are",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «L’anno prossimo studieremo in Italia»\nانقل «studieremo» إلى الضمير «Tu (أنت)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Studieremo",
+              "Studierai",
+              "Studi",
+              "Studierà"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "studieremo"
+          },
+          {
+            "q": "في «L’anno prossimo studieremo in Italia» حوّل «studieremo» إلى المضارع (Presente) مع بقاء الضمير «Noi (نحن)».",
+            "options": [
+              "Studiavamo",
+              "Studieremo",
+              "Studiamo",
+              "Studiate"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "studieremo"
+          },
+          {
+            "q": "في «L’anno prossimo studieremo in Italia» الصيغة «studieremo» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Voi (أنتم)",
+              "المضارع (Presente) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Lui (هو)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "studieremo"
+          },
+          {
+            "q": "في «L’anno prossimo studieremo in Italia» — اختار صيغة «Studiare» الصحيحة مع «Noi (نحن)» في Futuro:",
+            "options": [
+              "Studieremo",
+              "Studeremo",
+              "Studiaremo",
+              "Studierò"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "studieremo"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «L’anno prossimo studieremo in Italia»؟",
+            "options": [
+              "سيكون لدى أبي وقت كثير الأسبوع القادم",
+              "في العام القادم سندرس في إيطاليا",
+              "هل ستكتبون رسالة إلى الجدة؟",
+              "الليلة سأبحث عن مطعم جيد"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "studieremo"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «في العام القادم سندرس في إيطاليا»؟",
+            "options": [
+              "Voi scriverete una lettera alla nonna?",
+              "Mio padre avrà molto tempo la prossima settimana",
+              "L’anno prossimo studieremo in Italia",
+              "Stasera cercherò un buon ristorante"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "studieremo"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -3243,11 +4513,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Potere",
         "group": "ere",
         "regular": false,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Stasera non potremo uscire con voi»\nانقل «potremo» إلى الضمير «Voi (أنتم)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Potremo",
+              "Potrete",
+              "Potete",
+              "Potranno"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "potremo"
+          },
+          {
+            "q": "في «Stasera non potremo uscire con voi» حوّل «potremo» إلى المضارع (Presente) مع بقاء الضمير «Noi (نحن)».",
+            "options": [
+              "Potevamo",
+              "Potremo",
+              "Possiamo",
+              "Posso"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "potremo"
+          },
+          {
+            "q": "في «Stasera non potremo uscire con voi» الصيغة «potremo» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Io (أنا)",
+              "المضارع (Presente) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "potremo"
+          },
+          {
+            "q": "في «Stasera non potremo uscire con voi» — ما جذر الفعل «Potere» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "potr-",
+              "poter-",
+              "pot-",
+              "far-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "potremo"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Stasera non potremo uscire con voi»؟",
+            "options": [
+              "غدًا سأذهب إلى السوق مع أمي",
+              "الليلة لن نستطيع الخروج معكم",
+              "سيشرح الأستاذ الدرس بعد الاستراحة",
+              "سيتعين عليكم إنهاء العمل قبل يوم الجمعة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "potremo"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «الليلة لن نستطيع الخروج معكم»؟",
+            "options": [
+              "Il professore spiegherà la lezione dopo la pausa",
+              "Domani andrò al mercato con mia madre",
+              "Stasera non potremo uscire con voi",
+              "Voi dovrete finire il lavoro prima di venerdì"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "potremo"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -3468,17 +4829,108 @@ const LESSON_FUTURO = [
       },
       {
         "it": "dovrete",
-        "ar": "هيبقى لازم",
+        "ar": "هتضطروا",
         "note": "Dovere، Futuro Semplice",
         "type": "verbo",
         "verbInfinitive": "Dovere",
         "group": "ere",
         "regular": false,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Voi dovrete finire il lavoro prima di venerdì»\nانقل «dovrete» إلى الضمير «Noi (نحن)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Dobbiamo",
+              "Dovremo",
+              "Dovrete",
+              "Dovranno"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "dovrete"
+          },
+          {
+            "q": "في «Voi dovrete finire il lavoro prima di venerdì» حوّل «dovrete» إلى المضارع (Presente) مع بقاء الضمير «Voi (أنتم)».",
+            "options": [
+              "Devo",
+              "Dovrete",
+              "Dovete",
+              "Dovevate"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "dovrete"
+          },
+          {
+            "q": "في «Voi dovrete finire il lavoro prima di venerdì» الصيغة «dovrete» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Io (أنا)",
+              "المضارع (Presente) — Voi (أنتم)",
+              "المستقبل البسيط (Futuro Semplice) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Voi (أنتم)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "dovrete"
+          },
+          {
+            "q": "في «Voi dovrete finire il lavoro prima di venerdì» — ما جذر الفعل «Dovere» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "dovr-",
+              "dover-",
+              "dov-",
+              "star-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "dovrete"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Voi dovrete finire il lavoro prima di venerdì»؟",
+            "options": [
+              "غدًا سندفع الحساب معًا",
+              "سيتعين عليكم إنهاء العمل قبل يوم الجمعة",
+              "هل ستريد قهوة بعد الدرس؟",
+              "سيسافر أصدقائي بالقطار الصيف القادم"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "dovrete"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «سيتعين عليكم إنهاء العمل قبل يوم الجمعة»؟",
+            "options": [
+              "I miei amici viaggeranno in treno l’estate prossima",
+              "Dopo la lezione vorrai un caffè?",
+              "Voi dovrete finire il lavoro prima di venerdì",
+              "Domani noi pagheremo il conto insieme"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "dovrete"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -3713,11 +5165,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Scrivere",
         "group": "ere",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Voi scriverete una lettera alla nonna?»\nانقل «scriverete» إلى الضمير «Loro (هم)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Scrivono",
+              "Scriveranno",
+              "Scriverete",
+              "Scriverò"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "scriverete"
+          },
+          {
+            "q": "في «Voi scriverete una lettera alla nonna?» حوّل «scriverete» إلى المضارع (Presente) مع بقاء الضمير «Voi (أنتم)».",
+            "options": [
+              "Scrivi",
+              "Scriverete",
+              "Scrivete",
+              "Scrivevate"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "scriverete"
+          },
+          {
+            "q": "في «Voi scriverete una lettera alla nonna?» الصيغة «scriverete» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Tu (أنت)",
+              "المضارع (Presente) — Voi (أنتم)",
+              "المستقبل البسيط (Futuro Semplice) — Io (أنا)",
+              "المستقبل البسيط (Futuro Semplice) — Voi (أنتم)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "scriverete"
+          },
+          {
+            "q": "في «Voi scriverete una lettera alla nonna?» — اختار صيغة «Scrivere» الصحيحة مع «Voi (أنتم)» في Futuro:",
+            "options": [
+              "Scriverete",
+              "Scrivrete",
+              "Scrivirete",
+              "Scriverò"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "scriverete"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Voi scriverete una lettera alla nonna?»؟",
+            "options": [
+              "سيكون لدى أبي وقت كثير الأسبوع القادم",
+              "هل ستكتبون رسالة إلى الجدة؟",
+              "غدًا سأعمل في البيت حتى السادسة",
+              "سيتعين عليكم إنهاء العمل قبل يوم الجمعة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "scriverete"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «هل ستكتبون رسالة إلى الجدة؟»؟",
+            "options": [
+              "Voi dovrete finire il lavoro prima di venerdì",
+              "Domani lavorerò a casa fino alle sei",
+              "Voi scriverete una lettera alla nonna?",
+              "Mio padre avrà molto tempo la prossima settimana"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "scriverete"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -3952,11 +5495,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Dormire",
         "group": "ire",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": false,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani voi dormirete fino a tardi»\nانقل «dormirete» إلى الضمير «Lui (هو)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Dorme",
+              "Dormirà",
+              "Dormirete",
+              "Dormiremo"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "dormirete"
+          },
+          {
+            "q": "في «Domani voi dormirete fino a tardi» حوّل «dormirete» إلى المضارع (Presente) مع بقاء الضمير «Voi (أنتم)».",
+            "options": [
+              "Dormono",
+              "Dormirete",
+              "Dormite",
+              "Dormivate"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "dormirete"
+          },
+          {
+            "q": "في «Domani voi dormirete fino a tardi» الصيغة «dormirete» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Loro (هم)",
+              "المضارع (Presente) — Voi (أنتم)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Voi (أنتم)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "dormirete"
+          },
+          {
+            "q": "في «Domani voi dormirete fino a tardi» — اختار صيغة «Dormire» الصحيحة مع «Voi (أنتم)» في Futuro:",
+            "options": [
+              "Dormirete",
+              "Dormerete",
+              "Dormarete",
+              "Dormirò"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "dormirete"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani voi dormirete fino a tardi»؟",
+            "options": [
+              "هل ستكتبون رسالة إلى الجدة؟",
+              "غدًا ستنامون حتى وقت متأخر",
+              "ستستقل آنّا قطار الساعة الثامنة",
+              "هل ستكون في البيت أم في العمل يوم السبت؟"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "dormirete"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «غدًا ستنامون حتى وقت متأخر»؟",
+            "options": [
+              "Sabato sarai a casa o al lavoro?",
+              "Anna prenderà il treno delle otto",
+              "Domani voi dormirete fino a tardi",
+              "Voi scriverete una lettera alla nonna?"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "dormirete"
+          }
+        ],
+        "transitivity": "intransitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -4177,17 +5811,108 @@ const LESSON_FUTURO = [
       },
       {
         "it": "daranno",
-        "ar": "هيعطيوا",
+        "ar": "هيعطوا",
         "note": "Dare، Futuro Semplice",
         "type": "verbo",
         "verbInfinitive": "Dare",
         "group": "are",
         "regular": false,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Domani i ragazzi daranno un regalo a Sara»\nانقل «daranno» إلى الضمير «Lui (هو)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Daranno",
+              "Darà",
+              "Dà",
+              "Daremo"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "daranno"
+          },
+          {
+            "q": "في «Domani i ragazzi daranno un regalo a Sara» حوّل «daranno» إلى المضارع (Presente) مع بقاء الضمير «Loro (هم)».",
+            "options": [
+              "Davano",
+              "Daranno",
+              "Danno",
+              "Date"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "daranno"
+          },
+          {
+            "q": "في «Domani i ragazzi daranno un regalo a Sara» الصيغة «daranno» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Voi (أنتم)",
+              "المضارع (Presente) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Loro (هم)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "daranno"
+          },
+          {
+            "q": "في «Domani i ragazzi daranno un regalo a Sara» — ما جذر الفعل «Dare» في Futuro (الجذر اللي بتتضاف له النهايات ò / ai / à / emo / ete / anno)؟",
+            "options": [
+              "dar-",
+              "der-",
+              "d-",
+              "vedr-"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "B1",
+            "testedSkill": "جذر Futuro الشاذ",
+            "tense": "futuro",
+            "wordIt": "daranno"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Domani i ragazzi daranno un regalo a Sara»؟",
+            "options": [
+              "هل ستأكل معنا غدًا؟",
+              "غدًا سيعطي الأولاد هدية لسارة",
+              "ستستيقظ جوليا مبكرًا صباح الغد",
+              "سيفهم الطلاب القاعدة بعد التمرين"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "daranno"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «غدًا سيعطي الأولاد هدية لسارة»؟",
+            "options": [
+              "Domani mattina Giulia si sveglierà presto",
+              "Domani mangerai con noi?",
+              "Domani i ragazzi daranno un regalo a Sara",
+              "Gli studenti capiranno la regola dopo l’esercizio"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "daranno"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -4414,11 +6139,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Capire",
         "group": "ire",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": true,
+        "quiz": [
+          {
+            "q": "في الجملة: «Gli studenti capiranno la regola dopo l’esercizio»\nانقل «capiranno» إلى الضمير «Lui (هو)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Capisce",
+              "Capirà",
+              "Capiranno",
+              "Capiremo"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "capiranno"
+          },
+          {
+            "q": "في «Gli studenti capiranno la regola dopo l’esercizio» حوّل «capiranno» إلى المضارع (Presente) مع بقاء الضمير «Loro (هم)».",
+            "options": [
+              "Capite",
+              "Capiranno",
+              "Capiscono",
+              "Capivano"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "capiranno"
+          },
+          {
+            "q": "في «Gli studenti capiranno la regola dopo l’esercizio» الصيغة «capiranno» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Voi (أنتم)",
+              "المضارع (Presente) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Loro (هم)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "capiranno"
+          },
+          {
+            "q": "في «Gli studenti capiranno la regola dopo l’esercizio» — اختار صيغة «Capire» الصحيحة مع «Loro (هم)» في Futuro:",
+            "options": [
+              "Capiranno",
+              "Caperanno",
+              "Caparanno",
+              "Capirò"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recall",
+            "cefr": "A2",
+            "testedSkill": "اختيار الصيغة الصحيحة للجذر",
+            "tense": "futuro",
+            "wordIt": "capiranno"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «Gli studenti capiranno la regola dopo l’esercizio»؟",
+            "options": [
+              "هل ستكتبون رسالة إلى الجدة؟",
+              "سيفهم الطلاب القاعدة بعد التمرين",
+              "ستستقل آنّا قطار الساعة الثامنة",
+              "هل ستكون في البيت أم في العمل يوم السبت؟"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "capiranno"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «سيفهم الطلاب القاعدة بعد التمرين»؟",
+            "options": [
+              "Sabato sarai a casa o al lavoro?",
+              "Anna prenderà il treno delle otto",
+              "Gli studenti capiranno la regola dopo l’esercizio",
+              "Voi scriverete una lettera alla nonna?"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "capiranno"
+          }
+        ],
+        "transitivity": "transitive",
         "transitivityNote": null,
         "segment": "main"
       },
@@ -4645,11 +6461,102 @@ const LESSON_FUTURO = [
         "verbInfinitive": "Viaggiare",
         "group": "are",
         "regular": true,
-        "aux": "avere",
+        "aux": null,
         "tense": "futuro",
-        "transitive": null,
-        "quiz": [],
-        "transitivity": null,
+        "transitive": false,
+        "quiz": [
+          {
+            "q": "في الجملة: «I miei amici viaggeranno in treno l’estate prossima»\nانقل «viaggeranno» إلى الضمير «Lui (هو)» مع بقاء زمن المستقبل (Futuro Semplice).",
+            "options": [
+              "Viaggeranno",
+              "Viaggerà",
+              "Viaggia",
+              "Viaggeremo"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "تحويل الشخص مع تثبيت الزمن",
+            "tense": "futuro",
+            "wordIt": "viaggeranno"
+          },
+          {
+            "q": "في «I miei amici viaggeranno in treno l’estate prossima» حوّل «viaggeranno» إلى المضارع (Presente) مع بقاء الضمير «Loro (هم)».",
+            "options": [
+              "Viaggiavano",
+              "Viaggeranno",
+              "Viaggiano",
+              "Viaggiate"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Transformation",
+            "cefr": "B1",
+            "testedSkill": "تحويل الزمن مع تثبيت الشخص",
+            "tense": "futuro",
+            "wordIt": "viaggeranno"
+          },
+          {
+            "q": "في «I miei amici viaggeranno in treno l’estate prossima» الصيغة «viaggeranno» — ما زمنها وإلى أي ضمير تعود؟",
+            "options": [
+              "الماضي القريب (Passato Prossimo) — Voi (أنتم)",
+              "المضارع (Presente) — Loro (هم)",
+              "المستقبل البسيط (Futuro Semplice) — Noi (نحن)",
+              "المستقبل البسيط (Futuro Semplice) — Loro (هم)"
+            ],
+            "correct": 3,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "تمييز الزمن والشخص من الصيغة",
+            "tense": "futuro",
+            "wordIt": "viaggeranno"
+          },
+          {
+            "q": "في «I miei amici viaggeranno in treno l’estate prossima» — ليه «viaggeranno» اتكتبت من غير i؟",
+            "options": [
+              "علشان الـ g/c قبل e أصلاً ناعمة، فالـ i مش لازمة وبتتحذف",
+              "علشان الفعل شاذ ولازم يتحفظ صيغة صيغة",
+              "علشان بنضيف h قبل النهاية",
+              "علشان الـ i بتتحول لـ e"
+            ],
+            "correct": 0,
+            "cognitiveLevel": "Recognition",
+            "cefr": "A2",
+            "testedSkill": "القاعدة الإملائية في Futuro",
+            "tense": "futuro",
+            "wordIt": "viaggeranno"
+          },
+          {
+            "q": "ما المعنى العربي الدقيق لـ: «I miei amici viaggeranno in treno l’estate prossima»؟",
+            "options": [
+              "هل ستأكل معنا غدًا؟",
+              "سيسافر أصدقائي بالقطار الصيف القادم",
+              "ستستيقظ جوليا مبكرًا صباح الغد",
+              "غدًا سيعطي الأولاد هدية لسارة"
+            ],
+            "correct": 1,
+            "cognitiveLevel": "Application",
+            "cefr": "A2",
+            "testedSkill": "فهم الجملة كاملة",
+            "tense": "futuro",
+            "wordIt": "viaggeranno"
+          },
+          {
+            "q": "ما الترجمة الإيطالية الصحيحة لـ: «سيسافر أصدقائي بالقطار الصيف القادم»؟",
+            "options": [
+              "Domani mattina Giulia si sveglierà presto",
+              "Domani mangerai con noi?",
+              "I miei amici viaggeranno in treno l’estate prossima",
+              "Domani i ragazzi daranno un regalo a Sara"
+            ],
+            "correct": 2,
+            "cognitiveLevel": "Production",
+            "cefr": "A2",
+            "testedSkill": "إنتاج الجملة من العربية",
+            "tense": "futuro",
+            "wordIt": "viaggeranno"
+          }
+        ],
+        "transitivity": "intransitive",
         "transitivityNote": null,
         "segment": "main"
       },
