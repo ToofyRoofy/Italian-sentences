@@ -10,12 +10,7 @@
 // ============================================================================
 
 const SIX_SLOT_ROW_INDEX = [0, 1, 2, 4, 5, 6]; // Io,Tu,Lui/Lei(=Lui),Noi,Voi,Loro — بيتخطى Lei لأنها مطابقة لـLui دايمًا
-// 🔮 مرحلة 2: إضافة futuro. PRACTICE_TENSES هو الاسم الجديد، وTHREE_TENSES
-// فاضل alias لنفس المصفوفة عشان أي كود قديم (هنا أو في verb_session_builder.js
-// وverb_practice.js) بيستخدم الاسم القديم يشتغل تلقائي مع الزمن الرابع من غير
-// ما نلمسه سطر سطر.
-const PRACTICE_TENSES = ['presente', 'passato', 'imperfetto', 'futuro'];
-const THREE_TENSES = PRACTICE_TENSES;
+const THREE_TENSES = ['presente', 'passato', 'imperfetto'];
 
 // ---------------------------------------------------------------------------
 // أدوات عامة (مأخوذة من نفس منطق lesson_manifest.js)
@@ -138,13 +133,6 @@ const REGULAR_ENDINGS = {
     ere: ['evo', 'evi', 'eva', 'eva', 'evamo', 'evate', 'evano'],
     ire: ['ivo', 'ivi', 'iva', 'iva', 'ivamo', 'ivate', 'ivano'],
   },
-  // 🔮 futuro semplice — are وere بنفس النهايات بالظبط (عشان كده تبديل
-  // are↔ere في corruptForm بيتخطّى لـire تلقائي، زي ما هو متوقّع)
-  futuro: {
-    are: ['erò', 'erai', 'erà', 'erà', 'eremo', 'erete', 'eranno'],
-    ere: ['erò', 'erai', 'erà', 'erà', 'eremo', 'erete', 'eranno'],
-    ire: ['irò', 'irai', 'irà', 'irà', 'iremo', 'irete', 'iranno'],
-  },
 };
 
 // صيغ المساعد لـpassato prossimo — بتتلخبط بين الأشخاص (زي "Hai visto" بدل
@@ -177,52 +165,13 @@ function corruptPronoun(originalForm, slotIndex, pickSeed) {
 // الانعكاسية (الشكل بيبدأ بضمير زي "Si"/"Mi" مختلف كل شخص) وحتى في
 // imperfetto (فين كل المجموعات بتبدأ نهاياتها بنفس الحرف فبتلخبط أي حساب
 // مبني على أطول بادئة مشتركة بين الأشكال).
-// مشتّتات futuro الخاصة (4.3 في الخطة) — كل نوع مبني على غلطة كتابة حقيقية
-// شائعة، مش تلخبط عشوائي: الإبقاء على a (are عادي)، حذف e (ere عادي، تعميم
-// من Andrò/Vedrò)، نسيان h (care/gare)، الإبقاء على i (ciare/giare)، وحذف i
-// بالقياس من mangerò لأي -iare عادية/gliare. بترجع null لو الفعل مش منطبق
-// على أي نمط منهم (يرجع الكود لتبديل المجموعة are/ere/ire العادي تحت).
-//
-// ملحوظة مهمة: ending هنا بيشمل الـ"er"/"ir" نفسها (زي "erò"، "erai") —
-// فـstem الناتج من originalForm.slice(0, len-ending.length) هو الجذر
-// المجرّد بس (زي "Parl"، "Cerch"، "Mang"، "Studi"، "Prend")، من غير أي er/ir.
-// المشتّتات بتلعب إما في آخر حرف من الـstem ده (h/i) أو في أول حرف من الـending (e).
-function corruptFuturoForm(originalForm, slotIndex, group, tenseMeta) {
-  const ending = REGULAR_ENDINGS.futuro[group] && REGULAR_ENDINGS.futuro[group][slotIndex];
-  if (!ending || originalForm.length <= ending.length) return null;
-  const stem = originalForm.slice(0, originalForm.length - ending.length); // زي "Parl"، "Cerch"، "Mang"، "Studi"، "Prend"
-  const patternFamily = tenseMeta && tenseMeta.patternFamily;
-  let wrongStem = stem;
-  let wrongEnding = ending;
-  if (patternFamily === 'care_gare_h' && /h$/i.test(stem)) {
-    wrongStem = stem.slice(0, -1); // نسيان h: Cercherò → Cercerò
-  } else if (patternFamily === 'ciare_giare_drop_i') {
-    wrongStem = stem + 'i'; // الإبقاء على i: Mangerò → Mangierò
-  } else if (group === 'are' && /i$/i.test(stem)) {
-    wrongStem = stem.slice(0, -1); // حذف i بالقياس (-iare عادية/gliare): Studierò → Studerò، Mi sveglierò → Mi sveglerò
-  } else if (group === 'are') {
-    wrongEnding = 'a' + ending.slice(1); // الإبقاء على a: Parlerò → Parlarò
-  } else if (group === 'ere') {
-    wrongEnding = ending.slice(1); // حذف e (تعميم الشاذ): Prenderò → Prendrò
-  } else {
-    return null; // ire — مفيش مشتّت إملائي خاص، يرجع الكود لتبديل المجموعة العادي تحت
-  }
-  const wrong = wrongStem + wrongEnding;
-  return wrong !== originalForm ? wrong : null;
-}
-
-function corruptForm(originalForm, slotIndex, tense, group, aux, pickSeed, isReflexive, tenseMeta) {
+function corruptForm(originalForm, slotIndex, tense, group, aux, pickSeed, isReflexive) {
   // للانعكاسي: نصّ الوقت (حسب الـseed) نجرّب نلخبط الضمير المنفصل بدل نهاية
   // الفعل — غلطة شائعة برضه، ومنفصلة تمامًا عن غلطة النهاية
   if (isReflexive && pickSeed % 2 === 0) {
     const wrongPronoun = corruptPronoun(originalForm, slotIndex, pickSeed);
     if (wrongPronoun) return wrongPronoun;
     // لو مقدرناش (نادر)، نكمل تحت على نهاية الفعل بدل ما نرجّع null
-  }
-  if (tense === 'futuro') {
-    const futuroWrong = corruptFuturoForm(originalForm, slotIndex, group, tenseMeta);
-    if (futuroWrong) return futuroWrong;
-    // لو مقدرناش (نادر جدًا)، نكمل تحت لتبديل المجموعة العادي
   }
   if (tense === 'passato') {
     // انعكاسي: [ضمير, مساعد, ...participio] (زي "Ti sei trovato/a") — غير
@@ -254,14 +203,6 @@ function corruptForm(originalForm, slotIndex, tense, group, aux, pickSeed, isRef
   return null;
 }
 
-// صيغة حقيقية بتاعة شخص تاني من نفس الجدول (بتختلف نصًا عن صيغة الخانة الحالية)
-function swapWithOtherPerson(forms, slot, pickSeed) {
-  const others = [];
-  forms.forEach((f, i) => { if (f.toLowerCase() !== forms[slot].toLowerCase()) others.push(i); });
-  if (!others.length) return null;
-  return forms[others[pickSeed % others.length]];
-}
-
 // بيولّد نسخة كاملة من الجدول فيها numErrors خانة (شخص) اتلخبطوا
 function corruptTable(rows, verbMeta, tense, verbData, seed, numErrors) {
   const forms = rows.map((r) => r.form);
@@ -276,12 +217,7 @@ function corruptTable(rows, verbMeta, tense, verbData, seed, numErrors) {
     const slot = (seed + attempt) % 7;
     attempt++;
     if (result[slot] !== forms[slot]) continue; // الخانة دي اتلخبطت خلاص، منكررش
-    // futuro شاذ (Andrò، Sarò، Mi siederò): مفيش قاعدة نهايات نقدر نلخبطها بأمان
-    // (كانت بتطلّع Anarai / Srà / Ti siedrai)، فالمشتّت الوحيد الآمن هو صيغة
-    // حقيقية بتاعة شخص تاني من نفس الفعل
-    const wrong = (tense === 'futuro' && verbMeta[tense] && verbMeta[tense].category === 'true_irregular')
-      ? swapWithOtherPerson(forms, slot, seed + attempt)
-      : corruptForm(forms[slot], slot, tense, group, aux, seed + attempt, isReflexive, verbMeta[tense]);
+    const wrong = corruptForm(forms[slot], slot, tense, group, aux, seed + attempt, isReflexive);
     if (wrong && wrong !== forms[slot]) {
       result[slot] = wrong;
       wrongSlots.push(slot);
@@ -382,34 +318,28 @@ function buildProductionQuestion(verbName, tense, slot, verbsByName) {
   };
 }
 
-// كل احتمالات (عدد أزمنة الممارسة × 6 أشخاص) — للمنتظم بس، عشان زوج الإنتاج
-// الفردي يدور عليهم كلهم عبر التكرارات. كانت ثابتة على 18 (3×6)؛ دلوقتي
-// بتتحسب من PRACTICE_TENSES.length عشان تكبر تلقائي مع أي زمن جديد يتضاف
-// (بقت 24 بعد futuro).
-function allCombos() {
+// كل الـ18 احتمال (3 أزمنة × 6 أشخاص) — للمنتظم بس، عشان زوج الإنتاج الفردي يدور عليهم كلهم عبر التكرارات
+function allCombos18() {
   const combos = [];
-  for (const t of PRACTICE_TENSES) for (let slot = 0; slot < 6; slot++) combos.push({ tense: t, slot });
+  for (const t of THREE_TENSES) for (let slot = 0; slot < 6; slot++) combos.push({ tense: t, slot });
   return combos;
 }
 
-// القاعدة الإملائية بتتفعّل عند الشخصين Tu (slot 1) وNoi (slot 3) في presente
-// (مبنية على تصنيف presente/imperativo في verb_meta.js الحالي)، لكن في
-// futuro القاعدة الإملائية بتظهر في كل الأشخاص الستة، فأي شخص يكفي لإجباره.
-const ORTHO_TRIGGER_SLOTS = { presente: [1, 3], futuro: [0, 1, 2, 3, 4, 5] };
+// القاعدة الإملائية بتتفعّل عند الشخصين Tu (slot 1) وNoi (slot 3) — مبنية حاليًا
+// على presente بس، لأن orthographic_only متصنّفة لـpresente/imperativo بس في
+// verb_meta.js الحالي (مش passato/imperfetto). لو حبينا تدقيق كامل لباقي
+// الأزمنة، محتاجين نوسّع تصنيف verb_meta.js الأول.
+const ORTHO_TRIGGER_SLOTS = { presente: [1, 3] };
 
 function pickRegularProductionPair(verbName, verbMeta, encounterCount) {
-  const combos = allCombos();
+  const combos = allCombos18();
   const seed = seedFromString(verbName) + encounterCount * 5;
   const picked = [];
   const usedTenses = new Set();
 
-  // لو الفعل orthographic_only في presente و/أو futuro، نجبر شخص القاعدة
-  // الإملائية الأول. الـ8 أفعال الإملائية كلها إملائية في الاتنين مع بعض،
-  // فبنبدّل بينهم حسب encounterCount عشان الزوج ما يتحجزش دايمًا على واحد
-  // منهم بس (فرصة متساوية لكل زمن يظهر عبر التكرارات المتتالية)
-  const orthoCandidates = ['presente', 'futuro'].filter((t) => verbMeta[t] && verbMeta[t].category === 'orthographic_only');
-  if (orthoCandidates.length) {
-    const orthoTense = orthoCandidates[encounterCount % orthoCandidates.length];
+  // لو الفعل orthographic_only في presente، نجبر شخص القاعدة الإملائية الأول
+  const orthoTense = 'presente';
+  if (verbMeta[orthoTense] && verbMeta[orthoTense].category === 'orthographic_only') {
     const triggerSlots = ORTHO_TRIGGER_SLOTS[orthoTense];
     const slot = triggerSlots[encounterCount % triggerSlots.length];
     picked.push({ tense: orthoTense, slot });
@@ -515,59 +445,25 @@ function stemAndGroupFor(verbName) {
   return null; // أفعال زي porre/tradurre/produrre — مفيش شكل منتظم متوقع أصلًا
 }
 
-// 🔮 فعل غير شخصي في futuro (Piovere — القرار 9): أسئلة futuro بتتحصر على
-// شخص Lui بس (الـslot 2 في الـsix-slot = Pioverà)، ومفيش سؤال جدول 7 أشخاص
-const IMPERSONAL_FUTURO_SLOT = 2;
-function isImpersonalFuturo(verbData) {
-  return !!(verbData && verbData.futuro && verbData.futuro.impersonal);
-}
-
 function capitalize(s) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-// نهايات futuro العادية (are/ere متطابقين، ire مختلفة) — نفس جدول
-// REGULAR_ENDINGS.futuro بالظبط، معاد هنا بس عشان الاتنين (presente/futuro)
-// يستخدموا نفس دالة الحساب العامة تحت من غير ما نحتاج نستورد REGULAR_ENDINGS
-// هنا (الملف كله في نفس السكوب أصلًا، فده بس توضيح أكتر منه ضرورة)
-const CONTRASTIVE_ENDINGS = { presente: PRESENTE_ENDINGS, futuro: REGULAR_ENDINGS.futuro };
-
-// دالة عامة: بتحسب "الشكل المتوقع لو الفعل كان منتظم" (من المصدر مباشرة)
-// وتقارنه بالشكل الفعلي — presente وfuturo بيشتغلوا بنفس المنطق بالظبط،
-// الفرق بس جدول النهايات. Porre/Tradurre/Produrre مستبعدين تلقائي
-// (stemAndGroupFor بترجع null لمصدر مش منتهي بـare/ere/ire عادي).
-function buildContrastiveQuestionForTense(verbName, slot, verbsByName, tense) {
+// ملحوظة نطاق: بيشتغل مع presente بس حاليًا (نفس قيد ORTHO_TRIGGER_SLOTS فوق)
+function buildContrastiveQuestion(verbName, slot, verbsByName) {
   const sg = stemAndGroupFor(verbName);
   if (!sg) return null;
-  // futuro + انعكاسي (Sedersi الوحيد الشاذ): Sederò صيغة مقبولة أصلاً (Mi siederò/Mi sederò)
-  // والشكل المتوقع بيطلع من غير الضمير، فالمقارنة هنا بتضلّل — مستبعد (قرار 2)
-  if (tense === 'futuro' && verbsByName[verbName] && verbsByName[verbName].reflexive) return null;
   const rowIdx = SIX_SLOT_ROW_INDEX[slot];
-  const endings = CONTRASTIVE_ENDINGS[tense];
-  const expected = capitalize(sg.stem + endings[sg.group][rowIdx]);
-  const rows = getRows(verbsByName[verbName], tense);
-  const actual = rows[rowIdx].form;
+  const expected = capitalize(sg.stem + PRESENTE_ENDINGS[sg.group][rowIdx]);
+  const actual = verbsByName[verbName].presente[rowIdx].form;
   if (expected.toLowerCase() === actual.toLowerCase()) return null; // الشخص ده مش بيفرّق فعليًا، اختار شخص تاني
   return {
     type: 'contrastive',
     verb: verbName,
-    tense,
-    person: rows[rowIdx].person,
+    person: verbsByName[verbName].presente[rowIdx].person,
     expectedIfRegular: expected,
     actual,
   };
-}
-
-function buildContrastiveQuestion(verbName, slot, verbsByName) {
-  return buildContrastiveQuestionForTense(verbName, slot, verbsByName, 'presente');
-}
-
-// 🔮 دالة موازية للـfuturo (4.4 في الخطة، 12 زوج) — نفس منطق buildContrastiveQuestion
-// بالظبط بس على جدول نهايات futuro. بتشتغل تلقائي مع أي فعل شاذ مصدره عادي
-// (Andare/Fare/Dare/Vedere/Avere/Essere/Potere/Sapere/Volere/Stare/Bere/Dovere)،
-// ومستبعدة تلقائي لـPorre/Tradurre/Produrre (مصدر مش منتظم الشكل أصلًا).
-function buildFuturoContrastiveQuestion(verbName, slot, verbsByName) {
-  return buildContrastiveQuestionForTense(verbName, slot, verbsByName, 'futuro');
 }
 
 // ---------------------------------------------------------------------------
@@ -640,24 +536,14 @@ function stripLeadingPronoun(s) {
   return s;
 }
 
-// بديل كتابة مقبول لـSedersi بس (قرار 2 في الخطة): "Mi siederò" هي الصيغة
-// الأساسية، لكن "Mi sederò" (من غير i) مقبولة كبديل كتابةً. "sieder" مش
-// موجودة في أي فعل تاني في التطبيق فالتبديل ده آمن (مش هيأثر على حاجة تانية).
-function sedersiAltSpelling(correct) {
-  return /sieder/i.test(correct) ? correct.replace(/sieder/gi, 'seder') : null;
-}
-
 function checkTypedAnswer(input, correct) {
   const norm = (s) => stripInvisibles(s).toLowerCase();
   const a = stripLeadingPronoun(norm(input));
   const c = norm(correct);
-  const alt = sedersiAltSpelling(correct);
-  const cAlt = alt ? stripLeadingPronoun(norm(alt)) : null;
-  if (a === c || (cAlt && a === cAlt)) return { correct: true, accentIssue: false };
+  if (a === c) return { correct: true, accentIssue: false };
   const aNoAccent = stripItalianAccents(a);
   const cNoAccent = stripItalianAccents(c);
-  const cAltNoAccent = cAlt ? stripItalianAccents(cAlt) : null;
-  if (aNoAccent === cNoAccent || (cAltNoAccent && aNoAccent === cAltNoAccent)) return { correct: true, accentIssue: true }; // ناقص نبرة بس — يتحسب صح + تنبيه
+  if (aNoAccent === cNoAccent) return { correct: true, accentIssue: true }; // ناقص نبرة بس — يتحسب صح + تنبيه
   if (levenshtein1OrLess(aNoAccent, cNoAccent)) return { correct: false, closeMatch: true, accentIssue: false };
   return { correct: false, closeMatch: false, accentIssue: false };
 }
@@ -669,13 +555,10 @@ function checkTypedAnswerWithPronoun(input, correct) {
   const norm = (s) => stripInvisibles(s).toLowerCase();
   const a = norm(input);
   const c = norm(correct);
-  const alt = sedersiAltSpelling(correct);
-  const cAlt = alt ? norm(alt) : null;
-  if (a === c || (cAlt && a === cAlt)) return { correct: true, accentIssue: false };
+  if (a === c) return { correct: true, accentIssue: false };
   const aNoAccent = stripItalianAccents(a);
   const cNoAccent = stripItalianAccents(c);
-  const cAltNoAccent = cAlt ? stripItalianAccents(cAlt) : null;
-  if (aNoAccent === cNoAccent || (cAltNoAccent && aNoAccent === cAltNoAccent)) return { correct: true, accentIssue: true };
+  if (aNoAccent === cNoAccent) return { correct: true, accentIssue: true };
   if (levenshtein1OrLess(aNoAccent, cNoAccent)) return { correct: false, closeMatch: true, accentIssue: false };
   return { correct: false, closeMatch: false, accentIssue: false };
 }
@@ -748,10 +631,7 @@ function checkArabicAnswer(input, correct) {
 
 const VerbQuestionEngine = {
   SIX_SLOT_ROW_INDEX,
-  IMPERSONAL_FUTURO_SLOT,
-  isImpersonalFuturo,
   THREE_TENSES,
-  PRACTICE_TENSES,
   seedFromString,
   getRows,
   balanceCorrect,
@@ -767,7 +647,6 @@ const VerbQuestionEngine = {
   buildSixIdentifyQuestions,
   buildExplanationScreen,
   buildContrastiveQuestion,
-  buildFuturoContrastiveQuestion,
   buildWriteFromMeaningQuestion,
   buildSixWriteFromMeaningQuestions,
   checkTypedAnswer,

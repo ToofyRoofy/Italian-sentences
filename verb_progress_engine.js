@@ -8,12 +8,6 @@
 // (checkMwQuiz)، بس بمستوى عدّ مختلف حسب المسار:
 //   - منتظم: العداد على مستوى النمط (are/ere/ire/isco/إملائي) — 3 صح متتالية
 //   - شاذ:   العداد على مستوى الفعل×الزمن — 5 أشخاص مختلفين صح (مش بس streak)
-//
-// الفان-آوت (للمنتظم بس): لما النمط يتخرّج، بيبقى sr:null (مفيش مراجعة على النمط
-// نفسه) وكل فعل اتدرّب تحته (studiedVerbs) بياخد مدخل مراجعة مستقل بمفتاح cell:
-// بجدول الـSR. وأي فعل جديد بيجاوب صح تحت نمط متخرّج بياخد مدخله فورًا. كمان
-// كل مراجعة بتسجّل يومها في reviewDays (أيام مميّزة) لشارة "اتراجعت" في الواجهة.
-// مدخلات قديمة (نمط متخرّج وعليه sr) بتفضل تتراجع زي ما هي من غير أي ترحيل.
 // ============================================================================
 
 const SR_OFFSET_DAYS = [1, 3, 7, 14]; // منحنى Ebbinghaus — stage 0..3
@@ -47,8 +41,7 @@ function progressKeyFor(verbName, verbMeta, tense) {
 }
 
 // ---------------------------------------------------------------------------
-// شكل الحالة: state[key] = { mode, streak, seenPersons, studiedVerbs, graduated,
-//                            sr, reviewCount, reviewDays }
+// شكل الحالة: state[key] = { mode, streak, seenPersons, graduated, sr }
 // ---------------------------------------------------------------------------
 
 function ensureEntry(state, key) {
@@ -57,34 +50,10 @@ function ensureEntry(state, key) {
       mode: 'mc',        // 'mc' | 'type'
       streak: 0,         // صح متتالي منذ آخر غلطة (تُستخدم للمنتظم)
       seenPersons: [],   // أشخاص اتجابوا صح على الأقل مرة (تُستخدم للشاذ)
-      studiedVerbs: [],  // أفعال اتدرّبت تحت النمط ده (للمنتظم — بتتوزّع عليهم مراجعة cell: عند التخرّج)
       graduated: false,  // دخل جدول SR ولا لسه
-      sr: null,          // { stage, lastReview, nextReview } — النمط المتخرّج بعد الفان-آوت بيبقى null
-      reviewCount: 0,
-      reviewDays: [],    // أيام مراجعة مميّزة (YYYY-MM-DD)
+      sr: null,          // { stage, lastReview, nextReview }
     };
-  } else {
-    // مدخلات قديمة اتكتبت قبل الحقول دي
-    if (!Array.isArray(state[key].studiedVerbs)) state[key].studiedVerbs = [];
-    if (!Array.isArray(state[key].reviewDays)) state[key].reviewDays = [];
   }
-  return state[key];
-}
-
-// مدخل متخرّج جاهز للمراجعة من بكرة — نفس شكل freshGraduatedEntry في verb_practice.js
-function newGraduatedEntry(today) {
-  return {
-    mode: 'type', streak: 0, seenPersons: [], studiedVerbs: [],
-    graduated: true,
-    sr: { stage: 0, lastReview: today, nextReview: addDays(today, SR_OFFSET_DAYS[0]) },
-    reviewCount: 0, reviewDays: [],
-  };
-}
-
-// الفان-آوت لفعل واحد: مدخل مراجعة مستقل (cell:) لو مش موجود
-function fanOutVerb(state, verbName, tense, today) {
-  const key = cellKey(verbName, tense);
-  if (!state[key]) state[key] = newGraduatedEntry(today);
   return state[key];
 }
 
@@ -110,15 +79,7 @@ function recordLearningAnswer(state, { verbName, verbMeta, tense, person, correc
   if (!key) return null; // زمن مش موجود في verbMeta (احتياط)
   const entry = ensureEntry(state, key);
 
-  // المنتظم: نسجّل الفعل ضمن اللي اتدرّبوا تحت النمط ده
-  if (!irregular && verbName && entry.studiedVerbs.indexOf(verbName) === -1) entry.studiedVerbs.push(verbName);
-
-  if (entry.graduated) {
-    // نمط متخرّج: فعل جديد جاوب صح تحته ياخد مراجعته المستقلة فورًا. الغلط
-    // بيتجاهل (الأثر التربوي الوحيد هو إعادة الإدراج في الجلسة، verb_practice.js)
-    if (correct && !irregular && verbName) fanOutVerb(state, verbName, tense, today);
-    return entry;
-  }
+  if (entry.graduated) return entry; // خلاص متخرّجة، مفيش داعي نسجّل هنا تاني
 
   if (correct) {
     entry.streak += 1;
@@ -130,13 +91,7 @@ function recordLearningAnswer(state, { verbName, verbMeta, tense, person, correc
     if (entry.mode === 'mc' && progress >= threshold) {
       entry.mode = 'type';
       entry.graduated = true;
-      if (irregular) {
-        entry.sr = { stage: 0, lastReview: today, nextReview: addDays(today, SR_OFFSET_DAYS[0]) };
-      } else {
-        // فان-آوت: النمط نفسه من غير مراجعة، وكل فعل اتدرّب تحته ياخد مراجعته
-        entry.sr = null;
-        entry.studiedVerbs.forEach((v) => fanOutVerb(state, v, tense, today));
-      }
+      entry.sr = { stage: 0, lastReview: today, nextReview: addDays(today, SR_OFFSET_DAYS[0]) };
     }
   } else {
     // ملحوظة تصميم: الغلط بيصفّر الـstreak دايمًا (زي كلماتي بالظبط).
@@ -164,8 +119,6 @@ function recordReviewAnswer(state, key, correct, today) {
   // entry.sr.stage (اللي بيتقفل عند أقصى قيمة وبيوصف الفاصل الزمني الجاي
   // مش عدد المرات الكلي).
   entry.reviewCount = (entry.reviewCount || 0) + 1;
-  // أيام المراجعة المميّزة (لشارة "اتراجعت" في سجل الجلسات) — يوم واحد بيتحسب مرة
-  if (entry.reviewDays.indexOf(today) === -1) entry.reviewDays.push(today);
 
   if (correct) {
     entry.sr.stage = Math.min(entry.sr.stage + 1, SR_OFFSET_DAYS.length - 1);
@@ -222,8 +175,6 @@ const VerbProgressEngine = {
   isIrregularCell,
   progressKeyFor,
   ensureEntry,
-  newGraduatedEntry,
-  fanOutVerb,
   addDays,
   daysBetween,
   recordLearningAnswer,
