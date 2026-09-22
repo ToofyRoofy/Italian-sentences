@@ -1936,11 +1936,11 @@ function showConvoExplain(sceneTitleAr,words){
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
     let styleAttr='';
     if(w.color){styleAttr=' style="color:'+w.color+';font-weight:900;background:'+w.color+'18;border-bottom:3px solid '+w.color+';border-radius:6px;padding:1px 4px;"';}
-    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
     return '<div class="bd-row">'
       +'<span class="'+cls+'"'+styleAttr+' onclick="speakWord(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
-      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
     +'</div>';
@@ -2906,7 +2906,8 @@ function lpWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordF
     if(playBtn)playBtn.style.display='inline-block';
   }
   if(forcedTopicId){
-    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor);
+    const _para=((LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId)||{}).paragraphs||[])[paraIdx]||{};
+    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor,gmCuratedHint(_para.words,_para.it,charIndex,rawWord));
   }
   // مفيش forcedTopicId؟ يبقى الكلمة إما عندها ترجمة محفوظة بس (بنكتفي
   // بالنطق اللي حصل فوق، من غير ما ننقل الشاشة لقايمة الشرح تحت عشان
@@ -2929,11 +2930,11 @@ function renderListeningWordBreakdown(words,paraIdx){
     const vInfo=findVerbFromNote(w.note);
     const famData=findWordFamily(w.it);
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
-    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
     return '<div class="bd-row" id="lpBdRow'+paraIdx+'_'+wIdx+'">'
       +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
-      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
     +'</div>';
@@ -3415,7 +3416,8 @@ function lbWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordF
     if(playBtn)playBtn.style.display='inline-block';
   }
   if(forcedTopicId){
-    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor);
+    const _para=((LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId)||{}).paragraphs||[])[paraIdx]||{};
+    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor,gmCuratedHint(_para.words,_para.it,charIndex,rawWord));
   }
 }
 function lbPlayFromMarker(paraIdx){
@@ -3431,11 +3433,11 @@ function renderLibroWordBreakdown(words,paraIdx){
     const vInfo=findVerbFromNote(w.note);
     const famData=findWordFamily(w.it);
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
-    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
     return '<div class="bd-row" id="lbBdRow'+paraIdx+'_'+wIdx+'">'
       +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
-      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
     +'</div>';
@@ -3649,7 +3651,8 @@ function nvWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordF
     if(playBtn)playBtn.style.display='inline-block';
   }
   if(forcedTopicId){
-    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor);
+    const _para=((NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId)||{}).paragraphs||[])[paraIdx]||{};
+    openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor,gmCuratedHint(_para.words,_para.it,charIndex,rawWord));
   }
 }
 function nvPlayFromMarker(paraIdx){
@@ -3665,11 +3668,11 @@ function renderNuovoWordBreakdown(words,paraIdx){
     const vInfo=findVerbFromNote(w.note);
     const famData=findWordFamily(w.it);
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
-    const itEsc=escHtml(w.it).replace(/'/g,'&#39;');
+    const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
     return '<div class="bd-row" id="nvBdRow'+paraIdx+'_'+wIdx+'">'
       +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
-      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\')">📘</span>':'')
+      +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
     +'</div>';
@@ -4228,10 +4231,147 @@ function refreshGrammarModalBody(){
   if(!topic)return;
   document.getElementById('gmBody').innerHTML=renderGrammarBlocks(topic.blocks||[],currentGmTopicId);
 }
-function openGrammarModal(topicId,focusWord,focusColor){
+// ===== تحديد شرح الكلمة اللي اتدوس عليها جوه بوب أب الجرامر =====
+// المشكلة القديمة: البوب أب كان بيدوّر على عنصر data-word مطابق تمامًا للكلمة. لو الكلمة
+// جمع/مؤنث/تصريف فعل (negozi، rossa، porta…) أو عبارة من أكتر من كلمة (un caffè) أو
+// موجودة جوه جدول بس (e، ma، ho، è…) كان البوب أب بيفتح من غير ما يوصّلك لأي شرح.
+// دلوقتي بندوّر على مراحل، ولو ملقيناش حاجة خالص بنعرض كارت فوق بمعنى الكلمة في جملتها.
+function gmNormText(s){
+  return ' '+String(s==null?'':s).toLowerCase().replace(/[^\p{L}\p{M}\p{N}\s]+/gu,' ').replace(/\s+/g,' ').trim()+' ';
+}
+function gmHasWord(text,w){
+  const t=gmNormText(w).trim();
+  return !!t&&gmNormText(text).includes(' '+t+' ');
+}
+// الجذر = الكلمة من غير حروف العلة اللي في آخرها (negozi/negozio → negoz، rosse/rosso → ross).
+// بنجرّبه بس على كلمة بتنتهي بحرف علة وجذرها 3 حروف أو أكتر، عشان ما نلخبطش il/con/per…
+function gmStem(w){
+  w=String(w||'').toLowerCase();
+  if(!/[aeiouàèéìòù]$/.test(w))return '';
+  const st=w.replace(/[aeiouàèéìòù]+$/,'');
+  return st.length>=3?st:'';
+}
+// بيرجّع {el,level} أو null. المراحل بالترتيب:
+//  exact  = نفس السلوك القديم (تطابق تام، ومع اللون لو حرف جر ملوّن)
+//  text   = (للعبارات بس) العبارة نفسها مكتوبة كنص في جدول/مثال (un'amica → "una casa / un'amica")
+//  token  = كل كلمة من العبارة لوحدها، من الآخر للأول (un caffè → caffè)
+//  stem   = نفس الجذر جوه نفس القاعدة (negozi ↔ Negozio)
+//  text   = الكلمة موجودة كنص في صف جدول / عنوان عنصر / بلوك استخدام / أمثلة
+function gmLocateFocus(body,focusWord,focusColor){
+  const q=sel=>{try{return body.querySelector(sel);}catch(e){return null;}};
+  const byWord=(w,color)=>{
+    if(!w)return null;
+    const base='[data-word~="'+CSS.escape(w)+'"]';
+    return (color&&q(base+'[data-color="'+String(color).replace(/"/g,'')+'"]'))||q(base);
+  };
+  const norm=normalizeGrammarWord(focusWord);
+  let el=byWord(norm,focusColor);
+  if(el)return {el,level:'exact'};
+  let toks=String(focusWord||'').split(/[\s'’‘]+/).map(normalizeGrammarWord).filter(Boolean);
+  if(toks.length>1)toks=toks.filter(t=>t.length>1); // حروف مفردة (l/d) بتيجي من الفاصلة العليا وبتلخبط
+  if(!toks.length&&norm)toks=[norm];
+  // نص عنصر مع مسافة بين كل عقدتين نصيتين (textContent بيلزّق الخلايا والعناصر في بعض: "Copulativee/ed")
+  const textOf=e=>{
+    const parts=[];const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT);let n;
+    while((n=w.nextNode()))parts.push(n.nodeValue);
+    return parts.join(' ');
+  };
+  const rows=Array.from(body.querySelectorAll('tr'));
+  const items=Array.from(body.querySelectorAll('.gm-item'));
+  const usages=Array.from(body.querySelectorAll('.gm-usage-block'));
+  const itemTitle=e=>{const t=e.querySelector('.gm-item-title');return t?textOf(t):'';};
+  const passes=[[rows,textOf],[items,itemTitle],[usages,textOf],[items,textOf]];
+  const findText=t=>{
+    for(const [list,txt] of passes){const hit=list.find(e=>gmHasWord(txt(e),t));if(hit)return hit;}
+    return null;
+  };
+  // عبارة من أكتر من كلمة: لو العبارة نفسها مكتوبة في نص القاعدة (مثال أو صف جدول) دي أدق نتيجة
+  if(toks.length>1){el=findText(String(focusWord));if(el)return {el,level:'text'};}
+  if(toks.length>1||(toks[0]&&toks[0]!==norm)){
+    for(let i=toks.length-1;i>=0;i--){el=byWord(toks[i],focusColor);if(el)return {el,level:'token'};}
+  }
+  const tagged=Array.from(body.querySelectorAll('[data-word]'));
+  for(let i=toks.length-1;i>=0;i--){
+    const st=gmStem(toks[i]);if(!st)continue;
+    el=tagged.find(e=>(e.getAttribute('data-word')||'').split(/\s+/).some(t=>t===st||gmStem(t)===st));
+    if(el)return {el,level:'stem'};
+  }
+  for(let i=toks.length-1;i>=0;i--){el=findText(toks[i]);if(el)return {el,level:'text'};}
+  return null;
+}
+// المعنى المحفوظ للكلمة في الفقرة نفسها (words). لو فيه عبارة بتغطي مكان الكلمة اللي دوست
+// عليها بالظبط (زي "è andata" أو "fare la spesa") بناخدها هي، وإلا بنرجع لنفس منطق
+// lpFindWordMatch: كلمة مفردة مطابقة الأول وبعدين أي عبارة فيها الكلمة.
+function gmCuratedHint(words,paraText,charIndex,rawWord){
+  const fix=x=>String(x==null?'':x).toLowerCase().replace(/[’‘]/g,"'");
+  const isL=ch=>!!ch&&/\p{L}/u.test(ch);
+  const text=fix(paraText);
+  let best=null;
+  if(typeof charIndex==='number'&&text){
+    (words||[]).forEach(w=>{
+      const t=fix(w&&w.it);if(!t)return;
+      let from=0,at;
+      while((at=text.indexOf(t,from))!==-1){
+        if(at<=charIndex&&charIndex<at+t.length&&!isL(text[at-1])&&!isL(text[at+t.length])){
+          if(!best||t.length>fix(best.it).length)best=w;
+          break;
+        }
+        from=at+1;
+      }
+    });
+  }
+  if(!best){
+    const n=normalizeGrammarWord(rawWord);
+    let phrase=null;
+    for(const w of (words||[])){
+      const parts=normalizeGrammarWord(w&&w.it).split(/\s+/);
+      if(parts.length===1&&parts[0]===n){best=w;break;}
+      if(!phrase&&parts.length>1&&parts.includes(n))phrase=w;
+    }
+    if(!best)best=phrase;
+  }
+  return best?{it:best.it,ar:best.ar,note:best.note}:null;
+}
+// hint ممكن يكون زرار 📘 نفسه (بنقرا الشرح الظاهر جنب الكلمة في نفس الصف bd-note)
+// أو كائن {it,ar,note} جاي من gmCuratedHint.
+function gmNormalizeHint(hint,focusWord){
+  if(!hint)return null;
+  if(hint.nodeType===1){
+    const row=hint.closest?hint.closest('.bd-row'):null;
+    const noteEl=row?row.querySelector('.bd-note'):null;
+    const txt=noteEl?noteEl.textContent.trim():'';
+    return txt?{it:focusWord,text:txt}:null;
+  }
+  const ar=hint.ar?String(hint.ar).trim():'';
+  const note=hint.note?String(hint.note).trim():'';
+  const text=ar?(note?ar+' — '+note:ar):note;
+  return text?{it:hint.it||focusWord,text}:null;
+}
+// كارت ثابت فوق محتوى القاعدة (مش جوه الجزء اللي بيعمل scroll)، بيتعمل مرة واحدة أول ما يحتاجه.
+function gmShowFocusCard(focusWord,h){
+  const body=document.getElementById('gmBody');
+  let card=document.getElementById('gmFocusCard');
+  if(!card){
+    card=document.createElement('div');
+    card.id='gmFocusCard';
+    card.style.cssText='display:none;padding:9px 18px;background:#ffd60014;border-bottom:1px solid var(--border);';
+    body.parentNode.insertBefore(card,body);
+  }
+  const title=(h&&h.it)||focusWord;
+  const txt=h?('= '+h.text):'مفيش شرح مخصوص للكلمة دي في القاعدة دي — دي القاعدة العامة اللي تبعها 👇';
+  card.innerHTML='<div dir="ltr" style="font-family:Georgia,serif;font-weight:800;color:var(--gold);font-size:.95rem;text-align:left">'+escGm(title)+'</div>'
+    +'<div style="font-size:.85rem;line-height:1.6;color:var(--text);margin-top:2px">'+escGm(txt)+'</div>';
+  card.style.display='block';
+}
+function gmHideFocusCard(){
+  const card=document.getElementById('gmFocusCard');
+  if(card)card.style.display='none';
+}
+function openGrammarModal(topicId,focusWord,focusColor,hint){
   const topic=getGrammarTopic(topicId);
   if(!topic)return;
   currentGmTopicId=topicId;
+  gmHideFocusCard();
   document.getElementById('gmIcon').textContent=topic.icon||'📘';
   document.getElementById('gmIt').textContent=topic.it;
   document.getElementById('gmAr').textContent=topic.ar;
@@ -4248,16 +4388,14 @@ function openGrammarModal(topicId,focusWord,focusColor){
   document.getElementById('grammarModalOverlay').classList.add('show');
   document.getElementById('gmBody').scrollTop=0;
   if(focusWord){
-    const norm=normalizeGrammarWord(focusWord);
     const body=document.getElementById('gmBody');
-    let item=null;
-    try{
-      // لو عندنا لون محدد (حرف جر اتلوّن بمعنى معين في النص)، ندوّر الأول على
-      // نفس الكلمة بنفس اللون بالظبط، مش أي صندوق بيتطابق مع الكلمة عشوائيًا.
-      if(focusColor)item=body.querySelector('[data-word~="'+CSS.escape(norm)+'"][data-color="'+focusColor.replace(/"/g,'')+'"]');
-      if(!item)item=body.querySelector('[data-word~="'+CSS.escape(norm)+'"]');
-    }catch(e){ item=null; }
-    if(item){
+    const found=gmLocateFocus(body,focusWord,focusColor);
+    const h=gmNormalizeHint(hint,focusWord);
+    // مفيش عنصر بيخص الكلمة دي بالظبط؟ نعرض معناها المحفوظ في كارت فوق (أو نقول إن مفيش شرح
+    // مخصوص) بدل ما البوب أب يفتح ساكت.
+    if(!found||(found.level!=='exact'&&h))gmShowFocusCard(focusWord,h);
+    if(found){
+      const item=found.el;
       setTimeout(()=>{
         item.scrollIntoView({behavior:'smooth',block:'center'});
         item.classList.add('flash');
@@ -4304,7 +4442,9 @@ function renderGrammarBlocks(blocks,topicId){
     }
     if(b.type==='item'){
       const itSpeak=escGm(b.it).replace(/'/g,"\\'");
-      const itNorm=normalizeGrammarWord(b.it).replace(/"/g,'&quot;');
+      // formAliases (زي porta/mette/sa/rossa/negozi) مكتوبة في grammar.js لبلوكات item بس كانت
+      // بتتقرا بس في بلوكات usage — فالدوسة عليها كانت بتفتح البوب أب من غير ما توصّل لشرحها.
+      const itNorm=[normalizeGrammarWord(b.it),...(b.formAliases||[]).map(a=>normalizeGrammarWord(a))].filter(Boolean).join(' ').replace(/"/g,'&quot;');
       let html='<div class="gm-item" data-word="'+itNorm+'"><div class="gm-item-title" onclick="speakWord(\''+itSpeak+'\')">🔊 '+escGm(b.it)+'</div>';
       html+='<div class="gm-item-note">= '+escGm(b.ar)+(b.note?'<br>💡 '+escGm(b.note):'')+'</div>';
       (b.examples||[]).forEach(ex=>{
@@ -4476,7 +4616,7 @@ function lRender(){
       gBtn.className='bd-grammar-btn';
       gBtn.textContent='📘';
       gBtn.title='القاعدة الجرامرية';
-      gBtn.onclick=(e)=>{e.stopPropagation();openGrammarModal(gTopicId,w.it);};
+      gBtn.onclick=(e)=>{e.stopPropagation();openGrammarModal(gTopicId,w.it,null,gBtn);};
       row.appendChild(gBtn);
     }
     if(vInfo){
