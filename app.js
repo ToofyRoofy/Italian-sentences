@@ -1938,8 +1938,9 @@ function showConvoExplain(sceneTitleAr,words){
     if(w.color){styleAttr=' style="color:'+w.color+';font-weight:900;background:'+w.color+'18;border-bottom:3px solid '+w.color+';border-radius:6px;padding:1px 4px;"';}
     const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    const meaningEsc=escHtml(w.note?((w.ar||'')+' — '+w.note):(w.ar||'')).replace(/"/g,'&quot;').replace(/'/g,'\\&#39;');
     return '<div class="bd-row">'
-      +'<span class="'+cls+'"'+styleAttr+' onclick="speakWord(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +'<span class="'+cls+'"'+styleAttr+' onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\',\''+meaningEsc+'\')">'+escHtml(w.it)+'</span>'
       +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
@@ -2102,6 +2103,10 @@ function verbCategory(it){
 // ===== LISTENING PASSAGES: تاب مستقل عن الجرامر كله — قطعة نص (من كتاب غالبًا) +
 // أسئلة فهم استماع. كل قطعة: عنوان، فقرات (إيطالي+عربي)، وأسئلة MCQ. النص ظاهر
 // كامل وانت بتسمع (مش استماع أعمى)، وممكن تسمع القطعة كلها أو فقرة بفقرة.
+// 📌 كل عنصر جوه فقرات القطعة دي بيتحط في paragraphs[].words — لازم يتربط
+// بقاعدة نحوية فعليًا (grammarId + formAliases/أمثلة تغطي شكل الكلمة + type)،
+// مش بس تصنيف شكلي. الشرح الكامل فوق GRAMMAR في grammar.js. من غيره الكلمة
+// هتفتح بس بوب أب "مفيش شرح مخصوص" (fallback أمان، مش بديل عن الربط الصح).
 const LISTENING_PASSAGES=[
   {
     id:'chiara_weekend',
@@ -2905,13 +2910,16 @@ function lpWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordF
     const playBtn=document.getElementById('lpPlayFromBtn'+paraIdx);
     if(playBtn)playBtn.style.display='inline-block';
   }
+  const _para=((LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId)||{}).paragraphs||[])[paraIdx]||{};
   if(forcedTopicId){
-    const _para=((LISTENING_PASSAGES.find(x=>x.id===currentListeningPassageId)||{}).paragraphs||[])[paraIdx]||{};
     openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor,gmCuratedHint(_para.words,_para.it,charIndex,rawWord));
+  } else {
+    // مفيش قاعدة جرامر اتربطت بالكلمة؟ برضه لازم تدوسة توّدي لحاجة —
+    // عيلة الكلمة لو موجودة، وإلا معناها المحفوظ في بيانات الفقرة (gmCuratedHint)،
+    // وإلا رسالة صريحة إنه مفيش شرح لسه (شوف تعليق openWordFamily).
+    const _hint=gmCuratedHint(_para.words,_para.it,charIndex,rawWord);
+    openWordFamily(rawWord,_hint?((_hint.ar||'')+(_hint.note?' — '+_hint.note:'')):'');
   }
-  // مفيش forcedTopicId؟ يبقى الكلمة إما عندها ترجمة محفوظة بس (بنكتفي
-  // بالنطق اللي حصل فوق، من غير ما ننقل الشاشة لقايمة الشرح تحت عشان
-  // الدوسة ما تضيّعش مكان قراءتك) وإما مالهاش أي معلومة خالص.
 }
 // بيقرا من نقطة البداية المحفوظة (آخر كلمة دوست عليها) لحد آخر الفقرة —
 // تقدر تدوس الزرار ده كذا مرة براحتك عشان تسمع نفس الجزء تاني.
@@ -2932,8 +2940,9 @@ function renderListeningWordBreakdown(words,paraIdx){
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
     const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    const meaningEsc=escHtml(w.note?((w.ar||'')+' — '+w.note):(w.ar||'')).replace(/"/g,'&quot;').replace(/'/g,'\\&#39;');
     return '<div class="bd-row" id="lpBdRow'+paraIdx+'_'+wIdx+'">'
-      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\',\''+meaningEsc+'\')">'+escHtml(w.it)+'</span>'
       +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
@@ -3034,6 +3043,10 @@ function listeningAnswerQuestion(qi,oi){
 // أسئلة فهم)، بس هنا القطعة "بتتقرا" مش سؤال استماع أعمى — التركيز على القراءة
 // والمفردات. نفس شكل بيانات LISTENING_PASSAGES تمامًا (id/titleIt/titleAr/
 // paragraphs[{it,ar,words}]/questions[{q,options,correctIdx,explanation}]).
+// 📌 كل عنصر جوه فقرات القطعة دي بيتحط في paragraphs[].words — لازم يتربط
+// بقاعدة نحوية فعليًا (grammarId + formAliases/أمثلة تغطي شكل الكلمة + type)،
+// مش بس تصنيف شكلي. الشرح الكامل فوق GRAMMAR في grammar.js. من غيره الكلمة
+// هتفتح بس بوب أب "مفيش شرح مخصوص" (fallback أمان، مش بديل عن الربط الصح).
 const LIBRO_PASSAGES=[
   {
     id:'come_si_vestono',
@@ -3415,9 +3428,15 @@ function lbWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordF
     const playBtn=document.getElementById('lbPlayFromBtn'+paraIdx);
     if(playBtn)playBtn.style.display='inline-block';
   }
+  const _para=((LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId)||{}).paragraphs||[])[paraIdx]||{};
   if(forcedTopicId){
-    const _para=((LIBRO_PASSAGES.find(x=>x.id===currentLibroPassageId)||{}).paragraphs||[])[paraIdx]||{};
     openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor,gmCuratedHint(_para.words,_para.it,charIndex,rawWord));
+  } else {
+    // مفيش قاعدة جرامر اتربطت بالكلمة؟ برضه لازم تدوسة توّدي لحاجة —
+    // عيلة الكلمة لو موجودة، وإلا معناها المحفوظ في بيانات الفقرة (gmCuratedHint)،
+    // وإلا رسالة صريحة إنه مفيش شرح لسه (شوف تعليق openWordFamily).
+    const _hint=gmCuratedHint(_para.words,_para.it,charIndex,rawWord);
+    openWordFamily(rawWord,_hint?((_hint.ar||'')+(_hint.note?' — '+_hint.note:'')):'');
   }
 }
 function lbPlayFromMarker(paraIdx){
@@ -3435,8 +3454,9 @@ function renderLibroWordBreakdown(words,paraIdx){
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
     const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    const meaningEsc=escHtml(w.note?((w.ar||'')+' — '+w.note):(w.ar||'')).replace(/"/g,'&quot;').replace(/'/g,'\\&#39;');
     return '<div class="bd-row" id="lbBdRow'+paraIdx+'_'+wIdx+'">'
-      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\',\''+meaningEsc+'\')">'+escHtml(w.it)+'</span>'
       +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
@@ -3534,6 +3554,10 @@ function libroAnswerQuestion(qi,oi){
 // ===== IL NUOVO: تاب نسخة من الليبرو (نفس الشكل والوظائف بالظبط) بس لقطع "Il Nuovo".
 // نفس شكل LIBRO_PASSAGES: id/titleIt/titleAr/paragraphs[{it,ar,words}]/questions[{q,options,correctIdx,explanation}]
 // ضيف قطعك هنا — القطعة دي مثال بس، امسحها أو عدّلها.
+// 📌 كل عنصر جوه فقرات القطعة دي بيتحط في paragraphs[].words — لازم يتربط
+// بقاعدة نحوية فعليًا (grammarId + formAliases/أمثلة تغطي شكل الكلمة + type)،
+// مش بس تصنيف شكلي. الشرح الكامل فوق GRAMMAR في grammar.js. من غيره الكلمة
+// هتفتح بس بوب أب "مفيش شرح مخصوص" (fallback أمان، مش بديل عن الربط الصح).
 const NUOVO_PASSAGES=[
   {
     id:'nuovo_esempio',
@@ -3650,9 +3674,15 @@ function nvWordTap(paraIdx,rawWord,charIndex,focusColor,forcedTopicId,focusWordF
     const playBtn=document.getElementById('nvPlayFromBtn'+paraIdx);
     if(playBtn)playBtn.style.display='inline-block';
   }
+  const _para=((NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId)||{}).paragraphs||[])[paraIdx]||{};
   if(forcedTopicId){
-    const _para=((NUOVO_PASSAGES.find(x=>x.id===currentNuovoPassageId)||{}).paragraphs||[])[paraIdx]||{};
     openGrammarModal(forcedTopicId,focusWordForModal||rawWord,focusColor,gmCuratedHint(_para.words,_para.it,charIndex,rawWord));
+  } else {
+    // مفيش قاعدة جرامر اتربطت بالكلمة؟ برضه لازم تدوسة توّدي لحاجة —
+    // عيلة الكلمة لو موجودة، وإلا معناها المحفوظ في بيانات الفقرة (gmCuratedHint)،
+    // وإلا رسالة صريحة إنه مفيش شرح لسه (شوف تعليق openWordFamily).
+    const _hint=gmCuratedHint(_para.words,_para.it,charIndex,rawWord);
+    openWordFamily(rawWord,_hint?((_hint.ar||'')+(_hint.note?' — '+_hint.note:'')):'');
   }
 }
 function nvPlayFromMarker(paraIdx){
@@ -3670,8 +3700,9 @@ function renderNuovoWordBreakdown(words,paraIdx){
     const cls='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'')+(famData?' has-family':'');
     const itEsc=escHtml(w.it).replace(/'/g,'\\&#39;');
     const noteTxt=w.note?(escHtml(w.ar)+' — '+escHtml(w.note)):escHtml(w.ar);
+    const meaningEsc=escHtml(w.note?((w.ar||'')+' — '+w.note):(w.ar||'')).replace(/"/g,'&quot;').replace(/'/g,'\\&#39;');
     return '<div class="bd-row" id="nvBdRow'+paraIdx+'_'+wIdx+'">'
-      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\')">'+escHtml(w.it)+'</span>'
+      +'<span class="'+cls+'" onclick="event.stopPropagation();lpBdWordTap(\''+itEsc+'\',\''+meaningEsc+'\')">'+escHtml(w.it)+'</span>'
       +(gTopicId?'<span class="bd-grammar-btn" title="القاعدة الجرامرية" onclick="event.stopPropagation();openGrammarModal(\''+escHtml(String(gTopicId)).replace(/'/g,'&#39;')+'\',\''+itEsc+'\',null,this)">📘</span>':'')
       +(vInfo?'<span class="bd-verb-btn" title="تصريف الفعل" onclick="event.stopPropagation();openVerbModal('+vInfo.idx+',\''+vInfo.tab+'\')">📗</span>':'')
       +'<span class="bd-note">'+noteTxt+'</span>'
@@ -4071,14 +4102,32 @@ function buildGmFamilyMap(){
 function escWfam(s){
   return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
-function openWordFamily(rawWord){
+// دلوقتي بتفتح دايمًا (مش بس لو فيه عيلة كلمة) — 3 مستويات:
+//  1) عيلة الكلمة (fam) لو موجودة — زي ما كانت بالظبط.
+//  2) وإلا، المعنى المحفوظ بتاع الكلمة (fallbackMeaning) اللي بنبعته من مكان الدوسة —
+//     نفس النص اللي أصلاً ظاهر جنبها في bd-note أو محسوب من كلمات الفقرة (gmCuratedHint).
+//  3) وإلا، رسالة صريحة إن مفيش شرح محفوظ لسه — بدل ما البوب أب يفضل مايفتحش خالص
+//     ("الكلمات الي غير قابلة للدوس أصلا"): كل كلمة دلوقتي بتـ"فتح" حاجة، حتى لو
+//     الحاجة دي نفسها بتقولك "متربطتش بقاعدة لسه" — وده بالظبط اللي المفروض يدفعك
+//     تربطها صح في مصدر البيانات (شوف الملحوظة فوق GRAMMAR في grammar.js) مش تسيبها
+//     تعتمد على الـfallback ده كبديل دايم.
+function openWordFamily(rawWord,fallbackMeaning){
   const fam=findWordFamily(rawWord);
-  if(!fam||!fam.length)return;
+  const titleEl=document.getElementById('wfamTitle');
   document.getElementById('wfamWord').textContent=rawWord;
-  document.getElementById('wfamBody').innerHTML=fam.map(f=>{
-    const fSpeak=escWfam(f.it).replace(/'/g,"\\'");
-    return '<div class="wfam-row" onclick="event.stopPropagation();speakWord(\''+fSpeak+'\')"><span class="wfam-it">🔊 '+escWfam(f.it)+'</span><span class="wfam-pos">'+escWfam(f.pos||'')+'</span><span class="wfam-ar">'+escWfam(f.ar)+'</span></div>';
-  }).join('');
+  if(fam&&fam.length){
+    if(titleEl)titleEl.textContent='🌳 عيلة الكلمة';
+    document.getElementById('wfamBody').innerHTML=fam.map(f=>{
+      const fSpeak=escWfam(f.it).replace(/'/g,"\\'");
+      return '<div class="wfam-row" onclick="event.stopPropagation();speakWord(\''+fSpeak+'\')"><span class="wfam-it">🔊 '+escWfam(f.it)+'</span><span class="wfam-pos">'+escWfam(f.pos||'')+'</span><span class="wfam-ar">'+escWfam(f.ar)+'</span></div>';
+    }).join('');
+  } else if(fallbackMeaning){
+    if(titleEl)titleEl.textContent='📖 معنى الكلمة';
+    document.getElementById('wfamBody').innerHTML='<div class="wfam-row" style="cursor:default"><span class="wfam-ar" style="margin-inline-start:0;text-align:right;width:100%">'+escWfam(fallbackMeaning)+'</span></div>';
+  } else {
+    if(titleEl)titleEl.textContent='ℹ️ الكلمة';
+    document.getElementById('wfamBody').innerHTML='<div class="wfam-row" style="cursor:default"><span class="wfam-ar" style="margin-inline-start:0;text-align:right;width:100%">مفيش شرح محفوظ للكلمة دي لسه.</span></div>';
+  }
   document.getElementById('wfamOverlay').classList.add('show');
 }
 function closeWordFamily(){
@@ -4195,9 +4244,9 @@ function closeWordInfoOnOverlay(e){
 // دوسة على كلمة جوه شرح كلمات قطعة الاستماع: تنطقها زي ما كانت بتعمل بالظبط،
 // وكمان لو عندها عيلة كلمة محفوظة تفتح popup صغير بيها (من غير ما تلمس زرار
 // القاعدة 📘 أو زرار الفعل 📗 اللي شغالين لوحدهم زي ما هما).
-function lpBdWordTap(rawWord){
+function lpBdWordTap(rawWord,meaning){
   speakWord(rawWord);
-  openWordFamily(rawWord);
+  openWordFamily(rawWord,meaning);
 }
 
 // ===== VERB NOTE PARSING (tap-to-popup conjugation for words like "cucinavo") =====
@@ -4609,7 +4658,7 @@ function lRender(){
     wordSpan.className='bd-word word-tap'+(gTopicId?' has-grammar':'')+(vInfo?' has-verb':'');
     wordSpan.textContent=w.it;
     if(w.color){wordSpan.style.color=w.color;wordSpan.style.fontWeight='900';wordSpan.style.background=w.color+'18';wordSpan.style.borderBottom='3px solid '+w.color;wordSpan.style.borderRadius='6px';wordSpan.style.padding='1px 4px';}
-    wordSpan.onclick=()=>speakWord(w.it);
+    wordSpan.onclick=()=>lpBdWordTap(w.it,w.note?((w.ar||'')+' — '+w.note):(w.ar||''));
     row.appendChild(wordSpan);
     if(gTopicId){
       const gBtn=document.createElement('span');

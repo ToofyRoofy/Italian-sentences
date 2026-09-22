@@ -1,3 +1,7 @@
+// 📌 قبل ما تضيف كلمة جديدة هنا: لازم تتربط بقاعدة نحوية فعليًا (grammarId +
+// formAliases/أمثلة تغطي شكل الكلمة + type + مثال) — مش بس تصنيف شكلي. الشرح
+// الكامل والخطوات فوق GRAMMAR في grammar.js. من غيره الكلمة هتفتح بس بوب أب
+// "مفيش شرح مخصوص" (fallback أمان، مش بديل عن الربط الصح).
 const LESSON_LORO = [
   {
     "it": "Loro hanno visto l'incidente mentre erano per strada",
